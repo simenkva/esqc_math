@@ -1,0 +1,294 @@
+# Functions of several variables
+
+::: {.recommended-reading}
+
+Marsden was a giant in textbok authorship at any level of study. Marsden and Tromba's book is an excellent textbook at the undergraduate level. I find the writing clear and concise, yet engaging. There are many good examples and exercises.
+
+![](../figures/lecture-notes/recommended-reading/Marsden-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+:::
+
+## Geometry of real-valued functions
+
+::: {#def-functions-of-several-variables}
+
+## Functions of several variables
+
+Let $\Omega \subset \mathbb{R}^n$, and let $f : \Omega \to \mathbb{R}^m$. The set $\Omega$ is the *domain* of $f$. If $n > 1$, then $f$ is a *function of several (real) variables*. If $m = 1$, then $f$ is *scalar valued*, and if $m > 1$, then f is *vector valued*. A function $f : \Omega \subset \mathbb{R}\to \mathbb{R}^n$ is called a *path* in $\mathbb{R}^n$.
+
+:::
+
+The domains $\Omega$ that one is usually interested, are sets that have a nonzero interior, i.e., it contains an open ball of some size, and with a *boundary* $\partial\Omega$ which is sufficiently nice, e.g., piecewise smooth. (We have not defined this notion.)
+
+A notation which is common in order to specify a function "quickly is", e.g., $$f : \mathbb{R}^2 \to \mathbb{R}^3, \quad [x,y] \mapsto [\sin(x) + \cos(y), \exp(x + y), -y].$$ Sometimes the domain and codomain are omitted for brevity.
+
+::: {#exm-example-11}
+
+## Example
+
+A path in $\mathbb{R}^2$: $$f : [0,1] \to \mathbb{R}^2, \quad t \mapsto [t^2, \exp(-t)]$$ A scalar-valued function: $$f : \mathbb{R}^2 \to \mathbb{R}, \quad [x,y] \mapsto (x^2 - y^2)\exp(-(x^2+y^2))$$
+
+:::
+
+Tools for visualizing functions: Graphs, level sets (curves, surfaces ...), sections.
+
+The *graph* of $f : \Omega \subset \mathbb{R}^n\to\mathbb{R}^m$ is the subset $$\operatorname{graph}(f) = \{ (\mathbf{x},f(\mathbf{x})) \mid \mathbf{x}\in\Omega \} \subset \mathbb{R}^{n + m}.$$ The *level set* of $f$ with value $c$ is $$\{ \mathbf{x} \in \Omega \mid f(\mathbf{c}) = c \}.$$ In $\mathbb{R}^2$, this is typically a (union) of curves, and in in $\mathbb{R}^3$, a (union) of surfaces, et.c.
+
+A *section* is obtained by fixing a hyperplane of $\mathbb{R}^n$ and considering $f$ a function only on this plane.
+
+Several exercises.
+
+## Differentiability {#sec-differentiability}
+
+The idea of the derivative of a function has great use. Locating maxima and minima, understanding the function's behavior, and so on.
+
+Many methods of quantum chemistry are defined in terms of critical point conditions, i.e., that some function $f(\mathbf{x})$ has a vanishing derivative at some point.
+
+To begin with, we define the notion of a *partial derivative*:
+
+::: {#def-partial-derivative}
+
+## Partial derivative
+
+Let $f : \Omega\subset\mathbb{R}^n \to \mathbb{R}$ be a scalar-valued function, $\Omega$ open. The *partial derivatives* with respect to the variable $x_i$ are defined by $$\frac{\partial }{\partial x_i} f(\mathbf{x}) = \lim_{h\to 0} \frac{f(\mathbf{x} + h\mathbf{e}_i) - f(\vec{x}) }{h}$$ if the limit exists.
+
+In the case $f : \Omega\subset\mathbb{R}^n \to \mathbb{R}^m$, the the partial derivatives are defined componentwise, i.e., $$\frac{\partial }{\partial x_i} f_j(\mathbf{x}).$$
+
+:::
+
+Note that $$\mathbf{x}+ h \mathbf{e}_i = [x_1,x_2,\cdots,x_i+h,\cdots,x_n]^T,$$ i.e., we compute the *ordinary* derivative of $f$ with respect to $x_i$, imagining all the other variables to be fixed.
+
+*Examples and exercises*
+
+The existence of partial derivatives initially seems like a good notion of $f$ being differentiable. However, the following example shows that something is off: We expect a "differentiable function" to behave somewhat nicely.
+
+::: {#exm-example-12}
+
+## Example
+
+let $f : \mathbb{R}^2 \to \mathbb{R}$, $(x,y)\mapsto x^{1/3} y^{1/3}$. Recall, that the cube root of any real number is well defined. Computing the partial derivatives at $(0,0)$ gives $$\frac{\partial }{\partial x} f(0,0) = \lim_{h\to 0} \frac{f(h,0)-f(0,0)}{h} = \lim_{h\to 0} \frac{0 - 0}{h} = 0,$$ and similarly $$\frac{\partial }{\partial y} f(0,0) = 0.$$ But $f$ is far from constant near $(0,0)$. Indeed, consider $f$ along the line $y=x$, $$g(x) = f(x,x) = x^{2/3}.$$ The derivative of $g(x)$ is $$g'(x) = \frac{2}{3} x^{-1/3}$$ which does not even exist at $x=0$.
+
+:::
+
+The problem seems to be that the partial derivatives only "see" in two more or less arbitrary directions, and not "all directions".
+
+::: {#def-differentiable}
+
+## Differentiable
+
+Let $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$, with $\Omega$ open. We say that $f$ is *differentiable at $\mathbf{x}_0\in\Omega$* if the partial derivatives all exist at $\mathbf{x}_0$, and if $$\lim_{\mathbf{x}\to\mathbf{x}_0} \frac{\| f(\mathbf{x}) - f(\mathbf{x}_0) - M(\mathbf{x}-\mathbf{x}_0)\|}{\|\mathbf{x}-\mathbf{x}_0\|} = 0,$$ where $M = Df(\mathbf{x}_0)$, the *derivative*, is the matrix of partial derivatives, $$M_{ij} = \frac{\partial f_i(\mathbf{x}_0)}{\partial x_j}.$$ and where $M(\mathbf{x}-\mathbf{x}_0)$ is the matrix-vector product applied to $\mathbf{x}-\mathbf{x}_0$.
+
+:::
+
+Intuitively, $f$ is differentiable at $\mathbf{x}_0$ if the function $$f(\mathbf{x}_0) + Df(\mathbf{x}_0)(\mathbf{x}-\mathbf{x}_0),$$ is a good approximation of $f$ near $\mathbf{x}_0$. The graph of this "first order approximation" is a hyperplane that touches the graph of $f$ at $\mathbf{x}_0$.
+
+In our previous example, the first-order function is *not* a good approximation, and the function was hence not differentiable.
+
+::: {#thm-statement-9}
+
+## Statement
+
+If $f$ is differetiable at $\mathbf{x}_0$, it is continuous at $\mathbf{x}_0$.
+
+:::
+
+It can be difficult to check the definition of differentiability in many cases. We have a helpful *sufficient* condition for differentiability:
+
+::: {#thm-condition-for-differentiability}
+
+## Condition for differentiability
+
+Let $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$, with $\Omega$ open. Suppose the partial derivatives all exist at $\mathbf{x}_0$, and furthermore that they are all continuous *in a neighborhood* of $\mathbf{x}_0$. Then $f$ is differentiable at $\mathbf{x}_0$.
+
+:::
+
+Note that we need continuity not only at the point in question, but a whole $\epsilon$-ball around it, too.
+
+::: {#def-c-1-functions}
+
+## $C^1$ functions
+
+A function whose partial derivatives exist and are continuous throughout the open domain is said to be of class $C^1$.
+
+:::
+
+The $C^1$ functions are differentiable, and can be approximated by first-order polynomials.
+
+We list some properties of the derivative, that aids in computing derivatives of complicated functions:
+
+::: {#thm-properties-of-the-derivative}
+
+## Properties of the derivative
+
+1.  Let $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ be differentiable at $\mathbf{x}_0\in\Omega$, and let $c \in \mathbb{R}$. Then $h(\mathbf{x}) = c f(\mathbf{x})$ is differentiable at $\mathbf{x}_0$, and $$D h(\mathbf{x}_0) = c D f(\mathbf{x}_0).$$
+
+2.  Let $g : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ be another function differentiable at $\mathbf{x}_0$. Then $h(\mathbf{x}) = f(\mathbf{x}) + g(\mathbf{x})$ is differentiable at $\mathbf{x}_0$, and $$D h(\mathbf{x}_0) = D f(\mathbf{x}_0) + Dg(\mathbf{x}_0).$$
+
+3.  {#sec-prodrule} Let $f,g : \Omega \subset\mathbb{R}^n\to \mathbb{R}$ be *scalar-valued* functions, differentiable at $\mathbf{x}_0\in\Omega$. Then $h(\mathbf{x}) = f(\mathbf{x})g(\mathbf{x})$ is differentiable at $\mathbf{x})_0$, and $$Dh(\mathbf{x}_0) = g(\mathbf{x}_0)Df(\mathbf{x}_0) + f(\mathbf{x}_0) Dg(\mathbf{x}_0).$$
+
+4.  As in the product-rule item above, and additionally that $g >0$ thrughout $\Omega$. Then $h(\mathbf{x}_0) = f(\mathbf{x}_0)/g(\mathbf{x}_0)$ is differentiable at $\mathbf{x}_0$, and $$Dh(\mathbf{x}_0) = \frac{g(\mathbf{x}_0)Df(\mathbf{x}_0) - f(\mathbf{x}_0)} {[g(\mathbf{x}_0)]^2}$$
+
+:::
+
+*Exercises*
+
+::: {#thm-chain-rule}
+
+## Chain rule
+
+Let $\Omega \subset \mathbb{R}^n$ and $\Omega' \subset \mathbb{R}^m$ be open sets, and let $g : \Omega \to \mathbb{R}^m$ with $g[\Omega] \subset \Omega'$. Let $f : \Omega' \to \mathbb{R}^o$. Thus, $h = f \circ g : \Omega \to\mathbb{R}^o$ is defined. Suppose $g$ is differentiable at $\mathbf{x}_0\in\Omega$, and $f$ is differentiable at $\mathbf{y}_0 = f(\mathbf{x}_0)\in\Omega'$. Then $f \circ h$ is differentiable at $\mathbf{x}_0$ with derivative $$D(f \circ g)(\mathbf{x}_0) = Df(\mathbf{y}_0)Df(\mathbf{x}_0),$$ i.e., the matrix product of the Jacobian matrices.
+
+:::
+
+::: {#exm-function-along-a-path}
+
+## Function along a path
+
+Let $\mathbf{c} : \mathbb{R}\to \mathbb{R}^3$ be a path tracing out a curve in space, say the flight of a drone with a temperature sensor. The position $\mathbf{c}(t) = [x(t),y(t),z(t)]^T$ is the position of the drone at time $f$. Let $f : \mathbb{R}^3 \to \mathbb{R}$ be a function, say temperature, in space. The temperature registered by the drone as function of time is $h(t) = (g \circ \mathbf{c})(t) = g(\mathbf{c}(t))$. The rate of change of $h(t)$ is $$\frac{\mathrm{d} h}{\mathrm{d} t} = \frac{\partial h}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial h}{\partial y}\frac{\partial y}{\partial t} + \frac{\partial h}{\partial z}\frac{\partial z}{\partial t}.$$
+
+:::
+
+::: {#exm-change-of-variables-in-space}
+
+## Change-of-variables in space
+
+Let $f : \mathbb{R}^3 \to \mathbb{R}$ be some scalar-valued function in space, say temperature. let $g : \Omega \subset \mathbb{R}^2 \to \mathbb{R}^3$ be *a parameterized surface*. $g(u,v)= [x(u,v), y(u,v), z(u,v)]^T$ is traces out a two-dimensional surface patch in $\mathbb{R}^3$. The temperature over the surface is $h(u,v) = f(g(u,v))$. The rate of change of the temperature along the surface coordinates $(u,v)$ is $$\begin{bmatrix} \frac{\partial h}{\partial u} & \frac{\partial h}{\partial v} \end{bmatrix} = \begin{bmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{bmatrix} \begin{bmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \\ \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} \end{bmatrix},$$ written out, we get $$\begin{aligned}
+    \frac{\partial h}{\partial u} &= \frac{\partial f}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial u} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial u} \\
+    \frac{\partial h}{\partial v} &= \frac{\partial f}{\partial x}\frac{\partial x}{\partial v} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial v} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial v} \\
+\end{aligned}$$
+
+:::
+
+## Higher derivatives
+
+Recall the class $C^1$ of functions $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}^m$ having continuous partial derivatives throughout their domains. In particular, the derivative is a *matrix-valued* function, $$Df : \Omega \subset \mathbb{R}^n \to \mathbb{R}^{m\times n},$$ since we hace $n$ partial derivatives for each of the $m$ component functions $f_i : \Omega \to \mathbb{R}$.
+
+Suppose now $Df \in C^1$, i.e., each of the $mn$ partial derivatives have continuous partial derivatives throughout $\Omega$. We then say that $f \in C^2$, it is *twice continuously differentiable*. We note that $D^2f = D(Df) : \Omega \to \mathbb{R}^{m\times n \times n}$, by which we indicate a *three-index symbol*, or *tensor*, $$[D^2f(\mathbf{x}_0)]_{ijk} = \frac{\partial }{\partial x_j} \frac{\partial }{\partial x_k} f_i(\mathbf{x}_0).$$
+
+It is a theorem, that the mixed partial derivatives are symmetric for $C^2$ functions, $$\frac{\partial ^2f_i }{\partial x_j x_k}=     \frac{\partial ^2f_i }{\partial x_k x_j}.$$ Iterating this argument, we now define:
+
+::: {#def-c-k-functions}
+
+## $C^k$ functions
+
+Let $f : \Omega \subset\mathbb{R}^n\to\mathbb{R}^m$, with $\Omega$ open. We say that $f$ is of class $C^k$ if, for all partial derivatives of order $\leq k$ exist and are continuous throughout $\Omega$. The $\ell$th order derivative is denoted $$D^\ell f : \Omega \to \mathbb{R}^{m\times n\times \cdots \times n},$$ with components $$D^\ell f(\mathbf{x})_{ij_1j_2\cdots j_\ell} = \frac{\partial ^\ell}{\partial x_{i_1}\cdots \partial x_{i_\ell}} f_i(\mathbf{x}).$$
+
+:::
+
+Accepting that mixed partial derivatives of order 2 are symmetric, it immediately follows that:
+
+::: {#thm-statement-10}
+
+## Statement
+
+For a function of class $C^k$, the mixed partial derivatives are all symmetric with respect to exhange of the order of the differentiation.
+
+:::
+
+::: {#exm-example-13}
+
+## Example
+
+Let $f(x,y) = x^2 - 4xy$. Compute all partial derivatives up to order 2.
+
+The first-order derivatives are $$\frac{\partial f}{\partial x} = 2x - 4y, \qquad \frac{\partial f}{\partial y} = -4x.$$ The partial derivatives are continuous, hence $f$ is of class $C^1$. We compute the second-order derivatives: $$\frac{\partial^2 f}{\partial x^2} = 2, \quad \frac{\partial^2 f}{\partial x\partial y} = \frac{\partial^2 f}{\partial y\partial x} = -4, \quad \frac{\partial^2 f}{\partial y^2} = 0.$$ These are also continuous. Hence $f$ is of class $C^2$.
+
+The next derivatives vanish. Hence, $f$ is of class $C^k$ for every $k$.
+
+We note the symmetry of the partial derivatives in this simple example.
+
+:::
+
+## Taylor's Theorem
+
+Polynomials play an important role in analysis, and they are indispensable for any researcher in quantum chemistry. Polynomials help us define gaussian-type orbital basis sets, helps us approximate difficult functions, derive variational equations, and so on.
+
+For functions of class $C^1$, the derivative gives an approimation to the function "to first order" near a differentiable point $\mathbf{x}_0$. Indeed, for functions of class $C^k$ this can be generalized: The function can be well-approximated by a multivariable polynomial of degree $k$ near $\mathbf{x}_0$.
+
+::: {#thm-second-order-taylor-formula}
+
+## Second-order Taylor formula
+
+Let $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}$ be of class $C^2$. Then we may write $$f(\mathbf{x}_0 + \mathbf{h}) = f(\mathbf{x}_0) + Df(\mathbf{x}_0)\mathbf{h} + \frac{1}{2} \mathbf{h}^T D^2 f(\mathbf{x}_0) \mathbf{h} + R_2(\mathbf{h},\mathbf{x}_0),$$ where the *remainder* satisfies $R_2(\mathbf{h},\mathbf{x}_0)/\|\mathbf{h}\|^2 \to 0$ as $\mathbf{h}\to 0$, written $$R_2(\mathbf{h},\mathbf{x}_0) = \mathcal{O}(\|\mathbf{h}\|^2).$$ The symbol $D^2 f(\mathbf{x}_0)$ is the *Hessian* of $f$, the matrix of second-order mixed partial derivatives, a symmetric matrix.
+
+:::
+
+The above formula can be generalized to polynomials of degree $k$ for $C^k$ functions.
+
+The formula can also be generalized to vector-valued functions whose components are all $C^k$.
+
+::: {#exm-example-14}
+
+## Example
+
+Compute the second-order Taylor polynomial of $f(x,y) = \exp(-x^2 - y^2)$ at $(0,0)$.
+
+$$Df(x,y) = [-2x f(x,y), -2y f(x,y)], \quad D^2 f(x,y) = \begin{bmatrix} (4x^2 -2)f(x,y) & 4xy f(x,y) \\ 4xy f(x,y) & (4y^2 - 2)f(x,y) \end{bmatrix}$$ $$f(0,0) = 1, \quad Df(0,0) = [0,0], \quad D^2 f(0,0) = \begin{bmatrix} -2 & 0 \\ 0 & -2 \end{bmatrix}$$ $$f(x,y) = 1 - (x^2 + y^2) + \mathcal{O}(x^2 + y^2).$$
+
+:::
+
+## Maxima and minima
+
+Suppose $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}$, with $\Omega$ being an open domain. We wish to find *local minima or maxima* of $f$:
+
+::: {#def-local-maxima-and-minima}
+
+## Local maxima and minima
+
+Let $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}$, with $\Omega$ being an open domain.
+
+1.  A *local maximum* is a point $\mathbf{x}\in\Omega$ such that there exists an open $\epsilon$-ball $B_{\epsilon}(\mathbf{x})$ with $$f(\mathbf{x}) \leq f(\mathbf{y}), \quad \text{for all } \mathbf{y}\in B_\epsilon(\mathbf{x}).$$
+
+2.  A *local minimum* is a point $\mathbf{x}\in\Omega$ such that there exists an open $\epsilon$-ball $B_{\epsilon}(\mathbf{x})$ with $$f(\mathbf{x}) \geq f(\mathbf{y}), \quad \text{for all } \mathbf{y}\in B_\epsilon(\mathbf{x}).$$
+
+:::
+
+For local maxima and minima to be defined, $f$ need not even be continuous.
+
+How do we charaterize local maxima and minima? For a general function $f$, it can be hard to verify that a candidate point $\mathbf{x}\in\Omega$ is indeed a local maximum or minimum. If, on the other hand $f$ is $C^1$, then a local maximum or minimum always has a vanishing derivative. This can be proven from the first-order Taylor polynomial approximation. On the other hand, it can happen that the derivative vanishes, even though we do not have a local maximum or minimum at $\mathbf{x}$.
+
+::: {#def-critical-point-saddle-point}
+
+## Critical point, saddle point
+
+Ler $f : \Omega \subset\mathbb{R}^n\to\mathbb{R}$ be of class $C^1$. Any $\mathbf{x}\in\Omega$ such that $Df(\mathbf{x})=0$ is called *a critical point of $f$*. The function value $f(\mathbf{x})$ is called a *critical value*. If $\mathbf{x}$ is not a local maximum or minimum, we say that $\mathbf{x}$ is a *saddle point*.
+
+:::
+
+If a function is of class $C^2$, the second derivative matrix $H = D^2 f(\mathbf{x})$, often called the Hessian, is a symmetric matrix, since partial derivatives are symmetric. Thus there is a unitary matrix $U$ with columns $\mathbf{u}_i$ such that $$H = U\Lambda U^T = \sum_{i=1}^n \mathbf{u}_i \lambda_i \mathbf{u}_i^T,$$ with $\Lambda$ being a diagonal matrix of eigenvalues. Recall the second-order Taylor approximation $$f(\mathbf{x} + \mathbf{h}) = f(\mathbf{x}) + \frac{1}{2} \mathbf{h}^T H \mathbf{h} + o(\|\mathbf{h}\|^3).$$ Introducing the spectral form of $H$, the second order term is $$\frac{1}{2} \mathbf{h}^T H \mathbf{h} = \sum_{i=1}^n h_i^2 \lambda_i, \quad h_i = \mathbf{u}_i^T h.$$ This term dominates the remainder if and only if all eigenvalues of $H$ are nonzero. (The examples $f(x) = x^3$, $f(x) = -x^4$, and $f(x) = x^4$ how that this matters, since $f'(0)$ and $f''(0)$ in all cases, so that the second derivative does not diagnose the critical point.) In this case, the behavior of $f$ near the critical point is determined by the sign of the eigenvalues. There are precisely three cases: If all eigenvalues are positive, we have a local minimum, and if all eigenvalues are negative, we have a local maximum. If we have eigenvalues of both signs, then we have a saddle point.
+
+::: {#thm-classification-of-critical-points}
+
+## Classification of critical points
+
+Let $f : \Omega \subset \mathbb{R}^n \to \mathbb{R}$, with $\Omega$ being an open domain. Let $f$ be of class $C^2$. Let $H = D^2f(\mathbf{x})$ be the second derivative (Hessian) at a critical point. Assume all eigenvalues of $H$ to be nonzaero. Then we have:
+
+1.  If all the eigenvalues of $H$ are positive, then $\mathbf{x}$ is a local minimium.
+
+2.  If all the eigenvalues of $H$ are negative, then $\mathbf{x}$ is a local maximum.
+
+3.  If there are eigenvalues of $H$ with both positive and negative values, then $\mathbf{x}$ is a saddle point.
+
+:::
+
+When there are one or more eigenvalues that are zero, then we need to analyze the problem further in order to conclude the nature of the critical point.
+
+## Integration
+
+The first rigorous definition of a definite integral of a function $f : I \to \mathbb{R}$, $I = [a,b] \subset \mathbb{R}$, is that of the *Riemann ingeral*, $$\int_a^b f(x) \, \mathrm{d}x.$$ Roughly speaking, one defines the integral as the (signed) area under the curve, and approximates this by a *Riemann sum* over areas of $N$ narrow boxes of width $\Delta x = (b-a)/N$, $$\sum_{i=1}^N \Delta x f(x_i),$$ where $x_i$ is some point in the interval $[a + (i-1)\Delta x, a + i\Delta x]$, say, the midpoint. As the width $\Delta x$ of the boxes approaches zero (i.e., $N \to +\infty$), the sum will be a Cauchy sequence with respect to $N$, under some assumptions on $f$. It then is a convergent sequence, and we define the integral as the limit.
+
+We will not dig deeper into this topic here. I recommend Morgan (elementary), Lindstrom, and Marsden/Freeman for more details.
+
+::: {#thm-riemann-integrable-functions}
+
+## Riemann integrable functions
+
+A function $f : [a,b] \to \mathbb{R}$ is Riemann integrable, i.e., the Riemann integral exists and is finite, if and only if $f$ is bounded on $[a,b]$, and the set of points where $f$ is discontinuous is finite. In that case, the integral is given by $$\int_a^b f(x) \,\mathrm{d}x = \lim_{N\to+\infty} \frac{b-a}{N} \sum_{i=1}^N f(x_i), \quad x_i = a + (i - 1/2) \frac{b-a}{N}.$$
+
+:::
+
+A more powerful notion of integrability is that of Lebesgue integrability. The main idea here is that the Riemann sums' vertical boxes are replaced with horizontal boxes.
+
+The Lebesgue integral requires an understanding of *measurable sets and functions*. Measure theory is a powerful theory in itself, but for the average quantum chemist, the Riemann integral will do in most cases.
+
+To read more about measure theory at a pedagogical level, see the book by Lindstrom. Bartle is a classic text on measure theory.

@@ -1,0 +1,31 @@
+# The tools of calculus
+
+<!-- Legacy TODO: Move or edit this material. -->
+
+In this section, we collect some of the basic facts about manipulating functions.
+
+## Differentiation
+
+Differentiation is craft. Integration is art.
+
+We will often use the Leibniz' notation for a derivative $$f'(x) = \frac{\mathrm{d}}{\mathrm{d}x} f(x) = \frac{\mathrm{d}f(x)}{\mathrm{d}x} = \frac{\mathrm{d}f}{\mathrm{d}x}.$$ This is indicative of a fraction of infinitesimals, and in fact sometimes they do behave like fractions ...
+
+Product rule: $$(fg)' = f' g + f g'$$ Chain rule: $$f(x(y))' = f'(x(y))y'(x)$$ Using Leibniz, $$\frac{\mathrm{d}}{\mathrm{d}x} f(y(x)) = \frac{\mathrm{d}f}{\mathrm{d}y}\frac{\mathrm{d}y}{\mathrm{d}x}.$$ Note "cancellation." Helpful mnemonic device.
+
+Logarithmic differentiation: Sometimes the logarithm of a function is easier to differentiate than the original function. We can then use $$f' = f \cdot (\ln f)'.$$
+
+## Integration
+
+An *antiderivative* of a function $f : I \to \mathbb{R}$ is a function $F : I \to \mathbb{R}$ such that $F' = f$. Since the derivative of a constant is zero, such can be added freely. Another notation for the antiderivative is the indefinite integral, $$F(x) = \int f(x)\, \mathrm{d}x + C,$$ with $C$ being a constant.
+
+Antiderivatives are tabulated. But there are basic tricks to evaluate your own.
+
+Variable substitution: Write $x = x(y)$, a function of another variable $y$. $$\int_{x_0}^{x_1} f(x) \, \mathrm{d}x = \int_{y_0}^{y_1} f(x(y)) \, \frac{\mathrm{d}x}{\mathrm{d}y} \, \mathrm{d}y.$$ Here, $x_i = x(y_i)$. Thus, one must be able to invert the function $y(x)$ to get $x(y)$.
+
+Note how the denominator is seemingly "canceled." Helpful mnemonic device.
+
+Integration by parts: $$\int u'(x) v(x) \, \mathrm{d}x = u(x) v(x) - \int u(x) v'(x) \, \mathrm{d}x.$$ Again, an arbitrary constant can be added.
+
+Feynman's differentiation under the integral sign: Let $g(x,\alpha)$ be a function that depends on some parameter $\alpha$ in a smooth manner. Suppose that our function to be integrated i $$f(x) = \frac{\partial}{\partial \alpha} g(x,\alpha),$$ for some value $\alpha$. Under mild conditions on $g$, $$\int f(x) \, \mathrm{d}x =   \int \frac{\partial}{\partial \alpha} f(x,\alpha) \, \mathrm{d}x = \frac{\partial}{\partial \alpha} \int f(x,\alpha) \, \mathrm{d}x.$$ The latter integral may be easier to compute.
+
+Example: Gaussian integral.

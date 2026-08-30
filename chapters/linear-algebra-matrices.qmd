@@ -1,0 +1,211 @@
+# Matrices
+
+We know that all linear transformations between finite dimensional spaces are naturally expressed with matrices. Therefore, the manipulation of matrices and understanding their behavior is essential for any quantum chemist.
+
+## Column space, row space, rank
+
+A matrix $A \in \mathbb{F}^{n\times m}$ has a set of *columns*, the $j$th column is denoted $A_{:,j}$ and a set of *rows*, the $i$th row denoted $A_{i,:}$. This notation can remind us about the Python or Matlab notations for taking slices.
+
+Example: $$A = \begin{bmatrix} 1 + \mathrm{i}& 2 - 2\mathrm{i}\\ 1 & 0 \\ 0 & 0 \end{bmatrix}, \quad A_{:,1} = \begin{bmatrix} 1 + \mathrm{i}\\ 1 \\ 0 \end{bmatrix}, \quad A_{:,2} = \begin{bmatrix} 2 - 2\mathrm{i}\\ 0 \\ 0 \end{bmatrix}, \quad A_{1,:} = [1+\mathrm{i},\; 2-2\mathrm{i}], \quad A_{2,:} = [1,\; 0], \quad A_{3,:} = [0,\; 0].$$ Note the comma notation on the rows. This is for clarity.
+
+The significance of the columns is the following: Let $\mathbf{a}_i = A_{i,:}$ be the $i$th column. We write $$A = [\mathbf{a}_1, \mathbf{a}_2, \cdots, \mathbf{a}_n].$$ We now act with $A$ on some $\mathbf{x} \in \mathbb{F}^n$, and it is straightforward to see, that the answer is: $$A\mathbf{x} = \mathbf{a}_1 x_1 + \mathbf{a}_2 x_2 + \cdots + \mathbf{a}_n x_n.$$ Thus: The result is a linear combination of the columns, the coefficient being given by $\mathbf{x}$.
+
+Similarly, the rows are significant when acting *to the left* on some row vector.
+
+::: {#def-column-space}
+
+## Column space
+
+For a matrix $A = [\mathbf{a}_1,\cdots,\mathbf{a}_n]\in\mathbb{F}^{n\times m}$ , the *column space* is the set of all linear combinations of the columns $\mathbf{a}_i$. This is also denoted *the range* or *image* of $A$, since it is the set of all vectors $A\mathbf{x}$.
+
+The column space is a linear vector space, written $$\operatorname{span}\{ \mathbf{a}_1, \, \mathbf{a}_2, \, \cdots\, , \mathbf{a}_n \}.$$
+
+The *rank* of the matrix is the dimension of the column space.
+
+The row space is defined similarly.
+
+(It is a fact that the dimension of the row space is the same as the dimension of the column space.)
+
+:::
+
+Facts: Any linear subspace of $\mathbb{F}^n$ is the column space of some matrix (not unique). The columns form a basis for the subspace.
+
+## Systems of linear equations
+
+Consider a matrix $A \in M(n,m,\mathbb{F})$. Consider the *linear equation*: Find $\mathbf{x}\in \mathbb{F}^n$ such that, for a given $\mathbf{y}\in \mathbb{F}^m$, $$A \mathbf{x} = \mathbf{y}.$$ This is one of the basis uses of matrices: to solve linear systems of equations.
+
+Written out in terms of matrix elements and vector components, $$\begin{aligned}
+    A_{11} x_1 + A_{12} x_2 &+ \cdots + A_{1n} x_n = y_1 \\
+    A_{21} x_1 + A_{22} x_2 &+ \cdots + A_{2n} x_n = y_2 \\
+    &\vdots \\
+    A_{m1} x_1 + A_{m2} x_2 &+ \cdots + A_{mn} x_n = y_m   
+\end{aligned}$$
+
+Given this setup, several things can happen:
+
+1.  No solutions exist. This may only happen if $m \geq n$, and we say that the equations are *inconsistent* or *overdetermined*.
+
+2.  Exactly one solution exists for every $\mathbf{y}$. If $m  > n$, some equations can be eliminated and can be reduced to a square system with $n=m$.
+
+3.  An infinite number of solutions exist, and we say that the system is *underdetermined*. This may happen both for $n\neq m$ and $n=m$.
+
+Suppse $A$ is square, and that $\mathbf{x}$ can be found for *any* $\mathbf{y}\in\mathbb{F}^n$, then this solution defines a linear map $\tilde{A} : \mathbb{F}^n \to \mathbb{F}^n$ such that $$\tilde{A} A \mathbf{x} = \tilde{A} \mathbf{y} = \mathbf{x}.$$ This map is the *inverse function* of $A$. Thus, it is natural to write $\tilde{A} = A^{-1}$ for the solution operator.
+
+In some cases, there is no unique solution. This happens precisely when the rank of $A$ is smaller than $n$. The set of $\mathbf{x}$ such that $A\mathbf{x}=0$ is the *null space* of $A$. This is a linear subspace. Its dimension is the *nullity*.
+
+::: {#thm-rank-nullity-theorem}
+
+## Rank/nullity theorem
+
+Let $A \in \mathbb{F}^{m\times n}$. Rank of $A$ $+$ nullity of $A$ equals $n$.
+
+:::
+
+## Gaussian elimination
+
+A classic way to solve a linear system of equations is by *gaussian elimination*. Given a linear equation $A\mathbf{x}=\mathbf{y}$, we expand it in order to see better: $$\begin{aligned}
+    A_{11} x_1 + A_{12} x_2 + \cdots + A_{1n} &= y_1 \\
+    A_{21} x_1 + A_{22} x_2 + \cdots + A_{2n} &= y_2 \\
+    &\vdots\\
+    A_{n1} x_1 + A_{n2} x_2 + \cdots + A_{nn} &= y_n \\
+\end{aligned}$$ Thus, $A_{ij}$ is the coefficient of $x_j$ in the $i$th equation, the right-hand side of which is $y_i$. Now, we can produce an equivalent linear system by *multiplying equations by (nonzero) numbers* or *adding pairs of equations*. That is *taking linear combinations of equations*.
+
+In gaussian elimination, one proceeds systematically. First, we write down the *augented matrix* $$B = [ A | \mathbf{y} ] \in \mathbb{F}^{n\times (n + 1)}.$$ We then use using *elementary row operations* to bring the system to *row echelon form*.
+
+::: {#def-row-echelon-form}
+
+## Row echelon form
+
+A matrix $T \in \mathbb{F}^{n\times m}$ is on row echelon form if $T_{ij}=0$ whenever $i > j$, and if the *leading coefficient* (first nonzero) of row number $i$ is always to the left of the leading coefficient of row number $i+1$. The leading coefficient is also called a *pivot*
+
+:::
+
+The elementary matrix operations are:
+
+- Multiply a row by a nonzero number
+
+- Swap two rows
+
+- Add one row to another (includes subtraction by first multiplying by nonzero scalar)
+
+::: {#exm-example-4}
+
+## Example
+
+This matrix is in row echelon form. The pivots are in squares. $$\begin{bmatrix}
+        \fbox{1} & 2 & 0 & 0 \\
+        0 & \fbox{2} & -4 & -1 \\
+        0 & 0 & 0 & \fbox{1} \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}$$
+
+:::
+
+We say that two matrices are *equivalent* if they are related by one or more elementary operations, written $A \sim A'$.
+
+The leading coefficients can all be taken to be $1$, by a final scaling operation if necessary.
+
+When the row echelon form has been obtained, we will be able to find a unique solution to the linear system *if and only if the diagonal of the row echelon form is nonzero*. Assuming the diagonal elements to be $1$, solving the system is trivial *by backsubstitution*: the last equation says $y_n =$something, and by substituting into the $n-1$th equation, we get $y_{n-1}$, etc.
+
+Alternatively, we may bring the matrix to the form $B = [I | \mathbf{x}]$ by further elementary operations.
+
+To compute the matrix inverse, we start with the augmented matrix $B = [A | I]$ and use elementary operations to bring it to the form $\tilde{B} = [I | A^{-1}]$.
+
+::: {#exm-example-5}
+
+## Example
+
+Solve the linear system $$x_1 + x_2 + x_3 = 0, \quad x_1 - 2 x_2 + 3 x_3 = 1, \quad 4 x_1 - x_3 = 2.$$ Augmented matrix: $$B =    \begin{bmatrix}
+        1 & 1 & 1 & 0 \\
+        1 & -2 & 3 & 1 \\
+        4 & 0 & -1 & 2
+    \end{bmatrix}$$ We begin by subtracting the first row from the second, and 4 times the first row from the third: $$B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & -3 & 2 & 1 \\
+    4 & 0 & -1 & 2 \\
+\end{bmatrix} \sim
+\begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & -3 & 2 & 1 \\
+    0 & -4 & -5 & 2 \\
+\end{bmatrix}$$ We now multiply the second row by $-1/3$ and the third by $-1/4$: $$B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 1 & -2/3 & -1/3 \\
+    0 & 1 & 5/4 & -1/2 \\
+\end{bmatrix}$$ Finally, we subtract row 2 from row 3 to get the row echelon form $$B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 1 & -2/3 & -1/3 \\
+    0 & 0 & 23/12 & -1/6 \\
+\end{bmatrix}$$ We simplify a bit and multiply the last row by $12/23$ $$B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 1 & -2/3 & -1/3 \\
+    0 & 0 & 1 & -12/138 \\
+\end{bmatrix}$$ Solving the linear system is now easy: $x_3 = -12/138$ from the last equation. We insert back into the second equation: $$x_2 = (2/3)  x_3 - 1/3,$$ and finally $$x_1 = -x_2 - x_3.$$
+
+:::
+
+## Matrix powers
+
+We may compose $A$ with itself, which gives a matrix power, $$AA\mathbf{x} = A^2 \mathbf{x}.$$ Higher powers are defined similarly.
+
+How about negative powers?
+
+The *matrix inverse* defined above satisfies $$AA^{-1} = A^{-1} A = I,$$ where $I$ is the common notation for the *identity matrix*, with elements $I_{ij} = \delta_{ij}$. The identity matrix is such that $I\mathbf{x} = \mathbf{x}$ for all $\mathbf{x}\in \mathbb{F}^n$.
+
+We define $A^{-k} = (A^{-1})^k$, and we now have, with the definition $A^0 = I$, $$A^{k+l} = A^k A^l = A^l A^k, \quad \forall k,l\in\mathbf{Z}.$$
+
+## Classes of operators
+
+We now consider some important classes of operators.
+
+::: {#def-definition}
+
+## Definition
+
+Let $V$ be a Hilbert space over $\mathbb{F}$ of finite dimension $n$, and let $\hat{A} \in L(V)$ be a linear operator. We say that $A$ is ...
+
+1.  Hermitian if $\left\langle u,\hat{A}v\right\rangle_V = \left\langle\hat{A}u,v\right\rangle_V$ for all $u,v\in V$. Equivalently, the matrix of $\hat{A}$ in any orthonormal basis satisfies $A^H = A$.
+
+2.  Unitary if it preserves inner products, i.e., $\left\langle u,v\right\rangle_V = \left\langle\hat{A}u,\hat{A}v\right\rangle_V$. Equivalently, the matrix satisfies $A^H = A^{-1}$.
+
+3.  Normal if it *commutes* with its adjoint, $\hat{A} \hat{A}^\dag = \hat{A}^\dag \hat{A}$
+
+4.  Invertible if $\hat{A}^{-1}$ exists
+
+:::
+
+## The eigenvalue decomposition
+
+Given a linear operator $\hat{A} \in L(V)$, consider the *eigenvalue equation*: Find $\lambda \in \mathbb{F}$ and a nonzero $v \in V$ such that $$\hat{A} v = \lambda v.$$ We call $\lambda$ an *eigenvalue*, $v$ an *eigenvector*, and $(\lambda,v)$ an *eigenpair*. Clearly, if $v$ is an eigenvector, then $\alpha v$ is an eigenvector for any $\alpha\neq 0$. So an eigenvector is defined only up to a multiplicative constant.
+
+Suppose $(\lambda',v')$ is another eigenpair. Then, $$\left\langle u|\hat{A}|v\right\rangle = \lambda \left\langle u|v\right\rangle = \lambda' \left\langle u|v\right\rangle.$$ If $\lambda' \neq \lambda$, then we must have $\left\langle u|v\right\rangle = 0$. So if we have a set of $n$ different eigenvalues, then we can build an orthonormal basis of eigenvectors! This is significant, because it tells us that there exists a basis for $V$ in which $\hat{A}$ is very easy to describe!
+
+All normal operators have such orthonormal bases:
+
+::: {#thm-spectral-theorem-for-normal-operators}
+
+## Spectral theorem for normal operators
+
+Suppose $\hat{A} \in L(V)$ is a normal operator. Then, there exists an orthonormal basis $\{v_1,\cdots,v_n\}$ such that $$\hat{A} = \sum_{i=1}^n \left|v_i\right\rangle \lambda_i \left\langle v_i\right|.$$ In terms of the matrices relative to some orthonormal basis, there exists a unitary matrix $U$ such that $$A = \sum_{i=1}^n \mathbf{u}_i \lambda_i \mathbf{u}_i^H = U \Lambda U^H$$ where $\mathbf{u}_i$ is the $i$th column of $U$, and where $\Lambda$ is a diagonal matrix with elements $\Lambda_{ij} = \lambda_i \delta_{ij}$
+
+:::
+
+## Singular value decomposition
+
+One of the most striking matrix factorizations is *the singular-value decomposition* (SVD). It decomposes a matri $A$ as follows:
+
+::: {#thm-singular-value-decomposition}
+
+## Singular value decomposition
+
+Let $A \in M(n,m,\mathbb{F})$ be a matrix, and let $k = \min(n,m)$. There exists $k$ *singular values* $\sigma_i \geq 0$ and $k$ *left singular vectors* $\mathbf{u}_i$, and $k$ *right singular vectors* $\mathbf{v}_i$, such that $$A = \sum_{i=1}^k \mathbf{u}_i \sigma_i \mathbf{v}_i^H = U \Sigma V^H,$$ where $U = [\mathbf{u}_1,\cdots,\mathbf{u}_k]$, $V = [\mathbf{v}_1,\cdots,\mathbf{v}_k]$, $\Sigma = \operatorname{diag}(\sigma_1,\cdots,\sigma_k)$. Equivalently, $$A \mathbf{v}_i = \sigma_i \mathbf{u}_i.$$ The rank of $A$ is the number of nonzero singular values. The decomposition is unique if all the singular values are distinct.
+
+:::
+
+Interpreting the SVD: $V^\dag \mathbf{x}$ decomposes $\mathbf{x}$ along $k$ orthonormal vectors. The matrix $\Sigma$ scales the vectors by a constant amount, and finally $U$ maps rotates the scaled vectors to a new orthonormal set of $k$ vectors.
+
+Since the decomposition always exists, the SVD is a universal geometric interpretation of *any* matrix!
+
+It is customary to arrange the singular values in descending order. If we *truncate* the expansion after $\ell < k$ terms, $$A_\ell = \sum_{i=1}^{\ell} \mathbf{u}_i \sigma_i \mathbf{v}_i^\dag,$$ we obtain an approximation to $A$ which is *optimal* in the so-called Frobenius, or Hilbert--Schmidt norm on matrices, $$\|A\|_{\text{F}} = \left( \sum_{ij} |A_{ij}|^2 \right)^{1/2},$$ i.e., the space of matrices $M(n,m,\mathbb{F})$ is viewed as Euclidean $nm$-dimensional space, a Hilbert space.
+
+The SVD is a powerful tool in data analysis, since it identifies the most important components of a matrix.

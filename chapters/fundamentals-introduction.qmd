@@ -1,0 +1,45 @@
+# Introduction
+
+## Why learn mathematics?
+
+Doing successful research in quantum chemistry invariably requires the researcher to use mathematical tools. These range from elementary topics like real and complex analysis, and linear algebra, but, especially in method development of manybody theory, topics like functional analysis, convex analysis, nonlinear partial differential equations, and so on, pop up. Moreover, computer implementation of quantum chemistry methods require a good command of numerical analysis and optimization theory. Furthermore, even if the researchers ambition is *not* to do advanced research in quantum chemistry method development, application of the methods also require an understanding of where they come from and how they work.
+
+## What is mathematics?
+
+In science, we build models to describe observations made by experiments. The language of models is mathematics. Mathematics itself can be said to model nature: The integers model counting of discrete objects, the real numbers model lengths and time intervals, and euclidean geometry models (non-relativistic) space-time. Functions of real variables model observable quantities. Hilbert spaces model the states of matter in the quantum mechanical regime. Partial differential equations model natural laws. Mathematics is also used to interpret the outcome of experiments via statistics, i.e., the dichotomy between theory and experiment is not so clear.
+
+Isn't it strange, and wonderful, that mathematics is able to accurately describe reality? Isn't it fascinating, that humans have made *mental models* built on logic, that is able to model reality? Isn't it strange, that whenever we need to refine our scientific models, then mathematics is malleable enough to provide the correct ones, and even make predictions of what new experiments may observe?
+
+But what *is* mathematics? Here is a quote from the Wikipedia article on Mathematics: [@wiki:Mathematics]
+
+> Mathematics (from Ancient Greek μαθημα; máthēma: 'knowledge, study, learning') is an area of knowledge that includes such topics as numbers (arithmetic and number theory), formulas and related structures (algebra), shapes and the spaces in which they are contained (geometry), and quantities and their changes (calculus and analysis). Most mathematical activity involves the use of pure reason to discover or prove the properties of abstract objects, which consist of either abstractions from nature or---in modern mathematics---entities that are stipulated with certain properties, called axioms. A mathematical proof consists of a succession of applications of some deductive rules to already known results, including previously proved theorems, axioms and (in case of abstraction from nature) some basic properties that are considered as true starting points of the theory under consideration.
+
+Thus, mathematics is a kind of tower built with the human capacity for abstract thought alone. Theories are built on more fundamental theories, branching out like a tree. But is there something at *the root*? Can we know *for sure* that no mistake has been made, destroing swathes of centuries-old work in a moment, once the mistake is discovered?
+
+In the late 19th and early 20th century, the quest for a common foundation of mathematics, based on mathematics alone, led to a crisis: the foundational crisis of mathematics [@wiki:Foundations_of_mathematics; @Ferreiros_TPCtM]. Paradoxes like the famous Russell's paradox questioned whether mathematics could be formulated consistently with mathematics alone. Most of us are used to mathematical sets being rather informally defined, e.g., via a list, $$\mathbb{N} = \{ 0, 1, 2, 3, \dots \},$$ or via some condition, $$C = \{ x \mid \text{$x$ is a cat} \}$$ While this informal point of view ("naive" set theory) is often fine (mathematicians use it all the time), Russell's paradox shows what can go wrong. A certainly intuitive "fact" about sets is the *axiom schema of comprehension* due to Frege (1893)[@Ciesielski1997_]:
+
+> If $\varphi$ is a property, then there exists a set $Y = \{ X \mid \varphi(X) \}$ of all elements having property $\varphi$.
+
+However, this principle is false:
+
+> *Russell's paradox* (1902): By a set, we mean any collection of objects --- for example the set of all even integers or the set of all saxophone players in Brooklyn. The objects that make up a set are called its members or elements. Sets may themselves be members of sets; for example the set of all sets of integers has sets as its members. Most sets are not members of themselves; the set of cats, for example, is not a member of itself because the set of cats is not a cat. However, there may be sets that do not belong to themselves---perhaps, for example, a set containing all sets. Now, consider the set $A$ of all those sets $X$ such that $X$ is not a member of $X$. Clearly, by definition, $A$ is a member of $A$ if and only if $A$ is not a member of $A$. So, if $A$ is a member of $A$, then $A$ is also not a member of $A$; and if $A$ is not a member of $A$, then $A$ is a member of $A$. In any case, $A$ is a member of $A$ and $A$ is not a member of $A$.
+
+Thus, mathematicians found that they cannot always rely on their intuition.
+
+Today, the foundational crisis of mathematics is mostly settled. Virtually all of mathematics can be formulated in terms of Zermelo--Fraenkel (ZF) set theory with the axiom of choice added (ZFC).
+
+Example: In ZF theory, the natural numbers is defined recursively in terms of the empty set $\emptyset = \{ \}$ (due to von Neumann): $$\begin{aligned}
+0 &:= \emptyset , \quad 1 := \{ \emptyset \}, \quad 2 :=  \{  \emptyset  ,  \{ \emptyset \} \} \\
+3 &:=   \{ \emptyset,  \{ \emptyset \} ,  \{  \emptyset  ,  \{ \emptyset \} \} \}   \\    &\vdots \\
+    n + 1 &= S(n)  =  n \cup \{n\} 
+\end{aligned}$$ The set $\mathbb{N}$ is now defined as the smallest set that contains all $n$ while being closed under the successor function $S$. The *system* $\langle\mathbb{N}, 0, S\rangle$ is now a *model* of the Peano axioms for natural numbers and their arithmetic. The Peano axioms define natural numbers and their arithmetic operations *recursively* in terms of a successor function $S$ acting on natural numbers to produce the next natural numbers. Thus, the natural numbers and their axioms can be exhibited in terms of sets and their axioms.
+
+In a similar manner, axioms for the *rational numbers* $\mathbb{Q}$ can be built on the Peano axioms. And so on.
+
+::: {.recommended-reading}
+
+This book is a widely recommended text on Zermelo--Fraenkel set theory with the axiom of choice (ZFC). It describes, in particular, encodings of "all" classical mathematical structures in terms of ZFC set theory.
+
+![](../figures/lecture-notes/recommended-reading/Ciesielski-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+:::

@@ -1,0 +1,55 @@
+# Lebesgue spaces
+
+As claimed, the theory of PDEs are formulated using function spaces. These function spaces are in general called *Lebesgue spaces*, and are based on the Lebesgue integral.
+
+In this section, let $(X,\boldsymbol{X},\mu)$ be a fixed measure space, for example a measurable subset $\Omega\subset \mathbb{R}^n$ with Lebesgue measure, and we consider $\mathbb{F}\in \{\mathbb{R}, \mathbb{C}\}$ a measure space with the Lebesgue measure. For complex functions, we consider really $\mathbb{C}$ as $\mathbb{R}^2$.
+
+The reader may have encountered square integrable functions before, i.e., functions $f : X \to \mathbb{C}$ that satisfies $$\int_\Omega |f(x)|^2 \, \mathrm{d}x < +\infty.$$ Here, $\mathrm{d}x$ is short for the Lebesgue measure. The reader may also be used to thinking of $f$ as a point in Hilbert space $L^2(\Omega)$. However, it is not hard to see, that we can have $f \neq g$ but $$\int |f-g|^2 \; \mathrm{d}^n x = 0 \quad !$$ So, are the functions really different?
+
+In quantum mechanics, the wavefunction $\psi(x)$ fo a particle defines a probability density $P(x) = |\psi(x)|^2$. The theory of probability *also* work with measurable spaces, and the probability of locating the particle in a subset $A \subset \Omega$ is given by $\int_A P(x) \,\mathrm{d}x$, where $A$ is measurable. The pointwise definition of a probability density is therefore only meaningful up to a set of measure zero, i.e., "almost everywhere".
+
+Let $f : X \to \mathbb{F}$ be a measurable function. Recall that $\int_X f\, \mathrm{d}\mu=0$ if and only if $f(x)=0$ "almost everywhere". An example is the function over $\mathbb{R}^n$ which is zero except for at the points with rational coordinates. As the integral concerned, this function is zero!
+
+To define function spaces with integrals involved in norms and inner products rigorously, we need the following:
+
+::: {#def-equivalence-classes-of-measurable-functions}
+
+## Equivalence classes of measurable functions
+
+Let $f,g : X \to \mathbb{F}$ be measurable functions. We say that $f$ and $g$ are equivalent, written $f\sim g$, if $f=g$ almost everywhere. We write $$[f] = \{ g \mid f\sim g\}$$ for the *equivalence class* of functions that are almost everywhere the same.
+
+:::
+
+::: {#def-lebesgue-spaces}
+
+## Lebesgue spaces
+
+Let $p\geq 1$, and define the $p$-norm $$\|[f]\|_p = \|f\|_p = \left( \int_X |f(x)|^p \, \mathrm{d}^n x\right)^{1/p}$$ The space $L^p(X)$ is defined as $$L^p(X) = \left\{ [f] \mid f : X \to \mathbb{F}\;\text{measurable},\; \|f\|_p < +\infty \right\}.$$
+
+:::
+
+::: {#thm-statement-7}
+
+## Statement
+
+The Lebesgue spaces $L^p(X)$ are *complete* normed spaces, i.e., *Banach spaces*. (See [Functional analysis](../parts/functional-analysis.qmd).)
+
+The space $L^2(X)$ is a Hilbert space with inner product $$\left\langle f,g\right\rangle_{L^2(X)} = \int \overline{f(x)} g(x) \; \mathrm{d}^n x.$$
+
+:::
+
+The fact that $L^p$ spaces are *complete* is of great importance. It guarantees that if we consider Cauchy sequences in these spaces, they are converge *to something in the space*. This is extremely useful when studying PDEs.
+
+To close this section, we demonstrate just how general the Lebesgue spaces are, and how "wild" integrable functions can be.
+
+::: {#exm-a-wild-function}
+
+## A wild function
+
+Let $X = \mathbb{R}^3$ with Lebesgue measure. Let $u(\mathbf{x}) = \|\mathbf{x}\|^{-1} e^{-\|\mathbf{x}\|}$. This function is square integrable. (Can you prove it?) The function is also unbounded as $\|\mathbf{x}\|\to 0$.
+
+Now let $\mathbb{Q}^3$ be the set of rational coordinates in $\mathbb{R}^3$. It is a countable set, so we may write it as a sequence $\mathbf{y}_i$, $i \in \mathbb{N}$. Consider the function $$f(\mathbf{x}) = \sum_{i=1}^\infty 2^{-i} u(\mathbf{x}-\mathbf{y}_i),$$ i.e., at every rational point, we place a singularity.
+
+It now follows, that for every $\epsilon$-ball in $\mathbb{R}^3$, no matter how small, the function is unbounded. Yet, $$\|f\|_{L^2} \leq \sum_{i=1}^\infty 2^{-i} \|u\|_{L^2} < +\infty.$$ Not only is the norm finite, but since $L^2$ is complete, the series actually converges to an element in $L^2(X)$. This function is unbounded in every arbitrarily small region.
+
+:::

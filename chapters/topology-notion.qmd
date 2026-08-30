@@ -1,0 +1,25 @@
+# The notion of a topology {#sec-topological-vector-spaces}
+
+In our discussion of Euclidean space and finite-dimensional Hilbert spaces in @sec-general-finite-dimensional, we had an *inner product* at our disposal. The inner product could be used to define a *norm*, that measured length. Appealing to the linear structure of the space, we could measure distances, $d(x,y) = \|x - y\|$.
+
+A distance measure gives us the ability to talk about *closeness* between points, i.e., a *topology*. In the field of topology, one makes these concepts abstract. In particular, we get axioms for *open sets*. These sets are used, for example, to define various concepts of functions $f : U\to V$ being *continuous*.
+
+::: {#def-topological-space}
+
+## Topological space
+
+Let $X$ be a set. A *topology* $\tau$ on $X$ is a collection of subsets of $X$, called *open sets*, satisfying the following axioms:
+
+- The empty set $\emptyset \in \tau$ *Empty set is open*
+
+- $X \in tau$ *The space itself is open*
+
+- If $\{U_i \mid i \in \text{some index set}\}$ is an *arbitrary* collection of elements of $\tau$, then $$\bigcup U_i \in \tau.$$*Arbitary unions are open*
+
+- If $\{U_i \mid i \in \{1,2,\cdots,n\}\}$ is a *finite* collection of elements of tau, then $$\bigcap U_i \in \tau$$*Finite intersections are open*
+
+The pair $(X,\tau)$ is called a *topological space*.
+
+A subset $C\subset X$ is said to be *closed in $X$* if its complement $C^\complement = X \setminus C$ is open.
+
+:::

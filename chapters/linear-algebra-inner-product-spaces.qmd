@@ -1,0 +1,151 @@
+# Inner product spaces
+
+What actually distinguish finite dimensional spaces is their *topology*, i.e., how points are considered to be close to each other. Note that we did *not* use any inner product to make correspondences between a vector space $V$ and $\mathbb{F}^n$. Indeed, there is no inner product on a general finite dimensional vector space $V$.
+
+::: {#exm-space-of-planets}
+
+## Space of planets
+
+Suppose we characterize a planet by its mass, diameter, and average distance from the sun, all measured in SI units. These three numbers are gathered in a vector $\mathbf{u} = [u_1, u_2, u_3]$, but the components refer to different units of measurements. Does it make sense to define the inner product between two planets as $\mathbf{u}\cdot\mathbf{v} = u_1 v_1 + u_2v_2 + u_3 v_3$?
+
+:::
+
+If we supply an inner product on $V$, we say that $V$ is an inner product space, and since $V$ is finite dimensional, it will also be *complete* and hence a *Hilbert space*. 
+
+<!-- Legacy TODO: Refer to functional analysis section -->
+
+::: {#def-inner-product}
+
+## Inner product
+
+Let $V$ be a vector space. An *inner product* $\left\langle\cdot, \cdot\right\rangle : V\times V \to \mathbb{F}$ is a map which satisfies the following axioms:
+
+1.  $\left\langle x,x\right\rangle \geq 0$, $\left\langle x,x\right\rangle = 0$ if and only if $x = 0$ *non-negative*
+
+2.  $\left\langle x,\alpha y + \beta z\right\rangle = \alpha\left\langle x,y\right\rangle + \beta\left\langle x,z\right\rangle$ *linearity*
+
+3.  $\left\langle\alpha y + \beta z, x\right\rangle = \bar{\alpha}\left\langle y,x\right\rangle + \bar{\beta}\left\langle z,x\right\rangle$ *conjugate linearity*
+
+4.  $\left\langle x,y\right\rangle = \overline{\left\langle y,x\right\rangle}$ *hermiticity*
+
+:::
+
+Let $V$ be a finite-dimensional Hilbert space, and let $B = \{b_i\}$ be a basis for $V$. Consider arbitrary vectors $v = \sum_{i=1}^n b_i v_i$ and $v' = \sum_{i=1}^n b_i v_i'$, and compute the inner product: $$\left\langle v,v'\right\rangle = \sum_{i=1}^n\sum_{j=1}^n \bar{x}_i \left\langle b_i, b_j\right\rangle x_j' \equiv \sum_{i=1}^n\sum_{j=1}^n \bar{x}_i S_{ij} x_j' =  \mathbf{x}^H S \mathbf{x}'.$$ The matrix $S$ is often called the *overlap matrix of the basis $B$*. We see that that since we start with an inner product on $V$, the latter equation defines an inner product on $\mathbb{F}^n$ -- but it is not the Euclidean inner product!
+
+However, if $S$ has matrix elements $\delta_{ij}$, then we get the Euclidean inner product.
+
+::: {#def-orthonormal-basis}
+
+## Orthonormal basis
+
+Let $V$ be a finite dimensional Hilbert space, and let $B = \{b_i\}$ be a basis. We say that $B$ is an orthonormal basis if, for all $i$ and $j$, $\left\langle b_i,b_j\right\rangle = \delta_{ij}$.
+
+:::
+
+In finite dimensional Hilbert spaces (and indeed infinite dimensional separable Hilbert spacs), orthonormal bases are not very special: they always exist, and can be constructed using *Gram--Schmidt orthogonalization*.
+
+::: {#thm-existence-of-orthonormal-basis}
+
+## Existence of orthonormal basis
+
+Any finite dimensional Hilbert space $V$ has an orthonormal basis.
+
+:::
+
+::: {#thm-statement-3}
+
+## Statement
+
+Let $V$ be a vector space of finite dimension $n$, and let $B = \{ b_i\}$ be an orthonormal basis.
+
+For any $v \in V$, $$v = \sum_i v_i b_i, \quad v_i = \left\langle b_i,v\right\rangle.$$ Let $\hat{A} \in L(V)$ be a linear operator. The matrix of $\hat{A}$ has elements $$A_{ij} = \left\langle b_i, \hat{A} b_j\right\rangle.$$
+
+:::
+
+::: {#def-hermitian-adjoint-2}
+
+## Hermitian adjoint
+
+Let $V$, $W$ be finite-dimensional Hilbert spaces, and let $\hat{A} \in L(V,W)$. The *Hermitian adjoint* $\hat{A}^\dag$ is an operator in $L(W,V)$ defined by the criterion that for all $v\in W$ and all $w \in W$, $$\left\langle w,\hat{A}v\right\rangle = \left\langle\hat{A}^\dag w, v\right\rangle.$$ For a $v\in V$, we also define $v^\dag \in V'$ by the criterion that for all $v' \in V$, $$v^\dag v' = \left\langle v,v'\right\rangle.$$ For a $\omega \in V'$ we define $\omega^\dag \in V$ by the criterion that for all $v \in V$, $$\omega v = \left\langle\omega^\dag, v\right\rangle$$
+
+:::
+
+::: {#rem-remark}
+
+## Remark
+
+This definition is compatible with the Hermitian adjoint of matrices. The definition of $v^\dag$ and $\omega^\dag$ is a one-to-one mapping between $V$ and $V'$, just like for vectors in $\mathbb{F}^n$. In particular $(v^\dag)^\dag = v$, and the inner product can be written $$\left\langle v,w\right\rangle = v^\dag w.$$ The matrix element of an operator $\hat{A} : V \to W$ becomes $$\left\langle w,\hat{A} v\right\rangle = w^\dag \hat{A} v = (\hat{A}^\dag w)^\dag v.$$ Thus, *just like for matrices, row vectors and column vectors*, whenever the product $XY$ is defined, then $(XY)^\dag = Y^\dag X^\dag$.
+
+:::
+
+We are now in the situation, that, using an orthonornal basis, inner products are preserved when moving to coefficient space: If $\mathbf{u},\mathbf{v}\in\mathbb{F}^n$ are the components of $u,v\in V$ in some orthonormal basis, then $$\left\langle u,v\right\rangle = \left\langle\mathbf{u},\mathbf{v}\right\rangle = \mathbf{u}^H \mathbf{v}.$$ This means that, as inner product spaces, there is nothing that distinguishes the Hilbert spaces $V$ from $\mathbb{F}^n$.
+
+::: {#thm-finite-dimensional-hilbert-spaces-are-basically-all-the-same}
+
+## Finite dimensional Hilbert spaces are basically all the same
+
+Finite dimensional Hilbert spaces over $\mathbb{F}$ of dimension $n$ are all *isometrically isomorphic* to $\mathbb{F}^n$, and hence to each other. The word "isometricall" means that the inner product can be considered the same for both spaces.
+
+Note that spaces over $\mathbb{R}$ and $\mathbb{C}$ are still different!
+
+:::
+
+::: {#rem-remark-2}
+
+## Remark
+
+In order to study (the vector space structure of) finite dimensional Hilbert spaces, including the linear operators over these spaces, it suffices to $\mathbb{F}^n$ and matrices $M(n,m,\mathbb{F})$.
+
+This is a very important fact!
+
+:::
+
+## Linear subspaces
+
+We generalize the notion of a linear subspace to general vector spaces spaces (also infinite dimensional ones):
+
+::: {#def-linear-subspace}
+
+## Linear subspace
+
+Let $V$ be a vector space over $\mathbb{F}$. A subset $W \subset V$ is a *linear subspace* if it is closed under vector addition and scalar multiplication, i.e., if $$\forall w \in W, \quad \alpha w \in W, \quad w_1 + w_2 \in W,$$ and if $0 \in W$.
+
+:::
+
+Linear subspaces are also vector spaces.
+
+In the finite dimensional case $V$, we must have that $W\subset V$ is finite dimensional, too. In particular $W$ has a basis of vectors $b_i \in V$, $1 \leq m \leq n$, and $m$ is the dimension of $W$.
+
+Conversely, any linearly independent set $\{b_i\}$ of $m$ vectors of $V$ define a subspace of all possible linear combinations, written: $$W = \operatorname{span} \{ b_1, \dots, b_m \}.$$
+
+## Dirac's bra-ket notation
+
+Dirac introduced the bra-ket notation in his celebrated book on quantum mechanics. The notation, which is very useful, has some problems when one works in infinite dimensions. The interested student can have a look at the paper by Gieres 
+
+<!-- Legacy TODO: add citation -->
+
+.
+
+In the present case, we will use the bra-ket notation, since we work in finite dimensions, and since it is very intuitive and transparent.
+
+#### Bras and kets
+
+The basic premise is that we write the inner product with a bar instead of a comma: $$\left\langle u|v\right\rangle := \left\langle u,v\right\rangle$$ The idea is now that this is a scalar product between a vector $v \in V$ and a *dual element* $u^\dag \in V'$, denoted $$\left\langle u|v\right\rangle := \left\langle u,v\right\rangle  = u^\dag v.$$
+
+We now define $$\left|v\right\rangle := u \in V \quad \text{(``ket'')} \qquad \left\langle u\right| := \left|u\right\rangle^\dag \in V' \quad \text{(``bra'')}.$$ Thus, we interpret the bra-ket as a product between a bra and a ket, $$\left\langle u|v\right\rangle = \left\langle u\right| \cdot \left|v\right\rangle.$$
+
+::: {#rem-remark-3}
+
+## Remark
+
+The abstract juggling we did earlier with the daggers can be summarized as follows: We may think of kets as column vectors, and bras as row vectors. The dagger and the Hermitian adjoint are essentially the same operations: $$\left|u\right\rangle \quad \longleftrightarrow \quad \mathbf{u} \in \mathbb{F}^{n\times 1}$$ $$\left\langle u\right| \quad \longleftrightarrow \quad \mathbf{u}^H \in \mathbb{F}^{1\times n}$$
+
+:::
+
+#### Orthonormal basis
+
+Let $B = \{b_i\}$ denote an orthonormal basis for $V$. We denote the corresponding kets simply by $\left|i\right\rangle$. We may use any name we like, and simply using the index reduces clutter. Recall the expansion $$\left|u\right\rangle = \sum_i^n u_i \left|i\right\rangle,$$ and that the coefficients were $$u_i = \left\langle b_i, u\right\rangle = \left\langle i|u\right\rangle.$$ Inserting this expression gives $$\left|u\right\rangle = \sum_i^n \left\langle i|u\right\rangle \left|i\right\rangle = \sum_i^n \left|i\right\rangle\left\langle i|\cdot|u\right\rangle.$$ We can pull $\left|u\right\rangle$ outside the sum, to get $$\left|u\right\rangle = \left(\sum_i^n \left|i\right\rangle\left\langle i\right|\right) \left|u\right\rangle = \left|u\right\rangle.$$ Thus, the *identity operator* can be written using an orthonormal basis as $$\mathbf{1} = \sum_i^n \left|i\right\rangle\left\langle i\right|.$$ More generally, consider the expression $$\left|i\right\rangle\left\langle j\right|.$$ When acting on a basis vector, we see that it takes $\left|j\right\rangle$ and transforms it to $\left|i\right\rangle$. Watch this, where we use the $\mathbf{1}$ trick: $$\hat{A} = \mathbf{1}\hat{A} \mathbf{1} = \sum_{i}^n \sum_j^n \left|i\right\rangle\left\langle i|\hat{A}|j\right\rangle \left\langle j\right| = \sum_{i,j}^n \left|i\right\rangle A_{ij} \left\langle j\right|.$$ We have derived the fact that the set $\{ \left|i\right\rangle\left\langle j\right| \,:\, 1\leq i,j\leq n\}$ is a basis for the linear space of operators over $V$!
+
+This statement can of course be generalized to operators between different spaces $V$ and $W$ with their own orthonormal basis.
+
+Another important operator tool is the following construction: Let $B = \{b_1,\cdots,b_m\} \subset V$, with $\dim(V) = n$, be a set of vectors. They may or may not be linearly independent. Let $\left|i\right\rangle$ be a standard basis vector for $\mathbb{F}^m$. Consider the operator $\hat{B} : \mathbb{F}^m \to V$ given by $$\hat{B} = \sum_{i=1}^m \left|b_i\right\rangle\left\langle i\right|.$$ Let now $\mathbf{x}\in \mathbb{F}^m$, and compute $$\hat{B}\left|\mathbf{x}\right\rangle = \sum_{i=1}^m \left|b_i\right\rangle x_i,$$ that is $\hat{B}$ *generates linear combinations*. One can think of $\hat{B}$ as a generalized matrix, where each "column" is a ket, $$\hat{B} = [\left|b_1\right\rangle\; \left|b_2\right\rangle\; \cdots \; \left|b_m\right\rangle].$$ Since $V$ is $n$-dimensional, we can think of each ket as an $n$-dimensional vector in $\mathbb{F}^n$, i.e., $\hat{B}$ is like a matrix in $\mathbb{F}^{n\times m}$.

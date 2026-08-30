@@ -1,0 +1,39 @@
+# Hilbert spaces
+
+## $L^2$ -- the square integrable functions
+
+For a quantum chemist, the most important $L^p$ space is $L^2(\Omega)$, where $\Omega$ is a measure space, such as $\mathbb{R}^3$, or $X = \mathbb{R}^3 \times \{\uparrow,\downarrow\}$. Previously, we saw that this was a Banach space with the $L^2$ norm, but this norm comes from an inner product: $$\left\langle f,g\right\rangle_{L^2} := \int_\Omega \overline{f(x)} g(x) \, \mathrm{d}x,$$ where the complex conjugate is relevant only if $\mathbb{F}= \mathbb{C}$. Again, functions that agree on sets of measure zero are identified.
+
+## $\ell_2$ -- the archetypal separable Hilbert space
+
+Consider the following situation: Let $u = (u_i) \subset \mathbb{F}$ be a real or complex-valued sequence. Let $p \in [1,+\infty)$. We can define a norm given by $$\|u\|_p := \left(\sum_{i\in\mathbb{N}} |u_i|^p \right)^{1/p}.$$ The set of sequences such that $\|u_p\|$ is a convergent sum is called $\ell_p$. For $p=+\infty$, we set $\|u\|_{+\infty} = \max_i |u_i|$. The spaces $\ell_p$ are all Banach spaces.
+
+In particular, the space $\ell_2$ is a Hilbert space when we use the inner product $$\left\langle u,v\right\rangle = \sum_{i\in\mathbb{N}} \overline{u_i} v_i.$$ This Hilbert space is an archetypal Hilbert space, as we will next see.
+
+## Existence of orthonormal bases
+
+<!-- Legacy TODO: This section needs more work. -->
+
+The following fact is significant, because it tells us that $\ell_2(\mathbb{N};\mathbb{F})$ is an archetypal separable Hilbert space, much in the same manner as $\mathbb{F}^n$ is the archetypal finite-dimensional Hilbert space.
+
+::: {#def-orthnormal-basis-for-separable-hilbert-space}
+
+## Orthnormal basis for separable Hilbert space
+
+An orthonormal basis for an infinite dimensional separable Hilbert space $V$ is a linearly independent orthonormal set $\{b_i\}\subset V$ (i.e., $\left\langle b_i,b_j\right\rangle = 0$ whenever $i\neq j$, and $\left\langle b_i,b_i\right\rangle = 1$), such that for every $u \in V$, there exist numbers $c_i \in \mathbb{F}$ such that $$u = \sum_{i=1}^\infty c_i b_i.$$ The infinite sum is to be interpreted as a *series*, i.e., $u \in V$ means $$\|u - \sum_{i=1}^N c_i b_i\| \to 0 \quad \text{as} \quad N\to+\infty.$$
+
+The space of sequences equipped with the Euclidean inner product is denoted $\ell_2(\mathbb{N})$, $$\left\langle c,d\right\rangle_{\ell_2} = \sum_{i=1}^\infty \overline{c_i} d_i.$$ We see that $V$ and $\ell_2$ are *isometrically isomorphic* when a basis is given, since if $v = \sum_i d_i b_i$ then $\left\langle u,v\right\rangle= \left\langle c,d\right\rangle_{\ell_2}$.
+
+:::
+
+An fundamental result is the following:
+
+::: {#thm-statement-8}
+
+## Statement
+
+Any separable Hilbert space has an orthonormal basis.
+
+:::
+
+Thus any separable Hilbert space is essentially $\ell_2(\mathbb{N})$ after a basis has been chosen.

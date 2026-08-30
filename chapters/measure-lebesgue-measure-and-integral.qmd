@@ -1,0 +1,11 @@
+# Lebesgue measure and the Lebesgue integral
+
+Although we have defined the Borel $\sigma$-algebra on $\mathbb{R}^n$, and indicated how we would like the measure to be, we have not yet defined the measure.
+
+The key technical result that allows the existence and uniqueness of a measure on the Borel $\sigma$-algebra $\boldsymbol{B}(\mathbb{R}^n)$ is *Carathéodoty's extension theorem*. We will not describe this theorem in any detail, but just note that when we have defined our measure on a sufficiently large subset of $\boldsymbol{B}(\mathbb{R}^n)$, it can be *extended* to the whole algebra in a unique fashion to an actual measure.
+
+The subset of a $\sigma$-algebra needed is called a *semiring*: we have the empty set and $X$, as for the $\sigma$-algebra, and we also have intersevtions $A\cap B$ of oairs sets in the semiring. Finally, when we consider $A \setminus B$, this should be decomposable in a finite number of sets from the ring. Nothing more, no complements or unions. The reader can check that these conditions hold for the set of all half-open intervals $[a,b[\subset\mathbb{R}$, which is the most important examle. Now, the half-open intervals generate the Borel algebra of $\mathbb{R}$, and this is key.
+
+For $\mathbb{R}^n$, take the set of Cartesian products of half-open intervals as a semiring. A box is $B = [a_1,b_1[\times\cdots\times[a_n,b_n[$, with measure $\mu(B)=(b_1-a_1)\cdots(b_n-a_n)$. Now, the boxes generate the Borel algebra. The Carathéodory exension theorem now guarantees the existence of a *unique* measure on $\boldsymbol{B}(\mathbb{R}^n)$ such that it correctly reproduces the measure of all boxes.
+
+This measure is called *the Lebesgue measure* on $\mathbb{R}^n$, and together with the integral defined earlier, it makes for a very powerful integral. This integral generalizes the Riemann integralm in the sense that every Riemann integrable function is also Lebesgue integrable, with the same integral of course. But there are also many functions that "should" have an integral but for which the Riemann integral fails. For example, exhanging limits and integrals is more often valid with the Lebesgue integral. The Lebesgue integral is also needed to produce the Hilbert space of square-integrable wavefunctions in quantum mechanics!

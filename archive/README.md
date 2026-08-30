@@ -14,3 +14,20 @@ files are not part of routine book maintenance.
 
 Keep these files for migration history. The next recommendation system can be
 designed independently of them.
+
+The lecture-note migration added a separate reproducible pair of tools:
+
+- `scripts/migrate_lecture_notes.py` converts the active content included by
+  `ESQC2024_maths.tex`, creates the Quarto part and chapter files, converts the
+  PDF-compatible Illustrator figures to SVG, and imports the bibliography.
+- `scripts/audit_lecture_notes.py` checks the configured file tree, semantic
+  block counts, callouts, figures, identifiers, references, image paths, and
+  legacy-LaTeX artifacts.
+
+Run them from the project root with:
+
+```sh
+python3 archive/scripts/migrate_lecture_notes.py --force
+python3 archive/scripts/audit_lecture_notes.py
+quarto render
+```

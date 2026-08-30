@@ -4,6 +4,13 @@ math {
   font-family: "STIX Two Math", "Latin Modern Math", "Cambria Math", serif;
 }
 
+.recommended-reading-cover {
+  display: block;
+  width: min(11rem, 40%);
+  height: auto;
+  margin: 1rem 0 0;
+}
+
 /* Keep margin blocks below the sidebar/TOC rather than behind it. */
 main.content .no-row-height.column-margin.column-container,
 main.content .column-margin.column-container {

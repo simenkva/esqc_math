@@ -1,0 +1,79 @@
+# Measurable sets
+
+*Measure theory* tries to assign *measure* to subsets of some set $X$. This can be lengths of intervals of $\mathbb{R}$, areas in $\mathbb{R}^2$, et.c. A little thought shows that we need to consider quite general subsets. For example, I expect to be able to measure the area of a circle, but also the circle with a single point, or a countable number of points, punched out. Moreover, when integrating functions, we compute areas under a curve. Changing a function at a single point in $\mathbb{R}$, or a whole surface in $\mathbb{R}^3$, does not change the value of the integral of the function. We need to have a more rigorous understanding of measure.
+
+Consider the real line $\mathbb{R}$. Our intuition tells us that an interval $[a,b]\subset\mathbb{R}$ has length $\mu([a,b])=b-a$. The symbol $\mu$ means "measure". Similarly, the length of $\mathbb{R}$ must be infinite, $\mu(\mathbb{R}) = +\infty$. We also want the measure of a union of two disjoint intervals to be the sum of the lengths, $\mu([a,b]\cup [c,d]) = \mu([a,b]) + \mu([c,d])$, with $a < b\leq c < d$. And the measure of a single point should be zero, $\mu(\{x\}) = 0$. The measure of finitely many points should also be zero, but what about infinitely many points? If the set is *contably infinite*, we expect the measure to be zero, but the interval is an *uncountably infinite* set, with positive measure.
+
+This leads to the notion of a $\sigma$-algebra; an all-important notion in measure theory:
+
+::: {#def-algebra}
+
+## $\sigma$-algebra
+
+Let $X$ be a set. A $\sigma$-algebra $\boldsymbol{X}$ is a family of subsets of $X$ such that:
+
+1.  $\emptyset, X \in \boldsymbol{X}$ *empty set and $X$*
+
+2.  $A \in \boldsymbol{X}$ if and only if $A^\complement = X \setminus A \in \boldsymbol{X}$ *complements*
+
+3.  $A_i \in \boldsymbol{X}$ for $i \in I \subset\mathbb{N}$ implies that $\bigcup_{i \in I} A_i \subset \boldsymbol{X}$ *countable unions*
+
+The pair $(X,\boldsymbol{X})$ is called a measurable space, and $A \in \mathcal{X}$ is called a measurable (sub)set.
+
+:::
+
+Reading between the lines, so to speak, we dont't expect to be able to measure *all* subsets of $X$. Indeed, it turns out it is not possible in general to define a measure on all subsets of, say, $\mathbb{R}$. *There will be non-measurable sets, to which we cannot assign a meaningful measure*.
+
+::: {#exm-example-7}
+
+## Example
+
+The smallest possible $\sigma$-algebra: $$\boldsymbol{X} = \{\emptyset, X\}$$ The largestpossible $\sigma$-algebra: $$\boldsymbol{X} = 2^X = \{ \text{all subsets of $X$} \}$$ Interesting cases lie between these.
+
+:::
+
+The following lemma is useful, because it shows that one can always find a *smallest* $\sigma$-algebra fulfilling some condition:
+
+::: {#lem-intersections-of-algebras}
+
+## Intersections of $\sigma$-algebras
+
+Let $I$ be a set, and let $\{\boldsymbol{X}_i \mid i \in I\}$ be a family of $\sigma$-algebras. Then the intersection of all the $\sigma$-algebras is again a $\sigma$-algebra: $$\boldsymbol{X} = \left\{ A \mid A \in \boldsymbol{X}_i \; \text{for all $i\in I$} \right\}$$
+
+:::
+
+Turning to Euclidean space, or any other metric space, *the open sets* form subsets that we wisth to make measurable.
+
+::: {#def-borel-algebra}
+
+## Borel $\sigma$-algebra
+
+Let $X$ be a metric space. The Borel $\sigma$-algebra $\boldsymbol{B}(X)$ is the smallest $\sigma$-algebra that contain all open subsets of $X$. (It is enough to require that it contains all $\epsilon$-balls.)
+
+:::
+
+Such a smallest $\sigma$-algebra exists by the above lemma. We say that the Borel $\sigma$-algebra is *generated* by the open sets.
+
+Which subsets are included in the Borel $\sigma$-algebra?
+
+- All open sets
+
+- All closed sets
+
+- Countable unions of open and closed sets
+
+- Complements of countable unions of open and closed sets
+
+- ...
+
+::: {#exm-example-8}
+
+## Example
+
+Consider $\mathbb{R}$, and its Borel $\sigma$-algebra. It contains all subsets consisting of a single point, since $\{x\} = (]-\infty,x[ \cup ]x,+\infty[)^\complement$. But then we can take countable unions of such points, e.g., the rational numbers $\mathbb{Q}$, which is also measurable. But then we can take the complement, to get the irrational numbers $\mathbb{R}\setminus\mathbb{Q}$, also measurable.
+
+We can also consider the Cantor set: Start with an interval, and remove the middle third. Remove the middle third of those two again, and continue. It is not hard to see that this produces a measurable set, and in fact a *fractal*.
+
+So the Borel $\sigma$-algebra $\boldsymbol{B}(\mathbb{R})$ contains quite complicated sets.
+
+:::

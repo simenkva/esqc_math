@@ -1,0 +1,11 @@
+# Introductory remarks
+
+We now consider functions over Euclidean space, and more generally Banach and Hilbert spaces. We discuss continuity, differentiability, and integration.
+
+Traditionally, the study of real-valued functions from $\mathbb{R}$ to $\mathbb{R}$ is called calculus, including the study of sequences, series, differentiability, maxima, minima, and integration. It is no understatement to say that calculus is very important to any scientist that deals with calculations of any kind, such as quantum chemists.
+
+The study of functions $f : \mathbb{C}\to\mathbb{C}$ is traditionally called *complex analysis*. The algebraic properties of the complex plane introduce strong and surprising results that it is easy to fall in love with.
+
+It is conventional to call the study of functions $f : \mathbb{R}^n \to \mathbb{R}^m$ *vector calculus*. Moreover, the geometry of $\mathbb{R}^2$ and $\mathbb{R}^3$ is quite important in science, and this special topic is therefore often singled out.
+
+Moving beyond vector calculus, we have the study of functions $f : V \to W$, where $V$ and $W$ are complete normed spaces (Banach spaces). Since quantum mechanics if formulated in Hilbert space, and since many of the quantum chemistry methods are defined in terms of linear or nonlinear partial differential equations, the study of calculus in infinite dimensional spaces hold a certain importance. This topic is often called *non-linear functional analysis*.

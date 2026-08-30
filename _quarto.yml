@@ -16,6 +16,51 @@ book:
 #  downloads: [pdf, epub]
   chapters:
     - index.qmd
+    - part: parts/fundamentals.qmd
+      chapters:
+        - chapters/fundamentals-introduction.qmd
+        - chapters/fundamentals-preliminary-notes.qmd
+        - chapters/fundamentals-numbers.qmd
+
+    - part: parts/linear-algebra.qmd
+      chapters:
+        - chapters/linear-algebra-finite-dimensional.qmd
+        - chapters/linear-algebra-inner-product-spaces.qmd
+        - chapters/linear-algebra-matrices.qmd
+
+    - part: parts/topology.qmd
+      chapters:
+        - chapters/topology-notion.qmd
+        - chapters/topology-metric-space-hierarchy.qmd
+        - chapters/topology-concepts.qmd
+
+    - part: parts/measure-and-integration.qmd
+      chapters:
+        - chapters/measure-measurable-sets.qmd
+        - chapters/measure.qmd
+        - chapters/measure-integral.qmd
+        - chapters/measure-lebesgue-measure-and-integral.qmd
+        - chapters/measure-lebesgue-spaces.qmd
+
+    - part: parts/functional-analysis.qmd
+      chapters:
+        - chapters/functional-analysis-infinite-dimensions.qmd
+        - chapters/functional-analysis-lp-spaces.qmd
+        - chapters/functional-analysis-hilbert-spaces.qmd
+        - chapters/functional-analysis-linear-transformations.qmd
+        - chapters/functional-analysis-operators.qmd
+        - chapters/functional-analysis-weak-schrodinger.qmd
+        - chapters/functional-analysis-fourier-transform.qmd
+        - chapters/functional-analysis-distributions.qmd
+
+    - part: parts/calculus-and-complex-analysis.qmd
+      chapters:
+        - chapters/calculus-introductory-remarks.qmd
+        - chapters/calculus-several-variables.qmd
+        - chapters/calculus-tools.qmd
+        - chapters/complex-analysis.qmd
+
+    - references.qmd
  
 bibliography: references.bib
 
@@ -104,6 +149,15 @@ format:
 
 
 custom-callout:
+  recommended-reading:
+    title: "Recommended reading"
+    color: "#2878A2"
+    html:
+      icon:
+        png: "icons/books.png"
+    epub:
+      icon: "icons/books.png"
+
   fact:
     title: "Fact"
     color: "#3EAF3E"

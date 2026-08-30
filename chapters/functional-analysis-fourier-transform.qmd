@@ -1,0 +1,92 @@
+# The Fourier transform
+
+The Fourier transform of a square-integrable function is a very useful tool for the study of quantum chemistry. It phrases in mathematical terms the idea that a function can be decomposed into plane wave components with varying weights and frequencies.
+
+## Fourier transform for functions over $\mathbb{R}^n$
+
+The Fourier transform is an integral transformation, taking a function into a new function. It is therefore an operator between function spaces.
+
+The transform is most easily defined for $L^1$ functions, but can be extended to a much larger class of functions, e.g., $L^2$ functions.
+
+::: {#def-fourier-transform-on-l-1}
+
+## Fourier transform on $L^1$
+
+We define the *Fourier transform* of $u \in L^1(\mathbb{R}^n)$ as the linear operator $\mathcal{F} \in L(L^1(\mathbb{R}^n), L^\infty(\mathbb{R}^n))$, with an auxiliary notation $\mathcal{F}u = \hat{u} \in L^\infty(\mathbb{R}^n)$, and given by the formula
+
+$$
+\hat{u}(\mathbf{k}) = \frac{1}{(2\pi)^{n/2}}\int_{\mathbb{R}^n} e^{-\mathrm{i}\mathbf{k}\cdot\mathbf{x}} u(\mathbf{x})\; \mathrm{d}\mathbf{x}.
+$$ {#eq-fourier-transform}
+
+ We define the *inverse Fourier transform* of $u \in L^1(\mathbb{R}^n)$ as the function $\mathcal{F}^{-1}u = \check{u} \in L^\infty(\mathbb{R}^n)$ given by the formula
+
+$$
+\check{u}(\mathbf{k}) = \frac{1}{(2\pi)^{n/2}}\int_{\mathbb{R}^n} e^{\mathrm{i}\mathbf{k}\cdot\mathbf{x}} u(\mathbf{x})\; \mathrm{d}\mathbf{x}.
+$$ {#eq-inverse-fourier-transform}
+
+:::
+
+As defined, the inverse transform is actually only defined as a transform on $L^1(\mathbb{R}^n)$, not $L^\infty(\mathbb{R}^n)$. Therefore it is not actually the inverse. However, it can be extended to the actual inverse on $L^\infty(\mathbb{R}^n)$.
+
+To see that the definitions of $\hat{u}$ and $\check{u}$ as integrals make sense, consider a function $u \in L^1(\mathbb{R}^n)$, and the integral in @eq-fourier-transform. This integral exists for all $\mathbf{k}$, since $$|\hat{u}(\mathbf{k})| \leq \frac{1}{(2\pi)^{n/2}}\int_{\mathbb{R}^n} | u(\mathbf{x})| \; \mathrm{d}\mathbf{x} = \frac{1}{(2\pi)^{n/2}}\|u\|_1.$$ Hence, $\hat{u} \in L^\infty(\mathbb{R}^3)$. The same argument applies to @eq-inverse-fourier-transform.
+
+Can we define the Fourier integral for any $u \in L^\infty(\mathbb{R}^n)$? No, just pick the constant function $u(\mathbf{x}) = 1$. The function $\exp(-i\mathbf{k}\cdot\mathbf{x})$ is measurable but not integrable.
+
+We can, however, extend the definition of the Fourier integral to $L^2(\mathbb{R}^n)$. The classical way to do this, is via *Plancherel's Theorem*. The result is a *unitary operator* $\mathcal{F}$ on $L^2(\mathbb{R}^n)$, and in that case $\mathcal{F}^{-1}$ is actually given by @eq-inverse-fourier-transform:
+
+::: {#thm-fourier-transform-on-l-2}
+
+## Fourier Transform on $L^2$
+
+For $u \in L^2(\mathbb{R}^n)$, the Fourier integral @eq-fourier-transform is almost-everywhere defined, and $\hat{u} \in L^2(\mathbb{R}^n)$. The Fourier transform is *unitary*, i.e., $\|u\|_2 = \|\hat{u}\|_2$. Moreover, we have the following properties: Let $u,v\in L^2(\mathbb{R}^n)$. Then,
+
+1.  $\left\langle u,v\right\rangle_2 = \left\langle\hat{u},\hat{v}\right\rangle_2 = \left\langle\check{u},\check{v}\right\rangle$ *unitarity*
+
+2.  $\widehat{\partial^\alpha u} = (\mathrm{i}\mathbf{k})^\alpha \hat{u}$ *partial derivatives*
+
+3.  $\widehat{u * v} = (2\pi)^{n/2} \hat{u}\hat{v}$ *convolutions*
+
+4.  $u = (\hat{u})^\vee = (\check{u})^\wedge$ (almost everywhere) *inverses*
+
+:::
+
+Here, $\alpha$ is a multindex $\alpha = (\alpha_1,\cdots,\alpha_k)$, and $$\partial^\alpha = \frac{\partial ^{\alpha_1}}{\partial x_1^{\alpha_1}}\frac{\partial ^{\alpha_2}}{\partial x_2^{\alpha_2}}\cdots\frac{\partial ^{\alpha_n}}{\partial \alpha_n^{\alpha_n}}, \quad \mathbf{k}^\alpha = k_1^{\alpha_1}\cdots k_n^{\alpha_n}$$
+
+::: {#exm-gaussian}
+
+## Gaussian
+
+Let $A = A^T$ be an $n\times n$ real invertible matrix, and consider the funtion $u \in L^2(\mathbb{R}^n)$ given by $$u(\mathbf{x}) = \exp(-\mathbf{x}^T A \mathbf{x}/2)$$ Then $$\hat{u}(\mathbf{k}) = \exp(-\mathbf{k}^T A^{-1} \mathbf{k}/2)$$
+
+:::
+
+<!-- Legacy TODO: Write up some intuition: Smoothness is ``dual'' to rapid decay. Translation is ``dual'' to multiplication by phase factor/plane wave. Scaling by $\lambda$ is dual to scaling by $\lambda^{-1}$. -->
+
+## Fourier series and periodic Fourier transform
+
+Another version of the Fourier transform is for square-integrable functions defined on the "unit torus" $\mathbb{T}^n$. The 1D unit torus $\mathbb{T}$ is the interval $[0,1[$ with periodic boundary conditions, i.e., the points $0$ and $1$ are identified. (This identification means a certain modification of open sets in $[0,1[$. Can you describe it?)
+
+Thus we consider functions in $L^2(\mathbb{T}^n)$.
+
+We begin with the case $n=1$. The Fourier transform of $u \in L^2(\mathbb{T})$ is defined by $$\hat{u}_k = \int_{\mathbb{T}} e^{-2\pi\mathrm{i}k x} u(x) \; \mathrm{d}x.$$ It is readily verifiable that this is equivalent to computing the basis expansion coefficients of the orthonormal set of vectors $$\phi_k (x) = e^{2\pi\mathrm{i}k x}, \quad k \in \mathbb{Z}.$$ (That this is indeed a basis must be shown.) The map $u \mapsto \hat{u}$ is an isometric isomorphism of $L^2(\mathbb{T})$ and $\ell_2(\mathbb{Z})$. The inverse Fourier transform is the *Fourier series* $$\check{c}(x) = \sum_{k\in\mathbb{Z}} e^{2\pi \mathrm{i}k x} c_k.$$ It is a fact that $(\hat{u})^\vee = u$ almost everywhere, and that $\check{c}^\wedge = c$.
+
+The $n$-dimensional generalization of the Fourier transform is $$\hat{u}_{\mathbf{k}} = \int_{\mathbb{T}^n} e^{-2\pi \mathrm{i}\mathbf{k}\cdot\mathbf{x}} u(\mathbf{x}) \; \mathrm{d}\mathbf{x},$$ and the Fourier series is $$\check{c}(\mathbf{x}) = \sum_{\mathbf{k}\in \mathbb{Z}^n} e^{2\pi 
+    \mathrm{i}\mathbf{k}\cdot\mathbf{x}} c_{\mathbf{k}} \; \mathrm{d}\mathbf{x}.$$
+
+The transform $u \mapsto c = \hat{u}$ is an isometric isomorphism between $L^2(\mathbb{T}^n)$ and $\ell_2(\mathbb{Z}^n)$.
+
+::: {#thm-fourier-series}
+
+## Fourier series
+
+1.  $\left\langle u,v\right\rangle = \left\langle\hat{u},\hat{v}\right\rangle = \sum_{\mathbf{k}\in\mathbb{Z}^n} \hat{u}_{\mathbf{k}}\hat{v}_{\mathbf{k}}$ *unitarity*
+
+2.  $\widehat{\partial^\alpha u} = (2\pi \mathrm{i})^{|\alpha|} \mathbf{k}^\alpha \hat{u}_{\mathbf{k}}$ *partial derivatives* 
+
+<!-- Legacy TODO: \item a convolution identity, work it out -->
+
+3.  $u = (\hat{u})^\vee$ (almost everyhwere), and $c = (\check{c})^\wedge$ *inverses*
+
+:::
+
+<!-- Legacy TODO: Express Fourier series on arbitrary interval/torus, introducing normalization constants. -->

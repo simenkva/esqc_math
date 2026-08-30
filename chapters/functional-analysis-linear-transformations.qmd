@@ -1,0 +1,99 @@
+# Linear transformations
+
+We now scratch the surface on linear transformations on infinite dimensional Banach and Hilbert spaces.
+
+Let $V$ be a separable Hilbert space. We now know that we may think of this space as the coneptually simpler space $\ell_2 = \ell_2(\mathbb{N})$, the space of square summable sequences. In particular, there is no notion of having to consider equivalence classes of functions defined almost everywhere.
+
+In the finite dimensional case, linear transformations between vector spaces became matrices. How about in the separable Hilbert space case? Do linear transformations and operators become infinite matrices?
+
+Yes and no. One can certainly define a class of linear transformations using infinite matrices, if one is careful. However, the set of linear transformations on a Hilbert space is much richer than the corresponding finite dimensional linear transformations. For a given basis choice a linear transformation may or may not have a well-defined matrix representation.
+
+Perhaps the most important fact is that *transformations need not be continuous*. In the finite-dimensional case, all linear transformations were continuous, even though we did not discuss this fact: In finite dimensions, there is no way for a linear transformation to produce rips or tears or jumps. Moreover, even if linear transformations is continuous, there are some that are "more continuous" than others, such as compact operators, Hilbert--Schmidt operators, trace-class operators, and merely continuous operators.
+
+Since the topology on a Banach or Hilbert space is translationally invariant, a linear transformation $T: V \to W$ between two Banach spaces is continuous at $x \in V$ if and only if it is continuous at $0$, and then continuity is equivalent to *boundedness*, i.e., a finite operator norm:
+
+::: {#def-bounded-transformations}
+
+## Bounded linear transformations
+
+Let $V$ and $W$ be Banach spaces over $\mathbb{F}$, and let $D(T) \subset V$ be a linear subspace.Let $T : V \to W$ be a linear transformation, i.e., for all $u,v \in D(T)$ and all $\alpha \in \mathbb{F}$, $$T(\alpha u) = \alpha Tu,$$ and $$T(u + v) = Tu + Tv.$$ The linear space $D(T)$ is called the *domain of $T$*, and it may or may not be all of $T$. Let $\|T\|_{L(V,W)}$ be the norm ("operator norm") defined by $$\|T\|_{L(V,W)} = \sup \left\{ \frac{\|T u\|_W}{\|u\|_V} \mid 0 \neq u \in D(T) \right\}.$$ If $\|T\|_{L(V,W)}< +\infty$ and $D(T) = V$, then $T$ is a *bounded, or countinuous, linear transformation from $V$ to $W$*.
+
+:::
+
+In the definition, note that we introduce the domain $D(T)$ of $T : V \to W$. The reason is that operators that are not bounded usually cannot be defined on all of $V$. On the other hand, if $T$ is bounded on $D(T)$ the *bounded linear transformation theorem* states that $T$ can be unuqiely *extended* to all of $V$. This is why we eliminate the domain in the definition of the space $L(V,W)$ of bounded linear transformations.
+
+::: {#thm-bounded-linear-transformations-are-continuous}
+
+## Bounded linear transformations are continuous
+
+Any $T \in L(V,W)$ is a continuous function.
+
+:::
+
+We now give an examples of linear transformations that are *unbounded*, i.e., not bounded.
+
+::: {#exm-example-of-unbounded-linear-transformation}
+
+## Example of unbounded linear transformation
+
+Let $\ell_2(\mathbb{N},\mathbb{R})$ be the space of square summable sequences of real numbers, i.e., $u = (u_n) \subset \mathbb{R}$ with $$\sum_{n=1}^\infty u_n^2 < +\infty.$$ Let $A$ be the operator that is defined by $$(Au)_n = n u_n,$$ i.e., each element in the sequence is multiplied by $n$. Let $(e_m)_n = \delta_{m,n}$ be the sequence which is zero everywhere except for the $m$'th position, where we have a 1. Then $Ae_m = (0,0,0,\cdots,m,\cdots)$ where the $m$ is in the $m$'th position. We have $\|A e_m\| = m$, which grows to infinity as $m\to+\infty$. Therefore $A$ is not bounded.
+
+Furthermore, the sequence given by $u_n = n^{-1}$ is square summable, that is, $$\| u \|^2 = \sum_n n^{-2} < +\infty.$$ However, $Au = (1, 1, 1, 1, \dots)$ which is clearly not square summable. So $A$ cannot be defined on all of $\ell_2(\mathbb{N},\mathbb{R})$.
+
+:::
+
+This example illustrates an important fact for unbounded operators: They are typically *not* everywhere defined.
+
+Here is another example relevant for quantum chemistry:
+
+::: {#exm-unbounded-operator}
+
+## Unbounded operator
+
+Let $u_\alpha \in L^2(\mathbb{R})$ be given by $$u_\alpha(x) = N(\alpha) \exp(-\alpha x^2/2).$$ Here, $N(\alpha) = (\alpha/\pi)^{1/4}$ is such that $\|u_\alpha\|=1$. Let $\hat{D} = \partial_x$, and compute $$\partial_x u_\alpha(x) = -\alpha x u_\alpha(x).$$ We obtain $$\frac{\|\partial_x u_\alpha\|}{\|u_\alpha\|} = \sqrt{2} \alpha$$ This goes to infinity as $\alpha \to +\infty$. Thus, $\partial_x$ is unbounded. Similarly, it is easy to show that the kinetic energy operator $-\nabla^2/2$ for a single particle is unbounded.
+
+:::
+
+## Compact operators
+
+In finite dimensions, all linear transformations are bounded, and hence continuous. Furthermore, in finite dimensions, all bounded and closed sets are *compact*, see [topology](../parts/topology.qmd).
+
+Compact linear transformations are "more than continuous". They are such that closed and bounded subsets are mapped to compact sets.
+
+::: {#def-compact-linear-transformation}
+
+## Compact linear transformation
+
+Let $V$ and $W$ be Banach spaces over $\mathbb{F}$, and let $T \in B(V,W)$. The linear transformation $T$ is called *compact* if the closed unit ball $U = \{ x\in V \mid \|x\|_V \leq 1\}$ is mapped to a compact subset $T[U]\subset W$.
+
+:::
+
+## Eigenvalues and the spectrum
+
+For finite dimensional Banach spaces, the concept of an *eigenvalue* of a linear operator is well-known. If $V$ is a finite-dimensional Banach space over $\mathbb{F}$, and $T \in L(V)$ is a bounded linear operator, then the eigenvalue problem reads: $$\text{Find nonzero $u\in V$ and $\lambda \in V$, such that $Tu = \lambda u$.}$$ In finite dimensions, the eigenvalue problem *always* has a solution if $\mathbb{F}= \mathbb{C}$, since it can be reduced to finding a root of a finite-degree polynomial, and we can appeal to the Funamental Theorem of Algebra to find our eigenvalue.
+
+In *infinite dimensions*, however, this is no longer true. Why? The concept of determinant is not valid for these operators, and one must use more abstract means to show existence of an eigenvalue problem. The followine example is illustrative:
+
+::: {#exm-shift-operator}
+
+## Shift operator
+
+Let $V = \ell_2(\mathbb{N};\mathbb{C})$, the space of square summable sequencess $u = (u_i) \subset \mathbb{C}$ with complex coefficients. Let $T$ be the *shift operator*: $$T(u_0,u_1,\cdots) = (0, u_0, u_1, \cdots).$$ This operator has no eigenvalues, and it is an instructive exercise to show this. (See the exercises.)
+
+:::
+
+For infinite dimensional Banach spaces, the *spectrum* of an operator is a generalization of the set of eigenvalues that we have in the finite dimensional case.
+
+::: {#def-spectrum-and-resolvent-of-bounded-operators}
+
+## Spectrum and resolvent of bounded operators
+
+Let $V$ be a Banach space over $\mathbb{C}$, and let $T \in L(V)$ be a bounded operator. The *resolvent* of $T$ is the set $$\rho(T) = \left\{ \lambda \in \mathbb{C}\mid T - \lambda I \; \text{has a bounded inverse} \right\}.$$ Here, $I$ is the identity operator, $Iu = u$. That $X$ has a bounded inverse means that there is an operator $\tilde{X}\in L(V)$ such that $\tilde{X}X = X\tilde{X} = I$ on $V$. We then write $\tilde{X} = X^{-1}$.
+
+The *spectrum* of $T$ is defined as: $$\sigma(T) = \left\{ \lambda \in \mathbb{C}\mid T - \lambda I \; \text{does not have a bounded inverse} \right\}.$$
+
+The set $\rho(T)\subset\mathbb{C}$ is a closed (in fact compact) set, and $\sigma(T)\subset \mathbb{C}$ is an open set.
+
+:::
+
+The spectrum can be quite general, but at least it is compact, i.e., closed *and* bounded. For unbounded operators the situation is more complicated.

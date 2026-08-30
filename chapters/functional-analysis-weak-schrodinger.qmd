@@ -1,0 +1,63 @@
+# Weak formulation of the Schrödinger equation {#sec-weak-formulation-of-schroedinger}
+
+We have now amassed a set of tools that allow us to formulate the Schrödinger equation using Sobolev spaces. This formulation is often called *the weak formulation*, since we do not require solutions to be *classical* in the sense that any derivative that occurs is of the weak type.
+
+For simplicity, we consider a single spinless particle in $\mathbb{R}^3$, with Hamiltonian $$\mathcal{H} = - \frac{1}{2}\nabla^2 + V(\vec{r}),$$ where $V(\vec{r})$ is a multiplicative potential operator, assumed for the moment to be measurable and in $L^1_\text{loc}(\mathbb{R}^3)$. For the moment we let the potential be otherwise unknown. The calligraphic $\mathcal{H}$ is to distinguish it from an actual Hilbert-space operator. It is *formal*, a term mathematicians use about physics formulas that are not rigorous mathematics. Sometimes, but not always, it's just because they don't understand it. (It is also a term that physicists use about mathematics they don't understand, so mathematicians and physicists are really not that different.)
+
+Physicists now want to solve the eigenvalue problem of $\mathcal{H}$, i.e., find nonzero $\psi : \mathbb{R}^3 \to \mathbb{C}$ and $E\in \mathbb{R}$ such that
+
+$$
+\mathcal{H}\psi = E\psi.
+$$ {#eq-formal-se}
+
+ This equation is also *formal*, because we don't know what kinds of functions $\mathcal{H}$ can operate on.
+
+In order to connect with spectral theory of self-adjoint operators on Hilbert space, we must find a self-adjoint $\hat{H} : D(\hat{H}) \to L^2$ with domain $D(\hat{H})$ that somehow represents $\mathcal{H}$. If we don't do this properly, we may end up "missing" eigenfunctions, or even create complex eigenvalues, which is nonsense.
+
+So let $\phi : \mathbb{R}^3 \to \mathbb{C}$ be a $C^\infty_0(\mathbb{R}^3)$ function. This is a dense set of $L^2$, and it is typical in functional analysis to study such well-behaved sets first, then take limits or closures afterwards. With such a $\phi$, $\mathcal{H}\phi$ is a measurable function; $\nabla^2\phi \in C^\infty_0(\mathbb{R}^3)$, and $V\phi$ is a measurable function (since products of measurable functions are measurable). Requiring $\mathcal{H}\phi$ to be actually in $L^2$ might be too strong, so let us consider the energy expectation value, $$\mathcal{E}(\phi) = \frac{\left\langle\phi,\mathcal{H}\phi\right\rangle}{\left\langle\phi,\phi\right\rangle}.$$ This is now a well-defined function on all nonzero elements of $C^\infty_0(\mathbb{R}^3)$. To see this, note that the denominator is certainly well-defined. The numerator is $$\left\langle\phi,\mathcal{H}\phi\right\rangle = \int \frac{-1}{2} \overline{\phi} \nabla^2 \phi + \overline{\phi} V\phi.$$ Since $V\phi$ is measurable, $$|\int |\phi|^2 V | \leq \|\phi\|_\infty^2 \int_K |V| < + \infty,$$ where $K\subset \mathbb{R}^3$ is the support of $\phi$. Thus, the numerator is well-defined as well.
+
+We now *define* the ground-state energy of $\mathcal{H}$ to be $$E_0 = \inf \{ \mathcal{E}(\phi) \mid \phi \in C^\infty_0(\mathbb{R}^3), \phi \neq 0 \}$$ where the infimum is the *greatest lower bound* of the function, i.e., $E_0$ is the largest number such that there is no $\phi$ that gives $\mathcal{E}(\phi) < E_0$.
+
+As chemists, we know that the elctronic wavefunction has *cusps*. Thus, the space $C^\infty_0$ cannot be large enough to capture our eigenfunctions. We need to *extend* the energy function to a properly large space.
+
+Using integration by parts, we write the kinetic energy as $$-\frac{1}{2}\left\langle\phi,\nabla^2\phi\right\rangle = \frac{1}{2} \left\langle\nabla\phi,\nabla\phi\right\rangle.$$ This is one out of two locations where the term *weak formulation* is relevant, because we no longer differentiate *twice*, but only once. The second location is the following: We would like to define $\mathcal{E}$ on a *complete* vector space, because we would like to say something about existence of a minimizer, i.e., existence of the eigenfunction of the energy, e.g., since we know about cusps, and also that the exact eigenfunction does not suddenly come zero, such as is the case with $C^\infty_0$. Our enlarged space should be a subspace of $L^2$ due to the fact that we want a probability interpretation. (See also de denominator.) The *largest* subspace of $L^2$ where the kinetic energy is finite is the Sobolev space $H^1$. This space is a space of *weak derivatives*.
+
+So our candidate space is $H^1$. What assumptions do we need on $V$ in order to make the potential energy well-defined? We also need to make sure that if we find a minimizer of $\mathcal{H}$, this will be an eigenfunction of a self-adjoint operator $\hat{H} : D(\hat{H}) \to L^2$, because this is needed to define quantum mechanics.
+
+Suppose $V$ is such that it is *relatively form-bounded from below by kinetic energy*, in the following manner: Suppose that there exists $\epsilon  \in[0,1[$ and a $C_\epsilon \geq 0$, such that for all $\phi\in H^1$,
+
+$$
+|\left\langle\phi,V\phi\right\rangle| \leq \epsilon \frac{1}{2}\left\langle\nabla\phi,\nabla\phi\right\rangle + C_\epsilon \|\phi\|^2.
+$$ {#eq-form-bounded}
+
+ Then we see that $$\left\langle\phi,\mathcal{H}\phi\right\rangle \geq \frac{1}{2}(1-\epsilon) \left\langle\nabla\phi,\nabla\phi\right\rangle - C_\epsilon \|\phi\|^2.$$ Thus, $$\mathcal{E}(\phi) \geq \frac{1}{2}(1-\epsilon) \frac{\left\langle\nabla\phi,\nabla\phi\right\rangle}{\left\langle\phi,\phi\right\rangle} - C_\epsilon  \geq - C_\epsilon,$$ and therefore *the function $\mathcal{E}$ is defined on $H^1$ and bounded from below*.
+
+Not only that, but we also get $$\left\langle\phi,\mathcal{H}\phi\right\rangle \leq \frac{1}{2}(1 + \epsilon)\|\nabla\phi\|^2 + C_\epsilon \|\phi\|^2 \leq C_\epsilon'\|\phi\|_{H^1}^2,$$ i.e., that $\mathcal{E}$ is also *bounded above*.
+
+It turns out that the following is true:
+
+::: {#lem-form-boundedness-of-a-class-of-potentials}
+
+## Form boundedness of a class of potentials
+
+Let $V \in L^2(\mathbb{R}^3) + L^\infty(\mathbb{R}^3)$. Then $V$ is relatively form bounded in the sense of @eq-form-bounded.
+
+:::
+
+There is a powerful representation theorem for quadratic forms such as $h(\phi) = \left\langle\phi,\mathcal{H}\phi\right\rangle$. Note that we have proven (or at least outlined the proof) that $|h(\phi)| \leq C \|\phi\|_{H^1}$ for some constant $C$. Them, the representation theorem says that there is a unique self-adjoint operator $\hat{H} : D(\hat{H})\to L^2$ such that $D(\hat{H})\subset H^1$ (a dense subset), and such that for all $\phi \in D(\hat{H})$, $$h(\phi) = \left\langle\phi,\hat{H}\phi\right\rangle.$$ We are almost done, because now we *can* differentiate the function $\mathcal{E} : H^1 \to \mathbb{R}$ to form the eigenvalue equation $$\hat{H}\psi = E\psi, \quad E = \mathcal{E}(\psi).$$ The question is: what is $D(\hat{H})$? A remarkable fact is that for $V \in L^2 + L^\infty$, then $D(\hat{H}) = H^2(\mathbb{R}^3)$.
+
+Note that even if we have a *weak formulation* of the Schrödinger equation, that only assumes one weak derivative in the variational principle, we actually get eigenfunctions that are twice weakly differentiable!
+
+We summarize as a theorem:
+
+::: {#thm-weak-formulation-of-the-schr-odinger-equation}
+
+## Weak formulation of the Schrödinger equation
+
+Let $V \in L^2 + L^\infty$ (which includes the Coulomb potential of the hydroge atom). Then the operator $\hat{H} : H^2\to L^2$ given by $$\hat{H} = -\frac{1}{2}\nabla^2 + V$$ is self-adjoint. Its eigenfunctions are critical points of the energy function $\mathcal{E} : H^1 \to \mathbb{R}$ given by $$\mathcal{E}(\phi) = \frac{\frac{1}{2}\left\langle\nabla\phi,\nabla\phi\right\rangle + \left\langle\phi,V\phi\right\rangle}{\left\langle\phi,\phi\right\rangle}.$$
+
+:::
+
+We note in passing, that even for functions $\phi \in H^1$ we *can* defined $\nabla^2\phi$ as a *distribution*, i.e., a generalized function. This distribution is such that $\left\langle\phi,-\nabla^2\phi\right\rangle = \left\langle\nabla\phi,\nabla\phi\right\rangle$.
+
+We also note that the construction can be generalized to $N$-electron Hamiltonians with Coulomb interactions between pairs of electrons and between electrons and nuclei.

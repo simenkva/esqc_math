@@ -1,0 +1,316 @@
+# Finite dimensional vector spaces
+
+Linear algebra is perhaps the most important tool for modern science: quantum mechanics, data analysis, machine learning, ...All use linear algebra in one way or another.
+
+::: {.recommended-reading}
+
+This was my curriculum in the first linear algebra course I took. I think it is a very good book, and highly readable. What it lacks, is the consideration of general finite dimensional linear vector spaces.
+
+![](../figures/lecture-notes/recommended-reading/Fraleigh-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+:::
+
+::: {.recommended-reading}
+
+An online textbook in linear algebra by Robert A. Beezer can be found here: <http://linear.ups.edu/>. It is free, and also has great sets of exercises. PDF versions here: <http://linear.ups.edu/download.html>
+
+![](../figures/lecture-notes/recommended-reading/Beezer-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+:::
+
+::: {.recommended-reading}
+
+This book by the great Paul Halmos is old, by very comprehensive. I find it quite readable, and have used it many times. I would consider the level to be more advanced than Fraleigh and Beauregard.
+
+![](../figures/lecture-notes/recommended-reading/Halmos-finite-frontpage.jpg){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+:::
+
+## Euclidean space
+
+Much of what we do in quantum chemistry is in the context of the spaces $\mathbb{R}^n$ or $\mathbb{C}^n$. These are examples of *vector spaces*. We will define general vector spaces later, but for the moment it is easier to concentrate on $\mathbb{F}^n$.
+
+::: {#def-euclidean-space}
+
+## Euclidean space
+
+Let $\mathbb{F}$ be either $\mathbb{R}$ or $\mathbb{C}$. Let $\mathbb{F}^n$ be the set of $n$-tuples of $\mathbb{F}$-numbers $\mathbf{x} = (x_1,\cdots,x_n)$, on which we define the following operations: For $\mathbf{x},\mathbf{y}\in\mathbb{F}^n$ define $$\mathbf{x} + \mathbf{y} \in \mathbb{F}^n, \quad (\mathbf{x}+\mathbf{y})_i = x_i + y_i \qquad\text{addition},$$ for all $1 \leq i \leq n$. and for any $\alpha \in \mathbb{F}$, $$\alpha \mathbf{x} \in \mathbb{F}^n, \quad (\alpha \mathbf{x})_i = \alpha x_i \qquad\text{scalar multiplication}.$$ We also define the Euclidean *inner prooduct* $$\left\langle\mathbf{x}, \mathbf{y}\right\rangle = \bar{\mathbf{x}} \cdot \mathbf{y} = \sum_i \bar{x}_i y_i \in \mathbb{F}\qquad\text{Euclidean inner product}$$ and the Euclidean norm $$\|\mathbf{y}\| = \sqrt{\left\langle\mathbf{x},
+    \mathbf{x}\right\rangle} \in\mathbb{R}.\qquad\text{Euclidean norm}$$
+
+:::
+
+The two first axioms give $\mathbb{F}^n$ the structure of a vector space, while the two next axioms define a *topology*. We will see the formal definition of general vector spaces later. We will say more on topology later.
+
+The boldface symbol for vectors in Euclidean space is very common in linear algebra. Less common, but not unusual, is the notation $\vec{r}$. This notation is more common in $\mathbb{R}^2$ and $\mathbb{R}^3$. It is also common to simply use plain letters $u$, $v$, etc., for vectors. Some like to put a tilde under the letters, $\underset{\sim}{u}$.
+
+It is common to write vectors in $\mathbb{F}^n$ as *column vectors*, i.e., $$\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}.$$ It is also common to simply list the elements as a tuple, $$\mathbf{x} = (x_1, x_2,\cdots, x_n).$$ You will see both versions in the literature, and one must get used to the different notations.
+
+A *basis* is a set of vectors in which we may linearly expand every vector. We begin with the *standard basis*:
+
+::: {#def-standard-basis}
+
+## Standard basis
+
+The *standard basis* for $\mathbb{F}^n$ is the set of vectors $\{\mathbf{e}_i \mid 1 \leq i \leq n\}$ such that $$(\mathbf{e}_i)_j = \delta_{ij}, \qquad\textit{Kronecker delta symbol}$$ i.e., $$\mathbf{e}_1 = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0\end{bmatrix}, \quad
+    \mathbf{e}_2 = \begin{bmatrix} 0 \\ 1 \\ \vdots \\ 0\end{bmatrix}, \quad\text{etc.}$$
+
+:::
+
+It now follows that for every $\mathbf{x}\in\mathbb{F}^n$, $$\mathbf{x} = \sum_{i=1}^n x_i \mathbf{e}_i.$$ You should convince yourself by doing calculations, that $$x_i = \left\langle\mathbf{e}_i,\mathbf{x}\right\rangle.$$
+
+## Visualization in the plane
+
+<!-- Legacy TODO: Illustrate vector addition, scalar multiplication, using arrows in the plane. Compare with componentwise addition and scalar multiplication. -->
+
+## Linear transformations
+
+A very important class of functions on vector spaces are *linear transformations*, also known as *linear maps or functions*.
+
+::: {#def-linear-transformation}
+
+## Linear transformation
+
+Let $A : \mathbb{F}^n \to \mathbb{F}^m$ be a function. We say that $A$ is a *linear transformation* if it conserves the vector addition and scalar multiplication laws, i.e., for all $\mathbf{x},\mathbf{y} \in \mathbb{F}^n$ $$A(\mathbf{x} + \mathbf{y}) = A(\mathbf{x}) + A(\mathbf{y}),$$ and for all $\alpha \in \mathbb{F}$, $$A(\alpha\mathbf{x}) = \alpha A(\mathbf{x}).$$ If a $n=m$, i.e., the special case when domain and codomain both are the same space, we often say that $A$ is a *linear operator*
+
+:::
+
+Any linear transformation $A : \mathbb{F}^n\to \mathbb{F}^m$ is determined uniquely by a *matrix*, i.e., there are unique coefficients $A_{ij}\in \mathbb{F}$, $1 \leq i \leq m$, $1 \leq j\leq n$, such that $$A(\mathbf{x})_i = \sum_{j=1}^n A_{ij} x_j.$$ The first index $i$ on $A_{ij}$ is called the *row index*, and the second index $j$ the *column index*. Thus, we think of $A$ as a table: $$A = \begin{bmatrix}
+A_{1,1} & A_{1,2} & \cdots & A_{1,m} \\
+A_{2,1} & A_{2,2} & \cdots & A_{2,m} \\
+\vdots & \vdots & \ddots & \vdots \\
+A_{n,1} & A_{n,2} & \cdots & A_{n,m}
+\end{bmatrix}$$
+
+Linear transformations form a vector space in a natural way (see later for definition):
+
+$$
+(A + B)(\mathbf{x}) := A(\mathbf{x}) + B(\mathbf{x}), \quad (\alpha A)(\mathbf{x}) := \alpha A(\mathbf{x}).
+$$ {#eq-operator-linear-space}
+
+ In fact this vector space can be thought of as $\mathbb{F}^{nm}$, since the matrix elements behave just like $nm$ vector components under addition and scalar multiplication. On the other hand, a matrix has a *shape*, so merely saying "$A \in \mathbb{F}^{nm}$" is ambigous.
+
+::: {#exm-example}
+
+## Example
+
+$$\quad \begin{bmatrix} 1 & 4 & 6 \end{bmatrix} \in \mathbb{R}^{1\times 3} \quad \begin{bmatrix} 1 & 4 \\ -3 & \sqrt{3} \\ 8 & 0 \end{bmatrix} \in \mathbb{R}^{3\times 2} \quad \begin{bmatrix} 0 \\  \pi \end{bmatrix}  \in \mathbb{R}^{2\times 1}$$
+
+:::
+
+::: {#def-matrix}
+
+## Matrix
+
+Formally, a matrix $A \in M(n,m,\mathbb{F}) = \mathbb{F}^{n\times m}$ is a function $A : \{1,2,\cdots, n\} \times \{1,2,\cdots,m\} \to \mathbb{F}$. Informally, $A$ is a table with $n$ rows and $m$ columns with entries in $\mathbb{F}$.
+
+The space $\mathbb{F}^n$ is identified with $M(n,1,\mathbb{F}) = \mathbb{F}^{n \times 1}$, the set of *column vectors*.
+
+:::
+
+If we have two linear maps $A \in M(n,m;\mathbb{F})$ and $B\in M(m,o,\mathbb{F})$, the *composition* of the maps is again a linear map, and must have a matrix! That is, there must be some $C \in M(n,o,\mathbb{F})$ such that for all $\mathbf{x} \in \mathbb{F}^o$, $$A(B(\mathbf{x})) = C(\mathbf{x}).$$ The solution is the matrix product:
+
+::: {#def-matrix-product}
+
+## Matrix product
+
+Let $A \in M(n,m,\mathbb{F})$ and $B \in M(m,o,\mathbb{F})$. Then the *matrix product* $C = AB \in M(n,o;\mathbb{F})$ is defined by the formula $$C_{ik} = \sum_{j=1}^n A_{ij} B_{jk}.$$ The matrix product satisfies:
+
+1.  $A(BC) = (AB)C$ *associativity*
+
+2.  $(A+B)C = AC + BC$ and $A(B+C) = AB + AC$ *distributivity*
+
+However, the matrix product is *not commutative*, i.e., $AB\neq BA$ in general!
+
+:::
+
+Note that the only instances where the matrix product $C = AB$ is defined is when the column dimension of $A$ and row dimension of $B$ match.
+
+We observe that $\mathbb{F}^n = \mathbb{F}^{n\times 1}$ can be thought of as matrices, i.e., linear maps $\mathbf{x}: \mathbb{F}\to\mathbb{F}^n$. Therefore, $A(\mathbf{x})$ is a matrix product, and it is customary to drop the parenthesis, and just write $A(\mathbf{x}) = A\mathbf{x}$. *From now on we will do this*.
+
+::: {#def-dual-space}
+
+## Dual space
+
+The *dual space* of $\mathbb{F}^{n}=M(n,1,\mathbb{F})$ is the set of linear functions $\omega : \mathbb{F}^n \to \mathbb{F}$, i.e., the set $M(1,n,\mathbb{F})$ of *row vectors*. The dual space is often written $(\mathbb{F}^n)'$.
+
+:::
+
+The distinction between a vector space and its dual is subtle, but in finite dimensional Euclidean space things become very simple: Dual space is the space of row vectors.
+
+::: {#def-matrix-transpose}
+
+## Matrix transpose
+
+For $A \in M(n,m,\mathbb{F})$ with matrix elements $A_{ij}$, the matrix transpose $A^T \in M(m,n,\mathbb{F})$ is defined by the matrix elements $(A^T)_{ij} = A_{ji}$, i.e., the table is reflected along the diagonal.
+
+:::
+
+::: {#exm-example-2}
+
+## Example
+
+$$\begin{bmatrix} 0 & 1 \\ -1 & \mathrm{i}\\ -2 & \pi \end{bmatrix}^T = \begin{bmatrix}  0 & -1 & -2 \\ 1 & \mathrm{i}& \pi \end{bmatrix}$$ $$\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}^T = \begin{bmatrix} x_1 & x_2 & x_3 \end{bmatrix}$$ For all matrices $A$, $(A^T)^T = A$.
+
+:::
+
+Since a matrix $A \in M(n,m,\mathbb{F})$ is a linear map from $\mathbb{F}^n$ to $\mathbb{F}^m$, the matrix transpose is a unique linear transformation from $\mathbb{F}^m$ to $\mathbb{F}^n$. This transformation satisfies, $$\forall \omega \in (\mathbb{F}^n)', \mathbf{x}\in \mathbb{F}^m, \quad \omega A \mathbf{x} = (A^T\omega) \mathbf{x}.$$ In this sense, the transpose of a matrix is an associated linear map on the dual space.
+
+We do not need the notion of inner product to have the notion of dual. They are independent. However, since the inner product associates a number with two vectors, they are related. We note that $$\left\langle\mathbf{x},\mathbf{y}\right\rangle = \overline{\mathbf{x}^T} \mathbf{y}.$$ and moreover that $$\forall \mathbf{y} \in \mathbb{F}^n, \mathbf{x}\in \mathbb{F}^m, \quad \left\langle\mathbf{y},A \mathbf{x}\right\rangle = \left\langle\overline{A}^T\mathbf{y}, \mathbf{x}\right\rangle$$
+
+This leads to the definition
+
+::: {#def-hermitian-adjoint}
+
+## Hermitian adjoint
+
+For $A \in M(n,m,\mathbb{F})$ with matrix elements $A_{ij}$, the Hermitian adjoint $A^H \in M(m,n,\mathbb{F})$ is defined by $A^H = \overline{A^T}$, i.e., the table is reflected along the diagonal and complex conjugated. In the case $\mathbb{F}=\mathbb{R}$ transpose and Hermitian conjugation are the same.
+
+:::
+
+::: {#exm-example-3}
+
+## Example
+
+$$A = \begin{bmatrix} 1 + \mathrm{i}& 2 - 2\mathrm{i}\\ 1 & 0 \\ 0 & 0 \end{bmatrix}    \quad A^H = \begin{bmatrix} 1 - \mathrm{i}& 1 & 0 \\ 2 + 2\mathrm{i}& 0 & 0\end{bmatrix}$$ For all matrices compatible with mutiplication, $$(AB)^H = B^H A^H$$
+
+:::
+
+A result which is non-trivial in the infinite dimensional case, is Riesz' representation theorem, that relates a Hilbert space and its dual. We mention it here, since it is easy to visualize in the finite dimensional case, and since you may come across this theorem in the more abstract infinite dimensional setting:
+
+::: {#thm-riesz-representation-theorem}
+
+## Riesz' representation theorem
+
+To every $\mathbf{x}\in \mathbb{F}^n$ there is an associated unique $\omega_{\mathbf{x}} \in (\mathbb{F}^n)'$ given by $$\omega_{\mathbf{x}} = \left\langle\mathbf{x}, \cdot\right\rangle = \mathbf{x}^H.$$ Conversely, to every $\omega \in (\mathbb{F}^n)'$ there is a unique vector $\mathbf{x}_\omega = \omega^H$. In other words, the Hermitian conjugate is a one-to-one mapping between $\mathbb{F}^n$ and $(\mathbb{F}^n)'$.
+
+:::
+
+The one-to-one mapping between $\mathbb{F}^n$ and its dual $(\mathbb{F}^n)'$ is *antilinear* in the case when $\mathbb{F}=\mathbb{C}$. A transformation $B : \mathbb{F}^n\to \mathbb{F}^m$ is antilinear if $B(\mathbf{x} + \mathbf{y}) = B(\mathbf{x}) + B(\mathbf{y})$ but $B(\alpha\mathbf{x}) = \bar{\alpha}B(\mathbf{x})$.
+
+## General vector spaces {#sec-general-finite-dimensional}
+
+The spaces $\mathbb{F}^n$ are archetypal finite-dimensional vector spaces. However, it is very useful to consider abstract vector spaces that are not manifestly the same as $\mathbb{F}^n$.
+
+Here is the definition of a *general* vector space. Such spaces may have any dimension, even infinite:
+
+::: {#def-vector-space}
+
+## Vector space
+
+A *vector space over the field $\mathbb{F}$* is a set $V$ together with a binary *vector addition* $+ : V \times V \to V$ and *scalar multiplication* $\cdot : \mathbb{F}\times V \to V$ such that, for all $x$, $y$, $z \in V$ and all $\alpha,\beta \in \mathbb{F}$, the following axioms are true:
+
+1.  There exists a $0\in V$ such that $0 + x = x$ for all $x\in V$ *identity element for addition*
+
+2.  $x + (y + z) = (x + y) + z$ *associativity for addition*
+
+3.  $x + y = y + x$ *commutativity for addition*
+
+4.  There exists $x'$ such that $x+x'=0$ *inverse element for addition*
+
+5.  $(\alpha\beta)\cdot x = \alpha\cdot(\beta\cdot x)$ *compatibility of scalar and field multiplications*
+
+6.  $1\cdot x = x$ *identity for scalar multiplication*
+
+7.  $(\alpha + \beta)\cdot x = \alpha\cdot x + \beta\cdot x$ *distributivity of scalar multiplication*
+
+8.  $\alpha \cdot (x + y) = \alpha\cdot x + \alpha \cdot y$ *distributivity of scalar multiplication*
+
+:::
+
+These are quite a few axioms, but this stems from the fact that a vector space structure is the combination of *two* general algebraic structures: an abelian group (addition), amd a ring homomorphism from $\mathbb{F}$ to the ring of endomorphisms of the given abelian group. For the example $V = \mathbb{F}^n$, some of the axioms are not necessary to state, since they follow from the definition of elementwise operations. Can you identify these extra axioms?
+
+Vector spaces are very general, but we will be interested in *finite dimensional spaces* for the moment. In $\mathbb{F}^n$, the dimension was defined by $n$. But we need to characterize it abstractly, without reference to $\mathbb{F}^n$ as example.
+
+We introduce the notion of *linear independence* and *dimension*.
+
+::: {#def-linear-independence}
+
+## Linear independence
+
+Let $V$ be a vector space, and $L \subset V$ a subset. The set $L$ is *linearly indepdenent* if for any finite subset $\{v_i \mid 1 \leq i \leq k \} \subset L$, we have $$\sum_{i=1}^k a_i v_i = 0 \implies  a_i = 0 \text{ for all $i$}$$ The *dimension* of $V$ is the cardinality of the largest linearly independent subset of $V$.
+
+:::
+
+From this, we read that $V$ has finite dimension $n$ if and only if one can find at most $n$ linearly dependent elements.
+
+Note that linear independence in particular means that one of the $v_i$ cannot be decomposed in terms of the other $v_j$.
+
+Not all vector spaces are finite dimensional! Consider for example the space of all functions $f : S \to \mathbb{R}$, where $S$ is an infinite set. The dimension of this space is the cardinality of $S$, which can be pretty big!
+
+Consider now the space $\mathbb{F}^n$, with the standard basis. The standard basis vectors are all linearly independent in the sense of the definition above (see the Exercises). Any vector $\mathbf{x} \in \mathbb{F}^n$ can be *uniquely* written $$\mathbf{x} = \sum_{i=1}^n x_i \mathbf{e}_i.$$ Thus, there cannot be subsets of $\mathbb{F}^n$ that are both linearly independent *and* have more elements than the standard basis! Thus, the dimension of $\mathbb{F}^n$ is $n$.
+
+We apply these notions to general finite-dimensional spaces. Note that there is no notion of a "standard basis" in general.
+
+::: {#def-basis}
+
+## Basis
+
+Let $V$ be a vector space of finite dimension $n$. A basis is a linearly independent set of vectors $\{b_1,\cdots,b_n\}$, with exactly $n$ elements.
+
+:::
+
+::: {#thm-statement-2}
+
+## Statement
+
+If $B= \{b_1,\cdots,b_n\}$ is a basis for a the vector space $V$, $\dim(V)<+\infty$, then any $v \in V$ can be uniquely decomposed as $$v = \sum_{i=1}^n v_i b_i.$$
+
+:::
+
+The proof is not difficult: If there was some vector $v\in V$ that could *not* be decomposed like this, then $B \cup \{v\}$ is linearly independent with $n+1$ elements, but this is not possible.
+
+::: {#def-dual-basis}
+
+## Dual basis
+
+Let $V$ be a vector space of finite dimension $n$, and let $V'$ be its dual space. Let $B = \{ b_1, \cdots, b_n\}$ be a basis, and let $\tilde{b}_i \in V'$ be defined by $$\tilde{b}_i(b_j) = \delta_{ij}.$$ This basis $\tilde{B} = \{ \tilde{b}_1, \cdots, \tilde{b}_n \}$ for $V'$ is uniquely given by the basis $B$ for $V$, and is called the dual basis to $V$ (of $V'$).
+
+:::
+
+We now make the connection between finite dimensional vector spaces and $\mathbb{F}^n$.
+
+::: {#thm-isomorphism-between-finite-dimensional-spaces}
+
+## Isomorphism between finite dimensional spaces
+
+Let $V$ be a vector space over $\mathbb{F}$ of finite dimesion $n$, and let $B=\{b_i\}$ be a basis for $V$. Then, to every $v \in V$ there is a unique $\mathbf{x} \in \mathbb{F}^n$ such that $$v = \sum_{i=1}^n x_i b_i.$$ Conversely, any $\mathbf{x}\in\mathbb{F}^n$ describes a unique $v \in V$ by the same formula. Thus, $V$ and $\mathbb{F}^n$ are in one-to-one correspondence,
+
+Moreover, let $v$ and $w$ have expansion coefficients $\mathbf{x}$ and $\mathbf{y}$, respectively. Then, $v + w$ has coefficients $\mathbf{x}+\mathbf{y}$, and $\alpha v$ has coefficients $\alpha \mathbf{x}$, for any $\alpha \in \mathbb{F}$.
+
+In other words, $V$ and $\mathbb{F}^n$ are *isomorphic* as vector spaces: There is a (basis-dependent) linear function $U : \mathbb{F}^n \to V$ such that $$v = U \mathbf{x},$$ and such that $U$ has an inverse as a function, *which is also linear*.
+
+:::
+
+This may seem trivial. However finite-dimensional vector spaces are not always easily seen as identical to $\mathbb{F}^n$.
+
+::: {#exm-space-of-polynomials-of-bounded-degree}
+
+## Space of polynomials of bounded degree
+
+Let $V$ be the space of polynomials of degree less than or equal to $n$, $p\in V$ if and only if $p : \mathbb{F}\to \mathbb{F}$ has the form $$p(x) = a_0 + a_1 x^1 + \cdots a_n x^n.$$ A basis, which may be considered "standard", is the basis of monomials $x^k$, for $0\leq k \leq n$. The dimension of $V$ is $n+1$.
+
+But we have not defined an inner product on the space of polynomials! Thus, it does not make sense to simply say that $V'$ is identified with $V$. On the other hand, pick $n+1$ distinct points $x_j \in \mathbb{F}$, and consider the operation of evaluation at $x_j$, $$\omega_j(p) := p(x_j).$$ Then $\omega_j \in V'$ is a linear function on $p$ in a natural way. One can show that all the $\omega_j$ are linearly independent, and thus form a basis for $V'$! But this basis does not satisfy $\omega_j(x^k)= \delta_{jk}$, so it is not dual to the monomial basis. But we can transform them by taking linear combinations to a dual basis.
+
+:::
+
+<!-- Legacy TODO: Write exercise on the polynomials and the dual basis -->
+
+<!-- Legacy TODO: Write up example of C*-algebra -->
+
+::: {#thm-linear-transformations-between-finite-dimensional-spaces}
+
+## Linear transformations between finite dimensional spaces
+
+Let $V$ and $W$ be vector spaces over $\mathbb{F}$ of finite dimensions $n$ and $m$, respectively. Let $\hat{A} : V \to W$ be a linear transformation, i.e., $\hat{A}(v + v') = \hat{A}v + \hat{A}v'$, and $\hat{A}(\alpha v) = \alpha \hat{A}v$. We denote by $L(V,W)$ the set of such linear functions, which is a vector space, cf. @eq-operator-linear-space.
+
+The linear vector spaces $L(V,W)$ and $M(m,n,\mathbb{F})$ are isomorphic as vector spaces. That is, given bases for $V$ and $W$, there is a linear one-to-one correspondence between $L(V,W)$ and $M(m,n,\mathbb{F})$.
+
+:::
+
+We prove this as follows:
+
+Let $B = \{b_i\}$ be a basis for $V$, and $C = \{c_i\}$ a basis of $W$, with dual basis $\{\tilde{c}_i\}$.
+
+Let $v \in V$, and $w = \hat{A}v \in W$, with coefficients $\mathbf{v}\in \mathbb{F}^n$ and $\mathbf{w}\in \mathbb{F}^m$, respectively. Then $$w_i = \sum_{j=1}^n A_{ij} v_j,$$ with $$A_{ij} = \tilde{c}_i(\hat{A} b_j).$$ Conversely, any matrix $A\in\mathbb{F}^{m\times n}$ defines a unique $\hat{A}\in L(V,W)$.
+
+This simple result is striking, in that for the finite dimensional case, and given that we have chosen a basis, we can think in terms of $\mathbb{F}^n$ and $M(n,m,\mathbb{F})$. All finite dimensional vectors spaces are "the same", and also the linear transformations will be "the same" by way of their matrix representations.
