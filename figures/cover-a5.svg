@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="419.527557" height="595.275574" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 419.527557 595.275574">
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="419.527557" height="595.275574" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 419.527557 595.275574">
   <!-- Generator: Adobe Illustrator 29.8.2, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
   <defs>
     <style>
@@ -7,44 +7,61 @@
         fill: url(#linear-gradient);
       }
 
-      .st1 {
-        fill: #231f20;
-        font-family: RobotoCondensed-Black, 'Roboto Condensed';
-        font-size: 27.590172px;
-        font-weight: 800;
+      .st1, .st2, .st3 {
+        isolation: isolate;
       }
 
       .st2 {
         fill: #010101;
-        font-family: CourierNewPS-BoldMT, 'Courier New';
+        font-family: Courier-Bold, Courier;
         font-size: 58.901287px;
+      }
+
+      .st2, .st3 {
         font-weight: 700;
       }
 
       .st3 {
+        fill: #231f20;
+        font-family: RobotoCondensed-ExtraBold, 'Roboto Condensed';
+        font-size: 27.590172px;
+      }
+
+      .st4 {
         fill: none;
         stroke: #010101;
         stroke-linejoin: round;
         stroke-width: 8.311605px;
       }
     </style>
-    <linearGradient id="linear-gradient" x1="35.446376" y1="599.564385" x2="358.076063" y2="40.753375" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="35.446393" y1="-1.564402" x2="358.076056" y2="557.246652" gradientTransform="translate(0 598) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset=".06297" stop-color="#2484c6"/>
       <stop offset=".996916" stop-color="#2484c6" stop-opacity="0"/>
     </linearGradient>
   </defs>
   <g id="Layer_2">
-    <rect class="st0" x="0" width="419.527557" height="595.275574"/>
+    <rect class="st0" width="419.527557" height="595.275574"/>
   </g>
-  <g id="Layer_1">
+  <g id="Layer_11" data-name="Layer_1">
     <g>
-      <path class="st3" d="M114.340132,81.862739h82.756791v109.621839c0,24.542203-16.889141,40.903671-42.222852,40.903671h-5.066742c-25.333711,0-43.911767-17.997615-43.911767-40.903671,0-21.269909,16.889141-39.267525,40.533938-39.267525h128.357471c23.644797,0,38.845024-16.361469,38.845024-37.631378v-1.636147c0-22.906056-18.578055-39.267525-42.222852-39.267525h-6.755656c-23.644797,0-40.533938,16.361469-40.533938,39.267525v80.171196c0,22.906056,16.889141,39.267525,40.533938,39.267525h11.822399c16.889141,0,30.400454-8.180734,37.15611-19.633762"/>
-      <path class="st3" d="M197.096923,152.217054h27.022626"/>
+      <path class="st4" d="M114.340134,81.86274h82.75679v109.621849c0,24.542206-16.889145,40.903671-42.222855,40.903671h-5.066742c-25.33371,0-43.911766-17.99762-43.911766-40.903671,0-21.269913,16.889137-39.267517,40.533943-39.267517h128.357483c23.644806,0,38.845032-16.361465,38.845032-37.631378v-1.636147c0-22.906059-18.578064-39.267525-42.222839-39.267525h-6.755646c-23.644791,0-40.533936,16.361465-40.533936,39.267525v80.171196c0,22.906052,16.889145,39.267532,40.533936,39.267532h11.822388c16.88913,0,30.400452-8.18074,37.156097-19.633759"/>
+      <path class="st4" d="M197.096924,152.217056h27.022629"/>
     </g>
-    <text class="st2" transform="translate(137.857113 134.886213) scale(1.032251 1)"><tspan x="0" y="0">E</tspan></text>
-    <text class="st2" transform="translate(247.319027 134.886213) scale(1.032251 1)"><tspan x="0" y="0">S</tspan></text>
-    <text class="st2" transform="translate(247.319027 204.643538) scale(1.032251 1)"><tspan x="0" y="0">C</tspan></text>
-    <text class="st2" transform="translate(137.857113 204.643538) scale(1.032251 1)"><tspan x="0" y="0">Q</tspan></text>
-    <text class="st1" transform="translate(81.202744 403.18013)"><tspan x="0" y="0">Mathematics Exercises</tspan><tspan x="100.351074" y="66.216797">2026</tspan></text>
+    <g class="st1">
+      <text class="st2" transform="translate(137.857422 134.88623) scale(1.032251 1)"><tspan x="0" y="0">E</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st2" transform="translate(247.319336 134.88623) scale(1.032251 1)"><tspan x="0" y="0">S</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st2" transform="translate(247.319336 204.643555) scale(1.032251 1)"><tspan x="0" y="0">C</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st2" transform="translate(137.857422 204.643555) scale(1.032251 1)"><tspan x="0" y="0">Q</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st3" transform="translate(57.425293 403.180115)"><tspan x="0" y="0">Mathematics Lecture Notes</tspan></text>
+      <text class="st3" transform="translate(181.553833 469.396912)"><tspan x="0" y="0">2026</tspan></text>
+    </g>
   </g>
 </svg>
