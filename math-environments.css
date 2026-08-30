@@ -127,8 +127,8 @@ main.content :where(div.theorem, div.proof):target {
 }
 
 /* Darkly theme: preserve the color coding while reducing luminous surfaces. */
-body.quarto-dark main.content :where(div.theorem, div.proof),
-html[data-bs-theme="dark"] main.content :where(div.theorem, div.proof) {
+body.quarto-dark main.content div:is(.theorem, .proof),
+html[data-bs-theme="dark"] main.content div:is(.theorem, .proof) {
   --math-env-surface: #20292d;
   --math-env-heading-surface: #28373c;
   --math-env-border: #40545b;
@@ -138,8 +138,8 @@ html[data-bs-theme="dark"] main.content :where(div.theorem, div.proof) {
 }
 
 @supports (background-color: color-mix(in srgb, black, white)) {
-  body.quarto-dark main.content :where(div.theorem, div.proof),
-  html[data-bs-theme="dark"] main.content :where(div.theorem, div.proof) {
+  body.quarto-dark main.content div:is(.theorem, .proof),
+  html[data-bs-theme="dark"] main.content div:is(.theorem, .proof) {
     --math-env-surface: color-mix(
       in srgb,
       var(--math-env-accent) 12%,
