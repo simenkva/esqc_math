@@ -1,0 +1,63 @@
+typography:
+  fonts:
+    - family: Roboto Condensed
+      source: file
+      files:
+        - path: fonts/RobotoCondensed-Regular.woff2
+          weight: 400
+          style: normal
+        - path: fonts/RobotoCondensed-Medium.woff2
+          weight: 500
+          style: normal
+        - path: fonts/RobotoCondensed-Bold.woff2
+          weight: 700
+          style: normal
+
+    - family: STIX Two Text
+      source: file
+      files:
+        - path: fonts/STIXTwoText-Regular.woff2
+          weight: 400
+          style: normal
+        - path: fonts/STIXTwoText-Italic.woff2
+          weight: 400
+          style: italic
+        - path: fonts/STIXTwoText-Bold.woff2
+          weight: 700
+          style: normal
+        - path: fonts/STIXTwoText-BoldItalic.woff2
+          weight: 700
+          style: italic
+
+    - family: STIX Two Math
+      source: file
+      files:
+        - path: fonts/STIXTwoMath-Regular.woff2
+          weight: 400
+          style: normal
+
+
+  # Alternative: load the same font families from Bunny Fonts instead.
+  # To use this setup, comment out the active `fonts:` block above and
+  # uncomment the block below. This makes the rendered HTML depend on
+  # network access to fonts.bunny.net.
+  #
+  # fonts:
+  #   - family: Roboto Condensed
+  #     source: bunny
+  #     weight: [400, 500, 700]
+  #     style: normal
+  #
+  #   - family: STIX Two Text
+  #     source: bunny
+  #     weight: [400, 700]
+  #     style: [normal, italic]
+
+  base:
+    family: STIX Two Text
+    size: 1rem
+    line-height: 1.6
+
+  headings:
+    family: Roboto Condensed
+    weight: 500

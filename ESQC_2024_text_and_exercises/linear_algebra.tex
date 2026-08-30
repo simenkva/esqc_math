@@ -1,0 +1,863 @@
+\chapter{Linear algebra}
+
+\section{Finite dimensional vector spaces}
+
+Linear algebra is perhaps the most important tool for modern science: quantum mechanics, data analysis, machine learning, \ldots All use linear algebra in one way or another.
+
+
+\recommended{This was my curriculum in the first linear algebra course I took. I think it is a very good book, and highly readable. What it lacks, is the consideration of general finite dimensional linear vector spaces.}{images/Fraleigh_frontpage.png}
+
+\recommended{An online textbook in linear algebra by Robert A.~Beezer can be found here: \url{http://linear.ups.edu/}. It is free, and also has great sets of exercises. PDF versions here: \url{http://linear.ups.edu/download.html}}{images/Beezer_frontpage.png}
+
+\recommended{This book by the great Paul Halmos is old, by very comprehensive. I find it quite readable, and have used it many times. I would consider the level to be more advanced than Fraleigh and Beauregard.}{images/Halmos_finite_frontpage.jpg}
+
+
+\subsection{Euclidean space}
+
+
+Much of  what we do in quantum chemistry is in the context of the spaces $\RR^n$ or $\CC^n$. These are examples of \emph{vector spaces}. We will define general vector spaces later, but for the moment it is easier to concentrate on $\FF^n$.
+
+\begin{myDefinition}{Euclidean space}{} Let $\FF$ be either $\RR$ or $\CC$. Let $ \FF^n$ be the set of $n$-tuples of $\FF$-numbers $\mathbf{x} = (x_1,\cdots,x_n)$, on which we define the following operations: For $\mathbf{x},\mathbf{y}\in\FF^n$ define
+\begin{equation}
+    \mathbf{x} + \mathbf{y} \in \FF^n, \quad (\mathbf{x}+\mathbf{y})_i = x_i + y_i \text{\axiomname{addition}},
+\end{equation}
+for all $1 \leq i \leq n$.
+and for any $\alpha \in \FF$,
+\begin{equation}
+\alpha \mathbf{x} \in \FF^n, \quad (\alpha \mathbf{x})_i = \alpha x_i \text{\axiomname{scalar multiplication}}.
+\end{equation}
+We also define the Euclidean \emph{inner prooduct}
+\begin{equation}
+    \braket{\mathbf{x}, \mathbf{y}} = \bar{\mathbf{x}} \cdot \mathbf{y} = \sum_i \bar{x}_i y_i \in \FF \text{\axiomname{Euclidean inner product}}
+\end{equation}
+and the Euclidean norm
+\begin{equation}
+    \|\mathbf{y}\| = \sqrt{\braket{\mathbf{x},
+    \mathbf{x}}} \in\RR.\text{\axiomname{Euclidean norm}}
+\end{equation}
+\end{myDefinition}
+
+The two first axioms give $\FF^n$ the structure of a vector space, while the two next axioms define a \emph{topology}. We will see the formal definition of general vector spaces later. We will say more on topology later.
+
+The boldface symbol for vectors in Euclidean space is very common in linear algebra. Less common, but not unusual, is the notation $\vec{r}$. This notation is more common in $\RR^2$ and $\RR^3$. It is also common to simply use plain letters $u$, $v$, etc., for vectors. Some like to put a tilde under the letters, $\underset{\sim}{u}$.
+
+It is common to write vectors in $\FF^n$ as \emph{column vectors}, i.e.,
+\begin{equation}
+    \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}.
+\end{equation}
+It is also common to simply list the elements as a tuple,
+\begin{equation}
+    \mathbf{x} = (x_1, x_2,\cdots, x_n).
+\end{equation}
+You will see both versions in the literature, and one must get used to the different notations.
+
+%For general Hilbert spaces (see later), the bra-ket notation will be used. Since $\FF^n$ is a Hilbert space, using bra-ket notation here is also useful. One can say that if we want to stress the fact that $\FF^n$ are considered as \emph{representing} a given Hilbert space in a basis, then we use the boldface notation. More on this later.
+
+A \emph{basis} is a set of vectors in which we may linearly expand every vector. We begin with the \emph{standard basis}:
+\begin{myDefinition}{Standard basis}{}
+The \emph{standard basis} for $\FF^n$ is the set of vectors $\{\bvec{e}_i \mid 1 \leq i \leq n\}$ such that
+\begin{equation}
+    (\bvec{e}_i)_j = \delta_{ij}, \axiomname{Kronecker delta symbol}
+\end{equation}
+i.e., 
+\begin{equation}
+    \bvec{e}_1 = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0\end{bmatrix}, \quad
+    \bvec{e}_2 = \begin{bmatrix} 0 \\ 1 \\ \vdots \\ 0\end{bmatrix}, \quad\text{etc.}
+\end{equation}
+\end{myDefinition}
+It now follows that for every $\bvec{x}\in\FF^n$,
+\begin{equation}
+    \bvec{x} = \sum_{i=1}^n x_i \bvec{e}_i.
+\end{equation}
+You should convince yourself by doing calculations, that 
+\begin{equation}
+    x_i = \braket{\bvec{e}_i,\mathbf{x}}.
+\end{equation}
+
+
+\subsection{Visualization in the plane}
+
+\todo{Illustrate vector addition, scalar multiplication, using arrows in the plane. Compare with componentwise addition and scalar multiplication.}
+
+\subsection{Linear transformations}
+
+A very important class of functions on vector spaces are \emph{linear transformations}, also known as  \emph{linear maps or functions}. 
+\begin{myDefinition}{Linear transformation}{}
+    Let $A : \FF^n \to \FF^m$ be a function. We say that $A$ is a \emph{linear transformation} if it conserves the vector addition and scalar multiplication laws, i.e., for all $\mathbf{x},\mathbf{y} \in \FF^n$
+    \begin{equation}
+        A(\mathbf{x} + \mathbf{y}) = A(\mathbf{x}) + A(\mathbf{y}),
+    \end{equation}
+    and for all $\alpha \in \FF$,
+    \begin{equation}
+        A(\alpha\mathbf{x}) = \alpha A(\mathbf{x}).
+    \end{equation}
+    If a $n=m$, i.e., the special case when domain and codomain both are the same space, we often say that $A$ is a \emph{linear operator}
+\end{myDefinition}
+
+Any linear transformation $A : \FF^n\to \FF^m$ is determined uniquely by a \emph{matrix}, i.e., there are unique coefficients $A_{ij}\in \FF$, $1 \leq i \leq m$, $1 \leq j\leq n$, such that
+\begin{equation}
+    A(\mathbf{x})_i = \sum_{j=1}^n A_{ij} x_j.
+\end{equation}
+The first index $i$ on $A_{ij}$ is called the \emph{row index}, and the second index $j$ the \emph{column index}. Thus, we think of $A$ as a table:
+\begin{equation}
+A = \begin{bmatrix}
+A_{1,1} & A_{1,2} & \cdots & A_{1,m} \\
+A_{2,1} & A_{2,2} & \cdots & A_{2,m} \\
+\vdots & \vdots & \ddots & \vdots \\
+A_{n,1} & A_{n,2} & \cdots & A_{n,m}
+\end{bmatrix}
+\end{equation}
+
+Linear transformations form a vector space in a natural way (see later for definition):
+\begin{equation}
+    (A + B)(\mathbf{x}) := A(\mathbf{x}) + B(\mathbf{x}), \quad (\alpha A)(\mathbf{x}) := \alpha A(\mathbf{x}). \label{eq:operator-linear-space}
+\end{equation}
+In fact this vector space can be thought of as $\FF^{nm}$, since the matrix elements behave just like $nm$ vector components under addition and scalar multiplication. On the other hand, a matrix has a \emph{shape}, so merely saying ``$A \in \FF^{nm}$'' is ambigous.
+
+\begin{myExample}{}{}
+\begin{equation}
+     \quad \begin{bmatrix} 1 & 4 & 6 \end{bmatrix} \in \RR^{1\times 3} \quad \begin{bmatrix} 1 & 4 \\ -3 & \sqrt{3} \\ 8 & 0 \end{bmatrix} \in \RR^{3\times 2} \quad \begin{bmatrix} 0 \\  \pi \end{bmatrix}  \in \RR^{2\times 1}
+\end{equation}
+\end{myExample}
+
+\begin{myDefinition}{Matrix}{} Formally, a matrix $A \in M(n,m,\FF) = \FF^{n\times m}$ is a function $A : \{1,2,\cdots, n\} \times \{1,2,\cdots,m\} \to \FF$. Informally, $A$ is a table with $n$ rows and $m$ columns with entries in $\FF$.
+
+The space $\FF^n$ is identified with $M(n,1,\FF) = \FF^{n \times 1}$, the set of \emph{column vectors}.
+\end{myDefinition}
+
+
+If we have two linear maps $A \in M(n,m;\FF)$ and $B\in M(m,o,\FF)$, the \emph{composition} of the maps is again a linear map, and must have a matrix! That is, there must be some $C \in M(n,o,\FF)$ such that for all $\mathbf{x} \in \FF^o$,
+\begin{equation}
+    A(B(\mathbf{x})) = C(\mathbf{x}).
+\end{equation}
+The solution is the matrix product:
+\begin{myDefinition}{Matrix product}{}
+    Let $A \in M(n,m,\FF)$ and $B \in M(m,o,\FF)$. Then the \emph{matrix product} $C = AB \in M(n,o;\FF)$ is defined by the formula
+    \begin{equation}
+        C_{ik} = \sum_{j=1}^n A_{ij} B_{jk}.
+    \end{equation}
+    The matrix product satisfies:
+    \begin{enumerate}
+        \item $A(BC) = (AB)C$ \axiomname{associativity}
+        \item $(A+B)C = AC + BC$ and $A(B+C) = AB + AC$ \axiomname{distributivity}
+    \end{enumerate}
+    However, the matrix product is \emph{not commutative}, i.e., $AB\neq BA$ in general!
+ \end{myDefinition}
+Note that the only instances where the matrix product $C = AB$ is defined is when the column dimension of $A$ and row dimension of $B$ match. 
+
+We observe that $\FF^n = \FF^{n\times 1}$ can be thought of as matrices, i.e., linear maps $\mathbf{x}: \FF\to\FF^n$. Therefore, $A(\mathbf{x})$ is a matrix product, and it is customary to drop the parenthesis, and just write $A(\mathbf{x}) = A\mathbf{x}$. \emph{From now on we will do this}.
+
+\begin{myDefinition}{Dual space}{}
+    The \emph{dual space} of $\FF^{n}=M(n,1,\FF)$ is the set of linear functions $\omega : \FF^n \to \FF$, i.e., the set $M(1,n,\FF)$ of \emph{row vectors}. The dual space is often written $(\FF^n)'$.
+\end{myDefinition}
+
+The distinction between a vector space and its dual is subtle, but in finite dimensional Euclidean space things become very simple: Dual space is the space of row vectors.
+
+% The \emph{dual pairing} is the product that takes one $\omega \in (\FF^n)'$ and one $\mathbf{x}\in \FF^n$ and returns $\omega(x)$. Since both vector spaces are linear, the dual pairing is \emph{bilinear}, i.e., separately linear in both $\omega$ and $\mathbf{x}$:
+% \begin{equation}
+%     (\alpha \omega_1 + \beta\omega_2) (\mathbf{x}) = \alpha \omega_1(\mathbf{x}) + \beta \omega_2 \mathbf{x}, \quad \text{and} \quad \omega(\alpha\mathbf{x}_1 + \beta \mathbf{x}_2) = \alpha\omega(\mathbf{x}_1) + \beta\omega(\mathbf{x})_2).
+% \end{equation}
+% You may ask: 
+
+
+
+\begin{myDefinition}{Matrix transpose}{}
+    For $A \in M(n,m,\FF)$ with matrix elements $A_{ij}$, the matrix transpose $A^T \in M(m,n,\FF)$ is defined by the matrix elements $(A^T)_{ij} = A_{ji}$, i.e., the table is reflected along the diagonal.
+\end{myDefinition}
+
+\begin{myExample}{}{}
+    \begin{equation}
+        \begin{bmatrix} 0 & 1 \\ -1 & \rmi \\ -2 & \pi \end{bmatrix}^T = \begin{bmatrix}  0 & -1 & -2 \\ 1 & \rmi & \pi \end{bmatrix} 
+    \end{equation}
+    \begin{equation}
+        \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}^T = \begin{bmatrix} x_1 & x_2 & x_3 \end{bmatrix}
+    \end{equation}
+    For all matrices $A$, $(A^T)^T = A$.
+\end{myExample}
+
+
+Since a matrix $A \in M(n,m,\FF)$ is a linear map from $\FF^n$ to $\FF^m$, the matrix transpose is a unique linear transformation from $\FF^m$ to $\FF^n$. This transformation satisfies,
+\begin{equation}
+    \forall \omega \in (\FF^n)', \mathbf{x}\in \FF^m, \quad \omega A \mathbf{x} = (A^T\omega) \mathbf{x}.
+\end{equation}
+In this sense, the transpose of a matrix is an associated linear map on the dual space.
+
+We do not need the notion of inner product to have the notion of dual. They are independent. However, since the inner product associates a number with two vectors, they are related.
+We note that
+        \[ \braket{\mathbf{x},\mathbf{y}} = \overline{\mathbf{x}^T} \mathbf{y}. \]
+and moreover that
+\begin{equation}
+    \forall \mathbf{y} \in \FF^n, \mathbf{x}\in \FF^m, \quad \braket{\mathbf{y},A \mathbf{x}} = \braket{\overline{A}^T\mathbf{y}, \mathbf{x}}
+\end{equation}
+
+This leads to the definition
+\begin{myDefinition}{Hermitian adjoint}{}
+    For $A \in M(n,m,\FF)$ with matrix elements $A_{ij}$, the Hermitian adjoint $A^H \in M(m,n,\FF)$ is defined by $A^H = \overline{A^T}$, i.e., the table is reflected along the diagonal and complex conjugated. In the case $\FF=\RR$ transpose and Hermitian conjugation are the same.
+\end{myDefinition}
+
+\begin{myExample}{}{}
+\begin{equation}
+    A = \begin{bmatrix} 1 + \rmi & 2 - 2\rmi \\ 1 & 0 \\ 0 & 0 \end{bmatrix}    \quad A^H = \begin{bmatrix} 1 - \rmi & 1 & 0 \\ 2 + 2\rmi & 0 & 0\end{bmatrix} 
+\end{equation}
+For all matrices compatible with mutiplication, 
+\begin{equation}
+    (AB)^H = B^H A^H
+\end{equation}
+\end{myExample}
+
+A result which is non-trivial in the infinite dimensional case, is Riesz' representation theorem, that relates a Hilbert space and its dual. We mention it here, since it is easy to visualize in the finite dimensional case, and since you may come across this theorem in the more abstract infinite dimensional setting:
+\begin{myTheorem}{Riesz' representation theorem}{}
+    To every $\bvec{x}\in \FF^n$ there is an associated unique $\omega_{\bvec{x}} \in (\FF^n)'$ given by
+    \begin{equation}
+        \omega_{\bvec{x}} = \braket{\bvec{x}, \cdot} = \bvec{x}^H.
+    \end{equation}
+    Conversely, to every $\omega \in (\FF^n)'$ there is a unique vector $\bvec{x}_\omega = \omega^H$.     In other words, the Hermitian conjugate is a one-to-one mapping between $\FF^n$ and $(\FF^n)'$.
+\end{myTheorem}
+
+The one-to-one mapping between $\FF^n$ and its dual $(\FF^n)'$ is \emph{antilinear} in the case when $\FF=\CC$. A transformation $B : \FF^n\to \FF^m$ is antilinear if $B(\mathbf{x} + \mathbf{y}) = B(\mathbf{x}) + B(\mathbf{y})$ but $B(\alpha\mathbf{x}) = \bar{\alpha}B(\mathbf{x})$. 
+
+\subsection{General vector spaces}
+\label{sec:general-finite-dimensional}
+
+The spaces $\FF^n$ are archetypal finite-dimensional vector spaces. However, it is very useful to consider abstract vector spaces that are not manifestly the same as $\FF^n$. 
+
+Here is the definition of a \emph{general} vector space. Such spaces may have any dimension, even infinite:
+\begin{myDefinition}{Vector space}{vector-space}
+    A \emph{vector space over the field $\FF$} is a set $V$ together with a binary \emph{vector addition} $+ : V \times V \to V$ and \emph{scalar multiplication} $\cdot : \FF \times V \to V$ such that, for all $x$, $y$, $z \in V$ and all $\alpha,\beta \in \FF$, the following axioms are true:
+    \begin{enumerate}
+        \item There exists a $0\in V$ such that $0 + x = x$ for all $x\in V$ \axiomname{identity element for addition}
+        \item  $ x + (y + z) = (x + y) + z$ \axiomname{associativity for addition}
+        \item $x + y = y + x$ \axiomname{commutativity for addition}
+        \item There exists $x'$ such that $x+x'=0$ \axiomname{inverse element for addition}
+        \item $(\alpha\beta)\cdot x = \alpha\cdot(\beta\cdot x)$ \axiomname{compatibility of scalar and field multiplications}
+        \item $1\cdot x = x$ \axiomname{identity for scalar multiplication}
+        \item $(\alpha + \beta)\cdot x = \alpha\cdot x + \beta\cdot x$ \axiomname{distributivity of scalar multiplication}
+        \item $\alpha \cdot (x + y) = \alpha\cdot x + \alpha \cdot y$ \axiomname{distributivity of scalar multiplication}
+    \end{enumerate}
+\end{myDefinition}
+
+
+
+These are quite a few axioms, but this stems from the fact that a vector space structure is the combination of \emph{two} general algebraic structures: an abelian group (addition), amd a ring homomorphism from $\FF$ to the ring of endomorphisms of the given abelian group. For the example $V = \FF^n$, some of the axioms are not necessary to state, since they follow from the definition of elementwise operations. Can you identify these extra axioms?
+
+Vector spaces are very general, but we will be interested in \emph{finite dimensional spaces} for the moment. In $\FF^n$, the dimension was defined by $n$. But we need to characterize it abstractly, without reference to $\FF^n$ as example.
+
+We introduce the notion of \emph{linear independence} and \emph{dimension}.
+\begin{myDefinition}{Linear independence}{}
+    Let $V$ be a vector space, and $L \subset V$ a subset. The set $L$ is \emph{linearly indepdenent} if for any finite subset $\{v_i \mid 1 \leq i \leq k \} \subset L$, we have
+    \[ \sum_{i=1}^k a_i v_i = 0 \implies  a_i = 0 \text{ for all $i$} \]
+    The \emph{dimension} of $V$ is the cardinality of the largest linearly independent subset of $V$.
+\end{myDefinition}
+
+
+From this, we read that $V$ has finite dimension $n$ if and only if one can find at most $n$ linearly dependent elements.
+
+Note that linear independence in particular means that one of the $v_i$ cannot be decomposed in terms of the other $v_j$.
+
+Not all vector spaces are finite dimensional! Consider for example the space of all functions $f : S \to \RR$, where $S$ is an infinite set. The dimension of this space is the cardinality of $S$, which can be pretty big!
+
+
+Consider now the space $\FF^n$, with the standard basis. The standard basis vectors are all linearly independent in the sense of the definition above (see the Exercises). Any vector $\mathbf{x} \in \FF^n$ can be \emph{uniquely} written
+\begin{equation}
+    \mathbf{x} = \sum_{i=1}^n x_i \mathbf{e}_i.
+\end{equation}
+Thus, there cannot be subsets of $\FF^n$ that are both linearly independent \emph{and} have more elements than the standard basis! Thus, the dimension of $\FF^n$ is $n$.
+
+We apply these notions to general finite-dimensional spaces. Note that there is no notion of a ``standard basis'' in general.
+
+
+
+\begin{myDefinition}{Basis}{}
+    Let $V$ be a vector space of finite dimension $n$. A basis is a linearly independent set of vectors $\{b_1,\cdots,b_n\}$, with exactly $n$ elements.
+\end{myDefinition}
+ 
+\begin{myTheorem}{}{}
+    If $B= \{b_1,\cdots,b_n\}$ is a basis for a the vector space $V$, $\dim(V)<+\infty$, then any $v \in V$ can be uniquely decomposed as
+    \begin{equation}
+        v = \sum_{i=1}^n v_i b_i.
+    \end{equation}
+\end{myTheorem}
+
+The proof is not difficult: If there was some vector $v\in V$ that could \emph{not} be decomposed like this, then $B \cup \{v\}$ is linearly independent with $n+1$ elements, but this is not possible.
+
+
+
+\begin{myDefinition}{Dual basis}{}
+    Let $V$ be a vector space of finite dimension $n$, and let $V'$ be its dual space. Let $B = \{ b_1, \cdots, b_n\}$ be a basis, and let $\tilde{b}_i \in V'$ be defined by
+    \[ \tilde{b}_i(b_j) = \delta_{ij}. \]
+    This basis $\tilde{B} = \{ \tilde{b}_1, \cdots, \tilde{b}_n \}$ for $V'$ is uniquely given by the basis $B$ for $V$, and is called the dual basis to $V$ (of $V'$).
+\end{myDefinition}
+
+We now make the connection between finite dimensional vector spaces and $\FF^n$.
+\begin{myTheorem}{Isomorphism between finite dimensional spaces}{}
+    Let $V$ be a vector space over $\FF$ of finite dimesion $n$, and let $B=\{b_i\}$ be a basis for $V$. Then, to every $v \in V$ there is a unique $\mathbf{x} \in \FF^n$ such that
+    \begin{equation}
+        v = \sum_{i=1}^n x_i b_i.
+    \end{equation}
+    Conversely, any $\mathbf{x}\in\FF^n$ describes a unique $v \in V$ by the same formula. Thus, $V$ and $\FF^n$ are in one-to-one correspondence,
+
+    Moreover, let $v$ and $w$ have expansion coefficients $\mathbf{x}$ and $\mathbf{y}$, respectively. Then, $v + w$ has coefficients $\mathbf{x}+\mathbf{y}$, and $\alpha v$ has coefficients $\alpha \mathbf{x}$, for any $\alpha \in \FF$.
+
+    In other words, $V$ and $\FF^n$ are \emph{isomorphic} as vector spaces: There is a (basis-dependent) linear function $U : \FF^n \to V$ such that
+        \[ v = U \mathbf{x}, \]
+    and such that $U$ has an inverse as a function, \emph{which is also linear}.
+\end{myTheorem}
+
+This may seem trivial. However finite-dimensional vector spaces are not always easily seen as identical to $\FF^n$.
+\begin{myExample}{Space of polynomials of bounded degree}{}
+    Let $V$ be the space of polynomials of degree less than or equal to $n$, $p\in V$ if and only if $p : \FF \to \FF$ has the form
+    \begin{equation}
+        p(x) = a_0 + a_1 x^1 + \cdots a_n x^n.
+    \end{equation}
+    A basis, which may be considered ``standard'', is the basis of monomials $x^k$, for $0\leq k \leq n$. The dimension of $V$ is $n+1$.
+
+    But we have not defined an inner product on the space of polynomials! Thus, it does not make sense to simply say that $V'$ is identified with $V$. On the other hand, pick $n+1$ distinct points $x_j \in \FF$, and consider the operation of evaluation at $x_j$,
+    \begin{equation}
+    \omega_j(p) := p(x_j).
+    \end{equation}
+    Then $\omega_j \in V'$ is a linear function on $p$ in a natural way. One can show that all the $\omega_j$ are linearly independent, and thus form a basis for $V'$! But this basis does not satisfy $\omega_j(x^k)= \delta_{jk}$, so it is not dual to the monomial basis. But we can transform them by taking linear combinations to a dual basis. 
+\end{myExample}
+
+\todo{Write exercise on the polynomials and the dual basis}
+
+
+\todo{Write up example of C*-algebra}
+
+
+
+\begin{myTheorem}{Linear transformations between finite dimensional spaces}{}
+    Let $V$ and $W$ be vector spaces over $\FF$ of finite dimensions $n$ and $m$, respectively. Let $\hat{A} : V \to W$ be a linear transformation, i.e., $\hat{A}(v + v') = \hat{A}v + \hat{A}v'$, and $\hat{A}(\alpha v) = \alpha \hat{A}v$. We denote by $L(V,W)$ the set of such linear functions, which is a vector space, cf.~\eqref{eq:operator-linear-space}.
+
+    
+    The linear vector spaces $L(V,W)$ and $M(m,n,\FF)$ are isomorphic as vector spaces. That is, given bases for $V$ and $W$, there is a linear one-to-one correspondence between $L(V,W)$ and $M(m,n,\FF)$. 
+
+\end{myTheorem}
+
+We prove this as follows:
+
+Let $B = \{b_i\}$ be a basis for $V$, and  $C = \{c_i\}$ a basis of $W$, with dual basis $\{\tilde{c}_i\}$.
+
+Let $v \in V$, and $w = \hat{A}v \in W$, with coefficients $\mathbf{v}\in \FF^n$ and $\mathbf{w}\in \FF^m$, respectively. Then
+\begin{equation}
+    w_i = \sum_{j=1}^n A_{ij} v_j,
+\end{equation}
+with
+\begin{equation}
+    A_{ij} = \tilde{c}_i(\hat{A} b_j).
+\end{equation}
+Conversely, any matrix $A\in\FF^{m\times n}$ defines a unique $\hat{A}\in L(V,W)$.
+
+
+This simple result is striking, in that for the finite dimensional case, and given that we have chosen a basis, we can think in terms of $\FF^n$ and $M(n,m,\FF)$. All finite dimensional vectors spaces are ``the same'', and also the linear transformations will be ``the same'' by way of their matrix representations.
+
+\section{Inner product spaces}
+
+What actually distinguish finite dimensional spaces is their \emph{topology}, i.e., how points are considered to be close to each other. Note that we did \emph{not} use any inner product to make correspondences between a vector space $V$ and $\FF^n$. Indeed, there is no inner product on a general finite dimensional vector space $V$.
+
+\begin{myExample}{Space of planets}{}
+    Suppose we characterize a planet by its mass, diameter, and average distance from the sun, all measured in SI units. These three numbers are gathered in a vector $\mathbf{u} = [u_1, u_2, u_3]$, but the components refer to different units of measurements. Does it make sense to define the inner product between two planets as $\mathbf{u}\cdot\mathbf{v} = u_1 v_1 + u_2v_2 + u_3 v_3$?
+\end{myExample}
+
+
+If we supply an inner product on $V$, we say that $V$ is an inner product space, and since $V$ is finite dimensional, it will also be \emph{complete} and hence a \emph{Hilbert space}. \todo{Refer to functional analysis section}
+
+\begin{myDefinition}{Inner product}{}
+    Let $V$ be a vector space.
+    An \emph{inner product} $\braket{\cdot, \cdot} : V\times V \to \FF$ is a map which satisfies the following axioms:
+   \begin{enumerate}
+       \item $\braket{x,x} \geq 0$, \quad $\braket{x,x} = 0$ if and only if $x = 0$ \hfill \axiomname{non-negative}
+       \item $\braket{x,\alpha y + \beta z} = \alpha\braket{x,y} + \beta\braket{x,z}$ \axiomname{linearity}
+       \item $\braket{\alpha y + \beta z, x} = \bar{\alpha}\braket{y,x} + \bar{\beta}\braket{z,x}$ \axiomname{conjugate linearity}
+       \item $\braket{x,y} = \overline{\braket{y,x}}$ \axiomname{hermiticity}
+   \end{enumerate}
+\end{myDefinition}
+
+Let $V$ be a finite-dimensional Hilbert space, and let $B = \{b_i\}$ be a basis for $V$. Consider arbitrary vectors $v = \sum_{i=1}^n b_i v_i$ and $v' = \sum_{i=1}^n b_i v_i'$, and compute the inner product:
+\begin{equation}
+    \braket{v,v'} = \sum_{i=1}^n\sum_{j=1}^n \bar{x}_i \braket{b_i, b_j} x_j' \equiv \sum_{i=1}^n\sum_{j=1}^n \bar{x}_i S_{ij} x_j' =  \mathbf{x}^H S \mathbf{x}'.
+\end{equation}
+The matrix $S$ is often called the \emph{overlap matrix of the basis $B$}. We see that that since we start with an inner product on $V$, the latter equation defines an inner product on $\FF^n$ -- but it is not the Euclidean inner product!
+
+However, if $S$ has matrix elements $\delta_{ij}$, then we get the Euclidean inner product.
+
+\begin{myDefinition}{Orthonormal basis}{}
+Let $V$ be a finite dimensional Hilbert space, and let $B = \{b_i\}$ be a basis. We say that $B$ is an orthonormal basis if, for all $i$ and $j$, $\braket{b_i,b_j} = \delta_{ij}$.
+\end{myDefinition}
+
+In finite dimensional Hilbert spaces (and indeed infinite dimensional separable Hilbert spacs), orthonormal bases are not very special: they always exist, and can be constructed using \emph{Gram--Schmidt orthogonalization}.
+
+\begin{myTheorem}{Existence of orthonormal basis}{}
+    Any finite dimensional Hilbert space $V$ has an orthonormal basis.
+\end{myTheorem}
+
+
+\begin{myTheorem}{}{}
+    Let $V$ be a vector space of finite dimension $n$, and let $B = \{ b_i\}$ be an orthonormal basis.
+
+    For any $v \in V$,
+    \begin{equation}
+        v = \sum_i v_i b_i, \quad v_i = \braket{b_i,v}.
+    \end{equation}
+    Let $\hat{A} \in L(V)$ be a linear operator.  The matrix of $\hat{A}$ has elements 
+    \begin{equation}
+        A_{ij} = \braket{b_i, \hat{A} b_j}.
+    \end{equation}
+\end{myTheorem}
+
+
+\begin{myDefinition}{Hermitian adjoint}{}
+    Let $V$, $W$ be finite-dimensional Hilbert spaces, and let $\hat{A} \in L(V,W)$. The \emph{Hermitian adjoint} $\hat{A}^\dag$ is an operator in $L(W,V)$ defined by the criterion that for all $v\in W$ and all $w \in W$,
+    \begin{equation}
+        \braket{w,\hat{A}v} = \braket{\hat{A}^\dag w, v}.
+    \end{equation}
+    For a $v\in V$, we also define $v^\dag \in V'$ by the criterion that for all $v' \in V$,
+    \begin{equation}
+        v^\dag v' = \braket{v,v'}.
+    \end{equation}
+    For a $\omega \in V'$ we define $\omega^\dag \in V$ by the criterion that for all $v \in V$,
+    \begin{equation}
+        \omega v = \braket{\omega^\dag, v}
+    \end{equation}
+\end{myDefinition}
+
+\begin{myRemark}{}{}
+This definition is compatible with the Hermitian adjoint of matrices. The definition of $v^\dag$ and $\omega^\dag$ is a one-to-one mapping between $V$ and $V'$, just like for vectors in $\FF^n$. In particular $(v^\dag)^\dag = v$, and the inner product can be written
+\begin{equation}
+    \braket{v,w} = v^\dag w.
+\end{equation}
+The matrix element of an operator $\hat{A} : V \to W$ becomes
+\begin{equation}
+    \braket{w,\hat{A} v} = w^\dag \hat{A} v = (\hat{A}^\dag w)^\dag v.
+\end{equation}
+Thus, \emph{just like for matrices, row vectors and column vectors}, whenever the product $XY$ is defined, then $(XY)^\dag = Y^\dag X^\dag$.
+\end{myRemark}
+
+
+We are now in the situation, that, using an orthonornal basis, inner products are preserved when moving to coefficient space: If $\bvec{u},\bvec{v}\in\FF^n$ are the components of $u,v\in V$ in some orthonormal basis, then
+\begin{equation}
+    \braket{u,v} = \braket{\mathbf{u},\mathbf{v}} = \bvec{u}^H \bvec{v}.
+\end{equation}
+This means that, as inner product spaces, there is nothing that distinguishes the Hilbert spaces $V$ from $\FF^n$.
+
+\begin{myTheorem}{Finite dimensional Hilbert spaces are basically all the same}{}
+Finite dimensional Hilbert spaces over $\FF$ of dimension $n$ are all \emph{isometrically isomorphic} to $\FF^n$, and hence to each other. The word ``isometricall'' means that the inner product can be considered the same for both spaces.
+
+Note that spaces over $\RR$ and $\CC$ are still different!
+\end{myTheorem}
+
+\begin{myRemark}{}{}
+In order to study (the vector space structure of) finite dimensional Hilbert spaces, including the linear operators over these spaces, it suffices to $\FF^n$ and matrices $M(n,m,\FF)$.
+
+This is a very important fact!
+\end{myRemark}
+
+\subsection{Linear subspaces}
+
+We generalize the notion of a linear subspace to general vector spaces spaces (also infinite dimensional ones):
+\begin{myDefinition}{Linear subspace}{}
+Let $V$ be a vector space over $\FF$. A subset $W \subset V$ is a \emph{linear subspace} if it is closed under vector addition and scalar multiplication, i.e., if
+\begin{equation}
+    \forall w \in W, \quad \alpha w \in W, \quad w_1 + w_2 \in W,
+\end{equation}
+and if $0 \in W$.
+\end{myDefinition}
+
+
+
+Linear subspaces are also vector spaces.
+
+In the finite dimensional case $V$, we must have that $W\subset V$ is finite dimensional, too. In particular $W$ has a basis of vectors $b_i \in V$, $1 \leq m \leq n$, and $m$ is the dimension of $W$.
+
+Conversely, any linearly independent set $\{b_i\}$ of $m$ vectors of $V$ define a subspace of all possible linear combinations, written:
+\begin{equation}
+    W = \operatorname{span} \{ b_1, \dots, b_m \}.
+\end{equation}
+
+
+\subsection{Dirac's bra-ket notation}
+
+Dirac introduced the bra-ket notation in his celebrated book on quantum mechanics. The notation, which is very useful, has some problems when one works in infinite dimensions. The interested student can have a look at the paper by Gieres \todo{add citation}.
+
+In the present case, we will use the bra-ket notation, since we work in finite dimensions, and since it is very intuitive and transparent.
+
+
+
+\paragraph{Bras and kets}
+The basic premise is that we write the inner product with a bar instead of a comma:
+\begin{equation}
+    \braket{u|v} := \braket{u,v} 
+\end{equation}
+The idea is now that this is a scalar product between a vector $v \in V$ and a \emph{dual element} $u^\dag \in V'$, denoted
+\begin{equation}
+    \braket{u|v} := \braket{u,v}  = u^\dag v.
+\end{equation}
+
+
+We now define
+\begin{equation}
+    \ket{v} := u \in V \quad \text{(``ket'')} \qquad \bra{u} := \ket{u}^\dag \in V' \quad \text{(``bra'')}.
+\end{equation}
+Thus, we interpret the bra-ket as a product between a bra and a ket,
+\begin{equation}
+    \braket{u|v} = \bra{u} \cdot \ket{v}.
+\end{equation}
+
+\begin{myRemark}{}{}
+    The abstract juggling we did earlier with the daggers can be summarized as follows: We may think of kets as column vectors, and bras as row vectors. The dagger and the Hermitian adjoint are essentially the same operations:
+    \begin{equation}
+        \ket{u} \quad \longleftrightarrow \quad \mathbf{u} \in \FF^{n\times 1}
+    \end{equation}
+    \begin{equation}
+        \bra{u} \quad \longleftrightarrow \quad \mathbf{u}^H \in \FF^{1\times n}
+    \end{equation}
+\end{myRemark}
+
+\paragraph{Orthonormal basis}
+
+Let $B = \{b_i\}$ denote an orthonormal basis for $V$. We denote the corresponding kets simply by $\ket{i}$. We may use any name we like, and simply using the index reduces clutter. Recall the expansion
+\begin{equation}
+    \ket{u} = \sum_i^n u_i \ket{i},
+\end{equation}
+and that the coefficients were
+\begin{equation}
+    u_i = \braket{b_i, u} = \braket{i|u}.
+\end{equation}
+Inserting this expression gives
+\begin{equation}
+    \ket{u} = \sum_i^n \braket{i|u} \ket{i} = \sum_i^n \ket{i}\braket{i|\cdot|u}.
+\end{equation}
+We can pull $\ket{u}$ outside the sum, to get
+\begin{equation}
+    \ket{u} = \left(\sum_i^n \ket{i}\bra{i}\right) \ket{u} = \ket{u}.
+\end{equation}
+Thus, the \emph{identity operator} can be written using an orthonormal basis as
+\begin{equation}
+    \mathbbm{1} = \sum_i^n \ket{i}\bra{i}.
+\end{equation}
+More generally, consider the expression
+\begin{equation}
+    \ket{i}\bra{j}.
+\end{equation}
+When acting on a basis vector, we see that it takes $\ket{j}$ and transforms it to $\ket{i}$. Watch this, where we use the $\mathbbm{1}$ trick:
+\begin{equation}
+    \hat{A} = \mathbbm{1}\hat{A} \mathbbm{1} = \sum_{i}^n \sum_j^n \ket{i}\braket{i|\hat{A}|j} \bra{j} = \sum_{i,j}^n \ket{i} A_{ij} \bra{j}.
+\end{equation}
+We have derived the fact that the set $\{ \ket{i}\bra{j} \,:\, 1\leq i,j\leq n\}$ is a basis for the linear space of operators over $V$!
+
+This statement can of course be generalized to operators between different spaces $V$ and $W$ with their own orthonormal basis.
+
+Another important operator tool is the following construction: Let $B = \{b_1,\cdots,b_m\} \subset V$, with $\dim(V) = n$, be a set of vectors. They may or may not be linearly independent. Let $\ket{i}$ be a standard basis vector for $\FF^m$. Consider the operator $\hat{B} : \FF^m \to V$ given by
+\begin{equation}
+    \hat{B} = \sum_{i=1}^m \ket{b_i}\bra{i}.
+\end{equation}
+Let now $\bvec{x}\in \FF^m$, and compute
+\begin{equation}
+    \hat{B}\ket{\bvec{x}} = \sum_{i=1}^m \ket{b_i} x_i,
+\end{equation}
+that is $\hat{B}$ \emph{generates linear combinations}. One can think of $\hat{B}$ as a generalized matrix, where each ``column'' is a ket,
+\begin{equation}
+    \hat{B} = [\ket{b_1}\; \ket{b_2}\; \cdots \; \ket{b_m}].
+\end{equation}
+Since $V$ is $n$-dimensional, we can think of each ket as an $n$-dimensional vector in $\FF^n$, i.e., $\hat{B}$ is like a matrix in $\FF^{n\times m}$.
+
+
+
+
+
+
+\section{Matrices}
+
+We know that all linear transformations between finite dimensional spaces are naturally expressed with matrices. Therefore, the manipulation of matrices and understanding their behavior is essential for any quantum chemist.
+
+
+\subsection{Column space, row space, rank}
+
+A matrix $A \in \FF^{n\times m}$ has a set of \emph{columns}, the $j$th column is denoted $A_{:,j}$ and a set of \emph{rows}, the $i$th row denoted $A_{i,:}$. This notation can remind us about the Python or Matlab notations for taking slices.
+
+Example:
+\begin{equation}
+    A = \begin{bmatrix} 1 + \rmi & 2 - 2\rmi \\ 1 & 0 \\ 0 & 0 \end{bmatrix}, \quad A_{:,1} = \begin{bmatrix} 1 + \rmi \\ 1 \\ 0 \end{bmatrix}, \quad A_{:,2} = \begin{bmatrix} 2 - 2\rmi \\ 0 \\ 0 \end{bmatrix}, \quad A_{1,:} = [1+\rmi,\; 2-2\rmi], \quad A_{2,:} = [1,\; 0], \quad A_{3,:} = [0,\; 0].
+\end{equation}
+Note the comma notation on the rows. This is for clarity.
+
+The significance of the columns is the following: Let $\bvec{a}_i = A_{i,:}$ be the $i$th column. We write
+\[ A = [\bvec{a}_1, \bvec{a}_2, \cdots, \bvec{a}_n]. \]
+We now act with $A$ on some $\bvec{x} \in \FF^n$, and it is straightforward to see, that the answer is:
+\begin{equation}
+    A\bvec{x} = \bvec{a}_1 x_1 + \bvec{a}_2 x_2 + \cdots + \bvec{a}_n x_n.
+\end{equation}
+Thus: The result is a linear combination of the columns, the coefficient being given by $\bvec{x}$.
+
+Similarly, the rows are significant when acting \emph{to the left} on some row vector.
+
+
+\begin{myDefinition}{Column space}{}
+    For a matrix $A = [\bvec{a}_1,\cdots,\bvec{a}_n]\in\FF^{n\times m}$ , the \emph{column space} is the set of all linear combinations of the columns $\bvec{a}_i$. This is also denoted \emph{the range} or \emph{image} of $A$, since it is the set of all vectors $A\bvec{x}$. 
+
+    The column space is a linear vector space, written
+    \begin{equation}
+        \operatorname{span}\{ \bvec{a}_1, \, \bvec{a}_2, \, \cdots\, , \bvec{a}_n \}.
+    \end{equation}
+
+    The \emph{rank} of the matrix is the dimension of the column space.
+
+    The row space is defined similarly.
+
+     (It is a fact that the dimension of the row space is the same as the dimension of the column space.)
+\end{myDefinition}
+
+Facts: Any linear subspace of $\FF^n$ is the column space of some matrix (not unique). The columns form a basis for the subspace.
+
+
+
+\subsection{Systems of linear equations}
+
+Consider a matrix $A \in M(n,m,\FF)$. Consider the \emph{linear equation}: Find $\mathbf{x}\in \FF^n$ such that, for a given $\mathbf{y}\in \FF^m$,
+\begin{equation}
+    A \mathbf{x} = \mathbf{y}.
+\end{equation}
+This is one of the basis uses of matrices: to solve linear systems of equations.
+
+Written out in terms of matrix elements and vector components,
+\begin{align}
+    A_{11} x_1 + A_{12} x_2 &+ \cdots + A_{1n} x_n = y_1 \\
+    A_{21} x_1 + A_{22} x_2 &+ \cdots + A_{2n} x_n = y_2 \\
+    &\vdots \\
+    A_{m1} x_1 + A_{m2} x_2 &+ \cdots + A_{mn} x_n = y_m   
+\end{align}
+
+Given this setup, several things can happen:
+\begin{enumerate}
+    \item No solutions exist. This may only happen if $m \geq n$, and we say that the equations are \emph{inconsistent} or \emph{overdetermined}. 
+    \item Exactly one solution exists for every $\bvec{y}$. If  $m  > n$, some equations can be eliminated and can be reduced to a square system with $n=m$.
+    \item An infinite number of solutions exist, and we say that the system is \emph{underdetermined}. This may happen both for $n\neq m$ and $n=m$.
+\end{enumerate}
+
+Suppse $A$ is square, and that $\mathbf{x}$ can be found for \emph{any} $\mathbf{y}\in\FF^n$, then this solution defines a linear map $\tilde{A} : \FF^n \to \FF^n$ such that
+\[ \tilde{A} A \mathbf{x} = \tilde{A} \mathbf{y} = \mathbf{x}. \]
+This map is the \emph{inverse function} of $A$.
+Thus, it is natural to write $\tilde{A} = A^{-1}$ for the solution operator.
+
+In some cases, there is no unique solution. This happens precisely when the rank of $A$ is smaller than $n$. The set of $\bvec{x}$ such that $A\bvec{x}=0$ is the \emph{null space} of $A$. This is a linear subspace. Its dimension is the \emph{nullity}.
+
+\begin{myTheorem}{Rank/nullity theorem}{}
+    Let $A \in \FF^{m\times n}$.
+    Rank of $A$ $+$ nullity of $A$ equals $n$.
+\end{myTheorem}
+
+
+
+\subsection{Gaussian elimination}
+
+A classic way to solve a linear system of equations is by \emph{gaussian elimination}. Given a linear equation $A\mathbf{x}=\mathbf{y}$, we expand it in order to see better:
+\begin{align}
+    A_{11} x_1 + A_{12} x_2 + \cdots + A_{1n} &= y_1 \\
+    A_{21} x_1 + A_{22} x_2 + \cdots + A_{2n} &= y_2 \\
+    &\vdots\\
+    A_{n1} x_1 + A_{n2} x_2 + \cdots + A_{nn} &= y_n \\
+\end{align}
+Thus, $A_{ij}$ is the coefficient of $x_j$ in the $i$th equation, the right-hand side of which is $y_i$. Now, we can produce an equivalent linear system by \emph{multiplying equations by (nonzero) numbers} or \emph{adding pairs of equations}. That is \emph{taking linear combinations of equations}.
+
+In gaussian elimination, one proceeds systematically. First, we write down the \emph{augented matrix}
+\begin{equation}
+    B = [ A | \mathbf{y} ] \in \FF^{n\times (n + 1)}.
+\end{equation}
+We then use using \emph{elementary row operations} to bring the system to \emph{row echelon form}.
+\begin{myDefinition}{Row echelon form}{}
+    A matrix $T \in \FF^{n\times m}$ is on row echelon form if $T_{ij}=0$ whenever $i > j$, and if the \emph{leading coefficient} (first nonzero) of row number $i$ is always to the left of the leading coefficient of row number $i+1$. The leading coefficient is also called a \emph{pivot}
+\end{myDefinition}
+The elementary matrix operations are:
+\begin{itemize}
+    \item Multiply a row by a nonzero number
+    \item Swap two rows
+    \item Add one row to another (includes subtraction by first multiplying by nonzero scalar)
+\end{itemize}
+
+\begin{myExample}{}{}
+This matrix is in row echelon form. The pivots are in squares.
+\begin{equation}
+    \begin{bmatrix}
+        \fbox{1} & 2 & 0 & 0 \\
+        0 & \fbox{2} & -4 & -1 \\
+        0 & 0 & 0 & \fbox{1} \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}
+\end{equation}
+\end{myExample}
+
+We say that two matrices are \emph{equivalent} if they are related by one or more elementary operations, written $A \sim A'$.
+
+The leading coefficients can all be taken to be $1$, by a final scaling operation if necessary.
+
+When the row echelon form has been obtained, we will be able to find a unique solution to the linear system \emph{if and only if the diagonal of the row echelon form is nonzero}. Assuming the diagonal elements to be $1$, solving the system is trivial \emph{by backsubstitution}: the last equation says $y_n = $something, and by substituting into the $n-1$th equation, we get $y_{n-1}$, etc.
+
+Alternatively, we may bring the matrix to the form $B = [I | \mathbf{x}]$ by further elementary operations.
+
+To compute the matrix inverse, we start with the augmented matrix $B = [A | I]$ and use elementary operations to bring it to the form $\tilde{B} = [I | A^{-1}]$.
+
+\begin{myExample}{}{}
+Solve the linear system
+\begin{equation}
+    x_1 + x_2 + x_3 = 0, \quad x_1 - 2 x_2 + 3 x_3 = 1, \quad 4 x_1 - x_3 = 2.
+\end{equation}
+Augmented matrix:
+\begin{equation}
+B =    \begin{bmatrix}
+        1 & 1 & 1 & 0 \\
+        1 & -2 & 3 & 1 \\
+        4 & 0 & -1 & 2
+    \end{bmatrix}
+\end{equation}
+We begin by subtracting the first row from the second, and 4 times the first row from the third:
+\begin{equation}
+B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & -3 & 2 & 1 \\
+    4 & 0 & -1 & 2 \\
+\end{bmatrix} \sim
+\begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & -3 & 2 & 1 \\
+    0 & -4 & -5 & 2 \\
+\end{bmatrix}
+\end{equation}
+We now multiply the second row by $-1/3$ and the third by $-1/4$:
+\begin{equation}
+B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 1 & -2/3 & -1/3 \\
+    0 & 1 & 5/4 & -1/2 \\
+\end{bmatrix}
+\end{equation}
+Finally, we subtract row 2 from row 3 to get the row echelon form
+\begin{equation}
+B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 1 & -2/3 & -1/3 \\
+    0 & 0 & 23/12 & -1/6 \\
+\end{bmatrix}
+\end{equation}
+We simplify a bit and multiply the last row by $12/23$
+\begin{equation}
+B \sim \begin{bmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 1 & -2/3 & -1/3 \\
+    0 & 0 & 1 & -12/138 \\
+\end{bmatrix}
+\end{equation}
+Solving the linear system is now easy: $x_3 = -12/138$ from the last equation. We insert back into the second equation:
+\begin{equation}
+    x_2 = (2/3)  x_3 - 1/3,
+\end{equation}
+and finally
+\begin{equation}
+    x_1 = -x_2 - x_3.
+\end{equation}
+\end{myExample}
+
+\subsection{Matrix powers}
+
+
+We may compose $A$  with itself, which gives a matrix power,
+\[ AA\mathbf{x} = A^2 \mathbf{x}. \]
+Higher powers are defined similarly.
+
+How about negative powers? 
+
+The \emph{matrix inverse} defined above satisfies
+\[ AA^{-1} = A^{-1} A = I, \]
+where $I$ is the common notation for the \emph{identity matrix}, with elements $I_{ij} = \delta_{ij}$. The identity matrix is such that $I\mathbf{x} = \mathbf{x}$ for all $\mathbf{x}\in \FF^n$.
+
+
+We define $A^{-k} = (A^{-1})^k$, and we now have, with the definition $A^0 = I$,
+\[ A^{k+l} = A^k A^l = A^l A^k, \quad \forall k,l\in\mathbf{Z}. \]
+
+
+\subsection{Classes of operators}
+
+We now consider some important classes of operators.
+
+\begin{myDefinition}{}{}
+    Let $V$ be a Hilbert space over $\FF$ of finite dimension $n$, and let $\hat{A} \in L(V)$ be a linear operator. We say that $A$ is \ldots
+    \begin{enumerate}
+        \item Hermitian if $\braket{u,\hat{A}v}_V = \braket{\hat{A}u,v}_V$ for all $u,v\in V$. Equivalently, the matrix of $\hat{A}$ in any orthonormal basis satisfies $A^H = A$.
+        \item Unitary if it preserves inner products, i.e., $\braket{u,v}_V = \braket{\hat{A}u,\hat{A}v}_V$. Equivalently, the matrix satisfies $A^H = A^{-1}$.
+        \item Normal if it \emph{commutes} with its adjoint, $\hat{A} \hat{A}^\dag = \hat{A}^\dag \hat{A}$
+        \item Invertible if $\hat{A}^{-1}$ exists
+    \end{enumerate}
+\end{myDefinition}
+
+\subsection{The eigenvalue decomposition}
+
+Given a linear operator $\hat{A} \in L(V)$, consider the \emph{eigenvalue equation}: Find $\lambda \in \FF$ and a nonzero $v \in V$ such that
+\begin{equation}
+    \hat{A} v = \lambda v.
+\end{equation}
+We call $\lambda$ an \emph{eigenvalue}, $v$ an \emph{eigenvector}, and $(\lambda,v)$ an \emph{eigenpair}. Clearly, if $v$ is an eigenvector, then $\alpha v$ is an eigenvector for any $\alpha\neq 0$. So an eigenvector is defined only up to a multiplicative constant.
+
+Suppose $(\lambda',v')$ is another eigenpair. Then,
+\begin{equation}
+\braket{u|\hat{A}|v} = \lambda \braket{u|v} = \lambda' \braket{u|v}. 
+\end{equation}
+If $\lambda' \neq \lambda$, then we must have $\braket{u|v} = 0$. So if we have a set of $n$ different eigenvalues, then we can build an orthonormal basis of eigenvectors! This is significant, because it tells us that there exists a basis for $V$ in which $\hat{A}$ is very easy to describe!
+
+All normal operators have such orthonormal bases:
+\begin{myTheorem}{Spectral theorem for normal operators}{}
+    Suppose $\hat{A} \in L(V)$ is a normal operator. Then, there exists an orthonormal basis $\{v_1,\cdots,v_n\}$ such that
+    \begin{equation}
+        \hat{A} = \sum_{i=1}^n \ket{v_i} \lambda_i \bra{v_i}.
+    \end{equation}
+    In terms of the matrices relative to some orthonormal basis, there exists a unitary matrix $U$ such that
+    \begin{equation}
+        A = \sum_{i=1}^n \mathbf{u}_i \lambda_i \mathbf{u}_i^H = U \Lambda U^H
+    \end{equation}
+    where $\mathbf{u}_i$ is the $i$th column of $U$, and where $\Lambda$ is a diagonal matrix with elements $\Lambda_{ij} = \lambda_i \delta_{ij}$
+\end{myTheorem}
+
+
+\subsection{Singular value decomposition}
+
+One of the most striking matrix factorizations is \emph{the singular-value decomposition} (SVD). It decomposes a matri $A$ as follows:
+\begin{comment}
+\begin{myTheorem}{Singular value decomposition}{}
+    Let $A \in M(n,m,\FF)$ be a matrix, and let $k = \min(n,m)$. There exists $k$ \emph{singular values} $\sigma_i\in[0,+\infty[$ and $k$ left singular vectors $\bvec{u}_i$, and $k$ right singular vectors $\bvec{v}_i$, such that
+    \begin{equation}
+        A = \sum_{i=1}^k \bvec{u}_i \sigma_i \bvec{v}_i^\dag = U \Sigma V^\dag,
+    \end{equation}
+    where $U = [\bvec{u}_1,\cdots,\bvec{u}_k]$, $V = [\bvec{v}_1,\cdots,\bvec{v}_k]$, $\Sigma = \operatorname{diag}(\sigma_1,\cdots,\sigma_k)$.
+
+    The rank of $A$ is the number of nonzero singular values. The decomposition is unique if all the singular values are distinct.
+\end{myTheorem}
+\end{comment}
+
+\begin{myTheorem}{Singular value decomposition}{}
+    Let $A \in M(n,m,\FF)$ be a matrix, and let $k = \min(n,m)$. There exists $k$ \emph{singular values} $\sigma_i \geq 0$ and $k$ \emph{left singular vectors} $\bvec{u}_i$, and $k$ \emph{right singular vectors} $\bvec{v}_i$, such that
+    \begin{equation*}
+        A = \sum_{i=1}^k \bvec{u}_i \sigma_i \bvec{v}_i^H = U \Sigma V^H,
+    \end{equation*}
+    where $U = [\bvec{u}_1,\cdots,\bvec{u}_k]$, $V = [\bvec{v}_1,\cdots,\bvec{v}_k]$, $\Sigma = \operatorname{diag}(\sigma_1,\cdots,\sigma_k)$. Equivalently,
+    \begin{equation*}
+        A \mathbf{v}_i = \sigma_i \mathbf{u}_i.
+    \end{equation*}
+    The rank of $A$ is the number of nonzero singular values. The decomposition is unique if all the singular values are distinct.
+\end{myTheorem}
+
+Interpreting the SVD: $V^\dag \bvec{x}$ decomposes $\bvec{x}$ along $k$ orthonormal vectors. The matrix $\Sigma$ scales the vectors by a constant amount, and finally $U$ maps rotates the scaled vectors to a new orthonormal set of $k$ vectors.
+
+Since the decomposition always exists, the SVD is a universal geometric interpretation of \emph{any} matrix!
+
+It is customary to arrange the singular values in descending order. If we \emph{truncate} the expansion after $\ell < k$ terms,
+\begin{equation}
+    A_\ell = \sum_{i=1}^{\ell} \bvec{u}_i \sigma_i \bvec{v}_i^\dag,
+\end{equation}
+we obtain an approximation to $A$ which is \emph{optimal} in the so-called Frobenius, or Hilbert--Schmidt norm on matrices,
+\begin{equation}
+    \|A\|_{\text{F}} = \left( \sum_{ij} |A_{ij}|^2 \right)^{1/2},
+\end{equation}
+i.e., the space of matrices $M(n,m,\FF)$ is viewed as Euclidean $nm$-dimensional space, a Hilbert space.
+
+The SVD is a powerful tool in data analysis, since it identifies the most important components of a matrix.
+
+
+
+

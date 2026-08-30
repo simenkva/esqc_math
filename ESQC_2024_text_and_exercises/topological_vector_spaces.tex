@@ -1,0 +1,526 @@
+\chapter{Topologies on vector spaces}
+\label{chapter:topology}
+
+
+\section{The notion of a topology}
+\label{sec:topological-vector-spaces}
+
+
+In our discussion of Euclidean space and finite-dimensional Hilbert spaces in Sec.~\ref{sec:general-finite-dimensional}, we had an \emph{inner product} at our disposal. The inner product could be used to define a \emph{norm}, that measured length. Appealing to the linear structure of the space, we could measure distances, $d(x,y) = \|x - y\|$.
+
+A distance measure gives us the ability to talk about \emph{closeness} between points, i.e., a \emph{topology}. In the field of topology, one makes these concepts abstract. In particular, we get axioms for \emph{open sets}. These sets are used, for example, to define various concepts of functions $f : U\to V$ being \emph{continuous}.
+
+\begin{myDefinition}{Topological space}{topological space}
+Let $X$ be a set.
+A \emph{topology} $\tau$ on $X$ is a collection  of subsets of $X$, called \emph{open sets},  satisfying the following axioms:
+\begin{itemize}
+    \item The empty set $\emptyset \in \tau$ \axiomname{Empty set is open}
+    \item $X \in tau$ \axiomname{The space itself is open}
+    \item If $\{U_i \mid i \in \text{some index set}\}$ is an \emph{arbitrary} collection of elements of $\tau$, then
+    $$ \bigcup U_i \in \tau. $$\axiomname{Arbitary unions are open}
+    \item If $\{U_i \mid i \in \{1,2,\cdots,n\}\}$ is a \emph{finite} collection of elements of tau, then 
+    $$ \bigcap U_i \in \tau $$\axiomname{Finite intersections are open}
+\end{itemize}
+The pair $(X,\tau)$ is called a \emph{topological space}.
+
+A subset $C\subset X$ is said to be \emph{closed in $X$} if its complement $C^\complement = X \setminus C$ is open.
+\end{myDefinition}
+
+
+
+\section{Metric space hierarchy}
+\label{sec:metric-spaces}
+
+We are now motivated to look closer at metric spaces, and open and closed sets in metric spaces. In this section, we look at metric spaces, and these will be the most general topological spaces we discuss.
+
+A vector space with a topology is called a \emph{topological vector space} (TVS).
+
+
+\subsection{Inner product spaces}
+\label{sec:inner-product-spaces}
+
+\begin{myDefinition}{Inner product}{}
+    Let $V$ be a vector space.
+    An \emph{inner product} $\braket{\cdot, \cdot} : V\times V \to \FF$ is a map which satisfies the following axioms:
+   \begin{enumerate}
+       \item $\braket{x,x} \geq 0$, \quad $\braket{x,x} = 0$ if and only if $x = 0$ \hfill \axiomname{non-negative}
+       \item $\braket{x,\alpha y + \beta z} = \alpha\braket{x,y} + \beta\braket{x,z}$ \axiomname{linearity}
+       \item $\braket{\alpha y + \beta z, x} = \bar{\alpha}\braket{y,x} + \bar{\beta}\braket{z,x}$ \axiomname{conjugate linearity}
+       \item $\braket{x,y} = \overline{\braket{y,x}}$ \axiomname{hermiticity}
+   \end{enumerate}
+   We say that the pair $(V,\braket{\cdot,\cdot})$ is an \emph{inner-product space}.
+\end{myDefinition}
+
+\subsection{Normed spaces}
+\label{sec:normed-spaces}
+
+In Euclidean space, the length of a vector $\mathbf{v}\in\FF^n$ is $\|\bvec{v}\| = \sqrt{\braket{\bvec{v},\bvec{v}}}$. This is but one out of many possible \emph{norms} on Euclidean space. Norms are abstractions of the notions of \emph{length} of elements of vector spaces:
+\begin{myDefinition}{Norm}{}
+    Let $V$ be a vector space.
+    A \emph{norm} $\|\cdot\| : V \to \RR_+ = [0, +\infty[$ is a function that satisfies the following axioms:
+    \begin{enumerate}
+        \item $\|x\| \geq 0$, and $\|x\|=0$ if and only if $x = 0$. \axiomname{positivity}
+        \item $\|\alpha x\| = |\alpha| \|x\|$ \axiomname{absolute homogeneity}
+        \item $\|x + y \| \leq \|x\| + \|y\|$ \axiomname{triangle inequality}
+    \end{enumerate}
+    The pair $(V,\|\cdot\|)$ is called a \emph{normed vector space}.
+\end{myDefinition}
+You should convince yourself that the axioms indeed correspond to what we expect from a useful concept of length.
+
+
+
+\subsection{Angles between vectors}
+\label{sec:angles}
+
+Returning to the inner product, we can now obtain some intuition using the associated norm. The inner product measures \emph{angles between vectors}. Indeed, any inner product satisfies the Cauchy--Schwarz inequality:
+\begin{myLemma}{Cauchy--Schwarz inequality}{cs}
+    Let $(V,\braket{\cdot,\cdot})$ be an inner product space, and let $\|\cdot\|$ be the induced norm. Then, for any $x,y \in V$, it holds that
+    \begin{equation}
+    \braket{x,y} \leq \braket{x,x}^{1/2} \braket{y,y}^{1/2} = \|x\|\, \|y\|.
+    \end{equation}
+\end{myLemma}
+The Cauchy--Schwarz inequality implies that
+\begin{equation}
+    0 \leq \frac{|\braket{x,y}|}{\|x\|y\|} \leq 1
+\end{equation}
+so that we may define the \emph{angle} between the vectors as the unique $\theta \in [0,\pi/2]$ such that
+\begin{equation}
+    \cos \theta = \frac{|\braket{x,y}|}{\|x\|\|y\|}.
+\end{equation}
+Note in particular that if $\braket{x,y}=0$, then $\theta = \pi/2$, coinciding with the notion of $x$ and $y$ being orthogonal to each other.
+
+\subsection{Metric spaces}
+\label{sec:metric-defintion}
+
+
+Norms can be used to measure \emph{distance} in Euclidean space and in inner product spaces in general. Given two elements $\bvec{u},\bvec{v}\in\FF^n$, the distance is given by $\|\bvec{u}-\bvec{v}\|$. This is a special case of a \emph{metric}, whose definition gives axioms that encapsulate the notion of distance:
+\begin{myDefinition}{Metric}{}
+    Let $M$ be a set. A function $f: S\times S \to \mathbb{R}$ is a \emph{metric} if it satisfies the following axioms:
+    \begin{enumerate}
+        \item $d(x,y) = d(y,x)$ \axiomname{symmetry}
+        \item $d(x,y) \geq 0$, and $d(x,y) = 0$ if and only if $x =y$ \axiomname{positivity and nondegeneracy}
+        \item $d(x,y) \leq d(x,z) + d(z,y)$ \axiomname{triangle inequality}
+    \end{enumerate}
+    The pair $(M,d)$ is a \emph{metric space}. If $M$ is a vector space, we say that $(M,d)$ is a \emph{metric vector space}.
+\end{myDefinition}
+In this definition, note that we are not starting with a vector space, since none of the axioms actually \emph{use} vector space properties of the set!
+
+Again, make sure that you understand how the axioms embody essential properties expected from a distance measure.
+
+\subsection{The topology generated by a metric}
+\label{sec:topology from metric}
+
+Let a metric space $(M,d)$ be given. The metric can be used to define a topology in terms of \emph{open balls}:
+
+\begin{myDefinition}{$\epsilon$-ball}{}
+    Let $(M,d)$ be a metric space.
+    Let $x \in M$.
+    The $\epsilon$-ball around $x$ is the set
+    \begin{equation}
+        B_\epsilon(x) = \{ y \in M \mid d(x,y) < \epsilon  \}.
+    \end{equation}
+\end{myDefinition}
+
+The following definition contains some statements that need to be proven, but we will take them for granted:
+\begin{myDefinition}{Metric space topology}{}
+    Let $(M,d)$ be a metric space. The \emph{metric space topology} is the smallest topology $\tau$ on $M$ that contains all the open balls. It is the topology \emph{generated} by the open balls. Every open set in $\tau$ can be written as an arbitrary union of open balls.
+\end{myDefinition}
+
+Thus, the $\epsilon$-ball is the archetypal \emph{open set} in a metric space $M$, and an open ball is illustrated in Fig.~\ref{fig:open-ball}. 
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{illustrations/epsilon-ball.ai}
+        \caption{The open ball $B_\epsilon(\bvec{x})$ of radius $\epsilon$ around $\bvec{x}$.\label{fig:open-ball}}
+    \end{center}
+\end{figure}
+
+There are usually many different possible metrics. Sometimes these give different topologies, sometimes the same. In the next example, we give two common metrics on $\RR^2$. It is a fact that these metrics give rise to the same topologies!
+\begin{myExample}{Two metrics on $\RR^2$}{two metrics}
+    Let us consider $\RR^2$ with the usual Euclidean metric. Denote by $\bvec{x} = (x_1,x_2)$ and $\bvec{y} = (y_1,y_2)$ two points in $\RR^2$. Then the Euclidean distance between these points is
+    $$ d_{\text{Euclidean}} (\bvec{x}, \bvec{y}) = [(x_1-y_1)^2 + (x_2-y_2)^2]^{1/2}. $$
+    Furthermore, the open ball of radius $r$ around the origin is the set
+    $$ B_\epsilon(0, \text{Euclidean}) = \left\{ (x,y) \in \RR^2 \mid x^2 + y^2 < \epsilon^2 \right\}. $$
+    This is the geometric description of the interior of a circle with radius $\epsilon$ centered at the origin. 
+    
+    Let us consider an alternative metric, the \emph{Manhattan metric}, named so because it is the relevant metric from the point of view of a taxicab driving along perfectly straight streets that cross each other at right angles:
+    $$ d_{\text{Manhattan}}(\bvec{x}, \bvec{y}) = |x_1-y_1| + |x_2-y_2|. $$
+    The open ball of raius $\epsilon$ around the origin is now:
+    $$ B_\epsilon(0, \text{Manhattan}) = \left\{ (x,y) \in \RR^2 \mid |x| + |y| < \epsilon \right\}. $$
+
+    The Euclidean $\epsilon$-ball is illustrated below to the left, while the Manhattan unit ball is illustrated to the right:
+    \begin{center}
+        \includegraphics{illustrations/manhattan-euclidean.ai}
+    \end{center}
+\end{myExample}
+
+It is common to use the following characterization as the definition of open sets in vector calculus.
+\begin{myTheorem}{Characterization of open sets}{}
+    Let $(M,d)$ be a metric space. A subset $S\subset M$ is open if and only if for every $x\in S$ there is an $\epsilon>0$ such that $B_\epsilon(x) \subset S$.
+\end{myTheorem}
+
+The definition of open sets can be used to define the following intuitive notions:
+\begin{myDefinition}{Boundary and interior}{}
+ Let $(M,d)$ be a metric space, and let $A \subset M$ be any
+ y subset.
+ \begin{itemize}
+     \item 
+     A point $x\in A$ is called \emph{a boundary point} if for all $\epsilom>0$, $B_\epsilon(x)$ contains a point in $A$ and a point in $A^\complement$.
+    \item
+     The \emph{boundary} $\partial A$ is the set of boundary points of $A$.
+    \item
+     The \emph{interior} of $A$ is the set of all points $x\in A$ such that for some $\epsilon>0$, $B_\epsilon(x) \subset A$.
+    \item  The \emph{closure} of $A$ is the smallest closed set containing $A$, and is equal to $A \cup \partial A$. (The latter statement is a theorem, not a definition.)
+ \end{itemize}
+\end{myDefinition}
+
+In Fig.~\ref{fig:open-closed} subsets that are open, closed, and neither open nor closed are illustrated. The reason why we can conclude easily about openness and closedness is that from the above example and definition, open sets do \emph{not contain their boundaries}, while closed sets to. 
+
+\begin{myExample}{The open ball and its boundary}{}
+Consider the open ball $B_\epsilon(x)$,
+$$ B_\epsilon(x) = \{ y \in M \mid d(x,y) < \epsilon \} . $$
+Since this set is open, the interior is the set itself.
+The boundary of the ball is given by
+$$ \partial B_\epsilon(x) = \{ y \in M \mid d(x,y) = \epsilon \} . $$
+The closure of the ball is
+$$ \cl B_\epsilon(x) = \{ y \in M \mid d(x,y) \leq \epsilon \} . $$
+\end{myExample}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{illustrations/open-closed.ai}
+    \caption{Illustration of open set (right), closed set (left), and neither open nor closed (middle) in the plane $\RR^2$. The dashed lines indicate boundaries that are \emph{not} included in the set, while the full lines indicate boundaries that \emph{are} in the set. The rightmost set is open, since for every point in the set there is a finite distance to the edge. The leftmost set includes the boundary. If we select a point on the boundary, any $\epsilon$-ball will be partially outside the set. On the other hand, the complement of the set is open, since it has no boundary! The middle set contains parts of its boundary, but not all, so it cannot be closed.}
+    \label{fig:open-closed}
+\end{figure}
+
+
+
+\section{Some topological concepts}
+
+The metric space topology allows us to formulate convergence of sequences in terms of open sets.
+
+
+\subsection{Sequences and limits}
+
+\begin{myDefinition}{Sequence}{}
+Let $S$ be a set. A \emph{sequence} is a function $a : \mathbb{N} \to S$, i.e., an infinite ``vector'' $(x_1,x_2,x_3,\cdots)$, with $x_j = a(j) \in S$. It is common to suppress the actual function $a$ and simply write ``$(x_j)$ is a sequence in $S$,'' or ``let $(x_j) \subset S$ be a sequence,'' or other similar variants.
+\end{myDefinition}
+
+Warning: Do not confuse the notation $x_j$ here with the $j$th component of a vector in $\FF^n$! If we have a sequence in $\FF^n$, we will have $n$ sequences of $\FF$-numbers, $(\mathbf{x}_j)_{i} \in \FF$.
+
+Sometimes, the index is not a natural number, but some other countable set. This still defines a sequence, since countable sets can be be brought into 1-to-1 correspondence with the natural numbers. (Sometimes the index is even more general, such as a real mumber $\epsilon$ that goes to zero from above. In topology this is called a \emph{net}. We will not discuss nets here.)
+
+If $(M,d)$ is a metric space, we can study the convergence of the sequence.
+\begin{myDefinition}{Convergent sequence}{}
+Let $(M,d)$ be a metric space, and let
+$(x_i) \subset M$ be a sequence. If there is some $x \in M$ such that for all $\epsilon > 0$, there is an $N_\epsilon$ such that $i > N_\epsilon$ implies $d(x_i,x) < \epsilon$, we say that $(x_i)$ is convergent, and that it converges to $x$, written $x_i \to x\in M$, or $\lim_{i\to+\infty} x_i = x$.
+\end{myDefinition}
+
+\todo{Elaborate with pictorial examples}
+
+Which sequences converge?
+\begin{myDefinition}{Cauchy sequence}{}
+We say that $(x_i)$ is \emph{Cauchy convergent} if for every $\epsilon > 0$ there is an $N_\epsilon \in \mathbb{N}$ such that $i,j > N_\epsilon$ implies
+\begin{equation}
+    d(x_i,x_j) < \epsilon.
+\end{equation}
+\end{myDefinition}
+Thus, the elements of the sequence get closer and closer in a uniform manner. After the index $N_\epsilon$, no two elements \emph{ever} get further apart than a distance $\epsilon$.
+
+Such sequences \emph{should} converge: It is inescapable that the distance between successive elements approach zero the further into the sequence one gets. In fact, the opposite assertion is true:
+\begin{myTheorem}{}{}
+    If a sequence converges, it is Cauchy convergent.
+\end{myTheorem}
+
+Note that Cauchy convergence does not refer to the potential limit. Only elements at various positions in the sequence are referred to in the definition.
+
+\begin{myExample}{Non-convergent Cauchy sequence}{}
+Consider a sequence $(x_i) \in \mathbb{Q}$ of \emph{rational numbers}. Let $x = \sqrt{2} \in \RR \setminus \mathbb{Q}$ (an irrational number), and let $x_i$ be the decimal expansion of $x$ to $i$ significant digits after the decimal points. Thus, $x_1 = 1.4$, $x_2 = 1.41$, etc. If this sequence converges, it should be to $x$. It is straightforward to see that for $i>j$, $|x_i-x_j| = |(x-x_j) - (x - i_j)| \leq |x-x_j| + |x - x_i| \leq 10^{-i} + 10^{-j} \leq 2\cdot 10^{-j}$. So if we choose $\epsilon > 0$, find $j$ such that $2\cdot 10^{-j} < \epsilon$. We then see that $(x_i)$ is a Cauchy sequence.
+But the sequence does not converge to a rational number, beacuse we know the limit to be irrational.
+\end{myExample}
+
+The example demonstrates that a space can be incomplete, in that it lacks certain limits.
+
+
+
+\begin{myDefinition}{Complete metric space}{cauchy-complete}
+    We say that $(M,d)$ is \emph{(Cauchy) complete} if every Cauchy sequence is convergent.
+\end{myDefinition}
+
+From the construction of the real numbers $\RR$, Cauchy completeness is built in as a fundamental property. Using the Euclidean metric in $\RR^n$, one can then show the very important fact that:
+\begin{myTheorem}{}{}
+    Euclidean space $\FF^n$ is complete.
+\end{myTheorem}
+
+
+Why is completeness important? The completeness of a metric space ensures that limits of Cauchy sequences exist within the space, providing a solid foundation for many important theorems and applications in analysis, physics, and applied mathematics, including quantum chemistry. Without completeness, the analysis would be prone to gaps and inconsistencies.
+
+
+
+Open sets can be used to redefine convergence of sequences.
+\begin{myTheorem}{Convergence in terms of open sets}{}
+    Let $(x_i)\subset M$ be a sequence in a metric space $(M,d)$. Then $x_i$ converges to $x\in M$, if and only if for every open set $U$ containing $x$, $(x_i)$ is \emph{eventually in $U$}, i.e., there is an $N_U\in \mathbb{N}$, such that $x_i \in U$ whenever $i>N_U$. 
+\end{myTheorem}
+
+
+
+\begin{comment}
+    \todo{Revise this definition in light of the above ... }
+\begin{myDefinition}{Topologically important sets}{}
+    Let $(M,d)$ be a metric space. 
+    \begin{enumerate}
+        \item 
+Let $x \in M$ and $\epsilon>0$ be given. The set $B_\epsilon(x) = \{ y \in M \mid d(x,y) < \epsilon \}$ is called an (open) \emph{$\epsilon$-ball around $x$}, see Fig.~\ref{fig:open-ball}.
+    \item A subset $S \subset M$ is called \emph{open} if, for every $x \in S$, there is an $\epsilon > 0$ such that $B_\epsilon(x) \subset S$. (In particular, $B_\epsilon(x)$ is open!)
+    \item A subset $S$ is called \emph{closed} in $M$ if $S^\complement =  M \setminus S$ is open.
+    \item A \emph{neighborhood} of $x \in S$ is a subset $N$ that contains an $\epsilon$-ball around $x$.
+    \item The \emph{closure} $\cl(S)$ is the smallest closed set that contains $S$.
+    \item The \emph{interior} $\interior(S)$ is the set of all those $x\in S$ around which there exists an open $\epsilon$-ball entirely contained in $S$
+    \item The \emph{boundary} $\partial S$ is the intersection $\cl(S^\complement) \cap \cl(S) = \cl(S) \setminus \interior(S)$ (the latter equality is a theorem)
+    \item A subset $S \subset M$ is \emph{dense} if its closure is all of $M$
+    \end{enumerate}
+\end{myDefinition}
+\end{comment}
+
+
+
+
+The concept of Cauchy completeness can be reformulated using open and closed sets:
+\begin{myDefinition}{Complete metric space}{}
+    A metric space $(M,d)$ is \emph{complete} if for any open set $U \subset M$ (such as an $\epsilon$-ball $B_\epsilon(x) \subset M$), then $\cl(U) \subset M$.
+\end{myDefinition}
+Intuitively, the boundary of every open ball should be contained in the set.
+
+The following definition/theorem stresses the link between completeness and closed sets:
+\begin{myTheorem}{Limit points and closure}{}
+    Let $(M,d)$ be a metric space, and let $S \subset M$ be a subset. The closure $\cl(S)$ is the set of limit points of $S$: If $(x_i)\subset S$ is a sequence, and if $\lim x_i = x \in M$, then in actually $x \in \cl(S)$. Conversely, if $x \in \cl(S)$, there exists a sequence in $S$ that converges to $x$. The closure $\cl(S)$ is the \emph{smallest} set that contains all the limit points of $S$.
+\end{myTheorem}
+
+\subsection{Continuity}
+
+
+Take a function $f : [0,1] \to \mathbb{R}$, where $[0,1] = \{ x \in\mathbb{R} \mid 0 \leq x \leq 1\}$. You should be familiar, at least intuitively, with the notion of $f$ being continuous, perhaps differentiable (at a point or everywhere), or even smooth. These notions are defined using topology, since we somehow need to study the behavior of $f$ in the vicinity of some $x\in [0,1]$.
+
+\begin{myDefinition}{Continuity}{}
+    Let $(M_1,d_1)$ and $(M_2,d_2)$ be complete metric spaces.
+    Let a function $f : M_1 \to M_2$ be given, and let $x \in M_1$, $y = f(x) \in M_2$. We say that $f$ is \emph{continuous} at $x$ if for every $\epsilon > 0$, there is a $\delta > 0$, such that $f[B_\delta(x)] \subset B_\epsilon(y)$. Equivalently, for every open set $V_2$ containing $y$, there is an open set $V_1$ containing $x$ such that $f[V_1]\subset V_2$. 
+\end{myDefinition}
+This may seem complicated, but using words, the definition simply says: $f$ is continuous at $x$ if points that are nearby $f(y)$ in the image come from points nearby $x$. For our function $f : [0,1] \to \mathbb{R}$, this states that you should be able to draw the graph without removing the pen from the paper.
+
+
+(That picture is useful, but not entirely accurate -- when you move the pen, this must be in a smooth manner! But there are continuous functions that would require, say, infinite acceleration or an ``infinite amount of ink.'')
+
+\todo{Make illustration of Weierstrass function}
+
+\subsection{Compactness}
+
+An important notion in metric spaces is that of \emph{compactness}.
+\begin{myDefinition}{Compact sets}{compact sets}
+    Let $(M,d)$ be a metric space, and let $S\subset M$. We say that $S$ is \emph{compact} if
+    every sequence $(x_i)\subset S$ has a convergent subsequence. That is,
+    there is an increasing function $f:\NN\to\NN$ of indices such that $y_j := x_{f(i)}$ is a convergent sequence,
+    $y_j \to y \in S$. Usually, subsequences are written informally as $y_j = x_{i_j}$.
+\end{myDefinition}
+Compactness may be hard to get a grasp on from the get go, but the intuition is that $S$ behaves a little like
+a finite set. There is not too much ``room'' for the sequence $x_i$ to wander around. Eventually, it must revisit
+the same neighborhood (of $y$) infinitely many times, getting infinitely closer.
+
+An important consequence of compactness is the following:
+\begin{myTheorem}{Images of compact sets}{}
+    If $f : M\to N$ is a function between metric spaces, and if $S \in M$ is a compact set, then $f[S] \subset N$ is compact.
+\end{myTheorem}
+
+In finite dimensional vector spaces with a metric, compactness becomes easy to characterize:
+\begin{myTheorem}{Compact sets in finite dimensions}{}
+    If $(M,d)$ is a finite dimensional metric vector space, then every
+    compact subset is closed and bounded. The converse is also true.
+\end{myTheorem}
+
+
+\subsection{Move me}
+\todo{Move this section!}
+
+In Figure~\ref{fig:continuity}, the concept of a continuous function is illustrated, using a function $f : \RR^2 \to \RR^2$ as an example.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{illustrations/limits.ai}\\
+    \includegraphics[width=0.5\linewidth]{illustrations/limits2.ai}\\
+    \includegraphics[width=0.5\linewidth]{illustrations/limits3.ai}
+    \caption{Illustration of the concept of continuity, using a function $f : \RR^2 \to \RR^2$ as an example. For every neighborhood $N$, taken to be an $\epsilon$-ball, there shoud be an open set $U$ such that $f[U] \subset N$. The ball $N$ becomes smaller and smaller, but we can always find a corresponding $U$. Then, $f$ is continuous.}
+    \label{fig:continuity}
+\end{figure}
+
+
+
+
+
+\begin{myTheorem}{}{}
+Let $f : \FF^n \to \FF^m$ be a function. Thus, we have $m$ functions $f_i : \FF^n \to \FF$, $f_i(\mathbf{x}) = f_i(x_1,\cdots,x_n)$. Then $f$ is continuous at $\mathbf{x}\in\FF^n$ if and only if all the components $f_i$ are continuous in all the $n$ variable separately.
+\end{myTheorem}
+
+
+\subsection{Limits and continuity}
+
+In Euclidean space, we are assigned a \emph{topology} defined by the norm. That is, we can measure distances,
+\begin{equation}
+    d(\bvec{x},\bvec{y}) = \|\bvec{x} - \bvec{y}\|.
+\end{equation}
+
+The metric (here, our norm) defines \emph{$\epsilon$-balls}:
+\begin{myDefinition}{$\epsilon$-ball}{}
+    Ket $\bvec{x}_0 \in \RR^n$.
+    The $\epsilon$-ball around $\bvec{x}_0$ is the set
+    \begin{equation}
+        B_\epsilon(\bvec{x}_0) = \{ \bvec{x}\in\RR^n \mid \|\bvec{x}-\bvec{x}_0\| < \epsilon \}.
+    \end{equation}
+\end{myDefinition}
+The $\epsilon$-ball is the archetypal \emph{open set}. Open sets are needed to understand the concepts of limits, continuity, and differentiation of functions.
+
+\begin{myDefinition}{Open and closed sets}{}
+    A subset $A \subset \RR^n$ is \emph{open} if, for every $\bvec{x}\in A$, there exists an $\epsilon$-ball completely contained in $A$.
+
+    The \emph{complement} of $A$ is defined as
+    \begin{equation}
+        A^\complement = \{ \bvec{x} \in \RR^n \mid \bvec{x}\notin A \} = \RR^n \setminus A.
+    \end{equation}
+
+    We say that $A$ is \emph{closed} if $A^\complement$ is open.
+\end{myDefinition}
+
+[Illustration]
+
+\begin{myDefinition}{Neghborhood}{}
+    Let $\bvec{x}\in\RR^n$. A \emph{neighborhood} of $\bvec{x}$ is any open subset that contains $\bvec{x}$.
+\end{myDefinition}
+
+\begin{myDefinition}{Boundary and interior}{}
+ A point $\bvec{x}\in A$ is called \emph{a boundary point} if every neighborhood of $\bvec{x}$ both contains a point in $A$ and a point in $A^\complement$.
+
+ The \emph{boundary} $\partial A$ is the set of boundary points of $A$.
+
+ The \emph{interior} of $A$ is the set of all points $\bvec{x}\in A$ such that for some $\epsilon>0$, $B_\epsilon(\bvec{x}) \subset A$.
+
+ The \emph{closure} of $A$ is the smallest closed set containing $A$, and is equal to $A \cup \partial A$.
+\end{myDefinition}
+
+[Illustration]
+
+[Exercises]
+
+\begin{myDefinition}{Limit}{}
+    Let $f : \Omega \subset \RR^n \to \RR^m$, where $\Omega$ is open. Let $\bvec{x}_0\in \Omega \cup \partial\Omega$, and let $N$ be a neighborhood of $\bvec{b}\in \RR^m$.
+
+    We say that $f$ is \emph{eventually in $N$ as $\bvec{x}$ approaches $\bvec{x}_0$}, if there exists a neighborhood $U$ of $\bvec{x}_0$, such that $\bvec{x}
+    \in U$ but $\bvec{x}\neq\bvec{x}_0$ and $\bvec{x}\in \Omega$ imply $f(x)\in N$.
+
+    We say that \emph{$f(\bvec{x})$ approaches $\bvec{b}$ as $\bvec{x}$ approaches $\bvec{x}_0$},
+    \begin{equation}
+        \lim_{\bvec{x}\to\bvec{x}_0} f(\bvec{x}) = \bvec{b} \quad\text{or}\quad f(\bvec{x}) \to \bvec{b} \; \text{as} \; \bvec{x}\to\bvec{x}_0,
+    \end{equation}
+    when, given any neighborhood $N$ of $\bvec{b}$, $f$ is eventually in $N$ as $\bvec{x}$ approaches $\bvec{x}_0$.
+\end{myDefinition}
+
+Interpretation: $f(\bvec{x})$ is close to $\bvec{b}$ if $\bvec{x}$ is close to $\bvec{x}_0$.
+
+Important to note that \emph{limits are unique}.
+
+\begin{myDefinition}{Continuity}{}
+    Let $f : \Omega \subset \RR^n\to\RR^m$. Let $\bvec{x}_0\in\Omega$. We say that $f$ is \emph{continuous at $\bvec{x}_0$} if
+    \begin{equation}
+        \lim_{\bvec{x}\to\bvec{x}_0} f(\bvec{x}) = f(\bvec{x}_0).
+    \end{equation}
+\end{myDefinition}
+
+This is the multidimensional version of the notion that the graph of a continuous function is unbroken, does not make jumps.
+
+[Examples]
+
+[Exercises]
+
+\begin{myTheorem}{Properties of continuous functions}{}
+Let $f, g : \Omega\subset\RR^n \to \RR^m$ be functions with a common domain $\Omega$, continuous at $\bvec{x}_0$:
+Then:
+\begin{enumerate}
+    \item $f+g$ and $\alpha f$ for any $\alpha\in\RR$ are continuous at $\bvec{x}_0$.
+    \item In the scalar-valued case $m=1$, the product $fg$ is continuous at $\bvec{x}_0$
+    \item If $f \neq 0$ in all of $\Omega$, then $1/f$ is continuous at $\bvec{x}_0$
+    \item The component functions $f_i : \Omega \to \RR$ are all continuous at $\bvec{x}_0$. The converse is also true.
+\end{enumerate}  
+\end{myTheorem}
+
+\begin{myTheorem}{Compositions of functions}{}
+Let $f : \Omega \subset \RR^n \to \RR^m$ be continuous at $\bvec{x}_0\in \Omega$, and $g : \Omega' \subset \RR^m \to \RR^o$. Suppose $f[\Omega] \subset \Omega'$, and let $g$ be continuous at $\bvec{y}_0 = f(\bvec{x}_0)$. Then $h : \Omega\subset \RR^n\to\RR^o$,
+\[ h(\bvec{x}) = g(f(\bvec{x}_0) \]
+is continuous at $\bvec{x}_0$.
+\end{myTheorem}
+
+[Exercises]
+
+We have an equivalent characterization of continuity using an $\epsilon$-$\delta$ argument:
+\begin{myTheorem}{$\epsilon$-$\delta$ continuity}{}
+    Let $f : \Omega \subset \RR^n \to \RR^m$. Then $f$ is continuous at $\bvec{x}_0 \in \Omega$ if and only if for every $\epsilon>0$ there is a $\delta > 0$ such that
+    \begin{equation}
+        \bvec{x}\in\Omega \; \text{and} \; \|\bvec{x}-\bvec{x}_0\| < \delta \quad \implies \quad \|f(\bvec{x}) - f(\bvec{x}_0) \| < \epsilon. 
+    \end{equation}
+\end{myTheorem}
+
+
+
+
+
+
+
+
+
+The norm and inner product spaces encountered earlier are specializations of the general concept of \emph{topological vector spaces (TVS)}. We have the chain,
+\begin{equation*}
+\text{TVS} > \text{metric vector space} > \text{normed vector space} > \text{inner product space} 
+\end{equation*}
+The spaces to the right are less general than the spaces to the left. The fact that we have a \emph{topology}, means that we can talk about continuous functions between the spaces. (This is very different from saying that the functions in function spaces are continuous!)
+
+\begin{myExample}{}{}
+The Sobolev space $H^2([0,1])$ of twice weakly differentiable functions in $L^2([0,1])$ with derivatives in $L^2([0,1])$. Let $T = -\frac{1}{2}\partial^2/\partial x^2$ be the Laplace operator. This function is a linear continuous function from $H^2([0,1])$ to $L^2([0,1])$.
+\end{myExample}
+
+\paragraph{Topological vector space.} A translationally invariant definition of \emph{open sets} is given. In topology, open sets are much more general than those defined by metrics. A \emph{locally convex} TVS, for example, is given by a \emph{family of seminorms}. The perhaps most prominent example of a TVS are the spaces of \emph{test functions} and \emph{distributions}, e.g., objects like the Dirac $\delta$-function.
+
+\paragraph{Metric vector space.} The open sets are given by $\epsilon$-balls defined by a metric. Thus, a metric space is a TVS. 
+
+\begin{myDefinition}{Metric}{}
+    Let $M$ be a set. A function $f: S\times S \to \mathbb{R}$ is a \emph{metric} if it satisfies the following axioms:
+    \begin{enumerate}
+        \item $d(x,y) = d(y,x)$ \axiomname{symmetry}
+        \item $d(x,y) \geq 0$, and $d(x,y) = 0$ if and only if $x =y$ \axiomname{positivity and nondegeneracy}
+        \item $d(x,y) \leq d(x,z) + d(z,y)$ \axiomname{triangle inequality}
+    \end{enumerate}
+    The pair $(M,d)$ is a \emph{metric space}.
+\end{myDefinition}
+The intuition behind the metric is that is an abstraction of computing distances between points. However, there are many different ways of measuring distance than the Euclidean distance. Indeed, many spaces are not Euclidean at all.
+
+
+\paragraph{Normed vector space.} The metric is given by a \emph{norm},
+\begin{equation}
+    d(x,y) = \|x-y\|
+\end{equation}
+If a normed vector space is complete, it is called a \emph{Banach space}.
+
+
+
+\paragraph{Inner product space.} The norm is given by an \emph{inner product},
+An inner product induces a norm:
+\begin{equation}
+    \|x\| = \sqrt{\braket{x,x}}.
+\end{equation} 
+If the inner product space is complete, it is called a \emph{Hilbert space}.
+
+
+\begin{myDefinition}{Inner product}{}
+    An \emph{inner product} $\braket{\cdot, \cdot} : V\times V \to \FF$ is a map which satisfies the following axioms:
+   \begin{enumerate}
+       \item $\braket{x,x} \geq 0$, \quad $\braket{x,x} = 0$ if and only if $x = 0$ \hfill \axiomname{non-negative}
+       \item $\braket{x,\alpha y + \beta z} = \alpha\braket{x,y} + \beta\braket{x,z}$ \axiomname{linearity}
+       \item $\braket{\alpha y + \beta z, x} = \bar{\alpha}\braket{y,x} + \bar{\beta}\braket{z,x}$ \axiomname{conjugate linearity}
+       \item $\braket{x,y} = \overline{\braket{y,x}}$ \axiomname{hermiticity}
+   \end{enumerate}
+\end{myDefinition}

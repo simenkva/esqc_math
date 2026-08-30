@@ -1,0 +1,144 @@
+project:
+  type: book
+#  pre-render: scripts/generate_recommendations.py
+#  post-render: scripts/ensure_nojekyll.py
+  output-dir: docs
+  resources:
+    - /figures/**
+    - /fonts/**
+
+book:
+  title: "ESQC mathematics lecture notes"
+  subtitle: "2026 edition"
+  author: "Simen Kvaal"
+  date: last-modified
+  cover-image: figures/cover-a5.png
+#  downloads: [pdf, epub]
+  chapters:
+    - index.qmd
+ 
+bibliography: references.bib
+
+execute:
+  echo: false
+
+format:
+  html:
+    lightbox: true
+    theme:
+      light: flatly
+      dark: darkly
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml-nofont.js"
+    include-in-header: mathjax-config.html
+    css:
+      - styles.css
+      - math_spacing.css
+    toc-depth: 3
+
+  #epub:
+  #   toc: true
+  #   toc-depth: 3
+  #   css: epub_styles.css
+  #   cover-image: figures/cover-a5.png
+  #   epub-fonts:
+  #     - fonts/RobotoCondensed-Regular.woff2
+  #     - fonts/RobotoCondensed-Medium.woff2
+  #     - fonts/RobotoCondensed-Bold.woff2
+  #     - fonts/STIXTwoText-Regular.woff2
+  #     - fonts/STIXTwoText-Italic.woff2
+  #     - fonts/STIXTwoText-Bold.woff2
+  #     - fonts/STIXTwoText-BoldItalic.woff2
+  #     - fonts/STIXTwoMath-Regular.woff2
+
+  # pdf:
+  #   pdf-engine: lualatex
+  #   mainfont: "STIXTwoText"
+  #   mainfontoptions:
+  #     - Path=fonts/desktop/
+  #     - Extension=.otf
+  #     - UprightFont=*-Regular
+  #     - ItalicFont=*-Italic
+  #     - BoldFont=*-Bold
+  #     - BoldItalicFont=*-BoldItalic
+  #   sansfont: "RobotoCondensed"
+  #   sansfontoptions:
+  #     - Path=fonts/desktop/
+  #     - Extension=.ttf
+  #     - UprightFont=*-Regular
+  #     - BoldFont=*-Bold
+  #   mathfont: "STIXTwoMath-Regular"
+  #   mathfontoptions:
+  #     - Path=fonts/desktop/
+  #     - Extension=.otf
+
+  #   include-in-header:
+  #     - text: |
+  #         \definecolor{brandteal}{HTML}{18BC9C}
+  #         \usepackage{eso-pic}
+  #         \AtBeginDocument{%
+  #           \thispagestyle{empty}%
+  #           \AddToShipoutPictureBG*{%
+  #             \AtPageLowerLeft{%
+  #               \includegraphics[width=\paperwidth,height=\paperheight]{figures/cover-a5.png}%
+  #             }%
+  #           }%
+  #           \null\newpage
+  #         }
+
+  #   toc: true
+  #   toc-depth: 3
+  #   colorlinks: true
+  #   linkcolor: brandteal
+  #   urlcolor: brandteal
+  #   citecolor: brandteal
+
+  #   papersize: a5
+  #   fontsize: 10pt
+  #   geometry:
+  #     - inner=18mm
+  #     - outer=15mm
+  #     - top=18mm
+  #     - bottom=20mm
+
+
+custom-callout:
+  fact:
+    title: "Fact"
+    color: "#3EAF3E"
+    html:
+      icon:
+        png: "icons/atom.png"
+    epub:
+      icon: "icons/atom.png"
+
+  visualization:
+    title: "Visualization app"
+    color: "#E0479E"
+    html:
+      icon:
+        png: "icons/visualization.png"
+    epub:
+      icon: "icons/visualization.png"
+
+  learning-goals:
+    title: "Learning Goals"
+    color: "#8B81FF"
+    html:
+      icon:
+        png: "icons/learning-goals.png"
+    epub:
+      icon: "icons/learning-goals.png"
+
+  preparations:
+    title: "Preparations"
+    color: "#8B81FF"
+    html:
+      icon:
+        png: "icons/books.png"
+    epub:
+      icon: "icons/books.png"
+
+filters:
+  - custom-callout

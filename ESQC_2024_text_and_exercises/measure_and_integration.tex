@@ -1,0 +1,323 @@
+
+\chapter{Measure and integration theory}
+\label{sec:measure-and-integration}
+
+Most (all?) laws of nature are formulated using \emph{differential equations}, and in general, partial differential equations (PDEs) form a class of problems of great value to any scientist. 
+
+The Schrödinger equation for a molecule is a PDE. Its mathematically rigorous formulation relies on abstract vector spaces of \emph{Lebesgue integrable functions}. Moreover, computing and manipulating integrals is an important task in theoretical chemistry. Thus, we here give an overview of the field \emph{measure and integration}.
+
+The Lebesgue integral is a generalization of the Riemann integral. Admittedly, it is rather more complicated to define, but the result is powerful results that allow us to define such things as Hilbert spaces of square integrable functions.
+
+\recommended{The slim book by Bartle is a classic in measure and integration theory. It contains all you need.}{Bartle_frontpage}
+
+\recommended{An excellent YouTube channel is \href{https://www.youtube.com/c/brightsideofmaths/playlists}{\emph{The Bright Side of Mathematics}}, created by Dr.~Julian P.~Grossmann. Fantastic pedagogical presentation of many topics, well suited to give an intuitive impression and even more. Check out the videos on measure and integration! In fact, I based parts of my presentation of this topic on the videos.}{images/bright_side_of_mathematics}
+
+
+
+
+\section{Measurable sets}
+
+\emph{Measure theory} tries to assign \emph{measure} to subsets of some set $X$. This can be lengths of intervals of $\RR$, areas in $\RR^2$, et.c. A little thought shows that we need to consider quite general subsets. For example, I expect to be able to measure the area of a circle, but also the circle with a single point, or a countable number of points, punched out. Moreover, when integrating functions, we compute areas under a curve. Changing a function at a single point in $\RR$, or a whole surface in $\RR^3$, does not change the value of the integral of the function. We need to have a more rigorous understanding of measure.
+
+
+
+Consider the real line $\RR$. Our intuition tells us that an interval $[a,b]\subset\RR$ has length $\mu([a,b])=b-a$. The symbol $\mu$ means ``measure''. Similarly, the length of $\RR$ must be infinite, $\mu(\RR) = +\infty$. We also want the measure of a union of two disjoint intervals to be the sum of the lengths, $\mu([a,b]\cup [c,d]) = \mu([a,b]) + \mu([c,d])$, with $a < b\leq c < d$. And the measure of a single point should be zero, $\mu(\{x\}) = 0$. The measure of finitely many points should also be zero, but what about infinitely many points? If the set is \emph{contably infinite}, we expect the measure to be zero, but the interval is an \emph{uncountably infinite} set, with positive measure.
+
+
+This leads to the notion of a $\sigma$-algebra; an all-important notion in measure theory:
+\begin{myDefinition}{$\sigma$-algebra}
+Let $X$ be a set.
+A $\sigma$-algebra $\salgebra{X}$ is a family of subsets of $X$ such that:
+\begin{enumerate}
+    \item $\emptyset, X \in \salgebra{X}$ \axiomname{empty set and $X$}
+    \item $A \in \salgebra{X}$ if and only if $A^\complement = X \setminus A \in \salgebra{X}$ \axiomname{complements}
+    \item $A_i \in \salgebra{X}$ for $i \in I \subset\NN$ implies that $\bigcup_{i \in I} A_i \subset \salgebra{X}$ \axiomname{countable unions}
+\end{enumerate}
+The pair $(X,\salgebra{X})$ is called a measurable space, and $A \in \mathcal{X}$ is called a measurable (sub)set.
+\end{myDefinition}
+
+Reading between the lines, so to speak, we dont't expect to be able to measure \emph{all} subsets of $X$. Indeed, it turns out it is not possible in general to define a measure on all subsets of, say, $\RR$. \emph{There will be non-measurable sets, to which we cannot assign a meaningful measure}.
+
+
+\begin{myExample}{}{}
+The smallest possible $\sigma$-algebra: 
+\begin{equation}
+    \salgebra{X} = \{\emptyset, X\}
+\end{equation}
+The largestpossible $\sigma$-algebra: 
+\begin{equation}
+    \salgebra{X} = 2^X = \{ \text{all subsets of $X$} \}
+\end{equation}
+Interesting cases lie between these.
+\end{myExample}
+
+The following lemma is useful, because it shows that one can always find a \emph{smallest} $\sigma$-algebra fulfilling some condition:
+\begin{myLemma}{Intersections of $\sigma$-algebras}{}
+
+    Let $I$ be a set, and let $\{\salgebra{X}_i \mid i \in I\}$ be a family of $\sigma$-algebras. Then the intersection of all the $\sigma$-algebras is again a $\sigma$-algebra:
+    \begin{equation}
+        \salgebra{X} = \left\{ A \mid A \in \salgebra{X}_i \; \text{for all $i\in I$} \right\}
+    \end{equation}
+\end{myLemma}
+
+Turning to Euclidean space, or any other metric space, \emph{the open sets} form subsets that we wisth to make measurable.
+\begin{myDefinition}{Borel $\sigma$-algebra}{}
+    Let $X$ be a metric space. The Borel $\sigma$-algebra $\salgebra{B}(X)$ is the smallest $\sigma$-algebra that contain all open subsets of $X$. (It is enough to require that it contains all $\epsilon$-balls.)
+\end{myDefinition}
+
+Such a smallest $\sigma$-algebra exists by the above lemma. We say that the Borel $\sigma$-algebra is \emph{generated} by the open sets. 
+
+Which subsets are included in the Borel $\sigma$-algebra?
+\begin{itemize}
+    \item All open sets
+    \item All closed sets
+    \item Countable unions of open and closed sets
+    \item Complements of countable unions of open and closed sets
+    \item \dots
+\end{itemize}
+
+\begin{myExample}{}{}
+    Consider $\RR$, and its Borel $\sigma$-algebra. It contains all subsets consisting of a single point, since $\{x\} = (]-\infty,x[ \cup ]x,+\infty[)^\complement$. But then we can take countable unions of such points, e.g., the rational numbers $\QQ$, which is also measurable. But then we can take the complement, to get the irrational numbers $\RR\setminus\QQ$, also measurable.
+
+    We can also consider the Cantor set: Start with an interval, and remove the middle third. Remove the middle third of those two again, and continue. It is not hard to see that this produces a measurable set, and in fact a \emph{fractal}. 
+
+    So the Borel $\sigma$-algebra $\salgebra{B}(\RR)$ contains quite complicated sets.
+\end{myExample}
+
+\section{Measure}
+
+We now add the next ingredient: a measure.
+\begin{myDefinition}{Measure, measure space}{}
+Let $(X,\mathcal{X})$ be a mesurable space. A \emph{measure} is a function $\mu : \salgebra{X} \to [0,+\infty[ \cup \{+\infty\}$ that satisfies
+\begin{enumerate}
+    \item $\mu(\emptyset) = 0$
+    \item For a countable family of disjoint subsets $\{A_i\}\subset \mathcal{X}$, i.e., $A_i\cap A_j = 0$, we have
+    \begin{equation}
+        \mu\left(\bigcup_i^\infty A_i\right) = \sum_i^\infty \mu(A_i) \text{\axiomname{$\sigma$-additive}}
+    \end{equation}
+\end{enumerate}
+We then say that $(X,\salgebra{X},\mu)$ is a measure space.
+\end{myDefinition}
+
+The definition of the measure $\mu$ encapsulate some intuitive notions about measuring volumes. Volume of nothing is zero, and volume of unions of sets is the sum of the volume. Finally, the infinite union allows for \emph{approximation} of volumes. Note that a similar idea was present in the definition of the $\sigma$-algebra.
+
+An example that shows how measure can be used differently, consider counting measure:
+\begin{myExample}{Counting measure}{}
+    Let $N$ be a finite set, and let $\salgebra{N} = 2^N$, the set of all subsets of $N$. This is a $\sigma$-algebra, and since $N$ is finite, we can define counting measure:
+    \begin{equation}
+        \mu(A) = |A| \quad \text{(number of elements)}
+    \end{equation}
+    Having a measure theoretic concept of counting is more useful that one would think! For example, it will allow us to rigorously define square integrable functions over electron configuration space $\RR^3 \times \{ \uparrow, \downarrow\}$ in a manner which does not artificially distinguish between discrete and continuous degrees of freedom.
+\end{myExample}
+We next introduce the notion of  a \emph{measurable function}. These are functions that we later can define the integral for.
+
+\begin{myDefinition}{Measurable function}{}
+Let $(X,\salgebra{X})$ and $(Y,\salgebra{Y})$ be measurable spaces. A function
+\begin{equation}
+    f : X \to Y
+\end{equation}
+is called \emph{measurable} if, for all $U \in \salgebra{Y}$,
+\begin{equation}
+    f^{-1}[U] \left\{ x \in X \mid f(x) \in U \right\} \in \salgebra{X}
+\end{equation}
+\end{myDefinition}
+
+Note the close analogy with the definition of continuous functions between metric (or more generally topological) spaces: The inverse image of an open set must be open. Measurability of a function is certainly less restrictive: The inverse image of an open set need only be measurable -- and we saw that there are ``complicated'' measurable sets.
+
+Just like for continuous functions, when $f : X \to Y$ with $Y=\FF^n$, we get that linear combinations of measurable functions are again measurable. We can also multiply or take absolute values of masurable functions, and still get measurable functions. [Perhaps formulate as theorem]
+
+\begin{figure}
+    \begin{center}
+    \includegraphics{illustrations/char-function.ai}
+    \caption{Characteristic function of a subset $U$ of $\RR$ consisting of two intervals.}
+    \label{fig:char-fun}
+    \end{center}
+\end{figure}
+
+\begin{myExample}{}{}
+Why is this a definition that can be useful? Consider the \emph{characteristic function} $\chi_U$ of some subset $U \subset Y$, defined by
+\begin{equation}
+    \chi_U(y) = \begin{cases} 1 & y \in U \\ 0 & y \notin U \end{cases}
+\end{equation}
+See Fig.~\ref{fig:char-fun}.
+Then the inverse image $\chi_U^{-1}[1]$ is exactly $U$. If $U$ is actually measurable, this means that we can measure it with a measure $\mu : \salgebra{Y}\to [0,+\infty[$. 
+\end{myExample}
+
+
+\begin{myExample}{}{}
+Consider the function
+\begin{equation}
+    f(x) = \begin{cases} 1 & x \in \QQ \\ 0 & x \in \RR\setminus \QQ \end{cases}
+\end{equation}
+This function is not Riemann integrable, since the upper and lower Riemann sums will converge to different numbers. However, since $f = \chi_\QQ$ we now expect it to be integrable. But what will be the integral? Since $\mu(\QQ)=0$ we expect that $f^{-1}(1)=\QQ$ will not contribute, i.e., the integral is 0.
+\end{myExample}
+
+\section{The integral}
+
+We now turn to actually defining the integral of a measurable function. One begins by defining the integral of \emph{simple functions}.
+\begin{myDefinition}{Simple functions}{}
+    Let $(X,\salgebra{X})$ be a measurable space.
+    Let $f : X \to \RR$ be a measurable function. We say that $f$ is a \emph{simple function} if it takes on only finitely many function values. The set of simple functions is denoted $\mathcal{S}$. The set of non-negative simple functions is denoted $\mathcal{S}^+$.
+
+    A simple measurable function has a \emph{unique} decomposition as
+    \begin{equation}
+        f = \sum_{i=1}^n c_i \chi_{U_i}, \quad U_i \in \salgebra{X}, \quad U_i \cap U_j = \emptyset.
+    \end{equation}
+\end{myDefinition}
+
+\begin{figure}
+    \centering
+    \includegraphics{illustrations/simple-function.ai}
+    \caption{A non-negative simple function.}
+    \label{fig:simple-function}
+\end{figure}
+
+A simple function is illustrated in Fig.~\ref{fig:simple-function}. What should the integral of this simple function be? Clearly, the integral of the characteristic function $\chi_U$ of some measurable $U$ should be the volume, or measure, of $U$! We have to be careful, since the measure of $U$ can be infinite.
+\begin{myDefinition}{Integral of non-negative simple function}{}
+    Let $(X,\salgebra{X},\mu)$ be a measure space. Let $f : X \to \RR$ be simple and non-negative. We \emph{define} the integral of $f$ to be the \emph{extended valued function} $I : \mathcal{S}^+ \to \RR\cup\{+\infty\}$ given by,
+    \begin{equation}
+        \int_X f \, \rmd \mu = I\left(\sum_i c_i \chi_{U_i}\right) = \sum_i c_i \, \mu(U_i).
+    \end{equation}
+    The function $I$ is linear and \emph{monotone},
+    \begin{equation}
+        f,g\in\mathcal{S}^+, \quad f \leq g \implies I(f) \leq I(g).
+    \end{equation}
+\end{myDefinition}
+
+Let now $f: X \to [0,+\infty[$ be a non-negative measurable function. It is implicit here, that we have the Borel $\sigma$-algebra on the real numbers. How do we define the integral? The idea is to \emph{approximate} $f$ by simple functions from below, and indeed this can always be done. 
+\begin{myDefinition}{Integral of non-neagative functions}{}
+    Let $(X,\salgebra{X},\mu)$ be a measure space, and let
+     $f : X \to [0,+\infty[$ be measurable. We define the integral of $f$ to be
+    \begin{equation}
+        \int_X f \, \rmd\mu = \sup\left\{ I(h) \mid h \in \mathcal{S}^+ , \, h \leq f \right\} \in [0,\+\infty].
+    \end{equation}
+    The function $f$ is \emph{integrable} if $\int_X f \, \rmd\mu < +\infty$.
+\end{myDefinition}
+Thus, we take every non-negative simple function that lies below $f$, compute the integral, and maximize over all such simple functions. If $f$ can be approximated by simple functions, which it can, then the integral could and should converge. (The technical result that allows approximation from below in this way is \emph{the monotone convergence theorem}.)
+
+In Fig.~\ref{fig:func-approx-simple}, the approximation of $f$ by simple functions is illustrated. From this illustration we take home perhaps the most important intuition: Whereas the Riemann integral is defined in terms of approximating the are below the graph by vertical strips, the measure-theoretic integral instead consider horizontal strips!
+
+\begin{figure}
+    \centering
+    \includegraphics{illustrations/func-approx-simple.ai}
+    \caption{Approximation of a function from below by simple functions.}
+    \label{fig:func-approx-simple}
+\end{figure}
+
+
+In the next result, the phrase $\mu$-almost everywhere, abbreviated $\mu$-a.e., means that the condtion holds for every $x \in X$ \emph{except possibly} at a set of measure zero.
+\begin{myTheorem}{Properties of the integral}{}
+Let $(X,\salgebra{X},\mu)$ be a measure space, and let $f \geq 0$ be a measurable function $f : X \to \RR$. The integral on such functions satisfies:
+Monotone:
+\begin{equation}
+    f \leq g \quad \text{measurable functions} \implies \int_X f\, \rmd \mu \leq \int_X f \, \rmd \mu
+\end{equation}
+Vanishing on set of measure zero:
+\begin{equation}
+    f = 0 \quad \text{$\mu$-a.e.} \iff \int_X f\, \rmd \mu = 0.
+\end{equation}
+Irrelevant on set of measure zero:
+\begin{equation}
+    f = g \quad \text{$\mu$-a.e.} \implies \int_X f \, \rmd \mu = \int_X \, \rmd \mu
+\end{equation}
+\end{myTheorem}
+
+The concept of ``almost everywhere'' is very important when Lebesgue integrals are considered. Whenever a function is only ``used'' to define integrals, it does not matter what the function values are at a set of measure zero. As we have seen, such sets can be fairly large!
+
+We can now define the integral of arbitrary measurable functions.
+\begin{myDefinition}{Integral}{}
+    Let $(X,\salgebra{X},\mu)$ be a measure space, and let $f : X \to \RR$ be measurable. Let $f_+$ and $f_-$ be the positive, resp., negative part of $f$. We define $f$ to be integrable if $f_+$ and $f_-$ are ingegrable, and we define
+    \begin{equation}
+        \int_X f \, \rmd \mu = \int_X f_+ \, \rmd\mu - \int_X f_-\,\rmd \mu.
+    \end{equation}
+\end{myDefinition}
+
+s
+\section{Lebesgue measure and the Lebesgue integral}
+
+Although we have defined the Borel $\sigma$-algebra on $\RR^n$, and indicated how we would like the measure to be, we have not yet defined the measure.
+
+The key technical result that allows the existence and uniqueness of a measure on the Borel $\sigma$-algebra $\salgebra{B}(\RR^n)$ is \emph{Carathéodoty's extension theorem}. We will not describe this theorem in any detail, but just note that when we have defined our measure on a sufficiently large subset of $\salgebra{B}(\RR^n)$, it can be \emph{extended} to the whole algebra in a unique fashion to an actual measure.
+
+The subset of a $\sigma$-algebra needed is called a \emph{semiring}: we have the empty set and $X$, as for the $\sigma$-algebra, and we also have intersevtions $A\cap B$ of oairs sets in the semiring. Finally, when we consider $A \setminus B$, this should be decomposable in a finite number of sets from the ring. Nothing more, no complements or unions. The reader can check that these conditions hold for the set of all half-open intervals $[a,b[\subset\RR$, which is the most important examle. Now, the half-open intervals generate the Borel algebra of $\RR$, and this is key.
+
+For $\RR^n$, take the set of Cartesian products of half-open intervals as a semiring. A box is $B = [a_1,b_1[\times\cdots\times[a_n,b_n[$, with measure $\mu(B)=(b_1-a_1)\cdots(b_n-a_n)$. Now, the boxes generate the Borel algebra. The Carathéodory exension theorem now guarantees the existence of a \emph{unique} measure on $\salgebra{B}(\RR^n)$ such that it correctly reproduces the measure of all boxes.
+
+This measure is called \emph{the Lebesgue measure} on $\RR^n$, and together with the integral defined earlier, it makes for a very powerful integral. This integral generalizes the Riemann integralm in the sense that every Riemann integrable function is also Lebesgue integrable, with the same integral of course. But there are also many functions that ``should'' have an integral but for which the Riemann integral fails. For example, exhanging limits and integrals is more often valid with the Lebesgue integral. The Lebesgue integral is also needed to produce the Hilbert space of square-integrable wavefunctions in quantum mechanics!
+
+
+\section{Lebesgue spaces}
+
+As claimed, the theory of PDEs are formulated using function spaces. These function spaces are in general called \emph{Lebesgue spaces}, and are based on the Lebesgue integral.
+
+In this section, let $(X,\salgebra{X},\mu)$ be a fixed measure space, for example a measurable subset $\Omega\subset \RR^n$ with Lebesgue measure, and we consider $\FF \in \{\RR, \CC\}$ a measure space with the Lebesgue measure. For complex functions, we consider really $\CC$ as $\RR^2$.
+
+The reader may have encountered square integrable functions before, i.e., functions $f : X \to \CC$ that satisfies
+\begin{equation}
+    \int_\Omega |f(x)|^2 \, \rmd x < +\infty.
+\end{equation}
+Here, $\rmd x$ is short for the Lebesgue measure.
+The reader may also be used to thinking of $f$ as a point in Hilbert space $L^2(\Omega)$. However, it is not hard to see, that we can have $f \neq g$ but 
+\begin{equation}
+\int |f-g|^2 \; \rmd^n x = 0 \quad !
+\end{equation}
+So, are the functions really different?
+
+In quantum mechanics, the wavefunction $\psi(x)$ fo a particle defines a probability density $P(x) = |\psi(x)|^2$. The theory of probability \emph{also} work with measurable spaces, and the probability of locating the particle in a subset $A \subset \Omega$ is given by $\int_A P(x) \,\rmd x$, where $A$ is measurable. The pointwise definition of a probability density is therefore only meaningful up to a set of measure zero, i.e., ``almost everywhere''.
+
+
+Let $f : X \to \FF$ be a measurable function. Recall that $\int_X f\, \rmd \mu=0$ if and only if $f(x)=0$ ``almost everywhere''. An example is the function over $\RR^n$ which is zero except for at the points with rational coordinates. As the integral concerned, this function is zero!
+
+
+
+To define function spaces with integrals involved in norms and inner products rigorously, we need the following:
+\begin{myDefinition}{Equivalence classes of measurable functions}{}
+    Let $f,g : X \to \FF$ be measurable functions. We say that $f$ and $g$ are equivalent, written $f\sim g$, if $f=g$ almost everywhere. We write
+    \begin{equation}
+        [f] = \{ g \mid f\sim g\}
+    \end{equation}
+    for the \emph{equivalence class} of functions that are almost everywhere the same.
+\end{myDefinition}
+
+
+\begin{myDefinition}{Lebesgue spaces}{}
+    Let $p\geq 1$, and define the $p$-norm
+    \begin{equation}
+        \|[f]\|_p = \|f\|_p = \left( \int_X |f(x)|^p \, \rmd^n x\right)^{1/p}
+    \end{equation}
+    The space $L^p(X)$ is defined as
+    \begin{equation}
+        L^p(X) = \left\{ [f] \mid f : X \to \FF \;\text{measurable},\; \|f\|_p < +\infty \right\}.
+    \end{equation}
+\end{myDefinition}
+
+\begin{myTheorem}{}{}
+    The Lebesgue spaces $L^p(X)$ are \emph{complete} normed spaces, i.e., \emph{Banach spaces}. (See Chapter~\ref{chapter:functional analysis}.)
+
+    The space $L^2(X)$ is a Hilbert space with inner product
+    \begin{equation}
+        \braket{f,g}_{L^2(X)} = \int \overline{f(x)} g(x) \; \rmd^n x.
+    \end{equation}    
+\end{myTheorem}
+
+The fact that $L^p$ spaces are \emph{complete} is of great importance. It guarantees that if we consider Cauchy sequences in these spaces, they are converge \emph{to something in the space}. This is extremely useful when studying PDEs.
+
+To close this section, we demonstrate just how general the Lebesgue spaces are, and how ``wild'' integrable functions can be.
+
+\begin{myExample}{A wild function}{}
+Let $X = \RR^3$ with Lebesgue measure. Let $u(\bvec{x}) = \|\bvec{x}\|^{-1} e^{-\|\bvec{x}\|}$. This function is square integrable. (Can you prove it?) The function is also unbounded as $\|\bvec{x}\|\to 0$.
+
+Now let $\QQ^3$ be the set of rational coordinates in $\RR^3$. It is a countable set, so we may write it as a sequence $\bvec{y}_i$, $i \in \NN$. Consider the function
+\begin{equation}
+    f(\bvec{x}) = \sum_{i=1}^\infty 2^{-i} u(\bvec{x}-\bvec{y}_i),
+\end{equation}
+i.e., at every rational point, we place a singularity. 
+
+It now follows, that for every $\epsilon$-ball in $\RR^3$, no matter how small, the function is unbounded. Yet,
+\begin{equation}
+    \|f\|_{L^2} \leq \sum_{i=1}^\infty 2^{-i} \|u\|_{L^2} < +\infty.
+\end{equation}
+Not only is the norm finite, but since $L^2$ is complete, the series actually converges to an element in $L^2(X)$. This function is unbounded in every arbitrarily small region.
+\end{myExample}
+
+

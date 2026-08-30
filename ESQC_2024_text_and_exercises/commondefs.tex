@@ -1,0 +1,192 @@
+%\usepackage[utf8]{inputenc}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{fontspec}
+\usepackage[svgnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{varwidth}
+\usepackage{capt-of}
+\usepackage[export]{adjustbox}
+\usepackage{csquotes}
+\usepackage{textgreek}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+%\usepackage{amsthm}
+\usepackage{braket}
+\usepackage{bbm}
+\usepackage{txfonts}
+\setmainfont{Times New Roman}
+\usepackage{xspace}
+
+\usepackage[style=verbose-note,date=year,bibstyle=mybibstyle,url=false,doi=false,giveninits=true]{biblatex}
+  \AtEveryBibitem{%
+    \clearfield{issue}}
+\bibliography{references}
+
+
+\input{colortheme.tex}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    filecolor=linkcolor,      
+    urlcolor=linkcolor,
+    pdftitle={ESQC Math 2022 lecture notes},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{rm}
+
+
+%\newtheorem{myTheorem}{myTheorem}
+%\theoremstyle{myDefinition}
+%\newtheorem{myDefinition}{myDefinition}
+
+\tcbset{
+    theoremstyle/.style={enhanced, colback=white, colframe=blue!20, arc=0pt, 
+                       before upper={\parindent15pt\noindent},
+                       fonttitle=\titlefont, description color=headingcolor,  
+                       colbacktitle=white, coltitle=headingcolor,    
+                       top=\tcboxedtitleheight,
+                       boxed title style={arc=0pt},
+                       attach boxed title to top left={yshift=-\tcboxedtitleheight/2,
+                                                       xshift=4mm}%
+                      },
+}
+
+
+
+\newtcbtheorem{myDefinition}{Definition}{theoremstyle,colframe=definitioncolor}{def}
+\newtcbtheorem{myTheorem}{Theorem}{theoremstyle,colframe=theoremcolor}{thm}
+\newtcbtheorem{myLemma}{Lemma}{theoremstyle,colframe=theoremcolor}{lem}
+\newtcbtheorem{myExample}{Example}{theoremstyle,colframe=examplecolor}{ex}
+\newtcbtheorem{myRemark}{Remark}{theoremstyle,colframe=examplecolor}{rem}
+\newtcbtheorem[no counter]{mySolution}{Solution}{theoremstyle,colframe=solutioncolor}{sol}
+
+
+\newtcbtheorem[no counter]{myDefinitionx}{Definition}{theoremstyle,colframe=definitioncolor}{def}
+\newtcbtheorem[no counter]{myTheoremx}{Theorem}{theoremstyle,colframe=theoremcolor}{thm}
+\newtcbtheorem[no counter]{myLemmax}{Lemma}{theoremstyle,colframe=theoremcolor}{lem}
+\newtcbtheorem[no counter]{myExamplex}{Example}{theoremstyle,colframe=examplecolor}{ex}
+\newtcbtheorem[no counter]{myRemarkx}{Remark}{theoremstyle,colframe=examplecolor}{rem}
+
+
+
+\newcommand{\hsc}[1]{{\authorfont\footnotesize\MakeUppercase{#1}}}
+
+\newcommand{\mytag}[1]{\tikz[baseline=(X.base)]\node [draw=black,fill=tagcolor,semithick,rectangle,inner sep=2pt, rounded corners=3pt] (X) {\hsc{#1}};\xspace }
+
+
+
+\usepackage{titlesec}
+  \titleformat{\chapter}[hang]
+    {\titlefont\huge\bfseries\color{headingcolor}}
+    {}{0pt}{\huge}
+%    {\thechapter}{20pt}{\huge}
+
+  % \titleformat{\chapter}[hang]
+  %   {\normalfont\huge\bfseries}
+  %   {}{0pt}{\huge}
+
+\titleformat{\section}
+%  {\gothambook\Large\color{black}}
+  {\titlefont\Large\bfseries\color{headingcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\titlefont\large\bfseries\color{headingcolor}}
+%  {\gothambook\large\color{black}}
+  {\thesubsection}{1em}{}
+
+
+\newtcolorbox{defbox}{
+enhanced,
+boxrule=0pt,frame hidden,
+borderline west={4pt}{0pt}{green!75!black},
+colback=green!10!white,
+sharp corners
+}
+
+%\tcbset{enhanced,colback=cyan!5!white,colframe=cyan!75!black,fonttitle=\bfseries}
+\tcbset{theoremstyle}
+
+
+\newcommand{\recommended}[2]{%
+\begin{tcolorbox}[title={Recommended reading},sidebyside,sidebyside align=top,lower separated=false,colframe=recommendedcolor]
+{#1}
+\tcblower
+    \includegraphics[width=\linewidth,valign=t]{#2}
+\end{tcolorbox}%
+}
+
+
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\rmd}{\mathrm{d}}
+
+\newcommand{\diff}[2]{\frac{\rmd #1}{\rmd #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\interior}{\operatorname{int}}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\axiomname}[1]{\hspace{1cm} \hfill{\bf\emph{#1}}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\bvec}[1]{\mathbf{#1}}
+\newcommand{\spn}{\operatorname{sp}}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\salgebra}[1]{\boldsymbol{#1}}
+
+\newcommand{\smallO}{
+  \mathchoice
+    {{\scriptstyle\mathcal{O}}}% \displaystyle
+    {{\scriptstyle\mathcal{O}}}% \textstyle
+    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+    {\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+  }
+
+
+\setmonofont[Scale=0.8]{DejaVu Sans Mono}
+\newfontfamily{\titlefont}{Avenir Medium.otf}
+\newfontfamily{\authorfont}{Avenir Light.otf}
+%\DeclareTextFontCommand{\texttitlefont}{\titlefont}
+
+\newcommand{\todo}[1]{\textcolor{red!70!black}{{\bf TODO: }#1}}
+
+
+
+\newcommand*{\mytitle}[2]{\begingroup
+\vspace*{1cm}
+\begin{flushleft}\thispagestyle{empty}
+{\titlefont\huge
+\addfontfeature{LetterSpace=4.0}
+MATHEMATICS FOR\\
+QUANTUM CHEMISTRY\\
+\vspace{1em}
+{#1}\\
+\vspace{0.5em}
+{\large #2}
+}
+\vfill
+\Large\authorfont\addfontfeature{LetterSpace=4.0}
+SIMEN KVAAL \\
+HYLLERAAS CENTRE\\
+UNIVERSITY OF OSLO\\
+simen.kvaal@kjemi.uio.no
+\vfill
+European Summerschool in Quantum Chemistry 2024
+\end{flushleft}
+\endgroup}
+
+

@@ -1,0 +1,53 @@
+\ProvidesFile{mybibstyle.bbx}
+\RequireBibliographyStyle{standard}
+%\RequireBibliographyStyle{authoryear-comp} % change this if you're not using author-year
+%\DeclareFieldFormat[article,incollection,unpublished]{title}{\textcolor{red}{#1}}%No quotes for article titles
+\DeclareFieldFormat[article,misc,incollection,unpublished]{title}{}%No article titles
+\DeclareFieldFormat[thesis]{title}{\mkbibemph{#1}} % Theses like book titles
+%\DeclareFieldFormat{pages}{#1} % no p or pp
+\DeclareFieldFormat{pages}{\mkfirstpage[{\mkpageprefix[bookpagination]}]{#1}}
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{bytranslator+others}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit\newblock%
+  \usebibmacro{journal+issuetitle}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \usebibmacro{note+pages}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{issn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \usebibmacro{finentry}}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+    \pertype{article}
+      \step[fieldset=number, null] % remove journal volume issue numbers
+      \step[fieldset=number, null] % remove journal volume issue numbers
+      \step[fieldset=issn, null]
+    \pertype{book}
+        \step[fieldset=edition, null]
+        \step[fieldset=address, null]
+    }
+  }
+}

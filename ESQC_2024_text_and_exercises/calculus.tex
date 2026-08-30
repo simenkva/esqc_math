@@ -1,0 +1,891 @@
+\chapter{Functions of several variables and complex variables}
+\label{sec:calculus}
+
+\section{Introductory remarks}
+
+We now consider functions over Euclidean space, and more generally Banach and Hilbert spaces. We discuss continuity, differentiability, and integration.
+
+Traditionally, the study of real-valued functions from $\RR$ to $\RR$ is called calculus, including the study of sequences, series, differentiability, maxima, minima, and integration. It is no understatement to say that calculus is very important to any scientist that deals with calculations of any kind, such as quantum chemists.
+
+The study of functions $f : \CC\to\CC$ is traditionally called \emph{complex analysis}. The algebraic properties of the complex plane introduce strong and surprising results that it is easy to fall in love with.
+
+It is conventional to call the study of functions $f : \RR^n \to \RR^m$ \emph{vector calculus}. Moreover, the geometry of $\RR^2$ and $\RR^3$ is quite important in science, and this special topic is therefore often singled out.
+
+Moving beyond vector calculus, we have the study of functions $f : V \to W$, where $V$ and $W$ are complete normed spaces (Banach spaces). Since quantum mechanics if formulated in Hilbert space, and since many of the quantum chemistry methods are defined in terms of linear or nonlinear partial differential equations, the study of calculus in infinite dimensional spaces hold a certain importance. This topic is often called \emph{non-linear functional analysis}.
+
+
+
+\section{Single-variable functions}
+
+\section{Functions of several variables}
+
+\recommended{Marsden was a giant in textbok authorship at any level of study. Marsden and Tromba's book is an excellent textbook at the undergraduate level. I find the writing clear and concise, yet engaging. There are many good examples and exercises.}{images/Marsden_frontpage}
+
+
+\subsection{Geometry of real-valued functions}
+
+\begin{myDefinition}{Functions of several variables}{}
+    Let $\Omega \subset \RR^n$, and let $f : \Omega \to \RR^m$. The set $\Omega$ is the \emph{domain} of $f$. If $n > 1$, then $f$ is a \emph{function of several (real) variables}. If $m = 1$, then $f$ is \emph{scalar valued}, and if $m > 1$, then f is \emph{vector valued}. A function $f : \Omega \subset \RR \to \RR^n$ is called a \emph{path} in $\RR^n$.
+\end{myDefinition}
+
+The domains $\Omega$ that one is usually interested, are sets that have a nonzero interior, i.e., it contains an open ball of some size, and with a \emph{boundary} $\partial\Omega$ which is sufficiently nice, e.g., piecewise smooth. (We have not defined this notion.)
+
+A notation which is common in order to specify a function ``quickly is'', e.g.,
+\begin{equation}
+    f : \RR^2 \to \RR^3, \quad [x,y] \mapsto [\sin(x) + \cos(y), \exp(x + y), -y].
+\end{equation}
+Sometimes the domain and codomain are omitted for brevity.
+
+\begin{myExample}{}{}
+A path in $\RR^2$:
+\begin{equation}
+    f : [0,1] \to \RR^2, \quad t \mapsto [t^2, \exp(-t)]
+\end{equation}
+ A scalar-valued function:
+ \begin{equation}
+     f : \RR^2 \to \RR, \quad [x,y] \mapsto (x^2 - y^2)\exp(-(x^2+y^2))
+ \end{equation}
+ 
+\end{myExample}
+
+
+Tools for visualizing functions: Graphs, level sets (curves, surfaces \ldots), sections.
+
+The \emph{graph} of $f : \Omega \subset \RR^n\to\RR^m$ is the subset
+\begin{equation}
+    \operatorname{graph}(f) = \{ (\bvec{x},f(\bvec{x})) \mid \bvec{x}\in\Omega \} \subset \RR^{n + m}.
+\end{equation}
+The \emph{level set} of $f$ with value $c$ is
+\begin{equation}
+    \{ \bvec{x} \in \Omega \mid f(\bvec{c}) = c \}.
+\end{equation}
+In $\RR^2$, this is typically a (union) of curves, and in in $\RR^3$, a (union) of surfaces, et.c.
+
+A \emph{section} is obtained by fixing a hyperplane of $\RR^n$ and considering $f$ a function only on this plane.
+
+Several exercises.
+
+
+
+\subsection{Differentiability}
+\label{sec:differentiability}
+
+The idea of the derivative of a function has great use. Locating maxima and minima, understanding the function's behavior, and so on.
+
+Many methods of quantum chemistry are defined in terms of critical point conditions, i.e., that some function $f(\bvec{x})$ has a vanishing derivative at some point.
+
+To begin with, we define the notion of a \emph{partial derivative}:
+
+\begin{myDefinition}{Partial derivative}{}
+Let $f : \Omega\subset\RR^n \to \RR$ be a scalar-valued function, $\Omega$ open. The \emph{partial derivatives} with respect to the variable $x_i$ are defined by
+\begin{equation}
+    \pdiff{}{x_i} f(\bvec{x}) = \lim_{h\to 0} \frac{f(\bvec{x} + h\bvec{e}_i) - f(\vec{x}) }{h}
+\end{equation}
+if the limit exists. 
+
+In the case $f : \Omega\subset\RR^n \to \RR^m$, the the partial derivatives are defined componentwise, i.e.,
+\begin{equation}
+    \pdiff{}{x_i} f_j(\bvec{x}).
+\end{equation}
+\end{myDefinition}
+
+Note that
+\begin{equation}
+    \bvec{x}+ h \bvec{e}_i = [x_1,x_2,\cdots,x_i+h,\cdots,x_n]^T,
+\end{equation}
+i.e., we compute the \emph{ordinary} derivative of $f$ with respect to $x_i$, imagining all the other variables to be fixed.
+
+[Examples and exercises]
+
+The existence of partial derivatives initially seems like a good notion of $f$ being differentiable. However, the following example shows that something is off: We expect a ``differentiable function'' to behave somewhat nicely. 
+
+\begin{myExample}{}{}
+    let $f : \RR^2 \to \RR$, $(x,y)\mapsto x^{1/3} y^{1/3}$. Recall, that the cube root of any real number is well defined. Computing the partial derivatives at $(0,0)$ gives
+    \begin{equation}
+        \pdiff{}{x} f(0,0) = \lim_{h\to 0} \frac{f(h,0)-f(0,0)}{h} = \lim_{h\to 0} \frac{0 - 0}{h} = 0,
+    \end{equation}
+    and similarly
+    \begin{equation}
+        \pdiff{}{y} f(0,0) = 0.
+    \end{equation}
+    But $f$ is far from constant near $(0,0)$. Indeed, consider $f$ along the line $y=x$,
+    \begin{equation}
+        g(x) = f(x,x) = x^{2/3}.
+    \end{equation}
+    The derivative of $g(x)$ is
+    \begin{equation}
+        g'(x) = \frac{2}{3} x^{-1/3}
+    \end{equation}
+    which does not even exist at $x=0$. 
+\end{myExample}
+The problem seems to be that the partial derivatives only ``see'' in two more or less arbitrary directions, and not ``all directions''.
+
+\begin{myDefinition}{Differentiable}{}
+    Let $f : \Omega \subset \RR^n \to \RR^m$, with $\Omega$ open. We say that $f$ is \emph{differentiable at $\bvec{x}_0\in\Omega$} if the partial derivatives all exist at $\bvec{x}_0$, and if
+    \begin{equation}
+        \lim_{\bvec{x}\to\bvec{x}_0} \frac{\| f(\bvec{x}) - f(\bvec{x}_0) - M(\bvec{x}-\bvec{x}_0)\|}{\|\bvec{x}-\bvec{x}_0\|} = 0,
+    \end{equation}
+    where $M = Df(\bvec{x}_0)$, the \emph{derivative}, is the matrix of partial derivatives, 
+    \begin{equation}
+        M_{ij} = \frac{\partial f_i(\bvec{x}_0)}{\partial x_j}.
+    \end{equation}
+    and where $M(\bvec{x}-\bvec{x}_0)$ is the matrix-vector product applied to $\bvec{x}-\bvec{x}_0$.
+
+\end{myDefinition}
+
+Intuitively, $f$ is differentiable at $\bvec{x}_0$ if the function
+\begin{equation}
+    f(\bvec{x}_0) + Df(\bvec{x}_0)(\bvec{x}-\bvec{x}_0),
+\end{equation}
+is a good approximation of $f$ near $\bvec{x}_0$. The graph of this ``first order approximation'' is a hyperplane that touches the graph of $f$ at $\bvec{x}_0$.
+
+In our previous example, the first-order function is \emph{not} a good approximation, and the function was hence not differentiable.
+
+\begin{myTheorem}{}{}
+    If $f$ is differetiable at $\bvec{x}_0$, it is continuous at $\bvec{x}_0$.
+\end{myTheorem}
+
+It can be difficult to check the definition of differentiability in many cases. We have a helpful \emph{sufficient} condition for differentiability:
+\begin{myTheorem}{Condition for differentiability}{}
+    Let $f : \Omega \subset \RR^n \to \RR^m$, with $\Omega$ open. Suppose the partial derivatives all exist at $\bvec{x}_0$, and furthermore that they are all continuous \emph{in a neighborhood} of $\bvec{x}_0$. Then $f$ is differentiable at $\bvec{x}_0$.
+\end{myTheorem}
+
+Note that we need continuity not only at the point in question, but a whole $\epsilon$-ball around it, too.
+
+\begin{myDefinition}{$C^1$ functions}{}
+        A function whose partial derivatives exist and are continuous throughout the open domain is said to be of class $C^1$.
+\end{myDefinition}
+
+The $C^1$ functions are differentiable, and can be  approximated by first-order polynomials.
+
+We list some properties of the derivative, that aids in computing derivatives of complicated functions:
+\begin{myTheorem}{Properties of the derivative}{}
+\begin{enumerate}
+    \item Let $f : \Omega \subset \RR^n \to \RR^m$ be differentiable at $\bvec{x}_0\in\Omega$, and let $c \in \RR$. Then $h(\bvec{x}) = c f(\bvec{x})$ is differentiable at $\bvec{x}_0$, and
+    \begin{equation}
+        D h(\bvec{x}_0) = c D f(\bvec{x}_0).
+    \end{equation}
+    \item Let $g : \Omega \subset \RR^n \to \RR^m$ be another function differentiable at $\bvec{x}_0$. Then $h(\bvec{x}) = f(\bvec{x}) + g(\bvec{x})$ is differentiable at $\bvec{x}_0$, and
+    \begin{equation}
+        D h(\bvec{x}_0) = D f(\bvec{x}_0) + Dg(\bvec{x}_0).
+    \end{equation}
+    \item\label{prodrule} Let $f,g : \Omega \subset\RR^n\to \RR$ be \emph{scalar-valued} functions, differentiable at $\bvec{x}_0\in\Omega$. Then $h(\bvec{x}) = f(\bvec{x})g(\bvec{x})$ is differentiable at $\bvec{x})_0$, and
+    \begin{equation}
+        Dh(\bvec{x}_0) = g(\bvec{x}_0)Df(\bvec{x}_0) + f(\bvec{x}_0) Dg(\bvec{x}_0).
+    \end{equation}
+    \item As in \ref{prodrule}, and additionally that $g >0$ thrughout $\Omega$. Then $h(\bvec{x}_0) = f(\bvec{x}_0)/g(\bvec{x}_0)$ is differentiable at $\bvec{x}_0$, and
+    \begin{equation}
+        Dh(\bvec{x}_0) = \frac{g(\bvec{x}_0)Df(\bvec{x}_0) - f(\bvec{x}_0)} {[g(\bvec{x}_0)]^2}
+    \end{equation}
+\end{enumerate}
+\end{myTheorem}
+
+[Exercises]
+
+\begin{myTheorem}{Chain rule}{}
+    Let $\Omega \subset \RR^n$ and $\Omega' \subset \RR^m$ be open sets, and let $g : \Omega \to \RR^m$ with $g[\Omega] \subset \Omega'$. Let $f : \Omega' \to \RR^o$. Thus, $h = f \circ g : \Omega \to\RR^o$ is defined. Suppose $g$ is differentiable at $\bvec{x}_0\in\Omega$, and $f$ is differentiable at $\bvec{y}_0 = f(\bvec{x}_0)\in\Omega'$. Then  $f \circ h$ is differentiable at $\bvec{x}_0$ with derivative
+    \begin{equation}
+        D(f \circ g)(\bvec{x}_0) = Df(\bvec{y}_0)Df(\bvec{x}_0),
+    \end{equation}
+    i.e., the matrix product of the Jacobian matrices.
+\end{myTheorem}
+
+\begin{myExample}{Function along a path}{}
+Let $\bvec{c} : \RR \to \RR^3$ be a path tracing out a curve in space, say the flight of a drone with a temperature sensor. The position $\bvec{c}(t) = [x(t),y(t),z(t)]^T$ is the position of the drone at time $f$. Let $f : \RR^3 \to \RR$ be a function, say temperature, in space. The temperature registered by the drone as function of time is $h(t) = (g \circ \mathbf{c})(t) = g(\mathbf{c}(t))$. The rate of change of $h(t)$ is
+\begin{equation}
+    \diff{h}{t} = \pdiff{h}{x}\pdiff{x}{t} + \pdiff{h}{y}\pdiff{y}{t} + \pdiff{h}{z}\pdiff{z}{t}.
+\end{equation}
+\end{myExample}
+
+\begin{myExample}{Change-of-variables in space}{}
+Let $f : \RR^3 \to \RR$ be some scalar-valued function in space, say temperature. let $g : \Omega \subset \RR^2 \to \RR^3$ be \emph{a parameterized surface}. $g(u,v)= [x(u,v), y(u,v), z(u,v)]^T$ is traces out a two-dimensional surface patch in $\RR^3$. The temperature over the surface is $h(u,v) = f(g(u,v))$. The rate of change of the temperature along the surface coordinates $(u,v)$ is
+\begin{equation}
+    \begin{bmatrix} \pdiff{h}{u} & \pdiff{h}{v} \end{bmatrix} = \begin{bmatrix} \pdiff{f}{x} & \pdiff{f}{y} & \pdiff{f}{z} \end{bmatrix} \begin{bmatrix} \pdiff{x}{u} & \pdiff{x}{v} \\ \pdiff{y}{u} & \pdiff{y}{v} \\ \pdiff{z}{u} & \pdiff{z}{v} \end{bmatrix},
+\end{equation}
+written out, we get
+\begin{align}
+    \pdiff{h}{u} &= \pdiff{f}{x}\pdiff{x}{u} + \pdiff{f}{y}\pdiff{y}{u} + \pdiff{f}{z}\pdiff{z}{u} \\
+    \pdiff{h}{v} &= \pdiff{f}{x}\pdiff{x}{v} + \pdiff{f}{y}\pdiff{y}{v} + \pdiff{f}{z}\pdiff{z}{v} \\
+\end{align}
+\end{myExample}
+
+
+\subsection{Higher derivatives}
+
+Recall the class $C^1$ of functions $f : \Omega \subset \RR^n \to \RR^m$ having continuous partial derivatives throughout their domains. In particular, the derivative is a \emph{matrix-valued} function,
+\begin{equation}
+    Df : \Omega \subset \RR^n \to \RR^{m\times n},
+\end{equation}
+since we hace $n$ partial derivatives for each of the $m$ component functions $f_i : \Omega \to \RR$.
+
+Suppose now $Df \in C^1$, i.e., each of the $mn$ partial derivatives have continuous partial derivatives throughout $\Omega$. We then say that $f \in C^2$, it is \emph{twice continuously differentiable}. We note that $D^2f = D(Df) : \Omega \to \RR^{m\times n \times n}$, by which we indicate a \emph{three-index symbol}, or \emph{tensor}, 
+\begin{equation}
+    [D^2f(\bvec{x}_0)]_{ijk} = \pdiff{}{x_j} \pdiff{}{x_k} f_i(\bvec{x}_0).
+\end{equation}
+
+It is a theorem, that the mixed partial derivatives are symmetric for $C^2$ functions,
+\begin{equation}
+    \pdiff{^2f_i }{x_j x_k}=     \pdiff{^2f_i }{x_k x_j}.
+\end{equation}
+Iterating this argument, we now define:
+\begin{myDefinition}{$C^k$ functions}{}
+Let $f : \Omega \subset\RR^n\to\RR^m$, with $\Omega$ open. We say that $f$ is of class $C^k$ if, for all  partial derivatives of order $\leq k$ exist and are continuous throughout $\Omega$. The $\ell$th order derivative is denoted 
+\begin{equation}
+    D^\ell f : \Omega \to \RR^{m\times n\times \cdots \times n}, 
+\end{equation}
+with components
+\begin{equation}
+    D^\ell f(\mathbf{x})_{ij_1j_2\cdots j_\ell} = \pdiff{^\ell}{x_{i_1}\cdots \partial x_{i_\ell}} f_i(\bvec{x}).
+\end{equation}
+\end{myDefinition}
+
+Accepting that mixed partial derivatives of order 2 are symmetric, it immediately follows that:
+\begin{myTheorem}{}{}
+    For a function of class $C^k$, the mixed partial derivatives are all symmetric with respect to exhange of the order of the differentiation.
+\end{myTheorem}
+
+\begin{myExample}{}{}
+Let $f(x,y) = x^2 - 4xy$. Compute all partial derivatives up to order 2.
+
+The first-order derivatives are
+\begin{equation}
+    \frac{\partial f}{\partial x} = 2x - 4y, \qquad \pdiff{f}{y} = -4x.
+\end{equation}
+The partial derivatives are continuous, hence $f$ is of class $C^1$. We compute the second-order derivatives:
+\begin{equation}
+    \frac{\partial^2 f}{\partial x^2} = 2, \quad \frac{\partial^2 f}{\partial x\partial y} = \frac{\partial^2 f}{\partial y\partial x} = -4, \quad \frac{\partial^2 f}{\partial y^2} = 0.
+\end{equation}
+These are also continuous. Hence $f$ is of class $C^2$.
+
+The next derivatives vanish. Hence, $f$ is of class $C^k$ for every $k$.
+
+We note the symmetry of the partial derivatives in this simple example.
+\end{myExample}
+
+\subsection{Taylor's Theorem}
+
+Polynomials play an important role in analysis, and they are indispensable for any researcher in quantum chemistry. Polynomials help us define gaussian-type orbital basis sets, helps us approximate difficult functions, derive variational equations, and so on.
+
+For functions of class $C^1$, the derivative gives an approimation to the function ``to first order'' near a differentiable point $\bvec{x}_0$. Indeed, for functions of class $C^k$ this can be generalized: The function can be well-approximated by a multivariable polynomial of degree $k$ near $\bvec{x}_0$.
+
+\begin{myTheorem}{Second-order Taylor formula}
+    Let $f : \Omega \subset \RR^n \to \RR$ be of class $C^2$. Then we may write
+    \begin{equation}
+        f(\bvec{x}_0 + \bvec{h}) = f(\bvec{x}_0) + Df(\bvec{x}_0)\bvec{h} + \frac{1}{2} \bvec{h}^T D^2 f(\bvec{x}_0) \bvec{h} + R_2(\bvec{h},\bvec{x}_0),
+    \end{equation}
+    where the \emph{remainder} satisfies $R_2(\bvec{h},\bvec{x}_0)/\|\bvec{h}\|^2 \to 0$ as $\bvec{h}\to 0$, written
+    \begin{equation}
+    R_2(\bvec{h},\bvec{x}_0) = \smallO(\|\bvec{h}\|^2).
+    \end{equation}
+    The symbol $D^2 f(\bvec{x}_0)$ is the \emph{Hessian} of $f$, the matrix of second-order mixed partial derivatives, a symmetric matrix.
+\end{myTheorem}
+
+The above formula can be generalized to polynomials of degree $k$ for $C^k$ functions.
+
+The formula can also be generalized to vector-valued functions whose components are all $C^k$.
+
+\begin{myExample}{}{}
+    Compute the second-order Taylor polynomial of $f(x,y) = \exp(-x^2 - y^2)$ at $(0,0)$.
+
+    \begin{equation}
+    Df(x,y) = [-2x f(x,y), -2y f(x,y)], \quad D^2 f(x,y) = \begin{bmatrix} (4x^2 -2)f(x,y) & 4xy f(x,y) \\ 4xy f(x,y) & (4y^2 - 2)f(x,y) \end{bmatrix}
+    \end{equation}
+    \begin{equation}
+    f(0,0) = 1, \quad Df(0,0) = [0,0], \quad D^2 f(0,0) = \begin{bmatrix} -2 & 0 \\ 0 & -2 \end{bmatrix}
+    \end{equation}
+    \begin{equation}
+        f(x,y) = 1 - (x^2 + y^2) + \smallO(x^2 + y^2).
+    \end{equation}
+\end{myExample}
+
+\subsection{Maxima and minima}
+
+Suppose $f : \Omega \subset \RR^n \to \RR$, with $\Omega$ being an open domain. We wish to find \emph{local minima or maxima} of $f$:
+\begin{myDefinition}{Local maxima and minima}
+Let $f : \Omega \subset \RR^n \to \RR$, with $\Omega$ being an open domain. 
+\begin{enumerate}
+    \item 
+A \emph{local maximum}  is a point $\bvec{x}\in\Omega$ such that there exists an open $\epsilon$-ball $B_{\epsilon}(\bvec{x})$ with
+\begin{equation}
+    f(\bvec{x}) \leq f(\bvec{y}), \quad \text{for all } \bvec{y}\in B_\epsilon(\bvec{x}).
+\end{equation}
+    \item 
+A \emph{local minimum}  is a point $\bvec{x}\in\Omega$ such that there exists an open $\epsilon$-ball $B_{\epsilon}(\bvec{x})$ with
+\begin{equation}
+    f(\bvec{x}) \geq f(\bvec{y}), \quad \text{for all } \bvec{y}\in B_\epsilon(\bvec{x}).
+\end{equation}
+\end{enumerate}
+\end{myDefinition}
+
+For local maxima and minima to be defined, $f$ need not even be continuous.
+
+How do we charaterize local maxima and minima? For a general function $f$, it can be hard to verify that a candidate point $\bvec{x}\in\Omega$ is indeed a local maximum or minimum. If, on the other hand $f$ is $C^1$, then a local maximum or minimum always has a vanishing derivative. This can be proven from the first-order Taylor polynomial approximation. On the other hand, it can happen that the derivative vanishes, even though we do not have a local maximum or minimum at $\bvec{x}$.
+
+\begin{myDefinition}{Critical point, saddle point}{}
+Ler $f : \Omega \subset\RR^n\to\RR$ be of class $C^1$. Any $\bvec{x}\in\Omega$ such that $Df(\bvec{x})=0$ is called \emph{a critical point of $f$}. The function value $f(\bvec{x})$ is called a \emph{critical value}. If $\bvec{x}$ is not a local maximum or minimum, we say that $\bvec{x}$ is a \emph{saddle point}.
+\end{myDefinition}
+
+If a function is of class $C^2$, the second derivative matrix $H = D^2 f(\bvec{x})$, often called the Hessian, is a symmetric matrix, since partial derivatives are symmetric. Thus there is a unitary matrix $U$ with columns $\bvec{u}_i$ such that
+\begin{equation}
+    H = U\Lambda U^T = \sum_{i=1}^n \bvec{u}_i \lambda_i \bvec{u}_i^T,
+\end{equation}
+with $\Lambda$ being a diagonal matrix of eigenvalues.
+Recall the second-order Taylor approximation
+\begin{equation}
+    f(\bvec{x} + \bvec{h}) = f(\bvec{x}) + \frac{1}{2} \bvec{h}^T H \bvec{h} + o(\|\bvec{h}\|^3).
+\end{equation}
+Introducing the spectral form of $H$, the second order term is
+\begin{equation}
+    \frac{1}{2} \bvec{h}^T H \bvec{h} = \sum_{i=1}^n h_i^2 \lambda_i, \quad h_i = \bvec{u}_i^T h.
+\end{equation}
+This term dominates the remainder if and only if all eigenvalues of $H$ are nonzero. (The examples $f(x) = x^3$, $f(x) = -x^4$, and $f(x) = x^4$ how that this matters, since $f'(0)$ and $f''(0)$ in all cases, so that the second derivative does not diagnose the critical point.)
+In this case, the behavior of $f$ near the critical point is determined by the sign of the eigenvalues. There are precisely three cases: If all eigenvalues are positive, we have a local minimum, and if all eigenvalues are negative, we have a local maximum. If we have eigenvalues of both signs, then we have a saddle point. 
+\begin{myTheorem}{Classification of critical points} 
+Let
+$f : \Omega \subset \RR^n \to \RR$, with $\Omega$ being an open domain. Let $f$ be of class $C^2$. Let $H = D^2f(\bvec{x})$ be the second derivative (Hessian) at a critical point. Assume all eigenvalues of $H$ to be nonzaero.
+Then we have:
+\begin{enumerate}
+    \item
+     If all the eigenvalues of $H$ are positive, then $\bvec{x}$ is a local minimium.
+     \item
+     If all the eigenvalues of $H$ are negative, then $\bvec{x}$ is a local maximum.
+     \item If there are eigenvalues of $H$ with both positive and negative values, then $\bvec{x}$ is a saddle point.
+\end{enumerate}
+\end{myTheorem}
+
+When there are one or more eigenvalues that are zero, then we need to analyze the problem further in order to conclude the nature of the critical point.
+
+
+
+
+\subsection{Integration}
+
+The first rigorous definition of a definite integral of a function $f : I \to \mathbb{R}$, $I = [a,b] \subset \RR$, is that of the \emph{Riemann ingeral},
+\begin{equation}
+    \int_a^b f(x) \, \rmd x.
+\end{equation}
+Roughly speaking, one defines the integral as the (signed) area under the curve, and approximates this by a \emph{Riemann sum} over areas of $N$ narrow boxes of width $\Delta x = (b-a)/N$,
+\begin{equation}
+    \sum_{i=1}^N \Delta x f(x_i), 
+\end{equation}
+where $x_i$ is some point in the interval $[a + (i-1)\Delta x, a + i\Delta x]$, say, the midpoint. As the width $\Delta x$ of the boxes approaches zero (i.e., $N \to +\infty$), the sum will be a Cauchy sequence with respect to $N$, under some assumptions on $f$. It then is a convergent sequence, and we define the integral as the limit.
+
+We will not dig deeper into this topic here. I recommend Morgan (elementary), Lindstrom, and Marsden/Freeman for more details.
+
+\begin{myTheorem}{Riemann integrable functions}{}
+    A function $f : [a,b] \to \RR$ is Riemann integrable, i.e., the Riemann integral exists and is finite, if and only if  $f$ is bounded on $[a,b]$, and the set of points where $f$ is discontinuous is finite. In that case, the integral is given by
+    \[
+    \int_a^b f(x) \,\rmd x = \lim_{N\to+\infty} \frac{b-a}{N} \sum_{i=1}^N f(x_i), \quad x_i = a + (i - 1/2) \frac{b-a}{N}.
+    \]
+\end{myTheorem}
+
+A more powerful notion of integrability is that of Lebesgue integrability. The main idea here is that the Riemann sums' vertical boxes are replaced with horizontal boxes.
+
+The Lebesgue integral requires an understanding of \emph{measurable sets and functions}. Measure theory is a powerful theory in itself, but for the average quantum chemist, the Riemann integral will do in most cases.
+
+To read more about measure theory at a pedagogical level, see the book by Lindstrom. Bartle is a classic text on measure theory.
+
+
+\section{The tools of calculus [move/edit this material]}
+
+In this section, we collect some of the basic facts about manipulating functions.
+
+\subsection{Differentiation}
+
+Differentiation is craft. Integration is art.
+
+We will often use the Leibniz' notation for a derivative
+\begin{equation}
+    f'(x) = \frac{\rmd}{\rmd x} f(x) = \frac{\rmd f(x)}{\rmd x} = \frac{\rmd f}{\rmd x}.
+\end{equation}
+This is indicative of a fraction of infinitesimals, and in fact sometimes they do behave like fractions \ldots
+
+Product rule:
+\begin{equation}
+    (fg)' = f' g + f g'
+\end{equation}
+Chain rule:
+\begin{equation}
+    f(x(y))' = f'(x(y))y'(x)
+\end{equation}
+Using Leibniz,
+\begin{equation}
+    \frac{\rmd}{\rmd x} f(y(x)) = \frac{\rmd f}{\rmd y}\frac{\rmd y}{\rmd x}.
+\end{equation}
+Note ``cancellation.'' Helpful mnemonic device.
+
+
+Logarithmic differentiation: Sometimes the logarithm of a function is easier to differentiate than the original function. We can then use
+\begin{equation}
+    f' = f \cdot (\ln f)'.
+\end{equation}
+
+
+\subsection{Integration}
+
+An \emph{antiderivative} of a function $f : I \to \RR$ is a function $F : I \to \RR$ such that $F' = f$. Since the derivative of a constant is zero, such can be added freely. Another notation for the antiderivative is the indefinite integral,
+\begin{equation}
+    F(x) = \int f(x)\, \rmd x + C,
+\end{equation}
+with $C$ being a constant.
+
+
+Antiderivatives are tabulated. But there are basic tricks to evaluate your own.
+
+Variable substitution: Write $x = x(y)$, a function of another variable $y$.
+\begin{equation}
+    \int_{x_0}^{x_1} f(x) \, \rmd x = \int_{y_0}^{y_1} f(x(y)) \, \frac{\rmd x}{\rmd y} \, \rmd y.
+\end{equation}
+Here, $x_i = x(y_i)$. Thus, one must be able to invert the function $y(x)$ to get $x(y)$.
+
+Note how the denominator is seemingly ``canceled.'' Helpful mnemonic device.
+
+Integration by parts:
+\begin{equation}
+    \int u'(x) v(x) \, \rmd x = u(x) v(x) - \int u(x) v'(x) \, \rmd x.
+\end{equation}
+Again, an arbitrary constant can be added.
+
+Feynman's differentiation under the integral sign: Let $g(x,\alpha)$ be a function that depends on some parameter $\alpha$ in a smooth manner. Suppose that our function to be integrated i
+\begin{equation}
+f(x) = \frac{\partial}{\partial \alpha} g(x,\alpha), 
+\end{equation}
+for some value $\alpha$. Under mild conditions on $g$, 
+\begin{equation}
+    \int f(x) \, \rmd x =   \int \frac{\partial}{\partial \alpha} f(x,\alpha) \, \rmd x = \frac{\partial}{\partial \alpha} \int f(x,\alpha) \, \rmd x.
+\end{equation}
+The latter integral may be easier to compute.
+
+Example: Gaussian integral.
+
+
+
+\section{Complex analysis}
+
+
+\subsection{Complex algebra}
+
+Complex numbers go back to the 16th century, when one tried to solve polynomial root equations. Some equations, like $x^2 + 1= 0$, did not have roots. On the other hand, by pretending that it \emph{does} have roots, let's call them $\sqrt{-1}$, which was absurd at the time, the Italian mathematician R.~Bombelli (ca.~1560) showed that if one used such numbers systematically, one could come up with algorithms for finding roots that were actually real! For example, the equation $x^3 = 15x + 4$ has $4$ as a root, which Bombelli found as
+\begin{equation}
+    4 = \sqrt[3]{2 + \sqrt{-121}} + \sqrt[3]{2 - \sqrt{-121}}.
+\end{equation}
+Descartes famously dubbed the square root of negative numbers \emph{imaginary}, as he seemed to think they did not ``exist'' like the real numbers. The name stuck, and L.~Euler himself coined the notation
+\begin{equation}
+    \rmi = \sqrt{-1}.
+\end{equation}
+
+However, the Norwegian mathematician and cartographer C.~Wessel was the first to discover the geometric interpretation of complex numbers as vectors in the plane, around 1797.
+
+Today, complex numbers are everywhere. They are useful in real analysis too: The fundamental Theorem of Algebra, convergence theory of Taylor series, et.c.
+
+For the quantum chemist \emph{why} learn complex analysis?
+
+Quantum mechanics is complex-valued, so complex numbers are a natural tool. Analytic functions pop up in many situations. Many of the integrals quantum chemists deal with every day have a natural setting in complex analysis. Complex functions are useful for wave phenomena and oscillations in general, since using complex exponentials, a traveling wave obtains a very transparent form,
+\begin{equation}
+    \cos(kx - \omega t) = \Re \exp(\rmi(kx-\omega t)). 
+\end{equation} 
+
+
+In short, complex analysis deals with \emph{differentiable complex functions}. Such functions turn out to be much more than differentiable: they are \emph{infinitely} differentiable, and they can be expanded locally in power series. Hence, ``analytic''. Moreover, their singularity structire is very rigid, and integration of such functions have many surprising and useful properties. For example, integration of rational functions become straightforward.
+
+
+\recommended{This is an excellent and modern textbook in complex analysis, and an engaging read.}{images/Busam_Freitag-frontpage}
+
+\recommended{This book from 1968 is a classic in mathematical physics. It is not a rigorous mathematics book, but gives you many of the tools of the trade. There are also many interesting problems.}{images/Butkov-frontpage}
+
+\recommended{The YouTube channel MathMajor of Michael Penn of Randolph College, Virginia, contains excellent videos on many mathematics topics, and in particular on complex analysis. \url{https://www.youtube.com/playlist?list=PLVMgvCDIRy1wzJcFNGw7t4tehgzhFtBpm}}{images/MathMajor_complex}
+
+
+\begin{myDefinition}{Complex number operations}{}
+    Let $z = x + \rmi y \in \CC$.
+    \begin{itemize}
+        \item $\Re z = x$,  $\Im z = y$ \axiomname{real and imaginary part}        \item $\bar{z} = z^* = x - \rmi y$ \axiomname{complex conjugate}
+        \item $z = r e^{i\theta}$, \axiomname{polar form}\\
+        where
+$ e^{\rmi\theta} = \cos\theta + \rmi\sin\theta $ \axiomname{Euler's formula}
+        \item $\Arg z = \theta$ \axiomname{argument/angle/phase}
+        \item $|z|^2 = \bar{z}z = \Re z^2 + \Im z^2 = r^2$ \axiomname{squared modulus/norm}
+    \end{itemize}
+\end{myDefinition}
+The complex plane can be regarded as $\mathbb{R}^2$. Indeed, the modulus $|z| = \sqrt{(\Re z)^2 + (\Im z)^2}$ is the Euclidean norm in $\RR^2$. 
+
+Recall that an $\epsilon$-ball in $\RR^2$ is a small disc centered at some $(x,y)$ with radius $\epsilon$, excluding its boundary. Thus, convergence of sequences, continuity, the same as in $\RR^2$
+
+Throughout, we let $D \subset \CC$ be an open domain, i.e., every point $z \in D$ is surrounded by some $\epsilon$-ball.
+
+A \emph{simply connected} domain is one without any holes. Figure~\ref{fig:complex-domain}.
+
+\begin{figure}
+    \centering
+    \includegraphics{illustrations/complex-domain.ai}
+    \caption{Left: Simply connected open domain in the complex plane. An arbitrary point $z$ is surrounded by a small disc of radius $\epsilon$. Right: Domain with a hole (not simply connected)}
+    \label{fig:complex-domain}
+\end{figure}
+
+
+
+Let $f : \CC \to \CC$ be a function. By writing $f(z) = u(x,y) + \rmi v(x,y)$, we can regard $f$ a s a \emph{pair} of real-valued functions defined in the plane region $D$.
+
+\begin{equation}
+    f(z) \quad \leftrightarrow  \quad u(x,y) + \rmi v(x,y).
+\end{equation}
+What are the properties of such functions? What is distinguishes functions like
+\[ f(z) = z^3 + 1, \quad f(z) = \frac{1}{1 - z}, \]
+from functions like
+\[ f(z) = \Re z + \Im z \quad ? \]
+The first function is clearly a function of the combination $z = x + \rmi y$, and not of $x$ and $y$ individually. In an intuitive sense, the first function is ``purer'' than the second one, it is a ``true function of $z$''. 
+
+It is useful to note that
+\begin{equation}
+    \Re z = \frac{1}{2}(z + \bar{z}), \quad \Im z = \frac{1}{2\rmi} (z - \bar{z}).
+\end{equation}
+Thus, seemingly $z$ and $\bar{z}$ are like independent variables. 
+
+Thus, we can rewrite any occurence of $\Re z$ and $\Im z$ in terms of $z$ and $\bar{z}$, i.e., the latter can be used as independent variables (even if they are, strictly speaking, not! When $z$ changes, so do $\bar{z}$!) For example,
+\begin{equation}
+    f(z) = \Re z + \Im z = (\frac{1}{2} + \frac{1}{2\rmi}) z + (\frac{1}{2} - \frac{1}{2\rmi}) \bar{z}.
+\end{equation}
+It now looks like $f(z)$ is not a ``pure'' function of $z$.
+
+Indeed, it turns out that the ``pure'' functions are the differentiable ones, while the ``mixed'' functions are never differentiable. And the ``pure'' functions are always extremely well-behaved!
+
+\begin{myExample}{}{}
+The perhaps simplest complex functions, and among the most important, are \emph{polynomials}
+\begin{equation}
+    p(z) = a_0 + a_1 z + a_2 z^2 + \cdots + a_n z^n.
+\end{equation}
+The degree of the polynomial is the index of the larges nonzero coefficient $a_n \in \CC$. The polynomials are the simplest complex differentiable functions, from which much is derived.
+\end{myExample}
+
+\begin{myTheorem}{Fundamental Theorem of Algebra}{}
+    Any polynomial of degree $n$ can be factorized uniquely (up to reordering of the roots $r_i$) as
+    \begin{equation}
+        p(z) = c (z-r_1)(z-r_2)\cdots(z-r_n).
+    \end{equation}
+\end{myTheorem}
+
+
+\subsection{Complex differentiability}
+
+Complex differentiability is defined in a similar manner as real single-variable differentiability:
+\begin{myDefinition}{Complex differentiability}{}
+    The function $f : U \to \CC$, $U \subset^{\text{open}} \CC$, is (complex) differentiable at $z \in U$ if the limit
+    \begin{equation}
+        \lim_{h \to 0} \frac{f(z+h) - f(z)}{h} = f'(z) = \diff{f}{z}
+    \end{equation}
+    exists. The expression $h\to 0$ means the same as in the $\RR^2$ case.
+
+    If $D$ is an open domain in $\CC$, and if $f(z)$ is complex differentiable for all $z \in D$, we say that $f$ is \emph{analytic in $D$}.
+\end{myDefinition}
+The fact that the limit is to exist as $h\to 0$ in the complex sense is \emph{much more restrictive} than the previous limit for real functions from $\RR^2\to\RR^2$. Not only can one approach $0$ from any direction, but the rules of complex multiplication must also be obeyed.
+
+\begin{myExample}{Derivative of monomial}{}
+Let us apply the definition of the derivative to $f(z) = z^n$.
+\begin{equation}
+    f(z+h) = (z+h)^n = z^n + h n z^{n-1} + \text{higher order terms}.
+\end{equation}
+Thus
+\begin{equation}
+    \frac{f(z+h)-f(z)}{h} = \frac{h n z^{n-1} + \text{h.o.t.}}{h} = n z^{n-1} + \text{h.o.t.},
+\end{equation}
+so that the limit becomes
+\begin{equation}
+    \diff{}{z} z^{n} n z^{n-1}.
+\end{equation}
+We were able to perform the limit just by doing complex algebra. Notably, $z\in \CC$ was completely arbitrary, so the derivative exists everywhere.
+\end{myExample}
+
+\begin{myExample}{Derivative of $\bar{z}$ does not exist}{}
+Let us try to see if $f(z) = \bar{z}$ is differentiable. Let us consider the limit $h = \delta x \to 0$ in $\RR$. 
+\begin{equation}
+    \lim_{\delta x\to 0} \frac{f(x + \delta x + \rmi y) - f(x + \rmi y)}{\delta x} = \frac{\delta x}{\delta x} = 1.
+\end{equation}
+However, if we allow $h = \rmi \delta y \to 0$ instad, with $\delta y\in \RR$, then
+\begin{equation}
+    \lim_{\delta y\to 0} \frac{f(x + \rmi (\delta y + y)) - f(x + \rmi y)}{\delta y} = \frac{-\rmi \delta y}{\delta y} = -\rmi.
+\end{equation}
+Since the two limits are not the same, the complex limit cannot exist, since limits are unique.
+
+This is in fact a very simple example of a continuous function from $\CC\to\CC$ which is not differentiable anywhere! Such an exampe is much harder to find for functions $\RR^2\to\RR^2$.
+\end{myExample}
+
+\begin{myTheorem}{Properties of complex derivative}{}
+    The complex derivative enjoys the same properties as the usual single-variable derivative: Linearity, product rule, quotient rule, and chain rule.
+\end{myTheorem}
+
+When viewed as a pair of real functions, we get:
+\begin{myTheorem}{Cauchy-Riemann equations}{}
+    Let $f : D \to \CC$, $D$ being a simply connected open set.
+    Let $z = z + \rmi y$, and write $f(z) = u(x,y) + \rmi v(x,y)$, with $u,v : D \to \RR^2$ (where $D$ is viewed as a subset of $\RR^2$). If $f$ is complex differentiable at $z$, then
+    \begin{equation}
+        \pdiff{u(x,y)}{x} = \pdiff{v(x,y)}{y}, \quad         \pdiff{u(x,y)}{y} = -\pdiff{v(x,y)}{x} \text{\axiomname{Cauchy--Riemann equations}}
+    \end{equation}
+    Conversely, if the Cauchy--Riemann equations are satisfied in $D$, then $f$ is complex differentiable in $D$.
+\end{myTheorem}
+
+It is important here, that we are not talking about \emph{a single point}, but a whole neighborhood. The theorem fails if we omit the last fact.
+
+
+\subsection{Series of complex numbers}
+
+\begin{myDefinition}{Series}{}
+Given a sequence $(z_n)$ of complex numbers, we define the \emph{partial sums}
+\begin{equation}
+    S_N = \sum_{n=0}^N z_n.
+\end{equation}
+If the partual sums converge, $\lim S_N = S \in \CC$, then we denote that sum by
+\begin{equation}
+    S = \sum_{n=0}^\infty z_n = z_0 + z_1 + z_2 + \cdots
+\end{equation}
+\end{myDefinition}
+
+\begin{myExample}{Geometric series}{}
+The geometric series,
+\begin{equation}
+   f(z) =  \frac{1}{1-z} = 1 + z + z^2 + \cdots \qquad \text{for $|z| < 1$}.
+\end{equation}
+The function $f(z)$ is complex differentiable at any $z \neq 1$:
+\begin{equation}
+    f(z + h) = \frac{1}{1-z-h} = \frac{1}{1-z} \frac{1}{1 - h/(1-z)} = \frac{1}{1-z}(1 + \frac{h}{1-z} + \text{h.o.t.}),
+\end{equation}
+so that $f'(z) = \frac{1}{(1-z)^2}$.
+
+We note that $f$ is \emph{divergent} as $z\to 1$, this is an example of a \emph{pole} of $f$.
+\end{myExample}
+
+Note the slight abuse of notation: The infinite sum is used to denote \emph{both} the limit of the partial sums, if it exists, but also the sequence of partial sums.
+
+\begin{myTheorem}{Power series}{}
+A \emph{power series} is a series of the type
+\begin{equation}
+    \sum_{n=0}^\infty a_n z^n.
+\end{equation}
+The \emph{radius of convergence} of the power series is given by
+\begin{equation}
+    \frac{1}{R} = \limsup_{n\to\infty} |a_n|^{1/n}.
+\end{equation}
+In particular, $R > 0$ if $\{|a_n|^{1/n}\}$ stays bounded as $n$ grows.
+
+A power series is complex differentiable inside the radius of convergence, and the derivative is computed term by term,
+\begin{equation}
+    \diff{}{z} \sum_{n=0}^\infty a_n z^n = \sum_{n=1}^\infty n a_n z^{n-1}.
+\end{equation}
+The radius of convergence of the derivative is again $R$. It follows that a power series is \emph{infinitely differentiable}.
+\end{myTheorem}
+
+\begin{myDefinition}{Important functions as power series}{}
+We \emph{define}
+\begin{align}
+    \exp(z) &= \sum_{n=0}^\infty \frac{1}{n!} z^n \\
+    \sin(z) &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} z^{2n+1} \\
+    \cos(z) &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n!)} z^{2n}.
+\end{align}
+These series are simply complex generalizations of the corresponding real series. The complex exponential satisfies
+\begin{equation}
+    \exp(x + \rmi y) = \exp(x)[\cos(y) + \rmi\sin(y)].
+\end{equation}
+\end{myDefinition}
+See also the exercises, where the complex exponential is derived/defined in a different but equivalent way.
+
+
+\subsection{Analyticity}
+
+\begin{myTheorem}{Infinite differentiability}{}
+    If $f$ is complex differentiable in an $\epsilon$-ball $U$ of $z\in \CC$, then it is complex differentiable as many times as we like the same ball. 
+\end{myTheorem}
+
+
+A ruly remarkable result about analytic functions is:
+\begin{myTheorem}{Analytic functions are power series}{}
+If $f(z)$ is analytic in an open ball around $z$, then $f(z)$ can be expanded in a power series there.
+\end{myTheorem}
+
+\begin{myExample}{Geometric series}{}
+A standard example is the function
+\begin{equation}
+    f(z) = \frac{1}{1-z},
+\end{equation}
+with domain $D = \CC \setminus \{1\}$. 
+The Taylor expansion/power series of $f(z)$ around $z=0$ is
+\begin{equation}
+    f(z) = 1 + z + z^2 + \cdots,
+\end{equation}
+the geometric series. All the $a_n = 1$, so $|a_n|^{1/n} = 1$, and $R = 1$ is the convergence radius. For all $|z|<R$ the series converges. For $|z|=1$, we don't know, and for $|z|>R$ it always diverges.
+
+The Taylor series around oher points $w\in \CC$ can be derived rather easily. The convergence radius will be $R = |w-1|$. See Fig.~\ref{fig:power-series}.
+\end{myExample}
+
+\begin{figure}
+    \centering
+    \includegraphics{illustrations/geometric-series-domain.ai}
+    \caption{Illustration of convergence disk for two different origins $w$ and $w'$ for a Taylor/power series in the presence of a singularity. The series converges inside a disk with radius equal to the distance to the closest singularity of the function.}
+    \label{fig:power-series}
+\end{figure}
+
+\subsection{Complex line integrals}
+
+Consider the problem: Given $f : D \subset^{\text{open}}\CC \to \CC$. When does $f$ have an antiderivative (aka primitive), a function $F : D \to \CC$ such that $F'(z) = f(z)$? In real analysis this question results in the \emph{fundamental theorem of analysis}, which gives the antiderivative of a real function using the definite integral 
+\[ F(x) = \int_{x_0}^x f(t)\, \rmd t. \]
+For a complex function, how should one generalize this idea? In the complex plane, there are many ways to go from a point $z_0\in D$ to a point $z\in D$. 
+
+This leads to the idea of a complex \emph{line integral}: the integral of a complex function along a smooth curve in $\CC$, see Fig.~\ref{fig:smooth-curve}. Such a path as previously considered in the section on vector calculus: Let $I = [a,b]$ be a closed interval, and let $\gamma : I \to \CC$ be smooth. Smoothness means, that both the real and imaginary parts of $\gamma$ are differentiable as many times as we like in all of $I$. The graph of $\gamma$ is now a curve $\Gamma$ in $\CC$, and we say that $\gamma$ is a \emph{smooth parameterization} of $\Gamma$. Conversely, we say that a subset $\Gamma\subset\CC$ is a smooth curve if there exists a smooth parameterization. There are many parameterizations of a given smooth curve $\Gamma$.
+
+We say that $\Gamma$ is \emph{closed} if the endpoints match, so that we have a \emph{loop}, and $\Gamma$ is \emph{simple} if the loop does not cross itself.
+
+It is important here, that since our integral is supposed to \emph{start} at one endpoint, and \emph{end at another}, the \emph{direction} of traversal on the curve matters. We say that the curve is \emph{oriented}.
+
+\begin{figure}
+    \centering
+    \includegraphics{illustrations/smooth-curve.ai}
+    \caption{A smooth path and curve in $\CC$.}
+    \label{fig:smooth-curve}
+\end{figure}
+
+\begin{myDefinition}{Complex line integral}{}
+Let $f : D \to \CC$ be continuous, and let $\Gamma$ be a (piecewise) smooth oriented curve parameterized by $\gamma : I \to \CC$.
+The complex line integral of $f$ along $\Gamma$ is now defined as
+\begin{equation}
+    \int_\Gamma f(z) \, \rmd z = \int_I f(\gamma(t)) \gamma'(t) \, \rmd t,
+\end{equation}
+which is independent of parameterization. Note that $\rmd z = \gamma'(t)\rmd t$, an infinitesimally small piece of the curve. 
+\end{myDefinition}
+
+The line integral is a \emph{complex} integral. The real and imaginary parts exist as Riemann integrals.
+
+
+The Cauchy--Riemann equations together with Green's theorem for surface integrals now imply:
+\begin{myTheorem}{Cauchy theorem}{}
+Let $f : D \to \CC$, where $D$ is a simply connected open domain. Let $\Gamma$ be a piecewise smooth simple closed curve in $D$. Then,
+\begin{equation}
+    \oint_\Gamma f(z)\, \rmd z = 0.
+\end{equation}
+\end{myTheorem}
+
+\begin{myTheorem}{Path independence, antiderivative}{}
+Let $f$ and $D$ be as above. In particular, $D$ is simply connected.
+If two curves $\Gamma$ and $\Gamma'$ have the same $z_0$ and $z$, then the line integrals have the same value, and hence they depend only on the endpoints. In that case, one may define
+\begin{equation}
+    F(z) = \int z_0^z f(z) \, \rmd z
+\end{equation}
+as the common value, which satisfies $F'(z) = f(z)$ for every $z\in D$.
+\end{myTheorem}
+
+
+
+
+Fix $z_0 \in D$, and choose $\epsilon > 0$ such that the open disk $B_\epsilon(z_0) \in D$. Let $\Gamma$ be the boundary of the disk, traversed counter-clockwise by some parameterization, e.e., $\gamma(t) = z_0 + e^{\rmi t} \epsilon$, $0 \leq t < 2\pi$.
+\begin{myTheorem}{Cauchy integral formula}{}
+    Let the function $f : D \to \CC$ be complex differentiable, and $B_\epsilon(z_0)\subset D$ as above. Then,
+    \begin{equation}
+    f(z_0) = \frac{1}{2\pi \rmi} \oint_\Gamma \frac{f(z)}{z - z_0} \, \rmd z.
+    \end{equation}
+\end{myTheorem}
+This result is incredibly powerful and profound. The value \emph{inside} the curve is completely detemined by the values \emph{on} the curve. Furthermore, Cauchy integral theorem above, generalize the result to  \emph{any} piecewise smooth simple closed loop inside $D$ that contain $z$ in its interior. The Cauchy integral formula is \emph{still valid} for such paths.
+
+
+The next consequence is the following:
+\begin{myTheorem}{}{}
+     Let $D$ be simply connected, and let $f : D \to \CC$ be complex analytic in $D$. Then $f$ is \emph{infinitely} many times differentiable, and we have the power series representation
+     \begin{equation}
+        f(z) = \sum_{n=0}^\infty a_n(z-z_0)^n, \quad \text{where} \quad a_n = \frac{f^{(n)}(z)}{n!} 
+     \end{equation}
+     The derivatives are given by the formula
+     \begin{equation}
+         f^{(n)}(z) = \frac{1}{2\pi\rmi} \oint_\Gamma \frac{f(w)}{(w-z)^{n+1}} \, \rmd w.
+     \end{equation}
+\end{myTheorem}
+The proof is based on two results; the Weierstrass $M$-test and Leibniz' rule for differentiation under the integral sign. The latter reads:
+\begin{myLemma}{Leibniz' rule}{}
+    Let $C$ and $D$ be simply connected domains, and let $f : C \times D \to \CC$ be complex differentiable in each variable \emph{separately}, i.e., 
+    \begin{equation}
+    \pdiff{f(w,z)}{z} \quad \text{and} \quad \pdiff{f(w,z)}{w} \quad\text{both exist}. 
+    \end{equation}
+    Then
+    \begin{equation}
+        \diff{}{z} \oint_{\partial C} f(w,z)\, \rmd w =          \oint_{\partial C} \pdiff{f(w,z)}{z} \, \rmd w.
+    \end{equation}
+\end{myLemma}
+The fact that a complex differentiable $f : D \to \CC$ is infinitely differentiable now follows immediately, when applied to the Cauchy integral formula. To complete the proof, see for example Butkov.
+
+Since power series also are complex differentiable so long as the coefficients do now grow too fast, we have
+\begin{myTheorem}{}{}
+   Complex differentiablility of $f : D \to \CC$  in a simply connected $D$ is equivalent to a convergent power series of $f$ around $z\in D$
+\end{myTheorem}
+This incredibly powerful statement has great consequences for the study of functions of a \emph{real} variable. For example, we know that $e^z$ is complex analytic, so for every $x \in \RR$, $e^(x+\Delta x)$ can be developed in a convergent power series for $\Delta x$ small enough. Conversely, one can show that if we have a convergent power series in a real variable, then this series is \emph{also} convergent for a complex variable. Hence, the real function can be \emph{analytically continued} into the complex plane, and we may use the powerful results of complex analysis. We define the exponential function for complex arguments in this way in the exercies.
+
+\subsection{Laurent series}
+
+Power series in $z$ can be generalized to \emph{negative} powers. This is very useful, as one can show the following:
+\begin{myTheorem}{Functions from Laurent series}{}
+    Let a\emph{Laurent series} be given,
+    \begin{equation}
+        \sum_{n=-\infty}^{+\infty} c_n (z-w)^n = \sum_{n=1}^{\infty} c_{-n} (z-w)^{-n} + \sum_{n=0}^{\infty} c_n (z-w)^n,
+    \end{equation}
+    defined as the sum of two power series, in $z^{-1}$ and $z$. Then there exists $R_1$ and $R_2$ such that the positive power series converges to an analytic function for $|z| < R_1$, and the negative power series converges to an analytic function for $|z|>R_2$. If $R_2 < R_1$, we obtain a unique analytic function in the \emph{annulus}
+    \begin{equation}
+        D = \{ z \in \CC \mid R_2 < |z| < R_1 \},
+    \end{equation}
+    with 
+    \begin{equation}
+        c_n = \frac{1}{2\pi\rmi} \oint_\Gamma \frac{f(w)}{(w-z)^{n+1}} \, \rmd w.
+     \end{equation}
+\end{myTheorem}
+
+\subsection{Isolated singularities}
+
+\begin{figure}
+    \centering
+    \includegraphics{illustrations/punctured-domain.ai}
+    \caption{A domain with a single point $a$ missing. The domain is still open, but no longer simply connected.}
+    \label{fig:punctured-domain}
+\end{figure}
+Let $f : D \subset^{\text{open}} \CC \to \CC$ be analytic. Let $a\in D^\complement$, and assume that for some $\epsilon>0$, the \emph{punctured disc} $\dot{B}_\epsilon(a) := B_\epsilon(a) \setminus\{a\}$ is a subset of $D$.  Thus, $D$ has a single-point ``hole'' at $a$, it is ``punctured'', see Fig.~\ref{fig:punctured-domain}. Since $f$ is not defined at $a$, this is a \emph{singularity}. It is also \emph{isolated}, since $a$ is surrounded by an open subset in $D$.
+
+What types of behavior can $f$ have at, or near,  $a$?
+
+Three typical examples are, with $a=0$:
+\begin{equation}
+    \frac{sin z}{z}, \quad \frac{1}{z}, \quad e^{1/z}.
+\end{equation}
+The first example has a singularity at $a=0$ since the denominator vanishes. But one can easily deduce that the limit as $z\to 0$ is 1, and that the function is complex differentiable there. Thus, we can include $z=0$ in the domain. The singularity is \emph{removable}. It is a fact, that the singularity is removable if $f(z)$ is bounded (absolute value smaller than some constant) inside some punctured disc around $a$.
+
+The second example is such that it is dominated by a single a negative power of $z$ near $z=0$. Clearly, the first trick cannot be reused. On the other hand, we obtain an analytic function my multiplying with $z^k$ for some smallest integer $k\geq 1$. Such singularities are called \emph{poles of order $k$}, and it follows that we have a Laurent series expansion
+\[ f(z) = \sum_{n = -k}^\infty c_n (z-a)^n \]
+near a pole of order $k$, i.e., the negative powers are only finite.
+
+For the third example, this trick does not work. There exist \emph{no power} $z^k$ such that $z^k f(z)$ is analytic. Such singularities are called \emph{essential singularities}. 
+
+\subsection{Algebraic functions}
+
+There is a fourth class of singularity: ``square-root type'' singularities. We have not discussed \emph{algebraic functions}. These are functions defined as roots of polynomials: Let $a_n(w)$ be complex differentiable coefficients, and consider the equation
+\begin{equation}
+    F(w,z) = a_0(w) + a_1(w)z + \cdots + a_n(w) z^n = 0.
+\end{equation}
+Under mild conditions on the coefficients, we can solve for $z$ using the implicit function theorem and the fundamental theorem of algebra to find $n$ functions $f_i(w)$ such that
+\begin{equation}
+    F(w,f_i(w)) = 0.
+\end{equation}
+The function $f$ is called \emph{algebraic}, and in general there are $n$ solutions to $F=0$, so that we have $n$ solution functions! These are called \emph{branches} of the same function.
+
+\begin{myExample}{A simple algebraic function}{}
+Consider the equation
+\begin{equation}
+    z^2 + w = 0
+\end{equation}
+which as the solution 
+\begin{equation}
+    z(w) = w^{1/2}.
+\end{equation}
+We know that there are two distinct complex square roots. Each square root defines a \emph{branch}, and they coincide at $w=0$, a \emph{branch point}.
+
+Each branch can be made complex analytic in any simply connected region that excludes the origin, i.e., we can draw a (possibly wiggly) line from the origin to infinity. This line is called a \emph{branch cut}.
+\end{myExample}
+
+Algebraic functions are very useful. For example, the eigenvalues of a matrix dependent on a complex parameter,
+\begin{equation}
+    C(z) = A + z B
+\end{equation}
+are roots of the characteristic polynomial of $C(z)$, and hence algebraic functions! Thus, the study of algebraic functions is relevant for quantum mechanical perturbation theory.
+
+We are of course only scratching the surface here. Butkov is a good place to start for learning more on algebraic functions, branch points etc.
+

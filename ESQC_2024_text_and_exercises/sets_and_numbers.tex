@@ -1,0 +1,227 @@
+\chapter{The fundamentals: Sets and numbers}
+
+
+\section{Introduction}
+
+\subsection{Why learn mathematics?}
+
+Doing successful research in quantum chemistry invariably requires the researcher to use mathematical tools. These range from elementary topics like real and complex analysis, and linear algebra, but, especially in method development of manybody theory, topics like functional analysis, convex analysis, nonlinear partial differential equations, and so on, pop up. Moreover, computer implementation of quantum chemistry methods require a good command of numerical analysis and optimization theory. Furthermore, even if the researchers ambition is \emph{not} to do advanced research in quantum chemistry method development, application of the methods also require an understanding of where they come from and how they work.
+
+
+\subsection{What is mathematics?}
+
+In science, we build models to describe observations made by experiments. The language of models is mathematics. Mathematics itself can be said to model nature: The integers model counting of discrete objects, the real numbers model lengths and time intervals, and euclidean geometry models (non-relativistic) space-time. Functions of real variables model observable quantities. Hilbert spaces model the states of matter in the quantum mechanical regime. Partial differential equations model natural laws. Mathematics is also used to interpret the outcome of experiments via statistics, i.e., the dichotomy between theory and experiment is not so clear.
+
+
+Isn't it strange, and wonderful, that mathematics is able to accurately describe reality? Isn't it fascinating, that humans have made \emph{mental models} built on logic, that is able to model reality? Isn't it strange, that whenever we need to refine our scientific models, then mathematics is malleable enough to provide the correct ones, and even make predictions of what new experiments may observe?
+
+
+But what \emph{is} mathematics?
+Here is a quote from the Wikipedia article on Mathematics:\autocites{wiki:Mathematics}
+\begin{displayquote}
+Mathematics (from Ancient Greek μ{\textalpha}θημα; máthēma: `knowledge, study, learning') is an area of knowledge that includes such topics as numbers (arithmetic and number theory), formulas and related structures (algebra), shapes and the spaces in which they are contained (geometry), and quantities and their changes (calculus and analysis). Most mathematical activity involves the use of pure reason to discover or prove the properties of abstract objects, which consist of either abstractions from nature or---in modern mathematics---entities that are stipulated with certain properties, called axioms. A mathematical proof consists of a succession of applications of some deductive rules to already known results, including previously proved theorems, axioms and (in case of abstraction from nature) some basic properties that are considered as true starting points of the theory under consideration. 
+\end{displayquote}
+
+Thus, mathematics is a kind of tower built with the human capacity for abstract thought alone. Theories are built on more fundamental theories, branching out like a tree. But is there something at \emph{the root}? Can we know \emph{for sure} that no mistake has been made, destroing swathes of centuries-old work in a moment, once the mistake is discovered?
+
+
+In the late 19th and early 20th century, the quest for a common foundation of mathematics, based on mathematics alone, led to a crisis: the foundational crisis of mathematics\autocites{wiki:Foundations_of_mathematics,Ferreiros_TPCtM}. Paradoxes like the famous Russell's paradox questioned whether mathematics could be formulated consistently with mathematics alone. Most of us are used to mathematical sets being rather informally defined, e.g., via a list, 
+\begin{equation}
+    \mathbb{N} = \{ 0, 1, 2, 3, \ldots \}, 
+\end{equation}
+or via some condition,
+\begin{equation}
+    C = \{ x \mid \text{$x$ is a cat} \} 
+\end{equation}
+While this informal point of view (``naive'' set theory) is often fine (mathematicians use it all the time), 
+Russell's paradox shows what can go wrong. A certainly intuitive ``fact'' about sets is the \emph{axiom schema of comprehension} due to Frege (1893)\autocites{Ciesielski1997_}: 
+\begin{displayquote}
+    If $\varphi$ is a property, then there exists a set $Y = \{ X \mid \varphi(X) \}$ of all elements having property $\varphi$.
+\end{displayquote}
+However, this principle is false:
+\begin{displayquote}
+     \emph{Russell's paradox} (1902): By a set, we mean any collection of objects --- for example the set of all even integers or the set of all saxophone players in Brooklyn. The objects that make up a set are called its members or elements. Sets may themselves be members of sets; for example the set of all sets of integers has sets as its members. Most sets are not members of themselves; the set of cats, for example, is not a member of itself because the set of cats is not a cat. However, there may be sets that do not belong to themselves---perhaps, for example, a set containing all sets. Now, consider the set $A$ of all those sets $X$ such that $X$ is not a member of $X$. Clearly, by definition, $A$ is a member of $A$ if and only if $A$ is not a member of $A$. So, if $A$ is a member of $A$, then $A$ is also not a member of $A$; and if $A$ is not a member of $A$, then $A$ is a member of $A$. In any case, $A$ is a member of $A$ and $A$ is not a member of $A$.
+\end{displayquote}
+Thus, mathematicians found that they cannot always rely on their intuition.
+
+Today, the foundational crisis of mathematics is mostly settled. Virtually all of mathematics can be formulated in terms of Zermelo--Fraenkel (ZF) set theory with the axiom of choice added (ZFC).
+
+Example: In ZF theory, the natural numbers is defined recursively in terms of the empty set $\emptyset = \{ \}$  (due to von Neumann):
+\begin{align}
+0 &:= \emptyset , \quad 1 := \{ \emptyset \}, \quad 2 :=  \{  \emptyset  ,  \{ \emptyset \} \} \\
+3 &:=   \{ \emptyset,  \{ \emptyset \} ,  \{  \emptyset  ,  \{ \emptyset \} \} \}   \\    &\vdots \\
+    n + 1 &= S(n)  =  n \cup \{n\} 
+\end{align}
+The set $\mathbb{N}$ is now defined as the smallest set that contains all $n$ while being closed under the successor function $S$. The \emph{system} $\langle\mathbb{N}, 0, S\rangle$ is now a \emph{model} of the Peano axioms for natural numbers and their arithmetic.  The Peano axioms define natural numbers and their arithmetic operations \emph{recursively} in terms of a successor function $S$ acting on natural numbers to produce the next natural numbers. Thus, the natural numbers and their axioms can be exhibited in terms of sets and their axioms.
+
+In a similar manner, axioms for the \emph{rational numbers} $\mathbb{Q}$ can be built on the Peano axioms. And so on.
+
+\recommended{This book is a widely recommended text on Zermelo--Fraenkel set theory with the axiom of choice (ZFC). It describes, in particular, encodings of ``all'' classical mathematical structures in terms of ZFC set theory.}{images/Ciesielski-frontpage.png}
+
+\section{Preliminary notes}
+
+\subsection{Basic set notation}
+
+A set $S$ is an unordered collection of its elements, e.g.,
+\begin{equation}
+    S = \{ 1, 2, 3 \}.
+\end{equation}
+When $x$ is an element, we write $x\in S$. Here, $1 \in S$ but $0 \notin S$. There is no limit to the number of elements a set can have. In particular $\emptyset = \{ \}$ denotes the empty set. An infinite set is the set of natural numbers.
+
+When all elements of one set $S$ are also elements of another set $T$, we write $S \subset T$.
+
+From two sets $S$ and $T$ we can construct new sets: The union $S \cup T$ consists of all elements of either set. The intersection $S \cap T$ consists of the elements common to both sets. The set difference $S \setminus T$ consists of $S$ with the elements of $T$ taken away.
+
+We can also specify sets using a \emph{condition} on a set $S$, i.e., a rule $P(x)$ for every $x\in S$ that evaluates to true or false. We then define
+\begin{equation}
+    T = \{ x \in S \mid P(x) \}
+\end{equation}
+to denote the set of those $x\in S$ such that $P(x)$ is true. We can also use more complicated conditions, by either using English language, or mathematical symbols. For example,
+\begin{equation}
+    P = \{ \frac{1}{p} \mid p \text{ is prime} \},
+\end{equation}
+\begin{equation}
+    C^0[0,1] = \{ f : [0,1] \to \mathbb{R} \mid f \text{ is continuous} \}
+\end{equation}
+
+The \emph{cardinality} of a set, $|S|$, is the number of elements of the set $S$. The cardinality of the natural numbers is denoted $\aleph_0$ (``aleph naught''). Two sets have the same cardinality if and only if they can be mapped one-to-one onto each other.
+
+It is common to denote a set of sets a \emph{family of sets}. Mathematically, there is (almost) no difference, since all mathematical objects are sets, but in everyday maths usage, we usually do not consider a number as a set, for example.
+
+We can build \emph{cartesian products of sets}. The cartesian product $S\times T$ is the set of ordered pairs $(x,y)$, where $x\in S$ and $y \in T$. Note that an ordered pair is not the same as the set $\{x, y\}$, which is \emph{unordered}. Similarly, cartesian products of $n$ sets is an ordered $n$-tuple. A useful example is $\mathbb{R}^3 = \mathbb{R} \times \mathbb{R} \times \mathbb{R} = \{ (x,y,z) \mid x, y, z \in \mathbb{R}\}$, that is, space.
+
+Basic set operations include:
+\begin{enumerate}
+    \item Union: $A \cup B = \{ x \mid x \in A \text{ or } x \in B \}$
+    \item Intersection:  $A \cap B = \{ x \mid x \in A \text{ and } x \in B \}$
+    \item $A \setminus B = \{ x \in A \mid x \notin B \} = B^\complement$
+\end{enumerate}
+A mnemonic for remembering what is union and what is section, is that in the union, the symbol is a cup, that gathers everything from $A$ and $B$.
+
+\subsection{Functions}
+
+A \emph{function} or \emph{map} $f : S \to T$ from a set $S$ (the domain) to a set $T$ (codomain) is a rule that assigns to every $x \in S$ precisely one element $f(x) \in T$. The set $\{f(x)\mid x\in S\}$ is a subset of $T$, and called the \emph{range} of $f$.
+
+The domain is the set of possible input, the codomain is what can possibly come out, and the range is what actually comes out.
+
+If for every $y\in T$ there is an $x\in S$ such that $f(x)=y$, i.e., all elements of $T$ are reached, we say that $f$ is \emph{surjective}, or \emph{onto}. If $f(x) = f(x')$ implies that $x = x'$, then $f$ is \emph{injective} or \emph{one-to-one}. If $f$ is both surjective and injective, we say that $f$ is \emph{bijective}, or \emph{one-to-one and onto}.
+
+
+\section{Numbers}
+
+\subsection{The integers, the rationals, and the reals}
+
+The natural numbers are the counting numbers,
+\begin{equation}
+    \mathbb{N} = \{ 0, 1, 2, \ldots \}.
+\end{equation}
+It is a set of cardinality $\aleph_0$, the ``smallest'' infinity. The integers are the numbers (``Zahlen'')
+\begin{equation}
+    \mathbb{Z} = \{ \ldots, -3, -2, -1, 0, 1, 2, \ldots \},
+\end{equation}
+which has the \emph{same} cardinality as $\mathbb{N}$. Next,
+the rational numbers (``quotients''),
+\begin{equation}
+    \mathbb{Q} = \left\{ \frac{p}{q} \mid p,q \in \mathbb{Z}, \, q \neq 0 \right\}.
+\end{equation}
+The cardinality is again $\aleph_0$.
+
+[Exercise: prove that these sets have the same cardinality, and that the reals have a greater cardinality.]
+
+Next up is the set of real numbers, but the precise definition of these in terms of $\mathbb{Q}$ is subtle. Let us therefore be very imprecise, and denote the reals by the set of all infinite decimal expansions, 
+\begin{align}
+    \mathbb{R} &= \{ \, \text{infinite decimal expansions of numbers} \, \} \\
+    &=
+    \mathbb{R} = \left\{ (-1)^s 10^{p} \times 0.a_1 a_2 a_3 a_4 \cdots \mid s \in \{0, 1\}, \, p \in \mathbb{Z}, \, \forall j\in\mathbb{N}, \, a_j \in \mathbb{Z}_{10} \right\},
+\end{align}
+where $\mathbb{Z}_{10} = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$. The symbol ``$\forall$'' means ``for all''. Strictly speaking, this definition of $\mathbb{R}$ does not make sense, since we have to define what an infinite decimal expansion means. The correct answer is that it is a \emph{limit} of rational number approximations, or rather an \emph{equivalence class} of such.
+
+
+We will not dig deeper into the real numbers. It is common to simply view the reals in an informal manner as a continuous infinite line, with the integers and rationals marked off, and the ``gaps'' denoting \emph{irrational numbers} being those numbers that need infinitely many decimal places in any base, i.e., those reals which are not in $\mathbb{Q}$.
+
+The real numbers have a special property: They are \emph{complete} in the Cauchy sense. Informally, all sequences that ``ought to converge'' actually converges. We will talk more about this later.
+
+The basic properties of the real numbers are usually formalized as a theorem:
+
+\begin{myTheorem}{}{} There is a unique number system called the real number system which is a complete ordered field.
+\end{myTheorem}
+By ``ordered'' we mean that it is always true that $a \leq b$ or $b \leq a$ for any $a,b \in \mathbb{R}$.
+By ``unique'' we mean that all other constructions that satisfy the axioms of fields, and is ordered, can be put into a one-to-one correspondence, this correspondence being compatible with the rules of multiplication, addition, and the ordering. In fact, this theorem justifies the mental picture of the reals as, indeed, the ``real line''.
+
+%The concept of putting things $A$ and $B$ into one-to-one correspondence such that axioms are still valid is important in mathematics. It tells you that $A$ and $B$ are basically the same, and that anything proven for $A$ is also valid for $B$.
+
+
+
+
+
+These number sets are fairly easy to get a grasp on, and we note that they are included in one another, written
+\begin{equation}
+    \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}.
+\end{equation}
+The sets $\mathbb{Q}$ and $\mathbb{R}$ are also \emph{fields}. Fields are abstractions of, well, numbers, with the following axioms:
+\begin{myDefinition}{Field}{} Let $\mathbb{F}$ be a set, together with binary operations $+$ (addition) and $\cdot$ (multiplication) such that the following holds:
+\begin{enumerate}
+    \item Commutativity of addition: $x + y = y + x$
+    \item Associativity of addition: $x + (y + z) = (z + y) + z$
+    \item Identity element for addition: There is a zero element $0 \in \mathbb{F}$ such that $0 + x = x$ for all $x \in \mathbb{F}$
+    \item Inverses for addition: For every $x \in \mathbb{F}$ there is a $y \in \mathbb{F}$ such that $x + 
+    y = 0$.
+    \item Commutativity of multiplication: $x \cdot y = y \cdot x$
+    \item Associativity of multiplication: $x \cdot (y \cdot z) = (z \cdot y) \cdot z$
+    \item Identity element for multiplication: There is a unit element $1$ such that $1 \cdot x = x$
+    \item Inverse for multiplication: For every $x \neq 0$ there is a $y$ such that $x\cdot y = 1$.
+    \item Distributive law: $x\cdot (y + z) = x\cdot y + x \cdot z$. 
+\end{enumerate}
+\end{myDefinition}
+In short, numbers in a field can be manipulated using \emph{all} the usual operations of real numbers. What distinguishes the rationals from the reals, is that the reals are complete.
+
+\subsection{Complex numbers}
+
+Besides $\mathbb{R}$, the complex numbers $\mathbb{C}$ are extremely important for us. The complex numbers are defined in terms of the real numbers by adjoining to $\mathbb{R}$ a special element $\rmi$ that satisfies
+\begin{equation}
+    \rmi^2 = -1.
+\end{equation}
+Adding this element alone does not generate a field, because a field must be closed under addition and multiplication.
+The smallest field that contains $\mathbb{R}$ and $\rmi$ is the set
+\begin{equation}
+    \mathbb{C} = \{ a + \rmi b \mid a, b \in \mathbb{R} \},
+\end{equation}
+which is also a field, but no longer an ordered field!
+
+Important unary operations: Let $z = a + \rmi b \in \mathbb{C}$. Real part, $\Re z = a$. Imaginary part, $\Im z = b$. Complex conjugate, $\bar{z} = z^* = a - \rmi b$. Modulus, $|z| = \sqrt{a^2 + b^2}$.
+
+\begin{myExample}{Multiplication and addition of complex numbers}{}
+
+Given two complex numbers $z_1 = x_1 + \rmi y_1$ and $z_2 = x_2 + \rmi y_2$. We compute the sum of the complex numbers:
+\begin{equation}
+    z_1 + z_2 = (x_1 + \rmi y_1) + (x_2 + \rmi y_2) = (x_1 + x_2) + \rmi (y_1 + y_2).
+\end{equation}
+We compute the product:
+\begin{equation}
+    z_1 z_2 = (x_1 + \rmi y_1)(x_2 + \rmi y_2) = x_1 x_2 - y_1 y_2 + \rmi (y_1 x_2 + x_1 y_2),
+\end{equation}
+where we used $\rmi^2 = -1$.
+\end{myExample}
+
+
+\subsection{Geometric interpretation}
+
+A geometric interpretation of the complex numbers was first given by the Norwegian cartographer and mathematician Caspar Wessel, who used complex numbers in his cartography work. The interpretation is as follows: Draw a two-dimensional coordinate system. The horizontal axis is the real line, while the vertical axis is the purely imaginary numbers $\rmi \mathbb{R}$. A point in the plane with coordinates $(x,y)$ now corresponds to the complex number $z = x + \rmi y$. The rules of addition become the usual plane vector addition rules (componentwise addition/putting the tip of one arrow at the end of another arrow), while the rules of multiplication becomes multiplication of the moduli (lengths). and addition of the angles, between the points and the positive real line. See Figure~\ref{fig:geometric-complex}.
+
+\begin{figure}
+    \centering
+    \includegraphics{illustrations/geometric-complex.ai}
+    \caption{Geometric interpretation of addition and multiplication of complex numbers. Left: Addition $Z = z_1 + z_2$ of $z_1 = x_1 + \rmi y_1$ and $z_2 = x_2 + \rmi y_2$. Right: multiplication $Z = z_1 + z_2$.}
+    \label{fig:geometric-complex}
+\end{figure}
+
+\subsection{Fundamental theorem of algebra}
+
+The complex numbers set $\CC$ a kind of Columbi egg to solve the problem that a polynomial of degree $n$ over the real numbers may not have a full set of $n$ roots. 
+\begin{myTheorem}{Fundamental theorem of algebra}{}
+    Every polynomial $p$ of degree $n$ over $\mathbb{C}$ have exactly $n$ roots in $\mathbb{C}$, i.e., there is a nonzero $C \in \mathbb{C}$ and $n$ numbers $r_i \in \mathbb{C}$, such that
+    \[ p(z) = C (z-r_1)(z-r_2)\cdots (z-r_n). \]
+\end{myTheorem}
+Descartes used the term ``imaginary'' about the complex numbers. It was not because it was imaginative or similar, but rather in a pejorative sense: these numbers provide solutions to the root equations, but the roots are useless, since they don't exist anyway.
+
+Well, do the complex numbers exist or not? Maybe he would have changed his mind if he saw the geometric interpretation -- who knows?

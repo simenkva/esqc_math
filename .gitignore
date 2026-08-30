@@ -1,0 +1,27 @@
+/.quarto/
+/_book/
+/_generated/
+/docs/
+.DS_Store
+__pycache__/
+*.py[cod]
+
+**/*.quarto_ipynb
+**/*.quarto_ipynb_*
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Compiled copy of the legacy source document
+/ESQC_2024_text_and_exercises/ESQC2024_maths.pdf

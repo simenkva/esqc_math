@@ -1,0 +1,632 @@
+\documentclass[11pt,preview]{standalone}
+%\usepackage[a4paper]{geometry}
+
+
+\input{commondefs.tex}
+
+\begin{document}
+\begin{comment}
+\begin{myTheoremx}{Fundamental theorem of algebra}{}
+    Every polynomial $p$ of degree $n$ over $\mathbb{C}$ have exactly $n$ roots in $\mathbb{C}$, i.e., there is a nonzero $C \in \mathbb{C}$ and $n$ numbers $r_i \in \mathbb{C}$, such that
+    \[ p(z) = C (z-r_1)(z-r_2)\cdots (z-r_n). \]
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}{Euclidean space}{} Let $\FF$ be either $\RR$ or $\CC$. Let $ \FF^n$ be the set of $n$-tuples of $\FF$-numbers $\mathbf{x} = (x_1,\cdots,x_n)$, on which we define the following operations: For $\mathbf{x},\mathbf{y}\in\FF^n$ define
+\begin{equation}
+    \mathbf{x} + \mathbf{y} \in \FF^n, \quad (\mathbf{x}+\mathbf{y})_i = x_i + y_i \text{\axiomname{addition}},
+\end{equation}
+for all $1 \leq i \leq n$.
+and for any $\alpha \in \FF$,
+\begin{equation}
+\alpha \mathbf{x} \in \FF^n, \quad (\alpha \mathbf{x})_i = \alpha x_i \text{\axiomname{scalar multiplication}}.
+\end{equation}
+We also define the Euclidean \emph{inner prooduct}
+\begin{equation}
+    \braket{\mathbf{x}, \mathbf{y}} = \bar{\mathbf{x}} \cdot \mathbf{y} = \sum_i \bar{x}_i y_i \in \FF \text{\axiomname{Euclidean inner product}}
+\end{equation}
+and the Euclidean norm
+\begin{equation}
+    \|\mathbf{y}\| = \sqrt{\braket{\mathbf{x},
+    \mathbf{x}}} \in\RR.\text{\axiomname{Euclidean norm}}
+\end{equation}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}{Standard basis}{}
+The \emph{standard basis} for $\FF^n$ is the set of vectors $\{\bvec{e}_i \mid 1 \leq i \leq n\}$ such that
+\begin{equation}
+    (\bvec{e}_i)_j = \delta_{ij}, \axiomname{Kronecker delta symbol}
+\end{equation}
+i.e., 
+\begin{equation}
+    \bvec{e}_1 = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0\end{bmatrix}, \quad
+    \bvec{e}_2 = \begin{bmatrix} 0 \\ 1 \\ \vdots \\ 0\end{bmatrix}, \quad\text{etc.}
+\end{equation}
+\end{myDefinitionx}
+It now follows that for every $\bvec{x}\in\FF^n$,
+\begin{equation}
+    \bvec{x} = \sum_{i=1}^n x_i \bvec{e}_i.
+\end{equation}
+It is easy to see, that 
+\begin{equation}
+    x_i = \braket{\bvec{e}_i,\mathbf{x}}.
+\end{equation}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}{Linear operator}{}
+    Let $A : \FF^n \to \FF^m$ be a function. We say that $A$ is \emph{linear} if it conserves the vector addition and scalar multiplication laws, i.e.,
+    \begin{equation}
+        A(\mathbf{x} + \mathbf{y}) = A(\mathbf{x}) + A(\mathbf{y}),
+    \end{equation}
+    and
+    \begin{equation}
+        A(\alpha\mathbf{x}) = \alpha A(\mathbf{x}).
+    \end{equation}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}{Matrix product}{}
+    Let $A \in M(n,m,\FF)$ and $B \in M(m,o,\FF)$. Then the \emph{matrix product} $C = AB \in M(n,o;\FF)$ is defined by the formula
+    \begin{equation}
+        C_{ik} = \sum_{j=1}^n A_{ij} B_{jk}.
+    \end{equation}
+    The matrix product satisfies:
+    \begin{enumerate}
+        \item $A(BC) = (AB)C$ \axiomname{associativity}
+        \item $(A+B)C = AC + BC$ and $A(B+C) = AB + AC$ \axiomname{distributivity}
+    \end{enumerate}
+    However, the matrix product is \emph{not commutative}, i.e., $AB\neq BA$ in general!
+ \end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}{Vector space}{vector-space}
+    A \emph{vector space over the field $\FF$} is a set $V$ together with a binary \emph{vector addition} $+ : V \times V \to V$ and \emph{scalar multiplication} $\cdot : \FF \times V \to V$ such that, for all $x$, $y$, $z \in V$ and all $\alpha,\beta \in \FF$, the following axioms are true:
+    \begin{enumerate}
+        \item There exists a $0\in V$ such that $0 + x = x$ for all $x\in V$ \axiomname{identity element for addition}
+        \item  $ x + (y + z) = (x + y) + z$ \axiomname{associativity for addition}
+        \item $x + y = y + x$ \axiomname{commutativity for addition}
+        \item There exists $x'$ such that $x+x'=0$ \axiomname{inverse element for addition}
+        \item $(\alpha\beta)\cdot x = \alpha\cdot(\beta\cdot x)$ \axiomname{compatibility of scalar and field multiplications}
+        \item $1\cdot x = x$ \axiomname{identity for scalar multiplication}
+        \item $(\alpha + \beta)\cdot x = \alpha\cdot x + \beta\cdot x$ \axiomname{distributivity of scalar multiplication}
+        \item $\alpha \cdot (x + y) = \alpha\cdot x + \alpha \cdot y$ \axiomname{distributivity of scalar multiplication}
+    \end{enumerate}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}{Linear independence, dimension}{}
+    Let $V$ be a vector space, and $L \subset V$ a subset. The set $L$ is \emph{linearly indepdenent} if for any finite set $\{v_i \mid 1 \leq i \leq k \} \subset L$, we have
+    \[ \sum_{i=1}^k a_i v_i = 0 \implies  a_i = 0 \text{ for all $i$} \]
+    The \emph{dimension} of $V$ is the cardinality of the largest linearly independent subset of $V$.
+\end{myDefinitionx}
+\end{comment}
+
+
+\begin{comment}
+\begin{myDefinitionx}{Basis}{}
+    Let $V$ be a vector space of finite dimension $n$. A basis is a linearly independent set of vectors $\{b_1,\cdots,b_n\}$, with exactly $n$ elements.
+\end{myDefinitionx}
+ 
+\begin{myTheoremx}{}{}
+    If $B= \{b_1,\cdots,b_n\}$ is a basis for a the vector space $V$, $\dim(V)<+\infty$, then any $v \in V$ can be uniquely decomposed as
+    \begin{equation}
+        v = \sum_{i=1}^n v_i b_i.
+    \end{equation}
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}{Inner product}{}
+    Let $V$ be a vector space.
+    An \emph{inner product} $\braket{\cdot, \cdot} : V\times V \to \FF$ is a map which satisfies the following axioms:
+   \begin{enumerate}
+       \item $\braket{x,x} \geq 0$, \quad $\braket{x,x} = 0$ if and only if $x = 0$ \hfill \axiomname{non-negative}
+       \item $\braket{x,\alpha y + \beta z} = \alpha\braket{x,y} + \beta\braket{x,z}$ \axiomname{linearity}
+       \item $\braket{\alpha y + \beta z, x} = \bar{\alpha}\braket{y,x} + \bar{\beta}\braket{z,x}$ \axiomname{conjugate linearity}
+       \item $\braket{x,y} = \overline{\braket{y,x}}$ \axiomname{hermiticity}
+   \end{enumerate}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myRemarkx}{}{}
+In order to study (the vector space structure of) finite dimensional Hilbert spaces, including the linear operators over these spaces, it suffices to study $\FF^n$ and matrices $M(n,m,\FF)$.
+\end{myRemarkx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[{Linear subspace}{}
+Let $V$ be a vector space over $\FF$. A subset $W \subset V$ is a \emph{linear subspace} if it is closed under vector addition and scalar multiplication, i.e., if
+\begin{equation}
+    \forall w \in W, \quad \alpha w \in W, \quad w_1 + w_2 \in W,
+\end{equation}
+and if $0 \in W$.
+\end{myDefinitionx}
+\end{comment}
+
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.75\textwidth]{Column space}{}
+    For a matrix $A = [\bvec{a}_1,\cdots,\bvec{a}_n]\in\FF^{n\times m}$ , the \emph{column space} is the set of all linear combinations of the columns $\bvec{a}_i$. This is also denoted \emph{the range} or \emph{image} of $A$, since it is the set of all vectors $A\bvec{x}$. 
+
+    The column space is a linear vector space, written
+    \begin{equation}
+        \operatorname{span}\{ \bvec{a}_1, \, \bvec{a}_2, \, \cdots\, , \bvec{a}_n \}.
+    \end{equation}
+
+    The \emph{rank} of the matrix is the dimension of the column space. 
+
+    The row space is defined similarly.
+
+    (It is a fact that the dimension of the row space is the same as the dimension of the column space.)
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.75\textwidth]{Linear operators in finite dimensional spaces}{}
+    Let $V$ and $W$ be  vector spaces over $\FF$ of finite dimensions $n$ and $m$, respectively. Let $\hat{A} : V \to W$ be a linear operator, i.e., $\hat{A}(v + v') = \hat{A}v + \hat{A}v'$, and $\hat{A}(\alpha v) = \alpha \hat{A}v$. We denote by $L(V,W)$ the set of such linear functions, which is a vector space.
+
+    Let $\{v_i\} \subset V$ and $\{w_i\}\subset W$ be \emph{orthonormal bases}, i.e.,
+    \begin{equation*}
+        \braket{v_i,v_j}= \delta_{ij}, \quad \braket{w_i,w_j} = \delta_{ij}.
+    \end{equation*}
+
+    Then the \emph{matrix} of $\hat{A} \in L(V,W)$ relative to the given bases is
+    \begin{equation*}
+        A_{ij} = \braket{w_i, \hat{A} v_j}
+    \end{equation*}
+
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.75\textwidth]{Unitary operator/matrix}{}
+\begin{enumerate}
+    %\item 
+    A matrix $U \in M(n,n;\FF)$ is \emph{unitary} if, for all $\mathbf{x}$, $\mathbf{y}\in \FF^n$,
+    \begin{equation}
+        \braket{U\mathbf{x},U\mathbf{y}} = \braket{\bvec{x},\bvec{y}}, \quad\text{equivalently}\quad U^H U = UU^H =  \mathbbm{1}.
+    \end{equation}
+% \item 
+%     Let $V$ be a finite-dimensional Hilbert space.
+%     Let $\hat{U}\in L(V)$ be a linear operator.
+
+%     $\hat{U}$ is \emph{unitary} if, for all $u,v\in V$,
+%     \begin{equation*}
+%         \braket{\hat{U} u, \hat{U} v} = \braket{u, v}, \quad \text{equivalently} \quad \hat{U}^\dag \hat{U} = \hat{U}\hat{U}^\dag = \mathbbm{1}.
+%     \end{equation*}
+\end{enumerate}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.75\textwidth]{Hermitian operator/matrix}{}
+%\begin{enumerate}
+    %\item 
+    A matrix $A \in M(n,n;\FF)$ is \emph{Hermitian} if, for all $\mathbf{x}$, $\mathbf{y}\in \FF^n$,
+    \begin{equation}
+        \braket{\mathbf{x},A\mathbf{y}} = \braket{A \bvec{x},\bvec{y}}, \quad\text{equivalently}\quad A^H = A.
+    \end{equation}
+% \item 
+%     Let $V$ be a finite-dimensional Hilbert space.
+%     Let $\hat{A}\in L(V)$ be a linear operator.
+
+%     $\hat{A}$ is \emph{Hermitian} if, for all $u,v\in V$,
+%     \begin{equation*}
+%         \braket{ u, \hat{A} v} = \braket{\hat{A} u, v}, \quad \text{equivalently} \quad \hat{A}^\dag = \hat{A}.
+%     \end{equation*}
+%\end{enumerate}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.65\textwidth]{Spectral theorem for Hermitian operators}{}
+    Suppose $A \in \FF^{n\times n}$ is Hermitian, i.e., $A^H = A$. Then, there exists an orthonormal basis $\{\mathbf{u}_1,\cdots,\mathbf{u}_n\}$, and real numbers $\{\lambda_1,\cdots,\lambda_n\}$, such that
+    \begin{equation*}
+        H \mathbf{u}_i = \lambda_i \mathbf{u}_i
+    \end{equation*}   
+    Equivalently, 
+    \begin{equation*}
+        A = \sum_{i=1}^n \mathbf{u}_i \lambda_i \mathbf{u}_i^H = U \Lambda U^H
+    \end{equation*}
+    where $\mathbf{u}_i$ is the $i$th column of $U$, and where $\Lambda$ is a diagonal matrix with elements $\Lambda_{ij} = \lambda_i \delta_{ij}$.
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.65\textwidth]{Singular value decomposition}{}
+    Let $A \in M(n,m,\FF)$ be a matrix, and let $k = \min(n,m)$. There exists $k$ \emph{singular values} $\sigma_i \geq 0$ and $k$ \emph{left singular vectors} $\bvec{u}_i$, and $k$ \emph{right singular vectors} $\bvec{v}_i$, such that
+    \begin{equation*}
+        A = \sum_{i=1}^k \bvec{u}_i \sigma_i \bvec{v}_i^H = U \Sigma V^H,
+    \end{equation*}
+    where $U = [\bvec{u}_1,\cdots,\bvec{u}_k]$, $V = [\bvec{v}_1,\cdots,\bvec{v}_k]$, $\Sigma = \operatorname{diag}(\sigma_1,\cdots,\sigma_k)$. Equivalently,
+    \begin{equation*}
+        A \mathbf{v}_i = \sigma_i \mathbf{u}_i.
+    \end{equation*}
+    The rank of $A$ is the number of nonzero singular values. The decomposition is unique if all the singular values are distinct.
+\end{myTheoremx}
+\end{comment}
+
+
+
+
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.65\textwidth]{Topologically important sets}{}
+    \begin{enumerate}
+%        \item 
+%Let $\mathbf{x} \in \RR^n$ and $\epsilon>0$ be given. The set $B_\epsilon(x) = \{ y \in M \mid d(x,y) < \epsilon \}$ is called an \emph{$\epsilon$-ball around $x$}.
+    \item A subset $S \subset \RR^n$ is called \emph{open} if, for every $\bvec{x} \in S$, there is an $\epsilon > 0$ such that $B_\epsilon(\bvec{x}) \subset S$.
+%    \item A \emph{neighborhood} of $x \in S$ is a subset $N$ such that some $\epsilon$-ball around $x$ is a subset of $N$. 
+    \item A subset $S$ is called \emph{closed}  if $S^\complement =  \RR^n \setminus S$ is open.
+    \item The \emph{closure} $\cl(S)$ is the smallest closed set that contains $S$.
+    \item The \emph{interior} $\interior(S)$ is the set of all those $\bvec{x}\in S$ around which there exists an $\epsilon$-ball in $S$
+    \item The \emph{boundary} $\partial S$ is the intersection $\cl(S^\complement) \cap \cl(S) = S \setminus \interior(S)$
+%    \item A subset $S \subset \RR^n$ is \emph{dense} if its closure is all of $\RR^n$
+    \end{enumerate}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.65\textwidth]{Limit}{}
+    Let $f : \Omega \subset \RR^n \to \RR^m$, where $\Omega$ is open. Let $\bvec{x}_0\in \Omega \cup \partial\Omega$, and let $N$ be a neighborhood of $\bvec{b}\in \RR^m$.
+
+    We say that $f$ is \emph{eventually in $N$ as $\bvec{x}$ approaches $\bvec{x}_0$}, if there exists a neighborhood $U$ of $\bvec{x}_0$, such that $\bvec{x}
+    \in U$ but $\bvec{x}\neq\bvec{x}_0$ and $\bvec{x}\in \Omega$ imply $f(x)\in N$.
+
+    We say that \emph{$f(\bvec{x})$ approaches $\bvec{b}$ as $\bvec{x}$ approaches $\bvec{x}_0$},
+    \begin{equation}
+        \lim_{\bvec{x}\to\bvec{x}_0} f(\bvec{x}) = \bvec{b} \quad\text{or}\quad f(\bvec{x}) \to \bvec{b} \; \text{as} \; \bvec{x}\to\bvec{x}_0,
+    \end{equation}
+    when, given any neighborhood $N$ of $\bvec{b}$, $f$ is eventually in $N$ as $\bvec{x}$ approaches $\bvec{x}_0$.
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.5\textwidth]{Continuity}{}
+    Let $f : \Omega \subset \RR^n\to\RR^m$. Let $\bvec{x}_0\in\Omega$. We say that $f$ is \emph{continuous at $\bvec{x}_0$} if
+    \begin{equation*}
+        \lim_{\bvec{x}\to\bvec{x}_0} f(\bvec{x}) = f(\bvec{x}_0).
+    \end{equation*}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.65\textwidth]{Properties of continuous functions}{}
+Let $f, g : \Omega\subset\RR^n \to \RR^m$ be functions with a common domain $\Omega$, continuous at $\bvec{x}_0$:
+Then:
+\begin{enumerate}
+    \item $f+g$ and $\alpha f$ for any $\alpha\in\RR$ are continuous at $\bvec{x}_0$.
+    \item In the scalar-valued case $m=1$, the product $fg$ is continuous at $\bvec{x}_0$
+    \item If $f \neq 0$ in all of $\Omega$, then $1/f$ is continuous at $\bvec{x}_0$
+    \item The component functions $f_i : \Omega \to \RR$ are all continuous at $\bvec{x}_0$. The converse is also true.
+\end{enumerate}  
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.65\textwidth]{Compositions of functions}{}
+Let $f : \Omega \subset \RR^n \to \RR^m$ be continuous at $\bvec{x}_0\in \Omega$, and $g : \Omega' \subset \RR^m \to \RR^o$. Suppose $f[\Omega] \subset \Omega'$, and let $g$ be continuous at $\bvec{y}_0 = f(\bvec{x}_0)$. Then $h : \Omega\subset \RR^n\to\RR^o$,
+\[ h(\bvec{x}) = g(f(\bvec{x}_0) \]
+is continuous at $\bvec{x}_0$.
+\end{myTheoremx}
+\end{comment}
+
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.65\textwidth]{Partial derivative}{}
+Let $f : \Omega\subset\RR^n \to \RR$ be a scalar-valued function, $\Omega$ open. The \emph{partial derivatives} with respect to the variable $x_i$ are defined by
+\begin{equation*}
+    \pdiff{}{x_i} f(\bvec{x}) = \lim_{h\to 0} \frac{f(\bvec{x} + h\bvec{e}_i) - f(\vec{x}) }{h}
+\end{equation*}
+if the limit exists. 
+
+In the case $f : \Omega\subset\RR^n \to \RR^m$, the the partial derivatives are defined componentwise, i.e.,
+\begin{equation*}
+    \pdiff{}{x_i} f_j(\bvec{x}).
+\end{equation*}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myExamplex}[width=0.5\textwidth]{}{}
+    let $f : \RR^2 \to \RR$, $(x,y)\mapsto x^{1/3} y^{1/3}$. Since $f(x,0) = 0$ and $f(0,y) = 0$, 
+    \begin{equation}
+        \pdiff{}{x} f(0,0) = \pdiff{}{y}f(0,0) = 0.
+    \end{equation}
+    But along the ``diagonal''
+    \begin{equation}
+        g(x) = f(x,x) = x^{2/3}.
+    \end{equation}
+    The derivative of $g(x)$ is
+    \begin{equation}
+        g'(x) = \frac{2}{3} x^{-1/3} \to +\infty \quad \text{as $x\to 0$}
+    \end{equation}
+\end{myExamplex}
+\end{comment}
+
+\begin{comment}
+\begin{minipage}{0.65\textwidth}
+\begin{myDefinitionx}{Differentiable}{}
+    Let $f : \Omega \subset \RR^n \to \RR^m$, with $\Omega$ open. We say that $f$ is \emph{differentiable at $\bvec{x}_0\in\Omega$} if the partial derivatives all exist at $\bvec{x}_0$, and if
+    \begin{equation*}
+        \lim_{\bvec{x}\to\bvec{x}_0} \frac{\| f(\bvec{x}) - f(\bvec{x}_0) - M(\bvec{x}-\bvec{x}_0)\|}{\|\bvec{x}-\bvec{x}_0\|} = 0,
+    \end{equation*}
+    where $M = Df(\bvec{x}_0)$, the \emph{derivative}, is the matrix of partial derivatives, 
+    \begin{equation*}
+        M_{ij} = \frac{\partial f_i(\bvec{x}_0)}{\partial x_j}.
+    \end{equation*}
+    and where $M(\bvec{x}-\bvec{x}_0)$ is the matrix-vector product applied to $\bvec{x}-\bvec{x}_0$.
+\end{myDefinitionx}
+\end{minipage}
+\end{comment}
+
+\begin{comment}
+\begin{myTheorem}[width=0.65\textwidth]{}{}
+    If $f$ is differetiable at $\bvec{x}_0$, it is continuous at $\bvec{x}_0$.
+\end{myTheorem}
+
+
+\begin{myTheorem}[width=0.65\textwidth]{Condition for differentiability}{}
+    Let $f : \Omega \subset \RR^n \to \RR^m$, with $\Omega$ open. Suppose the partial derivatives all exist at $\bvec{x}_0$, and furthermore that they are all continuous \emph{in a neighborhood} of $\bvec{x}_0$. Then $f$ is differentiable at $\bvec{x}_0$.
+\end{myTheorem}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinition}[width=0.5\textwidth]{$C^1$ functions}{}
+        A function whose partial derivatives exist and are continuous throughout its open domain $\Omega$ is said to be of class $C^1$.
+\end{myDefinition}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}{Properties of the derivative}{}
+\begin{enumerate}
+    \item Let $f : \Omega \subset \RR^n \to \RR^m$ be differentiable at $\bvec{x}_0\in\Omega$, and let $c \in \RR$. Then $h(\bvec{x}) = c f(\bvec{x})$ is differentiable at $\bvec{x}_0$, and
+    \begin{equation}
+        D h(\bvec{x}_0) = c D f(\bvec{x}_0).
+    \end{equation}
+    \item Let $g : \Omega \subset \RR^n \to \RR^m$ be another function differentiable at $\bvec{x}_0$. Then $h(\bvec{x}) = f(\bvec{x}) + g(\bvec{x})$ is differentiable at $\bvec{x}_0$, and
+    \begin{equation}
+        D h(\bvec{x}_0) = D f(\bvec{x}_0) + Dg(\bvec{x}_0).
+    \end{equation}
+    \item\label{prodrule} Let $f,g : \Omega \subset\RR^n\to \RR$ be \emph{scalar-valued} functions, differentiable at $\bvec{x}_0\in\Omega$. Then $h(\bvec{x}) = f(\bvec{x})g(\bvec{x})$ is differentiable at $\bvec{x})_0$, and
+    \begin{equation}
+        Dh(\bvec{x}_0) = g(\bvec{x}_0)Df(\bvec{x}_0) + f(\bvec{x}_0) Dg(\bvec{x}_0).
+    \end{equation}
+    \item As in \ref{prodrule}, and additionally that $g >0$ thrughout $\Omega$. Then $h(\bvec{x}_0) = f(\bvec{x}_0)/g(\bvec{x}_0)$ is differentiable at $\bvec{x}_0$, and
+    \begin{equation}
+        Dh(\bvec{x}_0) = \frac{g(\bvec{x}_0)Df(\bvec{x}_0) - f(\bvec{x}_0)} {[g(\bvec{x}_0)]^2}
+    \end{equation}
+\end{enumerate}
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+    
+\begin{myTheoremx}[width=0.62\textwidth]{Chain rule}{}
+    Let $\Omega \subset \RR^n$ and $\Omega' \subset \RR^m$ be open sets, and let $g : \Omega \to \RR^m$ with $g[\Omega] \subset \Omega'$. Let $f : \Omega' \to \RR^o$. Thus, $h = f \circ g : \Omega \to\RR^o$ is defined. Suppose $g$ is differentiable at $\bvec{x}_0\in\Omega$, and $f$ is differentiable at $\bvec{y}_0 = f(\bvec{x}_0)\in\Omega'$. Then  $f \circ h$ is differentiable at $\bvec{x}_0$ with derivative
+    \begin{equation*}
+        D(f \circ g)(\bvec{x}_0) = Df(\bvec{y}_0)Df(\bvec{x}_0),
+    \end{equation*}
+    i.e., the matrix product of the Jacobian matrices.
+\end{myTheoremx}
+
+\end{comment}
+
+\begin{comment}
+\begin{myExamplex}[width=0.62\textwidth]{Function along a path}{}
+Let $\bvec{c} : \RR \to \RR^3$ be a path tracing out a curve in space, say the flight of a drone with a temperature sensor. The position $\bvec{c}(t) = [x(t),y(t),z(t)]^T$ is the position of the drone at time $f$. Let $f : \RR^3 \to \RR$ be a function, say temperature, in space. The temperature registered by the drone as function of time is $h(t) = (g \circ \mathbf{c})(t) = g(\mathbf{c}(t))$. The rate of change of $h(t)$ is
+\begin{equation*}
+    \diff{h}{t} = \pdiff{h}{x}\pdiff{x}{t} + \pdiff{h}{y}\pdiff{y}{t} + \pdiff{h}{z}\pdiff{z}{t}.
+\end{equation*}
+\end{myExamplex}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.62\textwidth]{Second-order Taylor formula}
+    Let $f : \Omega \subset \RR^n \to \RR$ be of class $C^2$. Then we may write
+    \begin{equation*}
+        f(\bvec{x}_0 + \bvec{h}) = f(\bvec{x}_0) + Df(\bvec{x}_0)\bvec{h} + \frac{1}{2} \bvec{h}^T D^2 f(\bvec{x}_0) \bvec{h} + R_2(\bvec{h},\bvec{x}_0),
+    \end{equation*}
+    where the \emph{remainder} satisfies $R_2(\bvec{h},\bvec{x}_0)/\|\bvec{h}\|^2 \to 0$ as $\bvec{h}\to 0$, written
+    \begin{equation*}
+    R_2(\bvec{h},\bvec{x}_0) = \smallO(\|\bvec{h}\|^2).
+    \end{equation*}
+    The symbol $D^2 f(\bvec{x}_0)$ is the \emph{Hessian} of $f$, the matrix of second-order mixed partial derivatives, a symmetric matrix.
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+\begin{myExamplex}[width=.65\textwidth]{}{}
+    Compute the second-order Taylor polynomial of \\$f(x,y) = \exp(-x^2 - y^2)$ at $(0,0)$.
+
+    \begin{equation}
+    Df(x,y) = [-2x f(x,y), -2y f(x,y)],
+    \end{equation}
+    \begin{equation} D^2 f(x,y) = \begin{bmatrix} (4x^2 -2)f(x,y) & 4xy f(x,y) \\ 4xy f(x,y) & (4y^2 - 2)f(x,y) \end{bmatrix}
+    \end{equation}
+    \begin{equation}
+    f(0,0) = 1, \quad Df(0,0) = [0,0], \quad D^2 f(0,0) = \begin{bmatrix} -2 & 0 \\ 0 & -2 \end{bmatrix}
+    \end{equation}
+    \begin{equation}
+        f(x,y) = 1 - (x^2 + y^2) + \smallO(x^2 + y^2).
+    \end{equation}
+\end{myExamplex}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.7\textwidth]{Classification of critical points} 
+Let
+$f : \Omega \subset \RR^n \to \RR$, with $\Omega$ being an open domain. Let $f$ be of class $C^2$. Let $H = D^2f(\bvec{x})$ be the second derivative (Hessian) at a critical point $\bvec{x}\in\Omega$, i.e., $Df(\bvec{x})=0$. 
+Then we have:
+\begin{enumerate}
+    \item
+     If all the eigenvalues of $H$ are positive, then $\bvec{x}$ is a local minimium.
+     \item
+     If all the eigenvalues of $H$ are negative, then $\bvec{x}$ is a local maximum.
+     \item If there are eigenvalues of $H$ with both positive and negative values, but no zero eigenvalues, then $\bvec{x}$ is a saddle point.
+     \item If some eigenvalues are zero, we cannot conclude based on second-order Taylor polynomials.
+\end{enumerate}
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.65\textwidth]{Complex number operations}{}
+    Let $z = x + \rmi y \in \CC$.
+    \begin{itemize}
+        \item $\Re z = x$,  $\Im z = y$ \axiomname{real and imaginary part}        \item $\bar{z} = z^* = x - \rmi y$ \axiomname{complex conjugate}
+        \item $z = r e^{i\theta}$, \axiomname{polar form}\\
+        where
+$ e^{\rmi\theta} = \cos\theta + \rmi\sin\theta $ \axiomname{Euler's formula}
+        \item $\Arg z = \theta$ \axiomname{argument/angle/phase}
+        \item $|z|^2 = \bar{z}z = \Re z^2 + \Im z^2 = r^2$ \axiomname{squared modulus/norm}
+    \end{itemize}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.85\textwidth]{Complex differentiability}{}
+    The function $f : U \to \CC$, $U \subset^{\text{open}} \CC$, is (complex) differentiable at $z \in U$ if the limit
+    \begin{equation}
+        \lim_{h \to 0} \frac{f(z+h) - f(z)}{h} = f'(z) = \diff{f}{z}
+    \end{equation}
+    exists. The expression $h\to 0$ means the same as in the $\RR^2$ case.
+
+    If $D$ is an open domain in $\CC$, and if $f(z)$ is complex differentiable for all $z \in D$, we say that $f$ is \emph{analytic in $D$}.
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myExamplex}[width=0.7\textwidth]{Derivative of monomial}{}
+Let us apply the definition of the derivative to $f(z) = z^n$.
+\begin{equation}
+    f(z+h) = (z+h)^n = z^n + h n z^{n-1} + \text{higher order terms}.
+\end{equation}
+Thus
+\begin{equation}
+    \frac{f(z+h)-f(z)}{h} = \frac{h n z^{n-1} + \text{h.o.t.}}{h} = n z^{n-1} + \text{h.o.t.},
+\end{equation}
+so that the limit becomes
+\begin{equation}
+    \diff{}{z} z^{n} n z^{n-1}.
+\end{equation}
+We were able to perform the limit just by doing complex algebra. Notably, $z\in \CC$ was completely arbitrary, so the derivative exists everywhere.
+\end{myExamplex}
+\end{comment}
+
+\begin{comment}
+\begin{myExamplex}[width=0.7\textwidth]{Derivative of $\bar{z}$ does not exist}{}
+Let us try to see if $f(z) = \bar{z}$ is differentiable. Let us consider the limit $h = \delta x \to 0$ in $\RR$. 
+\begin{equation}
+    \lim_{\delta x\to 0} \frac{f(x + \delta x + \rmi y) - f(x + \rmi y)}{\delta x} = \frac{\delta x}{\delta x} = 1.
+\end{equation}
+However, if we allow $h = \rmi \delta y \to 0$ instad, with $\delta y\in \RR$, then
+\begin{equation}
+    \lim_{\delta y\to 0} \frac{f(x + \rmi (\delta y + y)) - f(x + \rmi y)}{\delta y} = \frac{-\rmi \delta y}{\delta y} = -\rmi.
+\end{equation}
+Since the two limits are not the same, the complex limit cannot exist, since limits are unique.
+
+This is in fact a very simple example of a continuous function from $\CC\to\CC$ which is not differentiable anywhere! Such an exampe is much harder to find for functions $\RR^2\to\RR^2$.
+\end{myExamplex}
+\end{comment}
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.6\textwidth]{Series}{}
+Given a sequence $(z_n)$ of complex numbers, we define the \emph{partial sums}
+\begin{equation}
+    S_N = \sum_{n=0}^N z_n.
+\end{equation}
+If the partual sums converge, $\lim S_N = S \in \CC$, then we denote that sum by
+\begin{equation}
+    S = \sum_{n=0}^\infty z_n = z_0 + z_1 + z_2 + \cdots
+\end{equation}
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myExamplex}[width=0.7\textwidth]{Geometric series}{}
+The geometric series,
+\begin{equation}
+   f(z) =  \frac{1}{1-z} = 1 + z + z^2 + \cdots \qquad \text{for $|z| < 1$}.
+\end{equation}
+The function $f(z)$ is complex differentiable at any $z \neq 1$:
+\begin{equation}
+    f(z + h) = \frac{1}{1-z-h} = \frac{1}{1-z} \frac{1}{1 - h/(1-z)} = \frac{1}{1-z}(1 + \frac{h}{1-z} + \text{h.o.t.}),
+\end{equation}
+so that $f'(z) = \frac{1}{(1-z)^2}$.
+
+We note that $f$ is \emph{divergent} as $z\to 1$, this is an example of a \emph{pole} of $f$.
+\end{myExamplex}
+\end{comment}
+
+\begin{comment}
+
+\begin{myTheoremx}[width=0.8\textwidth]{Power series}{}
+A \emph{power series} is a series of the type
+\begin{equation}
+    \sum_{n=0}^\infty a_n z^n.
+\end{equation}
+The \emph{radius of convergence} of the power series is given by
+\begin{equation}
+    \frac{1}{R} = \limsup_{n\to\infty} |a_n|^{1/n}.
+\end{equation}
+In particular, $R > 0$ if $\{|a_n|^{1/n}\}$ stays bounded as $n$ grows.
+
+A power series is complex differentiable inside the radius of convergence, and the derivative is computed term by term,
+\begin{equation}
+    \diff{}{z} \sum_{n=0}^\infty a_n z^n = \sum_{n=1}^\infty n a_n z^{n-1}.
+\end{equation}
+The radius of convergence of the derivative is again $R$. It follows that a power series is \emph{infinitely differentiable}.
+\end{myTheoremx}
+\end{comment}
+
+
+
+\begin{comment}
+\begin{myDefinitionx}[width=0.6\textwidth]{Complex line integral}{}
+Let $f : D \to \CC$ be continuous, and let $\Gamma$ be a (piecewise) smooth oriented curve parameterized by $\gamma : I \to \CC$.
+The complex line integral of $f$ along $\Gamma$ is now defined as
+\begin{equation}
+    \int_\Gamma f(z) \, \rmd z = \int_I f(\gamma(t)) \gamma'(t) \, \rmd t,
+\end{equation}
+which is independent of parameterization. Note that $\rmd z = \gamma'(t)\rmd t$, an infinitesimally small piece of the curve. 
+\end{myDefinitionx}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.6\textwidth]{Cauchy theorem}{}
+Let $f : D \to \CC$, where $D$ is a simply connected open domain. Let $\Gamma$ be a piecewise smooth simple closed curve in $D$. Then,
+\begin{equation}
+    \oint_\Gamma f(z)\, \rmd z = 0.
+\end{equation}
+\end{myTheoremx}
+\end{comment}
+
+\begin{comment}
+\begin{myTheoremx}[width=0.65\textwidth]{Cauchy integral formula}{}
+    Let the function $f : D \to \CC$ be complex differentiable, and let $\Gamma$ be a simple closed curve in $D$. Then,
+    \begin{equation}
+    f(z_0) = \frac{1}{2\pi \rmi} \oint_\Gamma \frac{f(z)}{z - z_0} \, \rmd z.
+    \end{equation}
+\end{myTheoremx}
+\end{comment}
+
+\begin{myTheoremx}[width=0.64\textwidth]{}{}
+     Let $D$ be simply connected, and let $f : D \to \CC$ be complex analytic in $D$. Then $f$ is \emph{infinitely} many times differentiable, and we have the power series representation
+     \begin{equation}
+        f(z) = \sum_{n=0}^\infty a_n(z-z_0)^n, \quad \text{where} \quad a_n = \frac{f^{(n)}(z)}{n!} 
+     \end{equation}
+     The derivatives are given by the formula
+     \begin{equation}
+         f^{(n)}(z) = \frac{1}{2\pi\rmi} \oint_\Gamma \frac{f(w)}{(w-z)^{n+1}} \, \rmd w.
+     \end{equation}
+\end{myTheoremx}
+
+\end{document}
