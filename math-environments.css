@@ -1,0 +1,160 @@
+/* Callout-like treatment for Quarto's native mathematical environments. */
+
+main.content :where(div.theorem, div.proof) {
+  --math-env-accent: #008da1;
+  --math-env-surface: #edf9fb;
+  --math-env-heading-surface: #d7f1f5;
+  --math-env-border: #9ad6de;
+  --math-env-title: #075b68;
+
+  position: relative;
+  margin-block: 1.5rem;
+  padding: 1rem 1.15rem 1.05rem;
+  scroll-margin-top: 5rem;
+  background-color: var(--math-env-surface);
+  border: 1px solid var(--math-env-border);
+  border-inline-start: 0.32rem solid var(--math-env-accent);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.18rem 0.55rem rgb(24 38 46 / 7%);
+}
+
+/* Proofs are deliberately quieter than the statements they support. */
+main.content div.proof {
+  --math-env-accent: #687784;
+  --math-env-surface: #f6f8f9;
+  --math-env-heading-surface: #e9eef1;
+  --math-env-border: #c8d1d7;
+  --math-env-title: #4c5963;
+}
+
+/* Definitions retain the green-teal of the original lecture notes. */
+main.content div.theorem.definition {
+  --math-env-accent: #318f76;
+  --math-env-surface: #f0faf6;
+  --math-env-heading-surface: #dcf3eb;
+  --math-env-border: #a9d9ca;
+  --math-env-title: #236b59;
+}
+
+/* Lemmas sit in the theorem family, with a distinct violet accent. */
+main.content div.theorem.lemma {
+  --math-env-accent: #6757ad;
+  --math-env-surface: #f5f3fb;
+  --math-env-heading-surface: #e7e2f5;
+  --math-env-border: #c7bee6;
+  --math-env-title: #4f4288;
+}
+
+/* Examples use the deep blue from the original lecture-note palette. */
+main.content div.theorem.example {
+  --math-env-accent: #1d5b91;
+  --math-env-surface: #f1f6fb;
+  --math-env-heading-surface: #ddeaf5;
+  --math-env-border: #adc9df;
+  --math-env-title: #174a77;
+}
+
+/* Quarto renders remarks as proof environments rather than theorems. */
+main.content div.proof.remark {
+  --math-env-accent: #a56632;
+  --math-env-surface: #fbf6ef;
+  --math-env-heading-surface: #f4e7d6;
+  --math-env-border: #dfc3a5;
+  --math-env-title: #7d4d26;
+}
+
+/* Future native environments get a useful identity without extra markup. */
+main.content div.theorem:is(.proposition, .corollary, .conjecture) {
+  --math-env-accent: #087fa8;
+  --math-env-surface: #f0f8fb;
+  --math-env-heading-surface: #daedf4;
+  --math-env-border: #a7cfdd;
+  --math-env-title: #086080;
+}
+
+main.content div.theorem:is(.exercise, .algorithm),
+main.content div.proof.solution {
+  --math-env-accent: #8a548d;
+  --math-env-surface: #faf3fa;
+  --math-env-heading-surface: #f0e0f1;
+  --math-env-border: #d7b9d9;
+  --math-env-title: #6b406d;
+}
+
+/* Quarto places the title at the start of the environment's first paragraph. */
+main.content
+  :where(div.theorem, div.proof)
+  > p:first-child
+  > :where(.theorem-title, .proof-title):first-child {
+  display: block;
+  margin: -1rem -1.15rem 0.85rem;
+  padding: 0.58rem 0.9rem 0.54rem;
+  color: var(--math-env-title);
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.02rem;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  background-color: var(--math-env-heading-surface);
+  border-bottom: 1px solid var(--math-env-border);
+  border-start-start-radius: 0.25rem;
+  border-start-end-radius: 0.25rem;
+}
+
+main.content
+  :where(div.theorem, div.proof)
+  > p:first-child
+  > :where(.theorem-title, .proof-title):first-child
+  :where(strong, em) {
+  color: inherit;
+  font-style: normal;
+  font-weight: 600;
+}
+
+main.content :where(div.theorem, div.proof) > :last-child {
+  margin-bottom: 0;
+}
+
+/* Make the destination of a theorem cross-reference briefly obvious. */
+main.content :where(div.theorem, div.proof):target {
+  outline: 0.16rem solid color-mix(in srgb, var(--math-env-accent) 40%, transparent);
+  outline-offset: 0.16rem;
+}
+
+/* Darkly theme: preserve the color coding while reducing luminous surfaces. */
+body.quarto-dark main.content :where(div.theorem, div.proof),
+html[data-bs-theme="dark"] main.content :where(div.theorem, div.proof) {
+  --math-env-surface: #20292d;
+  --math-env-heading-surface: #28373c;
+  --math-env-border: #40545b;
+  --math-env-title: #edf7f8;
+
+  box-shadow: 0 0.2rem 0.65rem rgb(0 0 0 / 18%);
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+  body.quarto-dark main.content :where(div.theorem, div.proof),
+  html[data-bs-theme="dark"] main.content :where(div.theorem, div.proof) {
+    --math-env-surface: color-mix(
+      in srgb,
+      var(--math-env-accent) 12%,
+      var(--bs-body-bg)
+    );
+    --math-env-heading-surface: color-mix(
+      in srgb,
+      var(--math-env-accent) 22%,
+      var(--bs-body-bg)
+    );
+    --math-env-border: color-mix(
+      in srgb,
+      var(--math-env-accent) 52%,
+      var(--bs-border-color)
+    );
+  }
+}
+
+@media print {
+  main.content :where(div.theorem, div.proof) {
+    box-shadow: none;
+  }
+}

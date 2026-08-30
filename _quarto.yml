@@ -79,6 +79,7 @@ format:
     include-in-header: mathjax-config.html
     css:
       - styles.css
+      - math-environments.css
       - math_spacing.css
     toc-depth: 3
 
