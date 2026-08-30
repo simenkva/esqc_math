@@ -5,10 +5,23 @@ math {
 }
 
 .recommended-reading-cover {
-  display: block;
+  float: right;
   width: min(11rem, 40%);
   height: auto;
-  margin: 1rem 0 0;
+  margin: 0 0 1rem 1.25rem;
+}
+
+/* Keep floated covers inside their callout body. */
+.callout-recommended-reading .callout-body-container {
+  display: flow-root;
+}
+
+@media (max-width: 36rem) {
+  .recommended-reading-cover {
+    float: none;
+    width: min(11rem, 100%);
+    margin: 1rem 0 0;
+  }
 }
 
 /* Keep margin blocks below the sidebar/TOC rather than behind it. */

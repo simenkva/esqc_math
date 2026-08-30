@@ -2,9 +2,9 @@
 
 ::: {.recommended-reading}
 
-Marsden was a giant in textbok authorship at any level of study. Marsden and Tromba's book is an excellent textbook at the undergraduate level. I find the writing clear and concise, yet engaging. There are many good examples and exercises.
-
 ![](../figures/lecture-notes/recommended-reading/Marsden-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+Marsden was a giant in textbok authorship at any level of study. Marsden and Tromba's book is an excellent textbook at the undergraduate level. I find the writing clear and concise, yet engaging. There are many good examples and exercises.
 
 :::
 

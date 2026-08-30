@@ -8,16 +8,16 @@ The Lebesgue integral is a generalization of the Riemann integral. Admittedly, i
 
 ::: {.recommended-reading}
 
-The slim book by Bartle is a classic in measure and integration theory. It contains all you need.
-
 ![](../figures/lecture-notes/recommended-reading/Bartle-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+The slim book by Bartle is a classic in measure and integration theory. It contains all you need.
 
 :::
 
 ::: {.recommended-reading}
 
-An excellent YouTube channel is [*The Bright Side of Mathematics*](https://www.youtube.com/c/brightsideofmaths/playlists), created by Dr. Julian P. Grossmann. Fantastic pedagogical presentation of many topics, well suited to give an intuitive impression and even more. Check out the videos on measure and integration! In fact, I based parts of my presentation of this topic on the videos.
-
 ![](../figures/lecture-notes/recommended-reading/bright-side-of-mathematics.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+An excellent YouTube channel is [*The Bright Side of Mathematics*](https://www.youtube.com/c/brightsideofmaths/playlists), created by Dr. Julian P. Grossmann. Fantastic pedagogical presentation of many topics, well suited to give an intuitive impression and even more. Check out the videos on measure and integration! In fact, I based parts of my presentation of this topic on the videos.
 
 :::

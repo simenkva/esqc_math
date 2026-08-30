@@ -1,30 +1,5 @@
 # Finite dimensional vector spaces
 
-Linear algebra is perhaps the most important tool for modern science: quantum mechanics, data analysis, machine learning, ...All use linear algebra in one way or another.
-
-::: {.recommended-reading}
-
-This was my curriculum in the first linear algebra course I took. I think it is a very good book, and highly readable. What it lacks, is the consideration of general finite dimensional linear vector spaces.
-
-![](../figures/lecture-notes/recommended-reading/Fraleigh-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
-
-:::
-
-::: {.recommended-reading}
-
-An online textbook in linear algebra by Robert A. Beezer can be found here: <http://linear.ups.edu/>. It is free, and also has great sets of exercises. PDF versions here: <http://linear.ups.edu/download.html>
-
-![](../figures/lecture-notes/recommended-reading/Beezer-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
-
-:::
-
-::: {.recommended-reading}
-
-This book by the great Paul Halmos is old, by very comprehensive. I find it quite readable, and have used it many times. I would consider the level to be more advanced than Fraleigh and Beauregard.
-
-![](../figures/lecture-notes/recommended-reading/Halmos-finite-frontpage.jpg){.recommended-reading-cover fig-alt="Book or resource cover"}
-
-:::
 
 ## Euclidean space
 

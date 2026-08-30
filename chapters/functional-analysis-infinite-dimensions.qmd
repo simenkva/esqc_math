@@ -2,33 +2,33 @@
 
 ::: {.recommended-reading}
 
-A very pedagogical text. Covers metric spaces, Banach spaces, Hilbert spaces, the fundamental theorems like the Hahn--Banach theorem, open mapping theorem, closed graph theorem. Spectral theory of self-adjoint operators, applications to quantum mechanics. (This makes the book special, together with its pedagogical level.)
-
 ![](../figures/lecture-notes/recommended-reading/Kreyszig-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+A very pedagogical text. Covers metric spaces, Banach spaces, Hilbert spaces, the fundamental theorems like the Hahn--Banach theorem, open mapping theorem, closed graph theorem. Spectral theory of self-adjoint operators, applications to quantum mechanics. (This makes the book special, together with its pedagogical level.)
 
 :::
 
 ::: {.recommended-reading}
-
-A classic in PDE theory. Used in many graduate courses all over the world.
 
 ![](../figures/lecture-notes/recommended-reading/Evans-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
 
+A classic in PDE theory. Used in many graduate courses all over the world.
+
 :::
 
 ::: {.recommended-reading}
-
-A classic. Maybe not the most accessible text, but it is very much geared towards mathematical physics.
 
 ![](../figures/lecture-notes/recommended-reading/Reed-Simon-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
 
+A classic. Maybe not the most accessible text, but it is very much geared towards mathematical physics.
+
 :::
 
 ::: {.recommended-reading}
 
-Eberhard Zeidler was a giant of nonlinear functional analysis, and enormously productive. Many of his volumes focus greatly on pedagogical exposition and motivation for study. This book is no exception.
-
 ![](../figures/lecture-notes/recommended-reading/Zeidler-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+Eberhard Zeidler was a giant of nonlinear functional analysis, and enormously productive. Many of his volumes focus greatly on pedagogical exposition and motivation for study. This book is no exception.
 
 :::
 

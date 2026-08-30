@@ -1,20 +1,79 @@
-# Numbers
+# Numbers {#sec-numbers}
 
-## The integers, the rationals, and the reals
+ 
 
-The natural numbers are the counting numbers, $$\mathbb{N} = \{ 0, 1, 2, \dots \}.$$ It is a set of cardinality $\aleph_0$, the "smallest" infinity. The integers are the numbers ("Zahlen") $$\mathbb{Z} = \{ \dots, -3, -2, -1, 0, 1, 2, \dots \},$$ which has the *same* cardinality as $\mathbb{N}$. Next, the rational numbers ("quotients"), $$\mathbb{Q} = \left\{ \frac{p}{q} \mid p,q \in \mathbb{Z}, \, q \neq 0 \right\}.$$ The cardinality is again $\aleph_0$.
+In mathematics, there are standard _number sets_ with a common notation:
 
-*Exercise: prove that these sets have the same cardinality, and that the reals have a greater cardinality.*
+- $\mathbb{N}$ - the natural numbers
+- $\mathbb{Z}$ - the integers
+- $\mathbb{Q}$ - the rational numbers
+- $\mathbb{R}$ - the real numbers
+- $\mathbb{C}$ - the complex numbers
 
-Next up is the set of real numbers, but the precise definition of these in terms of $\mathbb{Q}$ is subtle. Let us therefore be very imprecise, and denote the reals by the set of all infinite decimal expansions, $$\begin{aligned}
-    \mathbb{R} &= \{ \, \text{infinite decimal expansions of numbers} \, \} \\
-    &=
-    \mathbb{R} = \left\{ (-1)^s 10^{p} \times 0.a_1 a_2 a_3 a_4 \cdots \mid s \in \{0, 1\}, \, p \in \mathbb{Z}, \, \forall j\in\mathbb{N}, \, a_j \in \mathbb{Z}_{10} \right\},
-\end{aligned}$$ where $\mathbb{Z}_{10} = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$. The symbol "$\forall$" means "for all". Strictly speaking, this definition of $\mathbb{R}$ does not make sense, since we have to define what an infinite decimal expansion means. The correct answer is that it is a *limit* of rational number approximations, or rather an *equivalence class* of such.
 
-We will not dig deeper into the real numbers. It is common to simply view the reals in an informal manner as a continuous infinite line, with the integers and rationals marked off, and the "gaps" denoting *irrational numbers* being those numbers that need infinitely many decimal places in any base, i.e., those reals which are not in $\mathbb{Q}$.
+## The natural numbers
 
-The real numbers have a special property: They are *complete* in the Cauchy sense. Informally, all sequences that "ought to converge" actually converges. We will talk more about this later.
+The set $\mathbb{N}$ of **natural numbers** comprise  the _counting numbers_, which naturally denote the _number_ of whole things:
+
+$$
+    \mathbb{N} = \{ 0, 1, 2, 3, \cdots \}
+$$
+
+Some texts exclude 0.
+
+## The integers
+
+The set $\mathbb{Z}$ ("Zahlen") of **integers** add negative couting numbers to $\mathbb{N}$:
+
+$$
+    \mathbb{Z} = \{ \cdots, -2, -1, 0, 1, 2, \cdots \}.
+$$
+
+
+## The rational numbers
+
+The set $\mathbb{Q}$ of **rational numbers** consists of all numbers that can be written as a fraction
+
+$$
+\frac{p}{q}, \qquad p\in\mathbb{Z},\quad q\in\mathbb{N}.
+$$
+
+The representation as a fraction is not unique. For example,
+
+$$
+\frac{1}{2}=\frac{2}{4}=\frac{3}{6}.
+$$
+
+
+## The real numbers
+
+The set $\mathbb{R}$ of **real numbers** consists of all numbers that can be represented by an infinite decimal expansion of the form
+
+$$
+x = \pm 0.d_1d_2d_3\cdots\times 10^p, \qquad d_k\in\{0,1,2,3,4,5,6,7,8,9\}, \qquad p\in\mathbb{Z}.
+$$
+
+The representation of a real number in this form is not unique. For example,
+
+$$
+1=0.99999\ldots
+$$
+
+and
+
+$$
+0.01000\ldots=0.1000\ldots\times10^{-1}.
+$$
+
+We must remark that this "definition" of the real numbers is rather informal. Mathematically, one must carefully define what one means by such infinite decimal expansion. Indeed, one must for instance define what addition and multiplication should be, and one must be 100 % certain that the definition make sense. Mathematicians define real numbers as (_equivalence classes_ of) _limits_ of sequences of increasingly accurate rational number approximations. 
+
+
+## The real numbers are complete
+
+We will not dig deeper into the real numbers. It is common to simply view the reals in an informal manner as a continuous infinite line, with the integers and rationals marked off as subsets, and the "gaps" denoting *irrational numbers* being those numbers that need infinitely many decimal places in any base, i.e., those reals which are not in $\mathbb{Q}$.
+
+
+The real numbers have a special property: They are *complete* in a very particular sense (the Cauchy sense). Informally, all sequences that "ought to converge" actually converges. 
 
 The basic properties of the real numbers are usually formalized as a theorem:
 
@@ -28,7 +87,13 @@ There is a unique number system called the real number system which is a complet
 
 By "ordered" we mean that it is always true that $a \leq b$ or $b \leq a$ for any $a,b \in \mathbb{R}$. By "unique" we mean that all other constructions that satisfy the axioms of fields, and is ordered, can be put into a one-to-one correspondence, this correspondence being compatible with the rules of multiplication, addition, and the ordering. In fact, this theorem justifies the mental picture of the reals as, indeed, the "real line".
 
-These number sets are fairly easy to get a grasp on, and we note that they are included in one another, written $$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}.$$ The sets $\mathbb{Q}$ and $\mathbb{R}$ are also *fields*. Fields are abstractions of, well, numbers, with the following axioms:
+These number sets are fairly easy to get a grasp on, and we note that they are included in one another
+
+$$
+\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}.
+$$ 
+
+The sets $\mathbb{Q}$ and $\mathbb{R}$ are also *fields*. Fields are abstractions numbers with addition and multiplication, using the following axioms:
 
 ::: {#def-field}
 
@@ -72,6 +137,15 @@ Important unary operations: Let $z = a + \mathrm{i}b \in \mathbb{C}$. Real part,
 Given two complex numbers $z_1 = x_1 + \mathrm{i}y_1$ and $z_2 = x_2 + \mathrm{i}y_2$. We compute the sum of the complex numbers: $$z_1 + z_2 = (x_1 + \mathrm{i}y_1) + (x_2 + \mathrm{i}y_2) = (x_1 + x_2) + \mathrm{i}(y_1 + y_2).$$ We compute the product: $$z_1 z_2 = (x_1 + \mathrm{i}y_1)(x_2 + \mathrm{i}y_2) = x_1 x_2 - y_1 y_2 + \mathrm{i}(y_1 x_2 + x_1 y_2),$$ where we used $\mathrm{i}^2 = -1$.
 
 :::
+
+Using the complex conjugate, we can compute the inverse of a complex number:
+
+$$
+    \frac{1}{ a + \mathrm{i} b} = \frac{a - \mathrm{i} b}{a - \mathrm{i} b} \frac{1}{a + \mathrm{i} b} = \frac{a - \mathrm{i}b }{a^2 + b^2}.
+$$
+
+
+
 
 ## Geometric interpretation
 

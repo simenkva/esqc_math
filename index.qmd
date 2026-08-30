@@ -1,4 +1,15 @@
-# About these lectures and lecture notes {#about-these-lectures-and-lecture-notes .unnumbered}
+# Preface {.unnumbered #sec-preface-2026}
+
+This is the 2026 edition of the lecture notes.
+
+Where the old lecture notes were written in LaTeX and published as a PDF, the present version of the lecture notes is published using the scientific publishing system [Quarto](https://quarto.org). 
+
+
+
+
+# Preface to the 2022 edition {#about-these-lectures-and-lecture-notes .unnumbered}
+
+
 
 These lecture notes were prepared as part of the European Summerschool in Quantum Chemistry (ESQC) 2022. This is my first round of lecturing at ESQC, with all that implies. The lectures themselves necessarily covers much less than the lecture notes, due to the time constraints.
 
@@ -7,3 +18,5 @@ Given that ESQC is an intense summer school for quantum chemistry students, and 
 Successful research in quantum chemistry invariably requires delving into mathematics: from the theory of complex functions, integration, linear algebra, Fourier analysis, through topics like calculus of variations, functional analysis, optimization theory, and numerical analysis. The goal of the lectures is *not* to teach mathematics, but to give the students some tools for where to look for information on relevant topics, in addition to a rough idea about what different concepts are about, and how they are interconnected. The exercises that accompany the lectures are varied, from basic exercises training the fingers to do matrix-vector multiplication, so small projects, also with some programming. There should be something for everyone.
 
 Unfortunately, it is not possible to *learn* mathematics by watching a lecturer state definitions and some facts. Understanding comes with extensive experience, careful reading and understanding of proofs, doing exercises, and practice. One should therefore consider these lectures as a *starting point*. One should not worry if the material seems difficult, or if what being said is hard to understand. Instead, one should do the exercises oney can, collaborate with co-students, and take note of topics that seem interesting. When the school is over, at least one should have some overview of how topics are connected and used in quantum chemistry research.
+
+

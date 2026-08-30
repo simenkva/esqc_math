@@ -16,25 +16,25 @@ In short, complex analysis deals with *differentiable complex functions*. Such f
 
 ::: {.recommended-reading}
 
-This is an excellent and modern textbook in complex analysis, and an engaging read.
-
 ![](../figures/lecture-notes/recommended-reading/Busam-Freitag-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+This is an excellent and modern textbook in complex analysis, and an engaging read.
 
 :::
 
 ::: {.recommended-reading}
-
-This book from 1968 is a classic in mathematical physics. It is not a rigorous mathematics book, but gives you many of the tools of the trade. There are also many interesting problems.
 
 ![](../figures/lecture-notes/recommended-reading/Butkov-frontpage.png){.recommended-reading-cover fig-alt="Book or resource cover"}
 
+This book from 1968 is a classic in mathematical physics. It is not a rigorous mathematics book, but gives you many of the tools of the trade. There are also many interesting problems.
+
 :::
 
 ::: {.recommended-reading}
 
-The YouTube channel MathMajor of Michael Penn of Randolph College, Virginia, contains excellent videos on many mathematics topics, and in particular on complex analysis. <https://www.youtube.com/playlist?list=PLVMgvCDIRy1wzJcFNGw7t4tehgzhFtBpm>
-
 ![](../figures/lecture-notes/recommended-reading/MathMajor-complex.png){.recommended-reading-cover fig-alt="Book or resource cover"}
+
+The YouTube channel MathMajor of Michael Penn of Randolph College, Virginia, contains excellent videos on many mathematics topics, and in particular on complex analysis. <https://www.youtube.com/playlist?list=PLVMgvCDIRy1wzJcFNGw7t4tehgzhFtBpm>
 
 :::
 
