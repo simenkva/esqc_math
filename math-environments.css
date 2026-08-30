@@ -90,11 +90,16 @@ main.content
   margin: -1rem -1.15rem 0.85rem;
   padding: 0.58rem 0.9rem 0.54rem;
   color: var(--math-env-title);
-  font-family: "Roboto Condensed", sans-serif;
+  /* font-family: "Roboto Condensed", sans-serif;
   font-size: 1.02rem;
   font-style: normal;
   line-height: 1.25;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.01em; */
+  font-family: "Stix Two Text", "Stix Two Math", serif;
+  font-style:normal;
+  font-weight:500;
+  font-size: 1rem;
+  line-height: 1.5;
   background-color: var(--math-env-heading-surface);
   border-bottom: 1px solid var(--math-env-border);
   border-start-start-radius: 0.25rem;
