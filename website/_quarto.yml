@@ -1,0 +1,86 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+  resources:
+    - ../fonts/**
+    - generated-vault/**
+
+website:
+  title: "Physical Chemistry"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: lecture_notes/index.html
+        text: Lecture notes
+      - href: roadmap.qmd
+      - href: quantum_chemistry.qmd
+        text: Quantum Chemistry
+    right:
+      - href: license.qmd
+        text: License
+
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    html-math-method: mathjax
+    css:
+      - styles.css
+      - canvas-showcase.css
+    toc: true
+#    toc-depth: 3
+
+
+custom-callout:
+  recommended-reading:
+    title: "Recommended reading"
+    color: "#2878A2"
+    html:
+      icon:
+        png: "icons/books.png"
+    epub:
+      icon: "icons/books.png"
+
+  fact:
+    title: "Fact"
+    color: "#3EAF3E"
+    html:
+      icon:
+        png: "icons/atom.png"
+    epub:
+      icon: "icons/atom.png"
+
+  visualization:
+    title: "Visualization app"
+    color: "#E0479E"
+    html:
+      icon:
+        png: "icons/visualization.png"
+    epub:
+      icon: "icons/visualization.png"
+
+  learning-goals:
+    title: "Learning Goals"
+    color: "#8B81FF"
+    html:
+      icon:
+        png: "icons/learning-goals.png"
+    epub:
+      icon: "icons/learning-goals.png"
+
+  preparations:
+    title: "Preparations"
+    color: "#8B81FF"
+    html:
+      icon:
+        png: "icons/books.png"
+    epub:
+      icon: "icons/books.png"
+
+filters:
+  - custom-callout

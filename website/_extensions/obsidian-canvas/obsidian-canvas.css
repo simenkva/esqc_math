@@ -1,0 +1,522 @@
+.ocq-canvas {
+  --ocq-height: 75vh;
+  --ocq-canvas-bg: light-dark(#f5f5f5, #202020);
+  --ocq-canvas-border: light-dark(#d6d6d6, #3b3b3b);
+  --ocq-node-bg: light-dark(#ffffff, #2b2b2b);
+  --ocq-node-border: light-dark(#cfcfcf, #484848);
+  --ocq-node-text: light-dark(#2e2e2e, #dcddde);
+  --ocq-muted-text: light-dark(#6f6f6f, #a5a5a5);
+  --ocq-group-bg: light-dark(rgb(70 70 70 / 4%), rgb(235 235 235 / 4%));
+  --ocq-group-border: light-dark(#c4c4c4, #555555);
+  --ocq-edge: light-dark(#777777, #9a9a9a);
+  --ocq-toolbar-bg: light-dark(#ffffff, #2b2b2b);
+  --ocq-control-hover: light-dark(#e8e8e8, #3a3a3a);
+  --ocq-focus-ring: light-dark(#5277b8, #8aa8dc);
+  --ocq-link: light-dark(#3f67a6, #8ba9dc);
+  --ocq-error: light-dark(#9f2929, #ff9b98);
+  --ocq-red: light-dark(#a64b47, #d2736f);
+  --ocq-orange: light-dark(#a85f24, #d79055);
+  --ocq-yellow: light-dark(#8e721f, #c6aa55);
+  --ocq-green: light-dark(#477b5b, #74a987);
+  --ocq-cyan: light-dark(#367684, #70a6b1);
+  --ocq-purple: light-dark(#715d91, #9b88ba);
+  --ocq-node-color-mix: 10%;
+  --ocq-zoom-duration: 300ms;
+  --ocq-zoom-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: light dark;
+  position: relative;
+  isolation: isolate;
+  min-height: 24rem;
+  height: var(--ocq-height);
+  overflow: hidden;
+  color: var(--ocq-node-text);
+  background: var(--ocq-canvas-bg);
+  border: 1px solid var(--ocq-canvas-border);
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+body.quarto-light .ocq-canvas {
+  color-scheme: light;
+}
+
+body.quarto-dark .ocq-canvas {
+  color-scheme: dark;
+}
+
+.ocq-canvas:focus-visible {
+  outline: 2px solid var(--ocq-focus-ring);
+  outline-offset: 2px;
+}
+
+.ocq-math-loader {
+  display: none;
+}
+
+.ocq-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ocq-canvas:fullscreen,
+.ocq-canvas.ocq-is-fullscreen {
+  width: 100vw;
+  height: 100dvh;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.ocq-loading,
+.ocq-error,
+.ocq-fallback {
+  margin: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  color: var(--ocq-node-text);
+  background: var(--ocq-node-bg);
+  border: 1px solid var(--ocq-node-border);
+  border-radius: 4px;
+}
+
+.ocq-error {
+  color: var(--ocq-error);
+  border-color: var(--ocq-error);
+}
+
+.ocq-toolbar {
+  position: absolute;
+  z-index: 20;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--ocq-toolbar-bg);
+  border: 1px solid var(--ocq-node-border);
+  border-radius: 5px;
+}
+
+.ocq-control {
+  min-width: 1.9rem;
+  height: 1.9rem;
+  padding: 0 0.45rem;
+  color: var(--ocq-node-text);
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ocq-control:hover {
+  background: var(--ocq-control-hover);
+}
+
+.ocq-control:focus-visible {
+  outline: 2px solid var(--ocq-focus-ring);
+  outline-offset: -1px;
+}
+
+.ocq-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.ocq-viewport.ocq-panning {
+  cursor: grabbing;
+}
+
+.ocq-world {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.ocq-world.ocq-zoom-animating {
+  transition: transform var(--ocq-zoom-duration) var(--ocq-zoom-easing);
+}
+
+.ocq-groups,
+.ocq-nodes,
+.ocq-edges,
+.ocq-edge-labels {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
+.ocq-group,
+.ocq-node {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.ocq-group {
+  color: var(--ocq-item-text, var(--ocq-node-text));
+  background: var(
+    --ocq-item-background,
+    color-mix(
+      in srgb,
+      var(--ocq-item-color, var(--ocq-group-border)) 7%,
+      var(--ocq-group-bg)
+    )
+  );
+  border: 1px solid color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-group-border)) 42%,
+    var(--ocq-group-border)
+  );
+  border-radius: 6px;
+}
+
+.ocq-group-label {
+  position: absolute;
+  top: -1.6rem;
+  left: 0;
+  max-width: 80%;
+  overflow: hidden;
+  color: var(--ocq-muted-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ocq-node {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 12px 14px;
+  color: var(--ocq-item-text, var(--ocq-node-text));
+  background: var(--ocq-node-bg);
+  border: 1px solid color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-node-border)) 38%,
+    var(--ocq-node-border)
+  );
+  border-top-width: 2px;
+  border-radius: 6px;
+  user-select: text;
+  touch-action: pan-y;
+}
+
+.ocq-node[data-ocq-color] {
+  background: var(
+    --ocq-item-background,
+    color-mix(
+      in srgb,
+      var(--ocq-item-color) var(--ocq-node-color-mix),
+      var(--ocq-node-bg)
+    )
+  );
+}
+
+.ocq-node-text {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.ocq-node-rich {
+  overflow: hidden;
+  padding: 0;
+}
+
+.ocq-node-header {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 2rem;
+  padding: 0.4rem 0.65rem;
+  border-bottom: 1px solid var(--ocq-node-border);
+}
+
+.ocq-node-title {
+  overflow: hidden;
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ocq-node-page-link {
+  flex: 0 0 auto;
+  color: var(--ocq-link);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ocq-node-page-link:hover {
+  text-decoration: underline;
+}
+
+.ocq-node-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.65rem 0.75rem;
+  color: var(--ocq-item-text, var(--ocq-node-text));
+  line-height: 1.45;
+}
+
+.ocq-node-content > :first-child {
+  margin-top: 0;
+}
+
+.ocq-node-content > :last-child {
+  margin-bottom: 0;
+}
+
+.ocq-node-content h1,
+.ocq-node-content h2,
+.ocq-node-content h3,
+.ocq-node-content h4,
+.ocq-node-content h5,
+.ocq-node-content h6 {
+  margin: 0.8em 0 0.35em;
+  color: var(--ocq-item-text, var(--ocq-node-text));
+  line-height: 1.25;
+}
+
+.ocq-node-content h1 { font-size: 1.25rem; }
+.ocq-node-content h2 { font-size: 1.15rem; }
+.ocq-node-content h3 { font-size: 1.05rem; }
+
+.ocq-node-content a {
+  color: var(--ocq-link);
+}
+
+.ocq-node-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.55rem;
+  background: var(--ocq-canvas-bg);
+  border: 1px solid var(--ocq-node-border);
+  border-radius: 4px;
+}
+
+.ocq-node-content code {
+  color: var(--ocq-item-text, var(--ocq-node-text));
+  background: var(--ocq-canvas-bg);
+  font-size: 0.85em;
+}
+
+.ocq-node-content pre code {
+  background: transparent;
+}
+
+.ocq-node-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.ocq-node-content th,
+.ocq-node-content td {
+  padding: 0.3rem 0.45rem;
+  border: 1px solid var(--ocq-node-border);
+  white-space: nowrap;
+}
+
+.ocq-node-content blockquote,
+.ocq-node-content .callout-note,
+.ocq-node-content .callout-tip,
+.ocq-node-content .callout-important,
+.ocq-node-content .callout-warning,
+.ocq-node-content .callout-caution,
+.ocq-node-content .ocq-embed {
+  margin: 0.65rem 0;
+  padding: 0.5rem 0.65rem;
+  background: var(--ocq-group-bg);
+  border-left: 3px solid var(--ocq-item-color, var(--ocq-group-border));
+}
+
+.ocq-callout-title {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.ocq-embed-source,
+.ocq-node-content .footnotes,
+.ocq-node-loading {
+  color: var(--ocq-muted-text);
+  font-size: 0.78rem;
+}
+
+.ocq-unresolved-link,
+.ocq-unresolved-embed,
+.ocq-node-error {
+  color: var(--ocq-error);
+}
+
+.ocq-node-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ocq-preview-layer {
+  position: fixed;
+  z-index: 1100;
+  overflow: visible;
+}
+
+.ocq-preview-layer[hidden] {
+  display: none;
+}
+
+.ocq-preview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: inherit;
+  overflow: hidden;
+  color: var(--ocq-node-text);
+  background: var(--ocq-node-bg);
+  border: 1px solid var(--ocq-node-border);
+  border-radius: 6px;
+}
+
+.ocq-preview-header {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--ocq-node-border);
+}
+
+.ocq-preview-title {
+  color: var(--ocq-link);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ocq-preview-title:hover {
+  text-decoration: underline;
+}
+
+.ocq-preview-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 12rem;
+  overflow: auto;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.ocq-preview-content > :first-child { margin-top: 0; }
+.ocq-preview-content > :last-child { margin-bottom: 0; }
+.ocq-preview-content img { max-width: 100%; height: auto; }
+
+.ocq-node-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+
+.ocq-file-kind {
+  margin-bottom: auto;
+  color: var(--ocq-muted-text);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ocq-file-name {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+}
+
+.ocq-file-path {
+  margin-top: 0.25rem;
+  color: var(--ocq-muted-text);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.ocq-node-link {
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--ocq-link);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.ocq-edge {
+  fill: none;
+  stroke: var(--ocq-item-color, var(--ocq-edge));
+  stroke-linecap: round;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.ocq-arrow-shape {
+  fill: context-stroke;
+}
+
+.ocq-edge-label {
+  position: absolute;
+  padding: 0.1rem 0.3rem;
+  color: var(--ocq-muted-text);
+  background: var(--ocq-node-bg);
+  border: 1px solid color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-node-border)) 30%,
+    var(--ocq-node-border)
+  );
+  border-radius: 3px;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocq-world {
+    will-change: auto;
+  }
+
+  .ocq-world.ocq-zoom-animating {
+    transition-duration: 0ms;
+  }
+}
+
+@media (max-width: 600px) {
+  .ocq-canvas {
+    min-height: 20rem;
+  }
+
+  .ocq-toolbar {
+    top: 6px;
+    right: 6px;
+  }
+}

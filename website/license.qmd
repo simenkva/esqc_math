@@ -1,0 +1,44 @@
+---
+title: "License"
+---
+
+# License
+
+## Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)
+
+Copyright (c) 2026 Simen Kvaal
+
+This work (the “Work”) is licensed under the Creative Commons
+Attribution–NonCommercial 4.0 International License.
+
+You may copy and redistribute the Work in any medium or format, and you may
+remix, transform, and build upon the Work, provided that:
+
+1) Attribution. You must give appropriate credit, provide a link to the license,
+   and indicate if changes were made. You may do so in any reasonable manner,
+   but not in any way that suggests the licensor endorses you or your use.
+
+2) NonCommercial. You may not use the Work for commercial purposes.
+
+License summary (human-readable):
+  https://creativecommons.org/licenses/by-nc/4.0/
+
+Full legal code:
+  https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+
+## Additional permission (cost-recovery printing)
+
+Notwithstanding the “NonCommercial” restriction above, you are granted
+permission to print and distribute hard copies of the Work at cost (no profit),
+for educational or personal use, provided that attribution is preserved and
+this LICENSE notice is included with the copies.
+
+## Commercial licensing
+
+Commercial use (including sale for profit, paywalled distribution, inclusion in
+commercial products, or other use primarily intended for commercial advantage
+or monetary compensation) requires a separate written license from the
+copyright holder.
+
+Contact for commercial licensing: [simen.kvaal@kjemi.uio.no](simen.kvaal@kjemi.uio.no)

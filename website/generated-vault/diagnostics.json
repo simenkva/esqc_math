@@ -1,0 +1,47 @@
+[
+  {
+    "category": "unresolved-wikilink",
+    "code": "unresolved-wikilink",
+    "line": 3,
+    "message": "Could not publish wikilink [[ESQC_Math_Exercises_2024.pdf]] (unresolved).",
+    "remedy": "Use a folder-qualified link or publish the target note.",
+    "severity": "warning",
+    "source": "index.md"
+  },
+  {
+    "category": "unresolved-wikilink",
+    "code": "unresolved-wikilink",
+    "line": 25,
+    "message": "Could not publish wikilink [[Mathematics.canvas|Mathematics]] (unresolved).",
+    "remedy": "Use a folder-qualified link or publish the target note.",
+    "severity": "warning",
+    "source": "index.md"
+  },
+  {
+    "category": "unresolved-wikilink",
+    "code": "unresolved-wikilink",
+    "line": 28,
+    "message": "Could not publish wikilink [[Mathematics.canvas|Mathematics]] (unresolved).",
+    "remedy": "Use a folder-qualified link or publish the target note.",
+    "severity": "warning",
+    "source": "index.md"
+  },
+  {
+    "category": "unresolved-wikilink",
+    "code": "unresolved-wikilink",
+    "line": 36,
+    "message": "Could not publish wikilink [[Quantum Chemistry.canvas|Quantum Chemistry]] (unresolved).",
+    "remedy": "Use a folder-qualified link or publish the target note.",
+    "severity": "warning",
+    "source": "index.md"
+  },
+  {
+    "category": "unresolved-wikilink",
+    "code": "unresolved-wikilink",
+    "line": 3,
+    "message": "Could not publish wikilink [[Mathematics.canvas|Mathematics]] (unresolved).",
+    "remedy": "Use a folder-qualified link or publish the target note.",
+    "severity": "warning",
+    "source": "Mathematics Roadmap.md"
+  }
+]

@@ -1,0 +1,22 @@
+
+typography:
+  fonts:
+    - family: Roboto Condensed
+      weight: [400, 500, 700] 
+      source: bunny
+
+    - family: STIX Two Text
+      source: bunny
+    - family: STIX Two Math
+      source: file
+      files:
+        - path: ../fonts/STIXTwoMath-Regular.woff2
+          weight: 400
+          style: normal
+  base: 
+    family: STIX Two Text
+    size: 1rem
+    line-height: 1.6
+  headings:
+    family: Roboto Condensed
+    weight: 500

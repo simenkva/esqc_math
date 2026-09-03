@@ -1,0 +1,433 @@
+/*
+ * Obsidian Canvas theme showcase
+ *
+ * Quarto loads this file after the obsidian-canvas extension. Keep the
+ * sections you like, change the custom properties, or remove a section to
+ * fall back to the extension defaults. Every rule is scoped to .ocq-canvas.
+ */
+
+/* --------------------------------------------------------------------------
+   1. Canvas-wide theme tokens, type, frame, and background
+   -------------------------------------------------------------------------- */
+
+.ocq-canvas {
+  /* Typefaces already registered by this project's _brand.yml. */
+  --canvas-body-font: "STIX Two Text", Georgia, serif;
+  --canvas-display-font: "Roboto Condensed", "Arial Narrow", sans-serif;
+  --canvas-code-font: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  /* Surface and text colors. light-dark(light value, dark value). */
+  --ocq-canvas-bg: light-dark(#edf2f3, #111a1e);
+  --ocq-canvas-border: light-dark(#9babb0, #415057);
+  --ocq-node-bg: light-dark(#fffdf8, #202a2e);
+  --ocq-node-border: light-dark(#aeb9bc, #4b5a60);
+  --ocq-node-text: light-dark(#17272c, #e5ecee);
+  --ocq-muted-text: light-dark(#52666d, #a9b8bd);
+  --ocq-group-bg: light-dark(rgb(31 82 95 / 5%), rgb(135 193 205 / 5%));
+  --ocq-group-border: light-dark(#78939b, #657f87);
+  --ocq-edge: light-dark(#516970, #9bb0b6);
+  --ocq-toolbar-bg: light-dark(rgb(255 253 248 / 94%), rgb(27 37 42 / 94%));
+  --ocq-control-hover: light-dark(#dce8ea, #34464d);
+  --ocq-focus-ring: light-dark(#006a7c, #61cbe0);
+  --ocq-link: light-dark(#00627a, #7bd5e7);
+  --ocq-error: light-dark(#a1272e, #ff9da2);
+
+  /* Obsidian's six built-in colors. */
+  --ocq-red: light-dark(#b84942, #ed827a);
+  --ocq-orange: light-dark(#b56620, #eea05f);
+  --ocq-yellow: light-dark(#8c7419, #d5bd5d);
+  --ocq-green: light-dark(#3f7957, #78b991);
+  --ocq-cyan: light-dark(#24778a, #71becd);
+  --ocq-purple: light-dark(#6b5d99, #aa9ad5);
+
+  /*
+   * Numeric slots are useful with Advanced Canvas. Define as many as your
+   * vault uses. Slots 1-6 override the matching built-in colors; 7-9 show
+   * how to add project-specific palette entries.
+   */
+  --ocq-color-1: var(--ocq-red);
+  --ocq-color-2: var(--ocq-orange);
+  --ocq-color-3: var(--ocq-yellow);
+  --ocq-color-4: var(--ocq-green);
+  --ocq-color-5: var(--ocq-cyan);
+  --ocq-color-6: var(--ocq-purple);
+  --ocq-color-7: light-dark(#9b4d75, #df91b9);
+  --ocq-color-8: light-dark(#345d9d, #87ace8);
+  --ocq-color-9: light-dark(#5d6e26, #a6bc61);
+
+  /* Color strength and smooth-camera easing. */
+  --ocq-node-color-mix: 13%;
+  --ocq-zoom-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  font-family: var(--canvas-body-font);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  background-color: var(--ocq-canvas-bg);
+  background-image:
+    linear-gradient(light-dark(rgb(23 63 72 / 5%), rgb(198 229 235 / 4%)) 1px, transparent 1px),
+    linear-gradient(90deg, light-dark(rgb(23 63 72 / 5%), rgb(198 229 235 / 4%)) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 1px solid var(--ocq-canvas-border);
+  border-radius: 0.8rem;
+}
+
+/* A visible keyboard-focus treatment for the complete viewer. */
+.ocq-canvas:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ocq-focus-ring) 70%, transparent);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Toolbar and controls
+   -------------------------------------------------------------------------- */
+
+.ocq-canvas .ocq-toolbar {
+  gap: 0.2rem;
+  padding: 0.3rem;
+  background: var(--ocq-toolbar-bg);
+  border: 1px solid var(--ocq-canvas-border);
+  border-radius: 0.65rem;
+  box-shadow: 0 0.35rem 1rem light-dark(rgb(28 51 57 / 12%), rgb(0 0 0 / 28%));
+  backdrop-filter: blur(8px);
+}
+
+.ocq-canvas .ocq-control {
+  min-width: 2rem;
+  height: 2rem;
+  color: var(--ocq-node-text);
+  border: 1px solid transparent;
+  border-radius: 0.42rem;
+  font-family: var(--canvas-display-font);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ocq-canvas .ocq-control:hover {
+  background: var(--ocq-control-hover);
+  border-color: color-mix(in srgb, var(--ocq-canvas-border) 65%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   3. Cards: shape, borders, backgrounds, and type-specific styling
+   -------------------------------------------------------------------------- */
+
+.ocq-canvas .ocq-node {
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-node-border)) 48%,
+    var(--ocq-node-border)
+  );
+  border-top-width: 3px;
+  border-radius: 0.7rem;
+  box-shadow:
+    0 0.15rem 0.25rem light-dark(rgb(22 42 47 / 8%), rgb(0 0 0 / 18%)),
+    0 0.7rem 1.6rem light-dark(rgb(22 42 47 / 7%), rgb(0 0 0 / 12%));
+}
+
+/* Text-only cards. */
+.ocq-canvas .ocq-node-text {
+  font-family: var(--canvas-body-font);
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+/* Markdown/file cards have their own header and scrollable body. */
+.ocq-canvas .ocq-node-rich {
+  padding: 0;
+}
+
+.ocq-canvas .ocq-node-header {
+  min-height: 2.25rem;
+  padding: 0.45rem 0.8rem;
+  background: color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-node-border)) 9%,
+    var(--ocq-node-bg)
+  );
+  border-bottom: 1px solid color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-node-border)) 28%,
+    var(--ocq-node-border)
+  );
+}
+
+.ocq-canvas .ocq-node-title,
+.ocq-canvas .ocq-file-kind,
+.ocq-canvas .ocq-file-name {
+  font-family: var(--canvas-display-font);
+}
+
+.ocq-canvas .ocq-node-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+}
+
+.ocq-canvas .ocq-node-page-link {
+  padding: 0.12rem 0.38rem;
+  color: var(--ocq-link);
+  border: 1px solid color-mix(in srgb, var(--ocq-link) 38%, transparent);
+  border-radius: 999px;
+  font-family: var(--canvas-display-font);
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+
+.ocq-canvas .ocq-node-content {
+  padding: 0.75rem 0.9rem;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+/* Standalone file placeholders. */
+.ocq-canvas .ocq-file-kind {
+  color: var(--ocq-muted-text);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ocq-canvas .ocq-file-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.ocq-canvas .ocq-file-path {
+  color: var(--ocq-muted-text);
+  font-family: var(--canvas-code-font);
+  font-size: 0.68rem;
+}
+
+/* External-link cards. */
+.ocq-canvas .ocq-node-link {
+  color: var(--ocq-link);
+  font-family: var(--canvas-display-font);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+/* Images can switch from contain to cover for a poster/card treatment. */
+.ocq-canvas .ocq-node-image {
+  object-fit: contain;
+  border-radius: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Individual card colors
+
+   Use .ocq-color-N or [data-ocq-color="N"]. These examples give each of the
+   six colors its own surface. --ocq-item-text can override text per card.
+   -------------------------------------------------------------------------- */
+
+.ocq-canvas .ocq-node.ocq-color-1 {
+  --ocq-item-background: light-dark(#fff2ef, #30201f);
+}
+
+.ocq-canvas .ocq-node.ocq-color-2 {
+  --ocq-item-background: light-dark(#fff6e9, #30261d);
+}
+
+.ocq-canvas .ocq-node.ocq-color-3 {
+  --ocq-item-background: light-dark(#fffbea, #2c291d);
+}
+
+.ocq-canvas .ocq-node.ocq-color-4 {
+  --ocq-item-background: light-dark(#eef8f1, #1e2d25);
+}
+
+.ocq-canvas .ocq-node.ocq-color-5 {
+  --ocq-item-background: light-dark(#edf8fa, #1b2b30);
+}
+
+.ocq-canvas .ocq-node.ocq-color-6 {
+  --ocq-item-background: light-dark(#f5f1fb, #292432);
+}
+
+/* Advanced Canvas example: an exact surface and text color for custom ID 7. */
+.ocq-canvas .ocq-node.ocq-color-7 {
+  --ocq-item-background: light-dark(#fff0f7, #321f29);
+  --ocq-item-text: light-dark(#522039, #f7dce9);
+}
+
+/* --------------------------------------------------------------------------
+   5. Markdown inside cards
+   -------------------------------------------------------------------------- */
+
+.ocq-canvas .ocq-node-content h1,
+.ocq-canvas .ocq-node-content h2,
+.ocq-canvas .ocq-node-content h3,
+.ocq-canvas .ocq-node-content h4,
+.ocq-canvas .ocq-node-content h5,
+.ocq-canvas .ocq-node-content h6 {
+  color: var(--ocq-item-text, var(--ocq-node-text));
+  font-family: var(--canvas-display-font);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
+}
+
+.ocq-canvas .ocq-node-content h1 { font-size: 1.35rem; }
+.ocq-canvas .ocq-node-content h2 { font-size: 1.2rem; }
+.ocq-canvas .ocq-node-content h3 { font-size: 1.08rem; }
+
+.ocq-canvas .ocq-node-content a {
+  color: var(--ocq-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.ocq-canvas .ocq-node-content code {
+  color: var(--ocq-item-text, var(--ocq-node-text));
+  background: light-dark(rgb(37 76 85 / 8%), rgb(202 229 234 / 9%));
+  border-radius: 0.22rem;
+  font-family: var(--canvas-code-font);
+  font-size: 0.82em;
+}
+
+.ocq-canvas .ocq-node-content pre {
+  padding: 0.7rem;
+  background: light-dark(#f2f5f4, #162126);
+  border: 1px solid var(--ocq-node-border);
+  border-radius: 0.45rem;
+}
+
+.ocq-canvas .ocq-node-content table {
+  font-size: 0.86rem;
+}
+
+.ocq-canvas .ocq-node-content th {
+  background: light-dark(rgb(39 91 103 / 8%), rgb(177 218 227 / 8%));
+  font-family: var(--canvas-display-font);
+  font-weight: 700;
+}
+
+.ocq-canvas .ocq-node-content blockquote,
+.ocq-canvas .ocq-node-content .callout-note,
+.ocq-canvas .ocq-node-content .callout-tip,
+.ocq-canvas .ocq-node-content .callout-important,
+.ocq-canvas .ocq-node-content .callout-warning,
+.ocq-canvas .ocq-node-content .callout-caution,
+.ocq-canvas .ocq-node-content .ocq-embed {
+  padding: 0.55rem 0.7rem;
+  background: light-dark(rgb(35 91 104 / 6%), rgb(177 218 227 / 6%));
+  border-left: 4px solid var(--ocq-item-color, var(--ocq-group-border));
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.ocq-canvas .ocq-callout-title {
+  font-family: var(--canvas-display-font);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   6. Groups, connectors, arrows, and edge labels
+   -------------------------------------------------------------------------- */
+
+.ocq-canvas .ocq-group {
+  background: color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-group-border)) 6%,
+    var(--ocq-group-bg)
+  );
+  border: 1px dashed color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-group-border)) 75%,
+    var(--ocq-group-border)
+  );
+  border-radius: 0.9rem;
+}
+
+.ocq-canvas .ocq-group-label {
+  top: -1.75rem;
+  padding: 0.12rem 0.45rem;
+  color: var(--ocq-node-text);
+  background: var(--ocq-toolbar-bg);
+  border: 1px solid var(--ocq-group-border);
+  border-radius: 999px;
+  font-family: var(--canvas-display-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+}
+
+.ocq-canvas .ocq-edge {
+  stroke: var(--ocq-item-color, var(--ocq-edge));
+  stroke-linecap: round;
+  stroke-width: 2.25;
+}
+
+.ocq-canvas .ocq-arrow-shape {
+  fill: context-stroke;
+}
+
+.ocq-canvas .ocq-edge-label {
+  padding: 0.16rem 0.42rem;
+  color: var(--ocq-node-text);
+  background: var(--ocq-toolbar-bg);
+  border: 1px solid color-mix(
+    in srgb,
+    var(--ocq-item-color, var(--ocq-node-border)) 45%,
+    var(--ocq-node-border)
+  );
+  border-radius: 999px;
+  font-family: var(--canvas-display-font);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   7. Note previews
+   -------------------------------------------------------------------------- */
+
+.ocq-canvas .ocq-preview {
+  color: var(--ocq-node-text);
+  background: var(--ocq-node-bg);
+  border: 1px solid var(--ocq-canvas-border);
+  border-radius: 0.7rem;
+  box-shadow: 0 1rem 2.6rem light-dark(rgb(15 38 44 / 18%), rgb(0 0 0 / 42%));
+}
+
+.ocq-canvas .ocq-preview-header {
+  padding: 0.5rem 0.7rem;
+  background: light-dark(rgb(35 91 104 / 7%), rgb(177 218 227 / 7%));
+  border-bottom: 1px solid var(--ocq-node-border);
+}
+
+.ocq-canvas .ocq-preview-title {
+  color: var(--ocq-link);
+  font-family: var(--canvas-display-font);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.ocq-canvas .ocq-preview-content {
+  padding: 0.65rem 0.75rem;
+  font-family: var(--canvas-body-font);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   8. Compact screens and reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .ocq-canvas {
+    font-size: 0.92rem;
+    border-radius: 0.5rem;
+  }
+
+  .ocq-canvas .ocq-node-content {
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocq-canvas {
+    --ocq-zoom-easing: linear;
+  }
+}

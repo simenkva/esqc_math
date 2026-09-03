@@ -1,0 +1,7 @@
+---
+title: "Mathematics Roadmap"
+---
+
+::: {.column-screen-inset}
+{{< obsidian-canvas path="generated-vault/canvases/canvas-mathematics.json" height="calc(100dvh - 9rem)" initial-view="fit" controls="true" previews="true" >}}
+:::

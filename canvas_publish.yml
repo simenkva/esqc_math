@@ -1,0 +1,12 @@
+vault:
+  include:
+    - "Canvas/**"
+    - "Attachments/**"
+    - "**/*.md"
+
+callouts:
+  book: recommended-reading
+
+canvas:
+  zoom_speed: .5
+

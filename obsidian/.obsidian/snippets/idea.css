@@ -1,0 +1,5 @@
+.callout[data-callout="book"] {
+    --callout-color: 158, 183, 119;
+    --callout-icon: lucide-pencil;
+}
+

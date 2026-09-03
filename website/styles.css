@@ -1,0 +1,26 @@
+/* The font file is registered and copied by _brand.yml. */
+math {
+  font-family: "STIX Two Math", "Latin Modern Math", "Cambria Math", serif;
+}
+
+.recommended-reading-cover,
+.callout-recommended-reading img {
+  float: right;
+  width: min(11rem, 40%);
+  height: auto;
+  margin: 0 0 1rem 1.25rem;
+}
+
+/* Keep floated covers inside their callout body. */
+.callout-recommended-reading .callout-body-container {
+  display: flow-root;
+}
+
+
+
+
+html[data-bs-theme="dark"] img.svg-invert,
+body[data-bs-theme="dark"] img.svg-invert,
+.quarto-dark img.svg-invert {
+  filter: invert(100%) hue-rotate(180deg);
+}

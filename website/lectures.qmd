@@ -1,0 +1,19 @@
+---
+title: "Lectures"
+---
+
+Here are links to lecture slides. Open a deck in the browser for the interactive version, or download the corresponding PDF for offline reading and printing.
+
+All lectures are in Norwegian, as this is the official teaching language at University of Oslo. English versions may come later.
+
+
+<!-- lectures:start -->
+- [KJM2601 - Forelesning 0 - 19. august 2026 - Introduksjon til kurset](slides/lecture-00.html) ([Last ned PDF](slides/lecture-00.pdf){download="lecture-00.pdf"})
+- [KJM2601 - Forelesning 1 - 19. august 2026 - En kikk på klassisk mekanikk](slides/lecture-01.html) ([Last ned PDF](slides/lecture-01.pdf){download="lecture-01.pdf"})
+- [KJM2601 - Forelesning 2 - 20. august 2026 - Krisen i klassisk fysikk](slides/lecture-02.html) ([Last ned PDF](slides/lecture-02.pdf){download="lecture-02.pdf"})
+- [KJM2601 - Forelesning 3 - 26. august 2026 - En introduksjon til kvantemekanikk](slides/lecture-03.html) ([Last ned PDF](slides/lecture-03.pdf){download="lecture-03.pdf"})
+- [KJM2601 - Forelesning 4 - 27. august 2026 - Materiebølger og Schrödingers likning](slides/lecture-04.html) ([Last ned PDF](slides/lecture-04.pdf){download="lecture-04.pdf"})
+- [KJM2601 - Forelesning 5 - 2. september 2026 - Når trenger vi kvantemekanikk + enkle modeller](slides/lecture-05.html) ([Last ned PDF](slides/lecture-05.pdf){download="lecture-05.pdf"})
+- [KJM2601 - Forelesning 6 - 3. september 2026 - Enkle modeller, forts.](slides/lecture-06.html) ([Last ned PDF](slides/lecture-06.pdf){download="lecture-06.pdf"})
+<!-- lectures:end -->
+
