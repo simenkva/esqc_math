@@ -1,0 +1,104 @@
+\contentsline {chapter}{\numberline {1}The fundamentals: Sets and numbers}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introduction}{6}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Why learn mathematics?}{6}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}What is mathematics?}{6}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Preliminary notes}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Basic set notation}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Functions}{9}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Numbers}{9}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}The integers, the rationals, and the reals}{9}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Complex numbers}{11}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Geometric interpretation}{12}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Fundamental theorem of algebra}{12}{subsection.1.3.4}%
+\contentsline {chapter}{\numberline {2}Linear algebra}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Finite dimensional vector spaces}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Euclidean space}{15}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Visualization in the plane}{16}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Linear transformations}{16}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}General vector spaces}{19}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Inner product spaces}{23}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Linear subspaces}{25}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Dirac's bra-ket notation}{26}{subsection.2.2.2}%
+\contentsline {paragraph}{Bras and kets}{26}{subsection.2.2.2}%
+\contentsline {paragraph}{Orthonormal basis}{26}{equation.2.2.49}%
+\contentsline {section}{\numberline {2.3}Matrices}{27}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Column space, row space, rank}{27}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Systems of linear equations}{28}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Gaussian elimination}{29}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Matrix powers}{31}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Classes of operators}{32}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}The eigenvalue decomposition}{32}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Singular value decomposition}{33}{subsection.2.3.7}%
+\contentsline {chapter}{\numberline {3}Topologies on vector spaces}{35}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The notion of a topology}{35}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Metric space hierarchy}{35}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Inner product spaces}{35}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Normed spaces}{35}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Angles between vectors}{36}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Metric spaces}{36}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Metric spaces include normed spaces and inner product spaces}{37}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Some topological notions}{37}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Sequences and limits}{37}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Topologically important sets}{39}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Continuity}{41}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Compactness}{41}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Move me}{42}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Limits and continuity}{42}{subsection.3.3.6}%
+\contentsline {paragraph}{Topological vector space.}{44}{tcb@cnt@myExample.10}%
+\contentsline {paragraph}{Metric vector space.}{45}{tcb@cnt@myExample.10}%
+\contentsline {paragraph}{Normed vector space.}{45}{Item.50}%
+\contentsline {paragraph}{Inner product space.}{45}{equation.3.3.13}%
+\contentsline {chapter}{\numberline {4}Measure and integration theory (supporting material, not lectured)}{46}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Measurable sets}{47}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Measure}{49}{section.4.2}%
+\contentsline {section}{\numberline {4.3}The integral}{51}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Lebesgue measure and the Lebesgue integral}{53}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Lebesgue spaces}{54}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Functional analysis}{56}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Infinite dimensions}{56}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Introducing infinite dimensions}{59}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Banach spaces and Hilbert spaces}{61}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}$L^p$ spaces (Lebesgue spaces)}{62}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}The weak derivative}{63}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Sobolev spaces}{65}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Hilbert spaces}{66}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}$L^2$ -- the square integrable functions}{66}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}$\ell _2$ -- the archetypal separable Hilbert space}{66}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Existence of orthonormal bases}{66}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Linear transformations}{67}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Compact operators}{69}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Operators over separable Hilbert spaces}{70}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Bounded operators}{70}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Unbounded operators}{70}{subsection.5.5.2}%
+\contentsline {section}{\numberline {5.6}The spectral theorem for self-adjoint operators}{70}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Self-adjoint operators and quantum mechanics}{70}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Hilbert Sobolev spaces}{71}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Weak formulation of the Schrodinger equation}{71}{subsection.5.7.2}%
+\contentsline {section}{\numberline {5.8}The Fourier transform}{74}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Fourier tranform for functions over $\mathbb {R}^n$}{74}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Fourier series and periodic Fourier transform}{75}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Discrete Fourier Transform}{76}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}The Fast Fourier Transform}{76}{subsection.5.8.4}%
+\contentsline {section}{\numberline {5.9}Distributions}{76}{section.5.9}%
+\contentsline {chapter}{\numberline {6}Functions of several variables and complex variables}{77}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Introductory remarks}{77}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Single-variable functions}{77}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Functions of several variables}{78}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Geometry of real-valued functions}{78}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Differentiability}{79}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Higher derivatives}{82}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Taylor's Theorem}{83}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Maxima and minima}{84}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Integration}{85}{subsection.6.3.6}%
+\contentsline {section}{\numberline {6.4}The tools of calculus [move/edit this material]}{86}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Differentiation}{86}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Integration}{87}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Complex analysis}{87}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Complex algebra}{87}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Complex differentiability}{91}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Series of complex numbers}{93}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}Analyticity}{94}{subsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.5.5}Complex line integrals}{95}{subsection.6.5.5}%
+\contentsline {subsection}{\numberline {6.5.6}Laurent series}{98}{subsection.6.5.6}%
+\contentsline {subsection}{\numberline {6.5.7}Isolated singularities}{99}{subsection.6.5.7}%
+\contentsline {subsection}{\numberline {6.5.8}Algebraic functions}{99}{subsection.6.5.8}%

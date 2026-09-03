@@ -1,0 +1,135 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Ciesielski1997_}{book}{}
+      \name{author}{1}{}{%
+        {{hash=73d7594c586eabe36c0da2bf6e322d17}{%
+           family={Ciesielski},
+           familyi={C\bibinitperiod},
+           given={Krzysztof},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{73d7594c586eabe36c0da2bf6e322d17}
+      \strng{fullhash}{73d7594c586eabe36c0da2bf6e322d17}
+      \strng{bibnamehash}{73d7594c586eabe36c0da2bf6e322d17}
+      \strng{authorbibnamehash}{73d7594c586eabe36c0da2bf6e322d17}
+      \strng{authornamehash}{73d7594c586eabe36c0da2bf6e322d17}
+      \strng{authorfullhash}{73d7594c586eabe36c0da2bf6e322d17}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-59441-7 978-0-521-59465-3}
+      \field{series}{London {{Mathematical Society}} Student Texts}
+      \field{title}{Set Theory for the Working Mathematician}
+      \field{year}{1997}
+      \verb{file}
+      \verb /Users/simen/Zotero/storage/DBFSUNKU/(London Mathematical Society student texts 39) Krzysztof Ciesielski - Set theory for the working mathematician-Cambridge University Press (1997).pdf
+      \endverb
+      \keyw{Set theory}
+    \endentry
+    \entry{Ferreiros_TPCtM}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=e4a801549d0b836030c2302c7bbad13e}{%
+           family={Ferreiros},
+           familyi={F\bibinitperiod},
+           given={Jose},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{e4a801549d0b836030c2302c7bbad13e}
+      \strng{fullhash}{e4a801549d0b836030c2302c7bbad13e}
+      \strng{bibnamehash}{e4a801549d0b836030c2302c7bbad13e}
+      \strng{authorbibnamehash}{e4a801549d0b836030c2302c7bbad13e}
+      \strng{authornamehash}{e4a801549d0b836030c2302c7bbad13e}
+      \strng{authorfullhash}{e4a801549d0b836030c2302c7bbad13e}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The {{Princeton Companion}} to {{Mathematics}}}
+      \field{isbn}{978-0-691-11880-2}
+      \field{langid}{english}
+      \field{title}{The {{Crisis}} in the {{Foundations}} of {{Mathematics}}}
+      \field{pages}{142}
+      \range{pages}{1}
+      \verb{file}
+      \verb /Users/simen/Zotero/storage/EJGIV334/Ferreiros - The Crisis in the Foundations of Mathematics.pdf
+      \endverb
+      \verb{urlraw}
+      \verb \url{https://personal.us.es/josef/pcmCrisis.pdf}
+      \endverb
+      \verb{url}
+      \verb %5Curl%7Bhttps://personal.us.es/josef/pcmCrisis.pdf%7D
+      \endverb
+    \endentry
+    \entry{wiki:Foundations_of_mathematics}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Foundations\%20of\%20mathematics&oldid=1097188669}}
+      \field{note}{[Online; accessed 17-August-2022]}
+      \field{title}{{Foundations of mathematics} --- {W}ikipedia{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
+    \entry{wiki:Mathematics}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Mathematics&oldid=1103972043}}
+      \field{note}{[Online; accessed 17-August-2022]}
+      \field{title}{{Mathematics} --- {W}ikipedia{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
