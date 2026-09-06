@@ -1,0 +1,2 @@
+- [ESQC Math 2026 Lecture 1.pdf](lectures/ESQC Math 2026 Lecture 1.pdf)
+- [ESQC Math 2026 Lecture 1.pptx](lectures/ESQC Math 2026 Lecture 1.pptx)

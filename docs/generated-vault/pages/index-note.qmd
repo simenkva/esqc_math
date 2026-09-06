@@ -1,0 +1,48 @@
+---
+title: "Lecture notes, slides, and exercies"
+---
+
+# Lecture notes, slides, and exercies {#lecture-notes-slides-and-exercies}
+
+Exercises: <span class="ocq-unresolved-link">ESQC_Math_Exercises_2024.pdf</span>
+Lecture notes: coming very soon
+Slides: coming very soon
+
+---
+
+# Hello! {#hello}
+
+::: {.callout-warning title="Work in progress"}
+<div class="ocq-callout-title">Work in progress</div>
+This project is a work in progress. I would be very happy for any feedback, constructive criticism, additional resources, and ideas!
+
+Please contact me at simen.kvaal@kjemi.uio.no
+
+:::
+
+
+This is an Obsidian vault with material for the Mathematical Methods lectures at the [ESQC 2024](www.esqc.org) summer school.
+
+You may choose files in the view on the left. The Canvas folder contains Obsidian Canvases, which contain notes organized in a graph. Or simply follow the links below in the section [Mathematics Roadmap](index-note.html#mathematics-roadmap)
+
+
+# Mathematics Roadmap {#mathematics-roadmap}
+
+The  Canvas "<span class="ocq-unresolved-link">Mathematics</span>" shows what is intended as a helpful roadmap of mathematical topics, organized loosely so they are useful for quantum chemists. The subdivision of mathematical topics is largely artificial and biased as there there is no rigorous way to do such a thing. 
+
+
+The note "[Mathematics Roadmap](mathematics-roadmap.html)" contains accompanying text. However, by clicking on the headlines in the <span class="ocq-unresolved-link">Mathematics</span> canvas, you are taken directly to the relevant sections, that also contain literature suggestions.
+
+See  [Recommended General Mathematics Reading](recommended-general-mathematics-reading.html) for some general reading recommendations.
+
+See [Recommended YouTube channels](recommended-youtube-channels.html) for some YouTube channels that could be of interest. There is lots to be learned from the right channels!
+
+# Quantum Chemistry and Mathematics {#quantum-chemistry-and-mathematics}
+
+The canvas "<span class="ocq-unresolved-link">Quantum Chemistry</span>" shows how various topics in quantum chemistry are connected, and which mathematical topics in the mathematics roadmap could be useful.
+
+
+
+
+
+

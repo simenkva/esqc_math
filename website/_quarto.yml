@@ -8,16 +8,19 @@ project:
     - generated-vault/**
 
 website:
-  title: "Physical Chemistry"
+  title: "ESQC 2026 Mathematics"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: lecture_notes/index.html
-        text: Lecture notes
+        text: Lecture Notes
+      - href: https://simenkva.github.io/esqc_exercises/student
+        text: Exercises
       - href: roadmap.qmd
+        text: Mathematics Roadmap
       - href: quantum_chemistry.qmd
-        text: Quantum Chemistry
+        text: Quantum Chemistry Roadmap
     right:
       - href: license.qmd
         text: License

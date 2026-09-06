@@ -1,0 +1,4 @@
+- [lecture 1 - transforming a cat.ipynb](notebooks/lecture 1 - transforming a cat.ipynb)
+- [lecture-1-blurring.ipynb](notebooks/lecture-1-blurring.ipynb)
+- [lecture-1-plane-geometry.ipynb](notebooks/lecture-1-plane-geometry.ipynb)
+- [lecture-1-plane-transformation.ipynb](notebooks/lecture-1-plane-transformation.ipynb)

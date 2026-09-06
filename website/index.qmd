@@ -2,5 +2,14 @@
 title: "ESQC Mathematics 2026"
 ---
 
+These pages contain material for the Mathematics course at the 2026 edition of ESQC.
 
-These pages are maintained by Simen Kvaal.
+## Lectures {.unnumbered}
+
+{{< include lectures-file-list.md >}}
+
+
+## Notebooks {.unnumbered}
+
+{{< include notebooks-file-list.md >}}
+

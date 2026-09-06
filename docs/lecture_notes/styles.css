@@ -1,0 +1,104 @@
+
+/* Apply the bundled math font to native MathML. */
+math {
+  font-family: "STIX Two Math", "Latin Modern Math", "Cambria Math", serif;
+}
+
+.recommended-reading-cover {
+  float: right;
+  width: min(11rem, 40%);
+  height: auto;
+  margin: 0 0 1rem 1.25rem;
+}
+
+/* Keep floated covers inside their callout body. */
+.callout-recommended-reading .callout-body-container {
+  display: flow-root;
+}
+
+@media (max-width: 36rem) {
+  .recommended-reading-cover {
+    float: none;
+    width: min(11rem, 100%);
+    margin: 1rem 0 0;
+  }
+}
+
+/* Keep margin blocks below the sidebar/TOC rather than behind it. */
+main.content .no-row-height.column-margin.column-container,
+main.content .column-margin.column-container {
+  position: relative;
+  z-index: 1 !important;
+}
+
+/* Reverse SVG artwork automatically in the dark theme. */
+html[data-bs-theme="dark"] img[src$=".svg"],
+body[data-bs-theme="dark"] img[src$=".svg"],
+.quarto-dark img[src$=".svg"] {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+/* Apply the same treatment to any explicitly marked visual. */
+html[data-bs-theme="dark"] .dark-invert img,
+html[data-bs-theme="dark"] .dark-invert svg,
+html[data-bs-theme="dark"] .dark-invert canvas,
+body[data-bs-theme="dark"] .dark-invert img,
+body[data-bs-theme="dark"] .dark-invert svg,
+body[data-bs-theme="dark"] .dark-invert canvas,
+.quarto-dark .dark-invert img,
+.quarto-dark .dark-invert svg,
+.quarto-dark .dark-invert canvas {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+.block-center {
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* Add a horizontal rule between exercises. */
+
+div[id^="exr-"]::after,
+div[id^="exr-"]:not(
+  div[id^="exr-"] + div[id^="exr-"],
+  :is(h1, h2, h3, h4, h5, h6) + div[id^="exr-"]
+)::before {
+  content: "";
+  display: block;
+  width: 50%;
+  margin: 1.5em auto;
+  border-top: 1px solid;
+}
+
+/* Disable interaction with checkboxes. */
+input[type="checkbox"] {
+  pointer-events: none;
+}
+
+
+/* Add labels for exercise difficulty levels. */
+[id^="exr-"][data-level]::before {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  margin-bottom: 0.75em;
+  border-radius: 1em;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+[id^="exr-"][data-level="beginner"]::before {
+  content: "Beginner";
+  background: #dff3df;
+}
+
+[id^="exr-"][data-level="intermediate"]::before {
+  content: "Intermediate";
+  background: #fff0c2;
+}
+
+[id^="exr-"][data-level="advanced"]::before {
+  content: "Advanced";
+  background: #f5d5d5;
+}
