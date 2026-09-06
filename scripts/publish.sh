@@ -32,6 +32,7 @@ require_file() {
 command -v quarto >/dev/null 2>&1 || die "quarto is not installed or not on PATH"
 command -v rsync >/dev/null 2>&1 || die "rsync is not installed or not on PATH"
 command -v python >/dev/null 2>&1 || die "python is not installed or not on PATH"
+command -v zip >/dev/null 2>&1 || die "zip is not installed or not on PATH"
 
 require_directory "$WEBSITE_DIR"
 require_directory "$LECTURE_NOTES_DIR"
@@ -98,9 +99,29 @@ printf 'publish: generating website content from the Obsidian vault\n'
     --config "$REPO_ROOT/canvas_publish.yml"
 )
 
-printf 'publish: generating lecture and notebook file lists\n'
+printf 'publish: creating notebook archive and file lists\n'
 (
   cd -- "$REPO_ROOT"
+
+  # Build outside notebooks/ so the archive cannot include itself. Replacing
+  # it only after zip succeeds also preserves the previous archive on failure.
+  (
+    cd -- "$NOTEBOOKS_DIR"
+    zip -q -r "$STAGING_DIR/notebooks.zip" . \
+      -x 'notebooks.zip' \
+      -x './notebooks.zip' \
+      -x '.DS_Store' \
+      -x '*/.DS_Store' \
+      -x '~$*' \
+      -x '*/~$*' \
+      -x '*.tmp' \
+      -x '*.temp' \
+      -x '*.swp' \
+      -x '*.swo' \
+      -x '*~'
+  )
+  mv -- "$STAGING_DIR/notebooks.zip" "$NOTEBOOKS_DIR/notebooks.zip"
+
   python scripts/make-file-list.py -f lectures -o website/lectures-file-list.md
   python scripts/make-file-list.py -f notebooks -o website/notebooks-file-list.md
 )
