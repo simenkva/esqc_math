@@ -2,43 +2,27 @@
   {
     "category": "unresolved-wikilink",
     "code": "unresolved-wikilink",
-    "line": 3,
-    "message": "Could not publish wikilink [[ESQC_Math_Exercises_2024.pdf]] (unresolved).",
+    "line": 1,
+    "message": "Could not publish wikilink [[Mathematics Roadmap#Functional Analysis|Functional Analysis]] (unresolved).",
+    "nodeId": "42169da2520d7fa8",
     "remedy": "Use a folder-qualified link or publish the target note.",
     "severity": "warning",
-    "source": "index.md"
+    "source": "Canvas/Quantum Chemistry.canvas"
   },
   {
     "category": "unresolved-wikilink",
     "code": "unresolved-wikilink",
-    "line": 25,
-    "message": "Could not publish wikilink [[Mathematics.canvas|Mathematics]] (unresolved).",
+    "line": 1,
+    "message": "Could not publish wikilink [[Mathematics Roadmap#Differential Geometry|Differential Geometry]] (unresolved).",
+    "nodeId": "a12f5a258bbe8615",
     "remedy": "Use a folder-qualified link or publish the target note.",
     "severity": "warning",
-    "source": "index.md"
+    "source": "Canvas/Quantum Chemistry.canvas"
   },
   {
     "category": "unresolved-wikilink",
     "code": "unresolved-wikilink",
-    "line": 28,
-    "message": "Could not publish wikilink [[Mathematics.canvas|Mathematics]] (unresolved).",
-    "remedy": "Use a folder-qualified link or publish the target note.",
-    "severity": "warning",
-    "source": "index.md"
-  },
-  {
-    "category": "unresolved-wikilink",
-    "code": "unresolved-wikilink",
-    "line": 36,
-    "message": "Could not publish wikilink [[Quantum Chemistry.canvas|Quantum Chemistry]] (unresolved).",
-    "remedy": "Use a folder-qualified link or publish the target note.",
-    "severity": "warning",
-    "source": "index.md"
-  },
-  {
-    "category": "unresolved-wikilink",
-    "code": "unresolved-wikilink",
-    "line": 3,
+    "line": 2,
     "message": "Could not publish wikilink [[Mathematics.canvas|Mathematics]] (unresolved).",
     "remedy": "Use a folder-qualified link or publish the target note.",
     "severity": "warning",

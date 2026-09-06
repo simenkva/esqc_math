@@ -42,8 +42,8 @@
 
   /*
    * Numeric slots are useful with Advanced Canvas. Define as many as your
-   * vault uses. Slots 1-6 override the matching built-in colors; 7-9 show
-   * how to add project-specific palette entries.
+   * vault uses. Slots 1-6 override the matching built-in colors; 7-10
+   * reproduce the mathematical-topic ranking palette from Obsidian.
    */
   --ocq-color-1: var(--ocq-red);
   --ocq-color-2: var(--ocq-orange);
@@ -51,12 +51,13 @@
   --ocq-color-4: var(--ocq-green);
   --ocq-color-5: var(--ocq-cyan);
   --ocq-color-6: var(--ocq-purple);
-  --ocq-color-7: light-dark(#9b4d75, #df91b9);
-  --ocq-color-8: light-dark(#345d9d, #87ace8);
-  --ocq-color-9: light-dark(#5d6e26, #a6bc61);
+  --ocq-color-7: #e76f51;  /* ★ Core — coral */
+  --ocq-color-8: #e9a23b;  /* ◆ Valuable — amber */
+  --ocq-color-9: #5b8db8;  /* ◇ Specialized — blue */
+  --ocq-color-10: #9aa0a6; /* Unranked — gray */
 
   /* Color strength and smooth-camera easing. */
-  --ocq-node-color-mix: 13%;
+  --ocq-node-color-mix: 10%;
   --ocq-zoom-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   font-family: var(--canvas-body-font);
@@ -113,12 +114,7 @@
 
 .ocq-canvas .ocq-node {
   padding: 0.85rem 1rem;
-  border: 1px solid color-mix(
-    in srgb,
-    var(--ocq-item-color, var(--ocq-node-border)) 48%,
-    var(--ocq-node-border)
-  );
-  border-top-width: 3px;
+  border: 3px solid var(--ocq-item-color, var(--ocq-node-border));
   border-radius: 0.7rem;
   box-shadow:
     0 0.15rem 0.25rem light-dark(rgb(22 42 47 / 8%), rgb(0 0 0 / 18%)),
@@ -247,12 +243,6 @@
   --ocq-item-background: light-dark(#f5f1fb, #292432);
 }
 
-/* Advanced Canvas example: an exact surface and text color for custom ID 7. */
-.ocq-canvas .ocq-node.ocq-color-7 {
-  --ocq-item-background: light-dark(#fff0f7, #321f29);
-  --ocq-item-text: light-dark(#522039, #f7dce9);
-}
-
 /* --------------------------------------------------------------------------
    5. Markdown inside cards
    -------------------------------------------------------------------------- */
@@ -342,15 +332,16 @@
 }
 
 .ocq-canvas .ocq-group-label {
-  top: -1.75rem;
-  padding: 0.12rem 0.45rem;
+  top: -2.3rem;
+  padding: 0.3rem 0.7rem;
   color: var(--ocq-node-text);
   background: var(--ocq-toolbar-bg);
   border: 1px solid var(--ocq-group-border);
   border-radius: 999px;
   font-family: var(--canvas-display-font);
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 700;
+  line-height: 1.25;
   letter-spacing: 0.035em;
 }
 

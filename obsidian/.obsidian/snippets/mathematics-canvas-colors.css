@@ -1,0 +1,12 @@
+/*
+ * Advanced Canvas custom colors for mathematical-topic rankings.
+ *
+ * Advanced Canvas 3.1.0 uses comma-separated RGB components for
+ * --canvas-color-* variables.
+ */
+body {
+  --canvas-color-7: rgb(231, 111, 81);  /* Coral #E76F51 — ★ Core */
+  --canvas-color-8: rgb(233, 162, 59);  /* Amber #E9A23B — ◆ Valuable */
+  --canvas-color-9: rgb(91, 141, 184);  /* Blue  #5B8DB8 — ◇ Specialized */
+  --canvas-color-10: rgb(154, 160, 166); /* Gray  #9AA0A6 — Unranked */
+}

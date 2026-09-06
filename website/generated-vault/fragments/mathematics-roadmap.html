@@ -1,9 +1,16 @@
-<h1 id="a-mathematical-roadmap-for-quantum-chemistry">A mathematical roadmap for quantum chemistry</h1>
 <p>This text accompanies the <span class="ocq-unresolved-link">Mathematics</span> canvas.</p>
 <p>Each box contains one field, or topic, and they are connected to other boxes with the arrow indicating the direction from “more general” to “less general and more special”. Click headings in this canvas to go to relevant sections in this note.</p>
 <p>Of course, many more arrows could be drawn, and many more boxes could be added. In order to make the graph not too cluttered and confusing, we keep only main links.</p>
-<p><strong>NOTE:</strong> Topics marked with a ♥ are considered of prime importance to any quantum chemist, regardless of their specialization.</p>
-<h2 id="logic-and-set-theory">Logic and Set Theory</h2>
+<h2 id="ranking-mathematical-topics-for-quantum-chemistry">Ranking mathematical topics for quantum chemistry</h2>
+<p>In the canvas, we rank mathematical topics according to how important they are for understanding and working with quantum chemistry. Let us explain what we mean, since interpreting the rankings wrongly can give the wrong impression of what knowledge is needed.</p>
+<p>The ranking refers primarily to <strong>conceptual understanding and the ability to apply mathematical results</strong>, rather than to formal mathematical mastery. A quantum chemist will usually need to understand what a theorem, construction, or mathematical object means and how it can be used, but will much less often need to reproduce its formal proof, or derive new results.</p>
+<ul>
+<li><p>★ : <strong>Core knowledge.</strong> Mathematical concepts and techniques that every working quantum chemist should understand and be able to use. Formal mastery is not implied. Instead, the emphasis is on understanding the main ideas, interpreting the relevant mathematical objects and results, and applying them correctly in quantum-chemical contexts.</p></li>
+<li><p>◆ : <strong>Valuable knowledge.</strong> Mathematics that a quantum chemist should ideally be familiar with and recognize when encountered. Some working knowledge is valuable, particularly for understanding the theoretical foundations of quantum chemistry and navigating more mathematically oriented literature, but detailed technical knowledge is usually not required.</p></li>
+<li><p>◇ : <strong>Specialized knowledge.</strong> Mathematics that is not generally needed in quantum chemistry, but that can become useful or important in particular areas or specializations. Most quantum chemists need not study these topics systematically, if at all.</p></li>
+</ul>
+<p>Topics <strong>not marked</strong> are included primarily to place the other subjects in context of the broader mathematical landscape. They are interesting and important areas of mathematics, but have comparatively little direct relevance to most quantum-chemical work.</p>
+<h2 id="logic-and-set-theory">Logic and Set Theory ◆</h2>
 <p>Logic is the branch of mathematics and philosophy that deals with reasoning, the principles of valid inference, and the structure of propositions, i.e., mathematical statements. It provides the formal framework used to analyze and construct mathematical proofs, ensuring that conclusions follow from premises in a valid and systematic way.</p>
 <p>Set theory is the branch of mathematics that studies sets, which are collections of objects. In set theory, everything is a set. It forms the foundation for much (all?) of modern mathematics, providing the language and basic concepts used to describe and analyze mathematical structures. Set theory forms the foundation in the sense that every other mathematical theory can be formalized in the language of set theory.</p>
 <p>Most mathematicians are aware of formal set theory, but the “version” used in most contexts is “naive set theory”, which in a more informal manner defines mathematical sets compared to the rigorous axiom based constructions. As Russel’s Paradox shows us, naive set theory has some pitfalls. Most mathematicians simply avoid these pitfalls and stick to naive set theory.</p>
@@ -39,7 +46,7 @@ A Gentle Introduction to Category Theory by Maarten Fokkinga
 </div>
 <p>A set of lecture notes. Link to PDF on the author’s web site: https://maartenfokkinga.github.io/utwente/mmf92b.pdf</p>
 </div>
-<h2 id="discrete-mathematics">Discrete Mathematics</h2>
+<h2 id="discrete-mathematics">Discrete Mathematics ◇</h2>
 <p>Lorem ipsum … Recommended reading:</p>
 <div class="recommended-reading" title="Concrete Mathematics by Donald Knuth">
 <div class="ocq-callout-title">
@@ -59,7 +66,7 @@ Introduction to Graph Theory by Douglas B. West
 </figure>
 <p>Link to full book (only for preview): https://daiwz.net/course/disc_math/2023/West_Intro_Graph_Theory_en.pdf</p>
 </div>
-<h2 id="abstract-algebra">Abstract Algebra</h2>
+<h2 id="abstract-algebra">Abstract Algebra ◇</h2>
 <p>In abstract algebra, sets are given <em>mathematical structure</em> in the form of binary operations and various axioms that define what it is to be, e.g., a <em>group</em>. Thus, a group is defined in terms of its essential features, and not its concrete realizations. For example, the group <span class="math inline">\(\mathbb{Z}_4 = \{0, 1, 2, 3\}\)</span> with group operation of addition modulo 4, compared to the matrix group consisting of powers of the matrix <span class="math inline">\([[0, 1], [-1, 0]]\)</span>.</p>
 <p>Important algebraic constructions include groups, semigroups, rings, modules, vector spaces, and algebras.</p>
 <p>Abstract algebra is important for quantum chemistry, since it lays the foundation for linear algebra, one of the most important tools of the scientist, and the study of molecular symmetries and groups.</p>
@@ -70,7 +77,7 @@ A First Course in Abstract Algebra by John B. Fraleigh
 </div>
 <p>Seventh Edition, Pearson (2003) <img src="../assets/Attachments/Screenshot%202024-08-29%20at%2009.49.31.png" width="300" alt="Screenshot 2024-08-29 at 09.49.31.png"> Archived book: https://archive.org/details/firstcourseinabs07edfral</p>
 </div>
-<h2 id="group-theory">♥ Group Theory</h2>
+<h2 id="group-theory">Group Theory ◆</h2>
 <p>Group theory is the study of abstract groups and their representations. Lie groups are groups that are also differentiable manifolds (see Differential Geometry). Group theory permeates theoretical physics and chemistry, giving an axiomatic treatment of symmetry. Representation theory studies groups represented as linear operators or matrices acting on vector spaces.</p>
 <p>In chemistry, molecular symmetries and point groups are useful for understanding molecular behavior and also eases interpretation of spectroscopic experiments. Spectroscopic notation is a consequence of conservation of angular momentum. Representation theory is applied to explain the symmetries of molecular orbitals. Having a grasp of group theory is <em>absolutely essential</em> for the quantum chemist.</p>
 <p>Recommended reading:</p>
@@ -82,14 +89,14 @@ Group Theory and Chemistry by David M. Bishop
 <p>A classic textbook, very useful.</p>
 <p>Link to PDF for preview: https://library.navoiy-uni.uz/files/david%20m.%20bishop%20-%20group%20theory%20and%20chemistry%20(revised%20edition)(1993)(294s).pdf</p>
 </div>
-<h2 id="number-systems">Number systems</h2>
+<h2 id="number-systems">Number Systems ★</h2>
 <p>The axiomatic definition of the natural numbers using set theory is one of the simplest examples of how set theory serves as foundation for mathematics. The natural numbers are again used to define the integers, rational numbers, real numbers, and complex numbers. These sets are of course among the most important mathematical objects in the sciences. The number systems are again examples of algebraic structures: the integers form a group under addition, the real and complex numbers form fields.</p>
 <p>Clearly, understanding numbers is essential to any scientific study. On the other hand, for most purposes, intuitive notions about integers, reals, and complex numbers will be sufficient.</p>
 <p>Recommended reading:</p>
 <ul>
-<li>See <a href="../pages/mathematics-roadmap.html#logic-and-set-theory">Logic and Set Theory</a></li>
+<li>See <a href="../pages/mathematics-roadmap.html#logic-and-set-theory">Logic and Set Theory ◆</a></li>
 </ul>
-<h2 id="topology">Topology</h2>
+<h2 id="topology">Topology ◇</h2>
 <p>Topology is the study of open and closed sets, and the concept of continuity. A topological space is a set together with a collection of subsets called open subsets, and axioms that these have to obey. From this, topological spaces are generated, allowing us to talk about “closeness” of elements in the set. For example, a metric is an example of a structure that gives rise to a particular kind of topology, that formalizes the notion of distance between points.</p>
 <p>In topology the notion of sequences and their convergence is made abstract, including the notion of continuous functions. Topological arguments are indispensable for mathematical analysis of partial differential equations.</p>
 <p>For quantum chemists, being aware of the various notions of topology is useful to navigate the literature. For example, the convergence of the pseudocontinuum of the FCI method can be formalized with topological notions. As another example, in density-functional theory, what does it mean that two electronic densities are close together? Being able to distinguish different notions of “closeness of densities” is imperative for understanding, say, modes of convergence of SCF iterations.</p>
@@ -106,7 +113,7 @@ Topology by James R. Munkres
 <p>This is a classic textbook.</p>
 <p>Link to PDF (for preview): https://people.math.ethz.ch/~dkosanovic/24-FS/Munkres-Topology.pdf</p>
 </div>
-<h2 id="measure-and-integration">Measure and integration</h2>
+<h2 id="measure-and-integration">Measure and Integration ◆</h2>
 <p>Measure theory develops abstract notions of length, area, volume, etc., and allows to speak about such notions in potentially very abstract spaces. For example, the Dirac delta function is rigorously defined using measure theory.</p>
 <p>The Lebesgue integral is based on the notion of a Borel measure, and generalizes the Riemann integral. With the Lebesgue integral we can integrate many more functions compared to the Riemann integral, and operations like exchanging limits and integrals or integration variables obey well-defined and simple theorems. The Lebesgue integral is also necessary to define the <span class="math inline">\(L^2\)</span> Hilbert space of quantum mechanics.</p>
 <p>A passing knowledge if measure theory is very useful for the quantum chemist, since much of the language used in mathematical physics relies on these concepts. That being said, detailed theorems are rarely used, except in borderline cases, where apparent paradoxes may arise. In those cases, these paradoxes are resolved by checking the conditions for, say, interchange of limits and integration.</p>
@@ -118,7 +125,7 @@ The Elements of Integration and Lebesgue Measure by Robert G. Bartle
 <p><img src="../assets/Attachments/Bartle.png" width="300" alt="Bartle.png"> Wiley Classics, 1995</p>
 <p>A slim yet classic textbook on measure and integration.</p>
 </div>
-<h2 id="distribution-theory">Distribution theory</h2>
+<h2 id="distribution-theory">Distribution Theory ◆</h2>
 <p>With distribution theory one extends the concept of functions to include objects, known as <em>distributions</em> or <em>generalized functions</em>, which can be used to rigorously define operations like differentiation even for functions that are not classically differentiable. This theory is particularly useful in handling singularities or discontinuities, such as the Dirac delta function, which models an infinitely concentrated point of mass or charge. Distribution theory provides a powerful framework for solving partial differential equations, e.g., using Green’s functions.</p>
 <p>A rudimentary knowledge of distribution theory is very useful in the study of quantum mechanics. The standard informal view is that “the Dirac delta is a function which is infinite everywhere except at a single point where it is infinity”, similarly that “the Green’s function is the response of the system to a Dirac delta function”, is very useful, but will only take one so far.</p>
 <p>Useful in (for example): - Response theory - Manybody Green’s function theory - Electromagnetism</p>
@@ -137,7 +144,7 @@ The Elements of Integration and Lebesgue Measure by Robert G. Bartle
 See also the book by <a href="../pages/recommended-general-mathematics-reading.html#mathematical-physics-by-butkov">Butkov</a>
 </div>
 </div>
-<h2 id="linear-algebra">♥ Linear Algebra</h2>
+<h2 id="linear-algebra">Linear Algebra ★</h2>
 <p>In linear algebra, one studies linear vector spaces and linear functions between such spaces. Typical, and indeed archetypal, examples are <span class="math inline">\(\mathbb{R}^n\)</span> and <span class="math inline">\(\mathbb{C}^n\)</span>, and <span class="math inline">\(n\times m\)</span> matrices with complex or real entries. It is no exaggeration that linear algebra is perhaps the most important tool in science, being at the heart of everything from quantum mechanics, data analysis, and numerical methods for the solution of partial differential equations.</p>
 <p>Having a good command of linear algebra is <em>absolutely essential</em> to any theoretical chemist, from the LCAO approach to molecular orbitals, via practical realizations of Kohn–Sham density functional theory, to the numerical solution of, say, the coupled-cluster method.</p>
 <p>Recommended reading:</p>
@@ -158,7 +165,7 @@ See also the book by <a href="../pages/recommended-general-mathematics-reading.h
 <p><img src="../assets/Attachments/Strang.png" width="300" alt="Strang.png"> A great book by one of the all time greats in linear algebra. See also the <a href="../pages/recommended-youtube-channels.html">Recommended YouTube channels</a>.</p>
 <p>https://bookstore.ams.org/view?ProductCode=STRANG/5</p>
 </div>
-<h2 id="multilinear-algebra">Multilinear algebra</h2>
+<h2 id="multilinear-algebra">Multilinear Algebra ◆</h2>
 <p>In multilinear algebra, linear maps between vector spaces are generalized to maps over several vector spaces to several vector spaces at once, i.e., tensors. Multilinear algebra is rarely taught together with linear algebra, but could well be a subtopic in an advanced course, especially considering it is an important part of modern machine learning methodology. Multilinear algebra finds important use cases in differential geometry, as well as appearing naturally in calculus of several variables. Tensors are also integral to manybody methods like coupled-cluster theory or configuration-interaction theort.</p>
 <p>Multilinear algebra is among the more useful topics for quantum chemists.</p>
 <p>Recommended reading:</p>
@@ -177,7 +184,7 @@ See also the book by <a href="../pages/recommended-general-mathematics-reading.h
 <p>Course web page at ETH: https://www2.math.ethz.ch/education/bachelor/lectures/fs2016/other/mla.html</p>
 <p>The author’s name is not disclosed, but the professor that taught the course in 2016 was <a href="https://people.math.ethz.ch/~oezlemi/">Prof. Dr. Özlem Imamoḡlu</a></p>
 </div>
-<h2 id="calculus">♥ Calculus</h2>
+<h2 id="calculus">Calculus ★</h2>
 <p>Calculus is the branch of mathematics that studies continuous change and is divided into two main areas: differential calculus and integral calculus. Differential calculus focuses on the concept of the derivative, rates of change. Integral calculus, on the other hand, deals with the concept of the integral.</p>
 <p>Multivariate calculus extends to functions of several variables, encompassing the study of partial derivatives, multiple integrals, and vector calculus.</p>
 <p>Calculus, together with linear algebra, forms the foundation for much of modern science. It is <em>absolutely essential</em> to have a good grasp of calculus and multivariate calculus for theoretical chemists.</p>
@@ -191,7 +198,7 @@ Vector Calculus by Jerrold E. Marsden and Anthony Tromba
 <figcaption aria-hidden="true">Marsden_frontpage.png</figcaption>
 </figure>
 </div>
-<h2 id="complex-analysis">Complex analysis</h2>
+<h2 id="complex-analysis">Complex Analysis ◆</h2>
 <p>Complex analysis studies the calculus of functions of complex variables. For complex functions, being differentiable is a much more restricting requirement than for real functions, leading to surprising and very strong results of great use in physics and chemistry. Since real functions often are special cases of complex functions, complex analysis is very useful even if complex numbers do not show up at all in a theory.</p>
 <p>Useful in: Response theory, quantum dynamics, integral evaluation, perturbation theory, to name a few.</p>
 <p>Complex analysis is among the more useful topics for quantum chemists.</p>
@@ -208,7 +215,7 @@ Complex Analysis by Theodore Gamelin
 <p><img src="../assets/Attachments/Pasted%20image%2020240829095847.png" width="300" alt="Pasted image 20240829095847.png"> Springer (2001).</p>
 <p>A very pedagogical textbook.</p>
 </div>
-<h2 id="differential-geometry">Differential Geometry</h2>
+<h2 id="differential-geometry">Differential Geometry ◇</h2>
 <p>Differential geometry studies curves, surfaces, and higher-dimensional analogues from an abstract perspective, called differentiable manifolds. These are characterized by the fact that they somehow are smooth, and that locally, i.e., in for sufficiently small neighborhoods of points (if one zooms in on any point), they look like flat space, i.e., <span class="math inline">\(\RR^n\)</span> (or <span class="math inline">\(\CC^n\)</span> for complex manifolds). Thus, differential geometry combines multivariate calculus and linear algebra. One has infinite dimensional versions of the theory, as well, where the modelling spaces are infinite dimensional Banach or Hilbert spaces.</p>
 <p>Differential geometry is very useful for abstract understanding of manybody wavefunction methods. For example, the concept of orbital invariance in CASSCF, or the manifold structure of the Hartree-Fock or coupled-cluster methods. See also lie group theory.</p>
 <p>Differential geometry is also the foundation for general relativity, and, to a lesser extent, special relativity.</p>
@@ -243,7 +250,7 @@ Manifolds, Tensor Analysis, and Applications by Ralph Abraham, Jerrold E. Marsde
 </div>
 <p><img src="../assets/Attachments/Pasted%20image%2020240829164212.png" width="300" alt="Pasted image 20240829164212.png"> Springer (1988) Weblink: https://link.springer.com/book/10.1007/978-1-4612-1029-0 Archived book: https://archive.org/details/manifoldstensora00abra_0</p>
 </div>
-<h2 id="convex-analysis">Convex Analysis</h2>
+<h2 id="convex-analysis">Convex Analysis ◇</h2>
 <p>Convex analysis deals with convex sets and functions. It is an important branch of mathematics, since many optimization problems in science enjoy the property of convexity. Convex analysis introduces a duality transformation, the Legendre-Fenchel transformation, which in many ways are analogous to the Fourier transform.</p>
 <p>Convex analysis plays a prominent role in the mathematical foundation of DFT, as pioneered by E.H. Lieb. The Legendre-Fenchel transformation is also important in thermodynamics.</p>
 <p>Convex analysis is a useful topic, especially if one wants to study DFT.</p>
@@ -255,7 +262,7 @@ Convex Analysis - An Introductory Text by Jan van Tiel
 <p><img src="../assets/Attachments/cover.jpg" width="300" alt="cover.jpg"> Wiley (1984)</p>
 <p>This is a slim book but highly readable!</p>
 </div>
-<h2 id="functional-analysis">Functional Analysis</h2>
+<h2 id="functional-analysis">Functional Analysis ◆</h2>
 <p>Functional analysis can be viewed as infinite dimensional linear algebra. Here, complete normed spaces (Banach spaces) and complete inner product spaces (Hilbert spaces) are studied, along with linear operators between such spaces. Functional analysis is the foundation of quantum mechanics, as done by J. von Neumann. In a way, one can say that the development of functional analysis in the early 20th century was motivated by placing quantum mechanics on rigorous ground.</p>
 <p>Functional analysis also provides the mathematical language for abstract treatment of PDEs such as the Schrödinger equation, the Kohn–Sham approach to DFT, Maxwell’s equations, and so on.</p>
 <p>Functional analysis is a very useful topic for quantum chemists, especially when you want to navigate the more mathematics heavy literature.</p>
@@ -269,15 +276,15 @@ Introductory Functional Analysis with Applications by Erwin Kreyszig
 <figcaption aria-hidden="true">Screenshot 2024-08-29 at 10.15.24.png</figcaption>
 </figure>
 </div>
-<h2 id="calculus-of-variations">♥ Calculus of Variations</h2>
+<h2 id="calculus-of-variations">Calculus of Variations ★</h2>
 <p>Calculus of variations deals with the optimization of nonlinear functionals, functions that map <em>functions</em> to scalars. Calculus of variations generalizes vector calculus to infinite dimensions, and as such could also be called “nonlinear functional analysis”. Calculus of variations is the correct framework for variational formulations of the laws of nature, from quantum field theory and QED to Hamilton’s equations of motion. Moreover, nonlinear approximations to the molecular Schrödinger equation such as Hartree-Fock is naturally formulated in this language.</p>
 <p>To have a basic grasp of calculus of variations is almost essential to quantum chemists. A basic knowledge does not require advanced functional analysis, even if the above paragraph gives such an expression.</p>
 <p>Calculus of variations is thus an exceedingly important topic in quantum chemistry.</p>
 <p>Recommended reading: - Goldstein, Safko and Poole, “Classical Mechanics” - Zeidler, “Nonlinear functional analysis” - …</p>
-<h2 id="ordinary-differential-equations">♥ Ordinary differential equations</h2>
+<h2 id="ordinary-differential-equations">Ordinary Differential Equations ★</h2>
 <p>Ordinary differential equations (ODEs) describe initial value and boundary value problems of scalar quantities, or coupled such equations. From classical mechanics to rate equations, ODEs permeate theoretical chemistry, and having a basic understanding of essential mathematical results is absolutely essential.</p>
 <p>Recommended reading: * …</p>
-<h2 id="partial-differential-equations">Partial differential equations</h2>
+<h2 id="partial-differential-equations">Partial Differential Equations ◆</h2>
 <p>Partial differential equations (PDEs) generalize ODEs to infinite dimensions, i.e., initial and boundary value problems where the unknown is no longer a scalar or a vector, but an element in a function space. Laws such as Einstein’s gravitation theory, transport of heat, chemical reaction-diffusion systems, Maxwell’s equations, the various Schrödinger equations, are all PDEs.</p>
 <p>PDEs are very important for quantum chemistry.</p>
 <p>Recommended reading:</p>
@@ -293,7 +300,7 @@ Functional Analysis, Sobolev Spaces, and Partial Differential Equations by Haim 
 </div>
 <p><img src="../assets/Attachments/Screenshot%202024-08-29%20at%2016.29.30.png" width="300" alt="Screenshot 2024-08-29 at 16.29.30.png"> Springer (2011) A highly readable book focusing on an abstract framework for PDEs. Weblink: https://link.springer.com/book/10.1007/978-0-387-70914-7</p>
 </div>
-<h2 id="operator-algebra">Operator Algebra</h2>
+<h2 id="operator-algebra">Operator Algebra ◇</h2>
 <p>In operator algebra, one studies algebras of operators over linear spaces, often Hilbert spaces. The algebras are often given structures inspired by quantum mechanics, such as canonical anticommutator or canonical commutator relations, e.g. the CAR and CCR algebras. It is a highly abstract branch of pure mathematics, and understanding the basic notions and results may be very useful for the study of manybody theory and quantum field theories.</p>
 <p>Recommended reading:</p>
 <div class="recommended-reading" title="Operator Algebras and Quantum Statistical Mechanics by Ola Bratteli and Derek W. Robinson">
@@ -317,7 +324,12 @@ A list of books for students studying operator algebras
 <ul>
 <li>See also <a href="../pages/recommended-general-mathematics-reading.html#mathematical-methods-in-physics-by-blanchard-and-br%C3%BCning">Recommended General Mathematics Reading</a></li>
 </ul>
-<h2 id="numerical-analysis">Numerical analysis</h2>
+<h2 id="probability-and-statistics">Probability and Statistics ★</h2>
+<p>Probability theory provides the mathematical framework for describing random variables, probability distributions, expectation values, correlations, and stochastic processes. Statistics uses probability theory to draw conclusions from data and to quantify uncertainty.</p>
+<p>Probability and statistics are increasingly important in quantum chemistry. They are central to Monte Carlo methods, including variational and diffusion Monte Carlo, and to the analysis of stochastic numerical methods. Statistical ideas are also needed for uncertainty quantification, error analysis, fitting models to data, and the interpretation of computational and experimental results. In addition, probability and statistics form part of the mathematical foundation of modern machine learning methods used in chemistry.</p>
+<p>At a basic level, a quantum chemist should be comfortable with probability distributions, expectation values, variance and covariance, conditional probability, and elementary statistical estimation. More specialized areas may require stochastic processes, Bayesian methods, Markov chains, and Monte Carlo sampling.</p>
+<p>Recommended reading: * …</p>
+<h2 id="numerical-analysis">Numerical Analysis ★</h2>
 <p>Most equations in quantum chemistry cannot be solved analytically, and must be approximated in finite precision arithmetic on computers. This is the area of numerical analysis. Here, numerical methods for differential equations are studied, as well as numerical linear algebra and eigenvalue finding algorithms, to name some topics.</p>
 <p>Numerical analysis is very important for developing and understanding computer implementations of quantum chemistry algorithms.</p>
 <p>Recommended reading:</p>
@@ -335,7 +347,7 @@ Fundamentals of Numerical Computation by Tobin A. Driscoll and Richard J. Braun
 <p><img src="../assets/Attachments/Pasted%20image%2020240830085921.png" width="300" alt="Pasted image 20240830085921.png"> SIAM</p>
 <p>A modern textbook of very high quality also available completely for free online. Python, MATLAB, and Julia versions. Link: https://tobydriscoll.net/book/fnc/index.html Complete book: https://tobydriscoll.net/fnc-julia/frontmatter.html</p>
 </div>
-<h2 id="optimization-and-root-finding">♥ Optimization and root finding</h2>
+<h2 id="optimization-and-root-finding">Optimization and Root Finding ★</h2>
 <p>Optimization, really a subfield of numerical analysis, deals with finding local or global extremal points of functions of several variables, as well as finding roots of systems of nonlinear equations. There are a multitude of algorithms, such as the method of steepest descent, Newton, and quasi-Newton methods. A very important topic for students of quantum chemistry, as many computational problems end up as an optimization problem.</p>
 <p>Recommended reading:</p>
 <div class="recommended-reading" title="Numerical Optimization by Jorge Nocedal and Stephen J. Wright">
@@ -345,6 +357,3 @@ Numerical Optimization by Jorge Nocedal and Stephen J. Wright
 <p><img src="../assets/Attachments/Screenshot%202024-08-30%20at%2008.46.35.png" width="300" alt="Screenshot 2024-08-30 at 08.46.35.png"> Springer (2006) Link to PDF (for preview): https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf Link: https://link.springer.com/book/10.1007/978-0-387-40065-5</p>
 <p>This is an excellent book which I have used a lot.</p>
 </div>
-<ul>
-<li></li>
-</ul>

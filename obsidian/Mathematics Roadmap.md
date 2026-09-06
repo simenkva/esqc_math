@@ -1,4 +1,3 @@
-# A mathematical roadmap for quantum chemistry
 
 This text accompanies the [[Mathematics.canvas|Mathematics]] canvas. 
 
@@ -6,12 +5,22 @@ Each box contains one field, or topic, and they are connected to other boxes wit
 
 Of course, many more arrows could be drawn, and many more boxes could be added. In order to make the graph not too cluttered and confusing, we keep only main links.
 
-**NOTE:** Topics marked with a ♥ are considered of prime importance to any quantum chemist, regardless of their specialization.
+## Ranking mathematical topics for quantum chemistry
+
+In the canvas, we rank mathematical topics according to how important they are for understanding and working with quantum chemistry. Let us explain what we mean, since interpreting the rankings wrongly can give the wrong impression of what knowledge is needed.
+
+The ranking refers primarily to **conceptual understanding and the ability to apply mathematical results**, rather than to formal mathematical mastery. A quantum chemist will usually need to understand what a theorem, construction, or mathematical object means and how it can be used, but will much less often need to reproduce its formal proof, or derive new results.
+
++ ★ : **Core knowledge.** Mathematical concepts and techniques that every working quantum chemist should understand and be able to use. Formal mastery is not implied. Instead, the emphasis is on understanding the main ideas, interpreting the relevant mathematical objects and results, and applying them correctly in quantum-chemical contexts.
+
++ ◆ : **Valuable knowledge.** Mathematics that a quantum chemist should ideally be familiar with and recognize when encountered. Some working knowledge is valuable, particularly for understanding the theoretical foundations of quantum chemistry and navigating more mathematically oriented literature, but detailed technical knowledge is usually not required.
+
++ ◇ : **Specialized knowledge.** Mathematics that is not generally needed in quantum chemistry, but that can become useful or important in particular areas or specializations. Most quantum chemists need not study these topics systematically, if at all.
+
+Topics **not marked** are included primarily to place the other subjects in context of the broader mathematical landscape. They are interesting and important areas of mathematics, but have comparatively little direct relevance to most quantum-chemical work.
 
 
-
-## Logic and Set Theory
-
+## Logic and Set Theory ◆
 
 Logic is the branch of mathematics and philosophy that deals with reasoning, the principles of valid inference, and the structure of propositions, i.e., mathematical statements. It provides the formal framework used to analyze and construct mathematical proofs, ensuring that conclusions follow from premises in a valid and systematic way.
 
@@ -56,7 +65,7 @@ Recommended reading:
 
 
 
-## Discrete Mathematics
+## Discrete Mathematics ◇
 
 Lorem ipsum ...
 Recommended reading:
@@ -78,7 +87,7 @@ Recommended reading:
 >
 
 
-## Abstract Algebra
+## Abstract Algebra ◇
 
 In abstract algebra, sets are given *mathematical structure* in the form of binary operations and various axioms that define what it is to be, e.g., a *group*. Thus, a group is defined in terms of its essential features, and not its concrete realizations. For example, the group $\mathbb{Z}_4 = \{0, 1, 2, 3\}$ with group operation of addition modulo 4, compared to the matrix group consisting of powers of the matrix $[[0, 1], [-1, 0]]$.
 
@@ -93,8 +102,7 @@ Recommended reading:
 >Archived book: https://archive.org/details/firstcourseinabs07edfral
 
 
-## ♥ Group Theory
-
+## Group Theory ◆
 
 Group theory is the study of abstract groups and their representations. Lie groups are groups that are also differentiable manifolds (see Differential Geometry). Group theory permeates theoretical physics and chemistry, giving an axiomatic treatment of symmetry. Representation theory studies groups represented as linear operators or matrices acting on vector spaces.
 
@@ -112,7 +120,7 @@ Recommended reading:
 >
 
 
-## Number systems
+## Number Systems ★
 
 The axiomatic definition of the natural numbers using set theory is one of the simplest examples of how set theory serves as foundation for mathematics. The natural numbers are again used to define the integers, rational numbers, real numbers, and complex numbers. These sets are of course among the most important mathematical objects in the sciences. The number systems are again examples of algebraic structures: the integers form a group under addition, the real and complex numbers form fields.
 
@@ -120,11 +128,11 @@ Clearly, understanding numbers is essential to any scientific study. On the othe
 
 Recommended reading:
 
-* See [[#Logic and Set Theory]]
+* See [[#Logic and Set Theory ◆]]
 
 
 
-## Topology
+## Topology ◇
 
 Topology is the study of open and closed sets, and the concept of continuity. A topological space is a set together with a collection of subsets called open subsets, and axioms that these have to obey. From this, topological spaces are generated, allowing us to talk about "closeness" of elements in the set. For example, a metric is an example of a structure that gives rise to a particular kind of topology, that formalizes the notion of distance between points.
 
@@ -144,7 +152,7 @@ Recommended reading:
 >Link to PDF (for preview): https://people.math.ethz.ch/~dkosanovic/24-FS/Munkres-Topology.pdf
 >
 
-## Measure and integration
+## Measure and Integration ◆
 
 Measure theory develops abstract notions of length, area, volume, etc., and allows to speak about such notions in potentially very abstract spaces. For example, the Dirac delta function is rigorously defined using measure theory. 
 
@@ -160,7 +168,7 @@ Recommended reading:
 >A slim yet classic textbook on measure and integration.
 
 
-## Distribution theory
+## Distribution Theory ◆
 
 With distribution theory one extends the concept of functions to include objects, known as _distributions_ or _generalized functions_, which can be used to rigorously define operations like differentiation even for functions that are not classically differentiable. This theory is particularly useful in handling singularities or discontinuities, such as the Dirac delta function, which models an infinitely concentrated point of mass or charge. Distribution theory provides a powerful framework for solving partial differential equations, e.g., using Green's functions.
 
@@ -181,8 +189,7 @@ Recommended reading:
 
 
 
-## ♥ Linear Algebra
-
+## Linear Algebra ★
 
 In linear algebra, one studies linear vector spaces and linear functions between such spaces. Typical, and indeed archetypal, examples are $\mathbb{R}^n$ and $\mathbb{C}^n$, and $n\times m$ matrices with complex or real entries. It is no exaggeration that linear algebra is perhaps the most important tool in science, being at the heart of everything from quantum mechanics, data analysis, and numerical methods for the solution of partial differential equations.
 
@@ -205,7 +212,7 @@ Recommended reading:
 > 
 >
 
-## Multilinear algebra
+## Multilinear Algebra ◆
 
 In multilinear algebra, linear maps between vector spaces are generalized to maps over several vector spaces to several vector spaces at once, i.e., tensors. Multilinear algebra is rarely taught together with linear algebra, but could well be a subtopic in an advanced course, especially considering it is an important part of modern machine learning methodology. Multilinear algebra finds important use cases in differential geometry, as well as appearing naturally in calculus of several variables. Tensors are also integral to manybody methods like coupled-cluster theory or configuration-interaction theort.
 
@@ -229,7 +236,7 @@ Recommended reading:
 >The author's name is not disclosed, but the professor that taught the course in 2016 was [Prof. Dr. Özlem Imamoḡlu](https://people.math.ethz.ch/~oezlemi/)
 
 
-## ♥ Calculus
+## Calculus ★
 
 Calculus is the branch of mathematics that studies continuous change and is divided into two main areas: differential calculus and integral calculus. Differential calculus focuses on the concept of the derivative, rates of change. Integral calculus, on the other hand, deals with the concept of the integral.
 
@@ -242,7 +249,7 @@ Recommended reading:
 >![[Marsden_frontpage.png|300]]
 >
 
-## Complex analysis
+## Complex Analysis ◆
 
 Complex analysis studies the calculus of functions of complex variables. For complex functions, being differentiable is a much more restricting requirement than for real functions, leading to surprising and very strong results of great use in physics and chemistry. Since real functions often are special cases of complex functions, complex analysis is very useful even if complex numbers do not show up at all in a theory.
 
@@ -261,7 +268,7 @@ Recommended reading:
 
 
 
-## Differential Geometry
+## Differential Geometry ◇
 
 Differential geometry studies curves, surfaces, and higher-dimensional analogues from an abstract perspective, called differentiable manifolds. These are characterized by the fact that they somehow are smooth, and that locally, i.e., in for sufficiently small neighborhoods of points (if one zooms in on any point), they look like flat space, i.e., $\RR^n$ (or $\CC^n$ for complex manifolds). Thus, differential geometry combines multivariate calculus and linear algebra. One has infinite dimensional versions of the theory, as well, where the modelling spaces are infinite dimensional Banach or Hilbert spaces.
 
@@ -310,7 +317,7 @@ Recommended reading:
 
 
 
-## Convex Analysis
+## Convex Analysis ◇
 
 Convex analysis deals with convex sets and functions. It is an important branch of mathematics, since many optimization problems in science enjoy the property of convexity. Convex analysis introduces a duality transformation, the Legendre-Fenchel transformation, which in many ways are analogous to the Fourier transform.
 
@@ -328,9 +335,7 @@ Recommended reading:
 
 
 
-## Functional Analysis
-
-
+## Functional Analysis ◆
 
 Functional analysis can be viewed as infinite dimensional linear algebra. Here, complete normed spaces (Banach spaces) and complete inner product spaces (Hilbert spaces) are studied, along with linear operators between such spaces. Functional analysis is the foundation of quantum mechanics, as done by J. von Neumann. In a way, one can say that the development of functional analysis in the early 20th century was motivated by placing quantum mechanics on rigorous ground.
 
@@ -344,7 +349,7 @@ Recommended reading:
 > ![[Screenshot 2024-08-29 at 10.15.24.png|300]]
 
 
-## ♥ Calculus of Variations
+## Calculus of Variations ★
 
 Calculus of variations deals with the optimization of nonlinear functionals, functions that map _functions_ to scalars. Calculus of variations generalizes vector calculus to infinite dimensions, and as such could also be called "nonlinear functional analysis". Calculus of variations is the correct framework for variational formulations of the laws of nature, from quantum field theory and QED to Hamilton's equations of motion. Moreover, nonlinear approximations to the molecular Schrödinger equation such as Hartree-Fock is naturally formulated in this language.
 
@@ -358,14 +363,14 @@ Recommended reading:
 - ...
 
 
-## ♥ Ordinary differential equations
+## Ordinary Differential Equations ★
 
 Ordinary differential equations (ODEs) describe initial value and boundary value problems of scalar quantities, or coupled such equations. From classical mechanics to rate equations, ODEs permeate theoretical chemistry, and having a basic understanding of essential mathematical results is absolutely essential.
 
 Recommended reading:
 * ...
 
-## Partial differential equations
+## Partial Differential Equations ◆
 
 Partial differential equations (PDEs) generalize ODEs to infinite dimensions, i.e., initial and boundary value problems where the unknown is no longer a scalar or a vector, but an element in a function space. Laws such as Einstein's gravitation theory, transport of heat, chemical reaction-diffusion systems, Maxwell's equations, the various Schrödinger equations, are all PDEs.
 
@@ -387,7 +392,7 @@ Recommended reading:
   
  
 
-## Operator Algebra
+## Operator Algebra ◇
 
 In operator algebra, one studies algebras of operators over linear spaces, often Hilbert spaces. The algebras are often given structures inspired by quantum mechanics, such as canonical anticommutator or canonical commutator relations, e.g. the CAR and CCR algebras. It is a highly abstract branch of pure mathematics, and understanding the basic notions and results may be very useful for the study of manybody theory and quantum field theories.
 
@@ -418,7 +423,18 @@ Recommended reading:
 
 
 
-## Numerical analysis
+## Probability and Statistics ★
+
+Probability theory provides the mathematical framework for describing random variables, probability distributions, expectation values, correlations, and stochastic processes. Statistics uses probability theory to draw conclusions from data and to quantify uncertainty.
+
+Probability and statistics are increasingly important in quantum chemistry. They are central to Monte Carlo methods, including variational and diffusion Monte Carlo, and to the analysis of stochastic numerical methods. Statistical ideas are also needed for uncertainty quantification, error analysis, fitting models to data, and the interpretation of computational and experimental results. In addition, probability and statistics form part of the mathematical foundation of modern machine learning methods used in chemistry.
+
+At a basic level, a quantum chemist should be comfortable with probability distributions, expectation values, variance and covariance, conditional probability, and elementary statistical estimation. More specialized areas may require stochastic processes, Bayesian methods, Markov chains, and Monte Carlo sampling.
+
+Recommended reading:
+* ...
+
+## Numerical Analysis ★
 
 Most equations in quantum chemistry cannot be solved analytically, and must be approximated in finite precision arithmetic on computers. This is the area of numerical analysis. Here, numerical methods for differential equations are studied, as well as numerical linear algebra and eigenvalue finding algorithms, to name some topics.
 
@@ -442,7 +458,7 @@ Recommended reading:
 >
 
 
-## ♥ Optimization and root finding
+## Optimization and Root Finding ★
 
 Optimization, really a subfield of numerical analysis, deals with finding local or global extremal points of functions of several variables, as well as finding roots of systems of nonlinear equations. There are a multitude of algorithms, such as the method of steepest descent, Newton, and quasi-Newton methods. A very important topic for students of quantum chemistry, as many computational problems end up as an optimization problem.
 
@@ -455,4 +471,3 @@ Recommended reading:
 >
 > This is an excellent book which I have used a lot.
 > 
--

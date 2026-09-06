@@ -1,30 +1,21 @@
 {
 	"nodes":[
+		{"id":"90a0247f03da3e39","x":-280,"y":320,"width":495,"height":282,"color":"4","type":"group","label":"Legend"},
 		{
 			"id":"3da9e6d4d058fc9d",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Number systems|Number Systems]]\n- Integers\n- Real and complex numbers",
+			"text":"### [[Mathematics Roadmap#Number Systems ★|Number Systems ★]]\n- Integers\n- Real and complex numbers",
 			"styleAttributes":{},
 			"x":-1500,
 			"y":-330,
 			"width":340,
 			"height":140,
-			"color":"3"
-		},
-		{
-			"id":"cc00d3e097872c8f",
-			"type":"file",
-			"file":"Mathematics Roadmap.md",
-			"styleAttributes":{},
-			"x":-3280,
-			"y":-1189,
-			"width":760,
-			"height":738
+			"color":"7"
 		},
 		{
 			"id":"f98be4aaf27ccb77",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#♥ Linear Algebra|♥  Linear Algebra]]\n- Vector spaces, matrices, ...\n- Norm, inner product ...",
+			"text":"### [[Mathematics Roadmap#Linear Algebra ★|Linear Algebra ★]]\n- Vector spaces, matrices, ...\n- Norm, inner product ...",
 			"styleAttributes":{
 				"shape":null
 			},
@@ -32,227 +23,271 @@
 			"y":-565,
 			"width":340,
 			"height":155,
-			"color":"1"
+			"color":"7"
 		},
 		{
 			"id":"42d9da682c122038",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Discrete Mathematics|Discrete mathematics]]\n- Foundation for Computer Science\n- Combinatorics\n- Graph theory\n- Number theory\n- Algorithms and complexity\n",
+			"text":"### [[Mathematics Roadmap#Discrete Mathematics ◇|Discrete Mathematics ◇]]\n- Foundation for Computer Science\n- Combinatorics\n- Graph theory\n- Number theory\n- Algorithms and complexity\n",
 			"styleAttributes":{},
 			"x":-2000,
 			"y":-64,
 			"width":344,
 			"height":216,
-			"color":"3"
+			"color":"9"
 		},
 		{
 			"id":"230433998a4c183c",
 			"type":"text",
-			"text":"###  [[Mathematics Roadmap#Logic and Set Theory|Logic and Set Theory]]\n- Zermelo-Fraenkel with Axiom of Choice (ZFC)\n- Conventional foundation of mathematics\n- Metamathematics\n- Axioms, theorems, proofs",
+			"text":"###  [[Mathematics Roadmap#Logic and Set Theory ◆|Logic and Set Theory ◆]]\n- Zermelo-Fraenkel with Axiom of Choice (ZFC)\n- Conventional foundation of mathematics\n- Metamathematics\n- Axioms, theorems, proofs",
 			"styleAttributes":{},
 			"x":-2000,
 			"y":-380,
 			"width":344,
 			"height":240,
-			"color":"2"
+			"color":"8"
 		},
 		{
 			"id":"9f6169c85d3c439d",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Abstract Algebra|Abstract Algebra]]\n- Axiomatic algebraic structures",
+			"text":"### [[Mathematics Roadmap#Abstract Algebra ◇|Abstract Algebra ◇]]\n- Axiomatic algebraic structures",
 			"styleAttributes":{},
 			"x":-2000,
 			"y":-608,
 			"width":344,
 			"height":152,
-			"color":"3"
+			"color":"9"
 		},
 		{
 			"id":"fc67d1bcdfb076db",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Operator algebra|Operator Algebra]]\n- C*-algebras\n- von Neumann algebras\n- Second quantization",
+			"text":"### [[Mathematics Roadmap#Operator Algebra ◇|Operator Algebra ◇]]\n- C*-algebras\n- von Neumann algebras\n- Second quantization",
 			"styleAttributes":{},
 			"x":-2000,
 			"y":-896,
 			"width":344,
 			"height":197,
-			"color":"3"
+			"color":"9"
 		},
 		{
 			"id":"1db8fb1ab9729cf8",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Functional Analysis|Functional analysis]]\n- Infinite dimensions\n- Topological vector spaces\n- Banach spaces\n- Hilbert spaces",
+			"text":"### [[Mathematics Roadmap#Functional Analysis ◆|Functional Analysis ◆]]\n- Infinite dimensions\n- Topological vector spaces\n- Banach spaces\n- Hilbert spaces",
 			"styleAttributes":{},
 			"x":-1510,
 			"y":-907,
 			"width":360,
 			"height":220,
-			"color":"3"
+			"color":"8"
 		},
 		{
 			"id":"26e102e26058fb30",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Convex Analysis|Convex analysis]]\n- Convex sets and functions\n- Convex optimization problems\n- Legendre transformations",
+			"text":"### [[Mathematics Roadmap#Convex Analysis ◇|Convex Analysis ◇]]\n- Convex sets and functions\n- Convex optimization problems\n- Legendre transformations",
 			"styleAttributes":{},
 			"x":-1510,
 			"y":-1130,
 			"width":360,
 			"height":155,
-			"color":"3"
+			"color":"9"
 		},
 		{
 			"id":"1bb7562dab7c829b",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#♥ Ordinary differential equations|♥ Ordinary differential equations]]\n",
+			"text":"### [[Mathematics Roadmap#Ordinary Differential Equations ★|Ordinary Differential Equations ★]]\n",
 			"styleAttributes":{},
 			"x":-330,
 			"y":-1009,
 			"width":351,
 			"height":122,
-			"color":"3"
+			"color":"7"
 		},
 		{
 			"id":"8af5a1140aeb61d5",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Partial differential equations|Partial Differential Equations]]\n- Existence and uniqueness\n- Variational formulations",
+			"text":"### [[Mathematics Roadmap#Partial Differential Equations ◆|Partial Differential Equations ◆]]\n- Existence and uniqueness\n- Variational formulations",
 			"styleAttributes":{},
 			"x":-330,
 			"y":-789,
 			"width":351,
 			"height":181,
-			"color":"3"
+			"color":"8"
 		},
 		{
 			"id":"341ac5dca559916b",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Measure and integration|Measure and Integration]]\n- Borel measure\n- Lebesgue integral\n- $L^p$-spaces",
+			"text":"### [[Mathematics Roadmap#Measure and Integration ◆|Measure and Integration ◆]]\n- Borel measure\n- Lebesgue integral\n- $L^p$-spaces",
 			"styleAttributes":{},
 			"x":-1500,
 			"y":-46,
 			"width":344,
 			"height":198,
-			"color":"3"
+			"color":"8"
 		},
 		{
 			"id":"0c7e797ed4d3be03",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Differential geometry|Differential Geometry]]\n- Manifolds\n- Tensors\n- Exterior calculus",
+			"text":"### [[Mathematics Roadmap#Differential Geometry ◇|Differential Geometry ◇]]\n- Manifolds\n- Tensors\n- Exterior calculus",
 			"styleAttributes":{},
 			"x":-949,
 			"y":-208,
 			"width":340,
 			"height":205,
-			"color":"3"
+			"color":"9"
 		},
 		{
 			"id":"b5827cc25d7fa73b",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Distribution theory| Distribution Theory]]\n- Generalized functions\n- Dirac delta\n- Fourier transforms",
+			"text":"### [[Mathematics Roadmap#Distribution Theory ◆|Distribution Theory ◆]]\n- Generalized functions\n- Dirac delta\n- Fourier transforms",
 			"styleAttributes":{},
 			"x":-949,
 			"y":-712,
 			"width":340,
 			"height":198,
-			"color":"3"
+			"color":"8"
 		},
 		{
 			"id":"83b409a78f3ae4a3",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Category Theory|Category theory]]\n- Abstract mathematical structures and their relationships",
+			"text":"### [[Mathematics Roadmap#Category Theory|Category Theory]]\n- Abstract mathematical structures and their relationships",
 			"styleAttributes":{},
 			"x":-2435,
 			"y":-344,
 			"width":334,
 			"height":169,
-			"color":"3"
+			"color":"10"
 		},
 		{
 			"id":"17f22903c3642e98",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#♥ Group Theory|♥ Group Theory]]\n- Symmetries\n- Discrete groups \n- Lie groups\n- Representation theory",
+			"text":"### [[Mathematics Roadmap#Group Theory ◆|Group Theory ◆]]\n- Symmetries\n- Discrete groups \n- Lie groups\n- Representation theory",
 			"styleAttributes":{},
 			"x":-2440,
 			"y":-640,
 			"width":344,
 			"height":216,
-			"color":"1"
+			"color":"8"
 		},
 		{
 			"id":"c8f75bb94331221f",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Topology|Topology]]\n- Open and closed sets\n- Continuity and convergence\n- Metric spaces",
+			"text":"### [[Mathematics Roadmap#Topology ◇|Topology ◇]]\n- Open and closed sets\n- Continuity and convergence\n- Metric spaces",
 			"styleAttributes":{},
 			"x":-1490,
 			"y":290,
 			"width":340,
 			"height":200,
-			"color":"3"
+			"color":"9"
 		},
 		{
 			"id":"85a4cd1855235b52",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#♥ Calculus of Variations|♥ Calculus of Variations]]\n- Calculus in infinite dimensions\n\n",
+			"text":"### [[Mathematics Roadmap#Calculus of Variations ★|Calculus of Variations ★]]\n- Calculus in infinite dimensions\n\n",
 			"styleAttributes":{},
 			"x":-949,
 			"y":-1150,
 			"width":340,
 			"height":195,
-			"color":"1"
+			"color":"7"
 		},
 		{
 			"id":"6704537f47e26d42",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Multilinear algebra|Multilinear Algebra]]\n- Tensors",
+			"text":"### [[Mathematics Roadmap#Multilinear Algebra ◆|Multilinear Algebra ◆]]\n- Tensors",
 			"styleAttributes":{},
 			"x":-949,
 			"y":-456,
 			"width":340,
 			"height":120,
-			"color":"3"
+			"color":"8"
 		},
 		{
 			"id":"fb17b4a5d10a95bd",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Numerical analysis|Numerical analysis]]\n- Finite precision arithmetic\n- Approximate solution of ODEs and PDEs\n- Numerical integration",
+			"text":"### [[Mathematics Roadmap#Numerical Analysis ★|Numerical Analysis ★]]\n- Finite precision arithmetic\n- Approximate solution of ODEs and PDEs\n- Numerical integration",
 			"styleAttributes":{},
 			"x":-330,
 			"y":-166,
 			"width":351,
 			"height":241,
-			"color":"3"
-		},
-		{
-			"id":"a4d4bfbb2fa0cc2b",
-			"type":"text",
-			"text":"### [[Mathematics Roadmap#♥ Optimization and root finding|♥ Optimization and Root Finding]]\n- Steepest descent\n- Newton and quasi-Newton methods\n- Linear programming\n- ...",
-			"styleAttributes":{},
-			"x":120,
-			"y":-166,
-			"width":351,
-			"height":241,
-			"color":"1"
+			"color":"7"
 		},
 		{
 			"id":"da16bbadd453714e",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Complex analysis|Complex Analysis]]\n- The theory of complex functions ",
+			"text":"### [[Mathematics Roadmap#Complex Analysis ◆|Complex Analysis ◆]]\n- The theory of complex functions ",
 			"styleAttributes":{},
 			"x":-920,
 			"y":600,
 			"width":340,
 			"height":172,
-			"color":"3"
+			"color":"8"
 		},
 		{
 			"id":"fa3666befbe7e033",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#♥ Calculus|♥ Calculus]]\n- The theory of functions\n- Differentiation and integration\n- Series expansions",
+			"text":"### [[Mathematics Roadmap#Calculus ★|Calculus ★]]\n- The theory of functions\n- Differentiation and integration\n- Series expansions",
 			"styleAttributes":{},
 			"x":-949,
 			"y":290,
 			"width":340,
 			"height":200,
-			"color":"1"
+			"color":"7"
+		},
+		{
+			"id":"c98a5dc278428c3d",
+			"type":"text",
+			"text":"# ★ Core",
+			"styleAttributes":{},
+			"x":-260,
+			"y":340,
+			"width":455,
+			"height":62,
+			"color":"7"
+		},
+		{
+			"id":"6f2f89044ff7b905",
+			"type":"text",
+			"text":"# ◆ Valuable",
+			"styleAttributes":{},
+			"x":-260,
+			"y":402,
+			"width":455,
+			"height":60,
+			"color":"8"
+		},
+		{
+			"id":"49642b65e3bbe910",
+			"type":"text",
+			"text":"# ◇ Specialized\n",
+			"styleAttributes":{},
+			"x":-260,
+			"y":462,
+			"width":455,
+			"height":60,
+			"color":"9"
+		},
+		{
+			"id":"d968fcb530aceb7d",
+			"type":"text",
+			"text":"# Other",
+			"styleAttributes":{},
+			"x":-260,
+			"y":522,
+			"width":455,
+			"height":60,
+			"color":"10"
+		},
+		{
+			"id":"a4d4bfbb2fa0cc2b",
+			"type":"text",
+			"text":"### [[Mathematics Roadmap#Optimization and Root Finding ★|Optimization and Root Finding ★]]\n- Steepest descent\n- Newton and quasi-Newton methods\n- Linear programming\n- ...",
+			"styleAttributes":{},
+			"x":-330,
+			"y":-487,
+			"width":351,
+			"height":241,
+			"color":"7"
 		}
 	],
 	"edges":[
@@ -508,9 +543,9 @@
 			"id":"a3ea7728922bbfec",
 			"styleAttributes":{},
 			"fromNode":"fb17b4a5d10a95bd",
-			"fromSide":"right",
+			"fromSide":"top",
 			"toNode":"a4d4bfbb2fa0cc2b",
-			"toSide":"left"
+			"toSide":"bottom"
 		}
 	],
 	"metadata":{}

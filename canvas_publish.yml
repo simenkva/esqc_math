@@ -3,6 +3,8 @@ vault:
     - "Canvas/**"
     - "Attachments/**"
     - "**/*.md"
+  exclude:
+    - "index.md"
 
 callouts:
   book: recommended-reading

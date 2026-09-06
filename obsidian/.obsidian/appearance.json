@@ -3,6 +3,7 @@
   "accentColor": "",
   "enabledCssSnippets": [
     "images",
-    "idea"
+    "idea",
+    "mathematics-canvas-colors"
   ]
 }
