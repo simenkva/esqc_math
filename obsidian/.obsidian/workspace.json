@@ -11,14 +11,17 @@
             "id": "f52567466027861c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Mathematics Roadmap.md",
-                "mode": "source",
-                "source": false
+                "file": "Canvas/Mathematics.canvas",
+                "viewState": {
+                  "x": -1155.6606218836566,
+                  "y": -278.5,
+                  "zoom": -1.7324225515035145
+                }
               },
-              "icon": "lucide-file",
-              "title": "Mathematics Roadmap"
+              "icon": "lucide-layout-dashboard",
+              "title": "Mathematics"
             }
           },
           {
@@ -194,10 +197,15 @@
   "active": "f52567466027861c",
   "lastOpenFiles": [
     "Canvas/Quantum Chemistry.canvas",
-    "Canvas/Mathematics.canvas",
     "Mathematics Roadmap.md",
-    "index.md",
+    "Attachments/51q29MALXRL._AC_UF1000,1000_QL80_.jpg",
+    "Attachments/71zJlN985cL._SL1500_.jpg",
+    "Canvas/Mathematics.canvas",
     "Recommended General Mathematics Reading.md",
+    "Attachments/s-l1200.jpg",
+    "Attachments/Screenshot 2026-09-08 at 15.35.14.png",
+    "Attachments/Screenshot 2026-09-08 at 15.31.31.png",
+    "index.md",
     "Recommended YouTube channels.md",
     "Canvas/Mathematics_updated.canvas",
     "Canvas/Mathematics_updated_symbols.canvas",
@@ -209,11 +217,6 @@
     "Attachments/Pasted image 20240830085921.png",
     "Attachments/Pasted image 20240830084959.png",
     "Attachments/Screenshot 2024-08-30 at 08.46.35.png",
-    "Attachments/Screenshot 2024-08-30 at 08.41.32.png",
-    "Attachments/Pasted image 20240829164212.png",
-    "Attachments/Pasted image 20240829163631.png",
-    "Attachments/Screenshot 2024-08-29 at 16.29.30.png",
-    "Attachments/Evans-frontpage.png",
-    "Attachments/Screenshot 2024-08-29 at 10.24.34.png"
+    "Attachments/Screenshot 2024-08-30 at 08.41.32.png"
   ]
 }

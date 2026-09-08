@@ -33,28 +33,6 @@
 			"color":"3"
 		},
 		{
-			"id":"277ab09a064b2f4e",
-			"type":"text",
-			"text":"### Group Theory",
-			"styleAttributes":{},
-			"x":-1800,
-			"y":-760,
-			"width":351,
-			"height":80,
-			"color":"3"
-		},
-		{
-			"id":"71ec556ff0bab569",
-			"type":"text",
-			"text":"### Functional analysis",
-			"styleAttributes":{},
-			"x":-1800,
-			"y":-1489,
-			"width":351,
-			"height":80,
-			"color":"3"
-		},
-		{
 			"id":"5f2ad72ff637c863",
 			"type":"text",
 			"text":"### Multilinear Algebra",
@@ -77,17 +55,6 @@
 			"color":"6"
 		},
 		{
-			"id":"ee4266c6b87d5cbe",
-			"type":"text",
-			"text":"### Ordinary Differential Equations",
-			"styleAttributes":{},
-			"x":-395,
-			"y":-2760,
-			"width":351,
-			"height":80,
-			"color":"3"
-		},
-		{
 			"id":"1dce365cb4f5bbc5",
 			"type":"text",
 			"text":"### Partial Differential Equations",
@@ -107,17 +74,6 @@
 			"y":-2760,
 			"width":351,
 			"height":80,
-			"color":"3"
-		},
-		{
-			"id":"22b65cfcfd3d6f02",
-			"type":"text",
-			"text":"### Convex Analysis",
-			"styleAttributes":{},
-			"x":-1800,
-			"y":-2262,
-			"width":351,
-			"height":85,
 			"color":"3"
 		},
 		{
@@ -153,28 +109,6 @@
 			"y":-1767,
 			"width":360,
 			"height":87,
-			"color":"5"
-		},
-		{
-			"id":"114ace6d4431c99e",
-			"type":"text",
-			"text":"### Coupled-Cluster Theory\n- Non-variational theory",
-			"styleAttributes":{},
-			"x":-1265,
-			"y":-1570,
-			"width":360,
-			"height":160,
-			"color":"5"
-		},
-		{
-			"id":"958f6b68e689af2a",
-			"type":"text",
-			"text":"### Many-body Perturbation Theory",
-			"styleAttributes":{},
-			"x":-1265,
-			"y":-1289,
-			"width":360,
-			"height":118,
 			"color":"5"
 		},
 		{
@@ -250,7 +184,7 @@
 		{
 			"id":"a12f5a258bbe8615",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Differential Geometry|Differential Geometry]]",
+			"text":"### Differential Geometry",
 			"styleAttributes":{},
 			"x":-825,
 			"y":-2561,
@@ -283,7 +217,7 @@
 		{
 			"id":"42169da2520d7fa8",
 			"type":"text",
-			"text":"### [[Mathematics Roadmap#Functional Analysis|Functional Analysis]]",
+			"text":"### Functional Analysis",
 			"styleAttributes":{},
 			"x":-745,
 			"y":-1409,
@@ -455,6 +389,116 @@
 			"width":351,
 			"height":80,
 			"color":"3"
+		},
+		{
+			"id":"ee4266c6b87d5cbe",
+			"type":"text",
+			"text":"### Ordinary Differential Equations",
+			"styleAttributes":{},
+			"x":-395,
+			"y":-2760,
+			"width":351,
+			"height":80,
+			"color":"3"
+		},
+		{
+			"id":"2dab352cde0358ee",
+			"type":"text",
+			"text":"### Dynamical Systems",
+			"styleAttributes":{},
+			"x":-825,
+			"y":-2760,
+			"width":351,
+			"height":80,
+			"color":"3"
+		},
+		{
+			"id":"277ab09a064b2f4e",
+			"type":"text",
+			"text":"### Group Theory",
+			"styleAttributes":{},
+			"x":-1800,
+			"y":-760,
+			"width":351,
+			"height":80,
+			"color":"3"
+		},
+		{
+			"id":"8cc79bebd0a81e56",
+			"type":"text",
+			"text":"### Quantum Information Theory",
+			"styleAttributes":{},
+			"x":-1800,
+			"y":-920,
+			"width":351,
+			"height":80,
+			"color":"3"
+		},
+		{
+			"id":"22b65cfcfd3d6f02",
+			"type":"text",
+			"text":"### Convex Analysis",
+			"styleAttributes":{},
+			"x":-1800,
+			"y":-2263,
+			"width":351,
+			"height":85,
+			"color":"3"
+		},
+		{
+			"id":"d7947c5b8c928777",
+			"type":"text",
+			"text":"### Optimization and Root Finding",
+			"styleAttributes":{},
+			"x":-1800,
+			"y":-1972,
+			"width":351,
+			"height":80,
+			"color":"3"
+		},
+		{
+			"id":"71ec556ff0bab569",
+			"type":"text",
+			"text":"### Functional analysis",
+			"styleAttributes":{},
+			"x":-1800,
+			"y":-1489,
+			"width":351,
+			"height":80,
+			"color":"3"
+		},
+		{
+			"id":"a0a1ca7f6c81bd92",
+			"type":"text",
+			"text":"### Calculus of Variations",
+			"styleAttributes":{},
+			"x":-1800,
+			"y":-1369,
+			"width":351,
+			"height":80,
+			"color":"3"
+		},
+		{
+			"id":"114ace6d4431c99e",
+			"type":"text",
+			"text":"### Coupled-Cluster Theory\n- Non-variational theory",
+			"styleAttributes":{},
+			"x":-1265,
+			"y":-1526,
+			"width":360,
+			"height":160,
+			"color":"5"
+		},
+		{
+			"id":"958f6b68e689af2a",
+			"type":"text",
+			"text":"### Many-body Perturbation Theory",
+			"styleAttributes":{},
+			"x":-1265,
+			"y":-1264,
+			"width":360,
+			"height":118,
+			"color":"5"
 		}
 	],
 	"edges":[
@@ -789,7 +833,11 @@
 			"fromSide":"right",
 			"toNode":"725c2f2bbbc4665c",
 			"toSide":"left"
-		}
+		},
+		{"id":"f724fdfba0b3a735","fromNode":"2dab352cde0358ee","fromSide":"right","toNode":"08d4f0f2211e5906","toSide":"left"},
+		{"id":"9136456228cbcae1","fromNode":"8cc79bebd0a81e56","fromSide":"right","toNode":"61e6dcb53f327d75","toSide":"left"},
+		{"id":"07c29f89409489d4","fromNode":"d7947c5b8c928777","fromSide":"right","toNode":"114ace6d4431c99e","toSide":"left"},
+		{"id":"75f86b0dc39ed96b","fromNode":"a0a1ca7f6c81bd92","fromSide":"right","toNode":"e9a09ecf38ef177e","toSide":"left"}
 	],
 	"metadata":{}
 }
