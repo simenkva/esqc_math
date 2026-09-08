@@ -577,6 +577,50 @@
         "node": "725c2f2bbbc4665c",
         "side": "left"
       }
+    },
+    {
+      "id": "f724fdfba0b3a735",
+      "source": {
+        "node": "2dab352cde0358ee",
+        "side": "right"
+      },
+      "target": {
+        "node": "08d4f0f2211e5906",
+        "side": "left"
+      }
+    },
+    {
+      "id": "9136456228cbcae1",
+      "source": {
+        "node": "8cc79bebd0a81e56",
+        "side": "right"
+      },
+      "target": {
+        "node": "61e6dcb53f327d75",
+        "side": "left"
+      }
+    },
+    {
+      "id": "07c29f89409489d4",
+      "source": {
+        "node": "d7947c5b8c928777",
+        "side": "right"
+      },
+      "target": {
+        "node": "114ace6d4431c99e",
+        "side": "left"
+      }
+    },
+    {
+      "id": "75f86b0dc39ed96b",
+      "source": {
+        "node": "a0a1ca7f6c81bd92",
+        "side": "right"
+      },
+      "target": {
+        "node": "e9a09ecf38ef177e",
+        "side": "left"
+      }
     }
   ],
   "extra": {
@@ -632,34 +676,6 @@
       "extra": {
         "styleAttributes": {}
       },
-      "fragmentUrl": "../fragments/canvas-quantum-chemistry--277ab09a064b2f4e.html",
-      "height": 80,
-      "id": "277ab09a064b2f4e",
-      "text": "### Group Theory",
-      "type": "text",
-      "width": 351,
-      "x": -1800,
-      "y": -760
-    },
-    {
-      "color": "3",
-      "extra": {
-        "styleAttributes": {}
-      },
-      "fragmentUrl": "../fragments/canvas-quantum-chemistry--71ec556ff0bab569.html",
-      "height": 80,
-      "id": "71ec556ff0bab569",
-      "text": "### Functional analysis",
-      "type": "text",
-      "width": 351,
-      "x": -1800,
-      "y": -1489
-    },
-    {
-      "color": "3",
-      "extra": {
-        "styleAttributes": {}
-      },
       "fragmentUrl": "../fragments/canvas-quantum-chemistry--5f2ad72ff637c863.html",
       "height": 77,
       "id": "5f2ad72ff637c863",
@@ -690,20 +706,6 @@
       "extra": {
         "styleAttributes": {}
       },
-      "fragmentUrl": "../fragments/canvas-quantum-chemistry--ee4266c6b87d5cbe.html",
-      "height": 80,
-      "id": "ee4266c6b87d5cbe",
-      "text": "### Ordinary Differential Equations",
-      "type": "text",
-      "width": 351,
-      "x": -395,
-      "y": -2760
-    },
-    {
-      "color": "3",
-      "extra": {
-        "styleAttributes": {}
-      },
       "fragmentUrl": "../fragments/canvas-quantum-chemistry--1dce365cb4f5bbc5.html",
       "height": 80,
       "id": "1dce365cb4f5bbc5",
@@ -726,20 +728,6 @@
       "width": 351,
       "x": 560,
       "y": -2760
-    },
-    {
-      "color": "3",
-      "extra": {
-        "styleAttributes": {}
-      },
-      "fragmentUrl": "../fragments/canvas-quantum-chemistry--22b65cfcfd3d6f02.html",
-      "height": 85,
-      "id": "22b65cfcfd3d6f02",
-      "text": "### Convex Analysis",
-      "type": "text",
-      "width": 351,
-      "x": -1800,
-      "y": -2262
     },
     {
       "color": "5",
@@ -784,34 +772,6 @@
       "width": 360,
       "x": -1265,
       "y": -1767
-    },
-    {
-      "color": "5",
-      "extra": {
-        "styleAttributes": {}
-      },
-      "fragmentUrl": "../fragments/canvas-quantum-chemistry--114ace6d4431c99e.html",
-      "height": 160,
-      "id": "114ace6d4431c99e",
-      "text": "### Coupled-Cluster Theory\n- Non-variational theory",
-      "type": "text",
-      "width": 360,
-      "x": -1265,
-      "y": -1570
-    },
-    {
-      "color": "5",
-      "extra": {
-        "styleAttributes": {}
-      },
-      "fragmentUrl": "../fragments/canvas-quantum-chemistry--958f6b68e689af2a.html",
-      "height": 118,
-      "id": "958f6b68e689af2a",
-      "text": "### Many-body Perturbation Theory",
-      "type": "text",
-      "width": 360,
-      "x": -1265,
-      "y": -1289
     },
     {
       "color": "5",
@@ -909,7 +869,7 @@
       "fragmentUrl": "../fragments/canvas-quantum-chemistry--a12f5a258bbe8615.html",
       "height": 80,
       "id": "a12f5a258bbe8615",
-      "text": "### [[Mathematics Roadmap#Differential Geometry|Differential Geometry]]",
+      "text": "### Differential Geometry",
       "type": "text",
       "width": 351,
       "x": -825,
@@ -951,7 +911,7 @@
       "fragmentUrl": "../fragments/canvas-quantum-chemistry--42169da2520d7fa8.html",
       "height": 80,
       "id": "42169da2520d7fa8",
-      "text": "### [[Mathematics Roadmap#Functional Analysis|Functional Analysis]]",
+      "text": "### Functional Analysis",
       "type": "text",
       "width": 351,
       "x": -745,
@@ -1166,6 +1126,146 @@
       "width": 351,
       "x": 736,
       "y": -1243
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--ee4266c6b87d5cbe.html",
+      "height": 80,
+      "id": "ee4266c6b87d5cbe",
+      "text": "### Ordinary Differential Equations",
+      "type": "text",
+      "width": 351,
+      "x": -395,
+      "y": -2760
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--2dab352cde0358ee.html",
+      "height": 80,
+      "id": "2dab352cde0358ee",
+      "text": "### Dynamical Systems",
+      "type": "text",
+      "width": 351,
+      "x": -825,
+      "y": -2760
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--277ab09a064b2f4e.html",
+      "height": 80,
+      "id": "277ab09a064b2f4e",
+      "text": "### Group Theory",
+      "type": "text",
+      "width": 351,
+      "x": -1800,
+      "y": -760
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--8cc79bebd0a81e56.html",
+      "height": 80,
+      "id": "8cc79bebd0a81e56",
+      "text": "### Quantum Information Theory",
+      "type": "text",
+      "width": 351,
+      "x": -1800,
+      "y": -920
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--22b65cfcfd3d6f02.html",
+      "height": 85,
+      "id": "22b65cfcfd3d6f02",
+      "text": "### Convex Analysis",
+      "type": "text",
+      "width": 351,
+      "x": -1800,
+      "y": -2263
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--d7947c5b8c928777.html",
+      "height": 80,
+      "id": "d7947c5b8c928777",
+      "text": "### Optimization and Root Finding",
+      "type": "text",
+      "width": 351,
+      "x": -1800,
+      "y": -1972
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--71ec556ff0bab569.html",
+      "height": 80,
+      "id": "71ec556ff0bab569",
+      "text": "### Functional analysis",
+      "type": "text",
+      "width": 351,
+      "x": -1800,
+      "y": -1489
+    },
+    {
+      "color": "3",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--a0a1ca7f6c81bd92.html",
+      "height": 80,
+      "id": "a0a1ca7f6c81bd92",
+      "text": "### Calculus of Variations",
+      "type": "text",
+      "width": 351,
+      "x": -1800,
+      "y": -1369
+    },
+    {
+      "color": "5",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--114ace6d4431c99e.html",
+      "height": 160,
+      "id": "114ace6d4431c99e",
+      "text": "### Coupled-Cluster Theory\n- Non-variational theory",
+      "type": "text",
+      "width": 360,
+      "x": -1265,
+      "y": -1526
+    },
+    {
+      "color": "5",
+      "extra": {
+        "styleAttributes": {}
+      },
+      "fragmentUrl": "../fragments/canvas-quantum-chemistry--958f6b68e689af2a.html",
+      "height": 118,
+      "id": "958f6b68e689af2a",
+      "text": "### Many-body Perturbation Theory",
+      "type": "text",
+      "width": 360,
+      "x": -1265,
+      "y": -1264
     }
   ],
   "options": {

@@ -1,5 +1,13 @@
 {
   "entries": {
+    "assets/Attachments/51q29MALXRL._AC_UF1000,1000_QL80_.jpg": {
+      "key": "f35e0c892b2462ed3246dd927ebc96827e7c0fdd8f0f1802ffd977e24de113e1",
+      "object": "7bf97b472040db9df74c99e228b0e6d884c4ca2eb0ad8c05525e1a2eea29b6d2"
+    },
+    "assets/Attachments/71zJlN985cL._SL1500_.jpg": {
+      "key": "dd08822839683e73c3b089661e8a00487a847e2f0cf920b775c633da346d8244",
+      "object": "21d32d97787bee1b647062a11dd3326a60a58a214f0dfbee619472d2cb029a61"
+    },
     "assets/Attachments/Arfken.png": {
       "key": "923f8813c8ecb4aa74f35c65214a2cf051f47d781f0afa222583688f31bf0b18",
       "object": "c117f977f05f326e8cf4351741ace14d98c2bd13fad597491686380b185d034b"
@@ -124,6 +132,14 @@
       "key": "8fbe5b398e87fd1b24219bdc7f738c57920561b5a0c27f4ec68cd8afa3c911d7",
       "object": "0933b11a2ca8c89e5e88eeb72683b5f636f8ab5cd7aca8e34d56612764de123b"
     },
+    "assets/Attachments/Screenshot 2026-09-08 at 15.31.31.png": {
+      "key": "b9edab8b6c1a448acfce5607594e95d7d43ecc07a8d28f5975c98dcd000f231d",
+      "object": "ffd1383549fd7f74ceb9567126721a56961648d861e126166cf90e2a2f8d0104"
+    },
+    "assets/Attachments/Screenshot 2026-09-08 at 15.35.14.png": {
+      "key": "e1be324de38019534a67002c10fec0e3a5d294a9850837ce15b7e23379548268",
+      "object": "9e9a5daf6e0eab95da563e9a0bbb43b41056fee16701f62ccd96acfacd949807"
+    },
     "assets/Attachments/Strang.png": {
       "key": "4deda489f51b02e360a81c8e32fe3f84bf8b355e413e5c9a12854d69ae80b7bb",
       "object": "f44566200b3fe8d1288c03277309b8dd7879f859dcf7f65d02b6c2e5c3b7a16f"
@@ -152,37 +168,37 @@
       "key": "f644d67d5faec714b88516c64d2d0d6289cf48888977df8732d500d5af9a61ce",
       "object": "f0ec1c3d455441d51aade906a55e34ef235366e9469e7e28ea8d39e61817ce1a"
     },
+    "assets/Attachments/s-l1200.jpg": {
+      "key": "78f9c6625fcab6b0243ac986f94318192f3cbeec76279fe353789b9a2d3d3a73",
+      "object": "1b2caea53c9e206d39149e31f6850a6b3656fc4d356587557910cbcb396aeacb"
+    },
     "canvases/canvas-mathematics-fallback.html": {
-      "key": "a420bdf13d940c6601feb4cb893803126a355274d450006f63172e41aa0b73b5",
-      "object": "5a076b39e8016bedc4e97b4752598a08f54b59f24fb422b8b574b7f526fe49e2"
+      "key": "eaf375f3f95fc1acbc0a0986b6d7d1393d71d75785b0850eaf4214c64a49ea58",
+      "object": "a4c577b9191c43aa5352dd530f3b1b54f7e3469f084d9f44022b3ba4899d20db"
     },
     "canvases/canvas-mathematics.json": {
-      "key": "d7f9561181de024a847edf00b4d5f7bbbc12e869055b360ae370c8d7fbcd4536",
-      "object": "6fced43ebfc0ab19570f1f56acc08d29f059468954b77fadd9a6d5fa2385b5e0"
+      "key": "7fcb6ec9bd69a7ceb1872c671c3f032721005e319a378fade43e566936a5a67c",
+      "object": "197f0064404859e4e528361d17ee31f71a80b5eb3423ae9e0fefd7b8dca608e6"
     },
     "canvases/canvas-quantum-chemistry-fallback.html": {
-      "key": "bcb7a9e5cfce10305bfa52541859bcf8e6bdc6dea6993ba28ac8c08ced8e8e3c",
-      "object": "3112fe0b3f741c86c5a9b40849a098865d6d0144466c339a7f91dbb6fbb6982d"
+      "key": "fee9061edf4caae734e1e90e60289252dd994fbacf1a6610634696cf35894b4d",
+      "object": "6ad67cbf648fb80e9e0e687362fa13583fa6b2c6caabe70a1f23c10bdcb6fa78"
     },
     "canvases/canvas-quantum-chemistry.json": {
-      "key": "56626c0526e345244ee9adf02a8f010075be1a099f168f7b7a5b8542b302a8a9",
-      "object": "5055bacd85d363530ade55d9ad3c37de4ab01bb8239dfa7576f65667c5069aac"
+      "key": "510ae42001b6d78e16ffc9ed64be0e17133c2b4120260cb8621b13f20bb4e31d",
+      "object": "108923cadbb051e164bac78fdc6c526bc01d1ee8af72a57f7fb35983b24eaa5f"
     },
     "diagnostics.json": {
-      "key": "d7d413db4b429e7f2feab911280a0d3bfbb7ce3844cb4e1266e52b03c2349fdd",
-      "object": "dd95bec7a1dc84b859c0f2d62a8388b719ee3a32fefcb030f973a42cc93f4ad1"
+      "key": "d436ae9d3bbf9aed089d9d554aa583567cb0ddce30dee3d9e7f0efd8aef9644b",
+      "object": "5f0c1e0ee3028bbb7243cbe20034cc9e977adf2f0270bcd1c9836540f2f90250"
     },
     "fragments/canvas-mathematics--0c7e797ed4d3be03.html": {
       "key": "d9c973cb2f08f5e6bba4db45b3eecbf47dfe137c045fe2131435a2200b201fb6",
       "object": "7691ad9bf8c74d8741bc193ca4ed2eb29c6c3d32a2915c0195063a8f76e348c6"
     },
-    "fragments/canvas-mathematics--17f22903c3642e98.html": {
-      "key": "bf756dbe5869c356126be4034d91ee49bf8c33da4e0e00d6401c989b1461d867",
-      "object": "a592385e148065e699795c01c0bd5deee34083445a4b8fbabe67b0a6999da6a6"
-    },
     "fragments/canvas-mathematics--1bb7562dab7c829b.html": {
-      "key": "1e7aaf808ed7890e6984dc81490c02409ebb56b593254a83d4de552726adf2ec",
-      "object": "689e7894a203fc5065fd4ce69f87ed06321430be1062e61a94505beb391d6733"
+      "key": "430ac011b783b89efbbb27051f8a01425e8ef491165da59692a1bf44276de649",
+      "object": "4d0ef62c3d49bc61781d729bc34ee20022aa5d8251f2ddbc5da12f3c5e055e0f"
     },
     "fragments/canvas-mathematics--1db8fb1ab9729cf8.html": {
       "key": "54dcd5f7f43fbf6183efc6327e4a14a83d6ce709e7f0d700759a92a2bc55e45f",
@@ -197,12 +213,12 @@
       "object": "cc02aa790ee418954ade09cf38aea9295cb970daab17ceee0e16c179eed41af9"
     },
     "fragments/canvas-mathematics--341ac5dca559916b.html": {
-      "key": "ab41d816fdfd3f78fdb1a5bccd2ead53d9defbaf964a777dfc64013870fb167d",
-      "object": "926fc753eaac482fee14fef52bb0a549d1f6164bf8a6fc56286d147b2ff0542b"
+      "key": "65ba807e47ec39c62282d9e11d9f8601b448dd2fcc1c64bf1a5b31354a702c78",
+      "object": "f96f16433d62e0b6de528150768ef094780c93feb31cf4ba198f7098b951bf35"
     },
     "fragments/canvas-mathematics--3da9e6d4d058fc9d.html": {
-      "key": "75f620c58a41a21b31963a3a9c7c649ff6e8639cf4510c19937d2ce519eb3857",
-      "object": "ed9a5449b756f5c6cb34df6a7fbfc19f0da759a8518f5cd093ffd4bbae543f02"
+      "key": "5f4906f7b1c1297265e6ab7bdb1f5959ddf0d47473fb86530599a446935ebb2a",
+      "object": "871aaa26da1bcec268200f114e968593e6cd30a25713aa35f27e49580ba44bbc"
     },
     "fragments/canvas-mathematics--42d9da682c122038.html": {
       "key": "4c7de2c424560663fa5d58e341f29bf916c4a901196089bdd29f49e9967853d4",
@@ -213,8 +229,12 @@
       "object": "efd25ca0fdc1e27c3bfa360512a5a589b4fd79be09cb74601b0429f953308138"
     },
     "fragments/canvas-mathematics--6704537f47e26d42.html": {
-      "key": "5c9d1439bdc5d271b4c499437292b5823e081e98a70b3e0f8d2ebbacf0730d9b",
-      "object": "bae63ea84fe7d81027b32de05314da90cfa224628761a78c4aee716c1dc387c4"
+      "key": "3e9522bb9627d97953bcfc74828c1fe7e90acc07074f6c001cf6350e5849c6df",
+      "object": "b3ca36b416e29a3216c5bd738facd905f6d16bf566ae92f5637707ddf899f652"
+    },
+    "fragments/canvas-mathematics--672ec005f8d173ab.html": {
+      "key": "49f87e355c145a503ed4d302db9906dfe14d8f1389eea358b9658d31c98a0064",
+      "object": "07d2ed6693f79057364eb0e2c52acd03bf89127f74e790395f99e4d5a2de5826"
     },
     "fragments/canvas-mathematics--6f2f89044ff7b905.html": {
       "key": "4b7c807cd7d6ea5d2bfd1d3e1271dc6360d9051a8ea11da626ba713d1eccdb08",
@@ -225,24 +245,32 @@
       "object": "7a7016533b77085a4a9ee5a1f50e4e8bf6f499036cf7230b78eb4e9550d8f664"
     },
     "fragments/canvas-mathematics--85a4cd1855235b52.html": {
-      "key": "23e8dea18b81cfcf36d44649ad4ec936c5aa4e678ce914e9520aa2a5017321fd",
-      "object": "1e0277a0c558d9f67a12573813e348da3e2ac390c0a6c8def57486f560b1fd45"
+      "key": "eb00971e67f3cdd4838d1517eebacdff3b2723eb4a400c039ba1438d6c2d9c3f",
+      "object": "68cecb779e639126bad7d84af1093e402666db868849cff3047cf7dbf45b543b"
     },
     "fragments/canvas-mathematics--8af5a1140aeb61d5.html": {
-      "key": "8ce4a1b4807ec9f5d1090055e5b66ee2455bd07680e91a765c02439ff3f20176",
-      "object": "37a7d904d671e1bc9b48bbf260837826a80712a9abd31e448f3f08ffacbed1d3"
+      "key": "f5e3f4022d73a21ca276d43656dbcbd8c7a7046d41db940942dc3f183d80e8c6",
+      "object": "35a1c0bf20b70a68a510344495e1d2db27ed45b3792c9ffdb1f362366a85ef57"
+    },
+    "fragments/canvas-mathematics--8f875be79d3ea1a9.html": {
+      "key": "c67f2d4c6ee082e1b8041705c1b3820311e465a18467629844efb685c7fc555a",
+      "object": "21e6ca792b861148b54ed0cb90586707dc54c027e08e865a8c45b9faaa8140da"
     },
     "fragments/canvas-mathematics--9f6169c85d3c439d.html": {
-      "key": "efe1ab3f7242c66287303143abadf9f7c91cc2aa597fbb9d30694ef5889b8e33",
-      "object": "3c3cf7405da084aef030b3ccaf751c28bcc514d597d31aa2bdbc3c9c17bc8a45"
+      "key": "a48a4389ed0491051f010d2dea5eecd27cd61002e73a987c5dde5493ec07cb00",
+      "object": "7a40762cc40394001df0247d5c7698a456210c72329f0f88141a3b7aaac2f522"
+    },
+    "fragments/canvas-mathematics--a37752f4de730073.html": {
+      "key": "d25ded1fc1e1d7857dfe388449c955e2ef23d213a1334f2bcaec8d9697bd2f49",
+      "object": "0e36c2ad894559773bec2424ffff6052a531f369a55472728df698d83ae96bc8"
     },
     "fragments/canvas-mathematics--a4d4bfbb2fa0cc2b.html": {
-      "key": "1402face28469b0e1e853168b948767eb5b9885d4dbb57c095d94b2751f1f4c9",
-      "object": "4cad9e4311c85a6d2a5b1707fbef56731106ccd41811ffa50c2d692b1bbd779b"
+      "key": "7b2c09ab558e6e77c14770164977673474d5493c003fae122b1b507b9a38c5e3",
+      "object": "c97dd10d9ea93551102bbe5b9a6a5332fc3eb19160b397dea336c56c7955081a"
     },
     "fragments/canvas-mathematics--b5827cc25d7fa73b.html": {
-      "key": "0a47a2ba870d60969931eeb260947a1d669b6e95eaaa31b30794ae3c28c14c9c",
-      "object": "ccf6825a1e66efe5ff0ed1468175b3b5bf99da6f805f94054647a47bd11bf1b1"
+      "key": "d002e10bdc1d08624770b4faaca7298bd702d89811851963fb8b204175506960",
+      "object": "02004bd1b6e4c7d7e4d99f520eb66fd08abb7519d4cc8e3fb5c23f31f63038cc"
     },
     "fragments/canvas-mathematics--c8f75bb94331221f.html": {
       "key": "21cc7ae23cc40c1627985bdb6d530fae666b2deb12557c4fc529ddec8084e2cc",
@@ -252,17 +280,29 @@
       "key": "4ad14c98e4be0ab053ade40f3bd141d97a2f95b9dde71ddabfd4b61778fe3fd2",
       "object": "2c68b3fb1bab41bd67220f08fd614c653810a9f4b5b6352059ed557a2dbd86d6"
     },
+    "fragments/canvas-mathematics--ccec9c896f4382dc.html": {
+      "key": "436fb2acb2cbd8fa01e651df66bc7ea66b692646262c5fc9fc81589f572d5022",
+      "object": "426826abca0bac91c570d08b1038922cbfde35b3a565fa800c532a06188834eb"
+    },
+    "fragments/canvas-mathematics--cd355c60b8eb8419.html": {
+      "key": "ff8b044b7840d128444497892ea63cec89a517925f8ec133f564f5907cb1fd7a",
+      "object": "cebf6cd3ef2a31420a7fb3bcc797dfb329883e3d92ce5af661909df87f247249"
+    },
     "fragments/canvas-mathematics--d968fcb530aceb7d.html": {
       "key": "941aa31b6ae8b150485a439dbdc60c125753be4cb633f47cd2181572d74183cd",
       "object": "e0ccdd8b8f472fb76f8327431840f8b77379bf5744c6ad93b7c582a59cb0d893"
     },
     "fragments/canvas-mathematics--da16bbadd453714e.html": {
-      "key": "4f8552557441083f1e36408a9a703b3d1a46797e353efb808a69e2ba07af38d2",
-      "object": "752bc38b3aad0d24d56c03bc79483b07297623d2c3fe0af54a6b89d816db8d3c"
+      "key": "d5360d992fb683bca7d90c05c5e738cafd59d3adf8259dd45a4f4d95704a0e30",
+      "object": "4d5bd6482ec8cdb3e19915ab142d1bed1cd451e2907252a85306a78fdf2822f7"
+    },
+    "fragments/canvas-mathematics--e49920778448fff0.html": {
+      "key": "f3e01a737b027ee8c13bbc4db0befbc6292333439ef5d02cdace085738db4689",
+      "object": "324dca506664fc3f4d0f62e29df8ca8ec0c562c21f2facbd90899194a6055215"
     },
     "fragments/canvas-mathematics--f98be4aaf27ccb77.html": {
-      "key": "9e55518e5021cdce7d5721972b79bdb0c0d7faf860d8129eff08db5b18ea0760",
-      "object": "c5f92f89b945c96cc95b85b5111b69e5d9b4ac5b9f9f942fb97d0b4217b3fe36"
+      "key": "270711c9f22df34e7bb21803f6ab7809f5cb5046c57caa47e67864c0070d6990",
+      "object": "71dafc2ecf16c5044d68d1c560c1d190b5e28258225d6ba6ea992296268a7302"
     },
     "fragments/canvas-mathematics--fa3666befbe7e033.html": {
       "key": "1fc5dbc3d64a4d54a9abf96c3a99356bfb798a5ef51c8ecbab40ff9e6278b60b",
@@ -273,8 +313,12 @@
       "object": "34e584c4f94c5ef189ddad0816f6c7a2d0e802a062c1ebdd1aa231fb6dd87e84"
     },
     "fragments/canvas-mathematics--fc67d1bcdfb076db.html": {
-      "key": "3a39b6a23038fb3026d2f8afe8b80038e9fefd1aded793987f6e58af1bf60942",
-      "object": "39c5b134c2e3cf0bd7f45f043f9b4bf7d09dbffcfbdf11dbd253a6b736122d28"
+      "key": "c7f216ed8cfa9ad8b803d1420e3fdd67eacdd27c1bbe101f082ba4a70db07c23",
+      "object": "483591274b88ef540172bc44a288390bde203dad402d508428b11cbb6ba69a1a"
+    },
+    "fragments/canvas-mathematics--fdb4448015c96f25.html": {
+      "key": "53cf1d72ff4cece7f0912ebc56eedeef51e38919b07fddb68367d362201b9fbc",
+      "object": "163c94d22251fcd3a7f4aa6559ff821ef3eecbda4d3933f93453f7a71e9dfbc3"
     },
     "fragments/canvas-quantum-chemistry--05d674b2c01814d6.html": {
       "key": "14b2e4a7df4b6d9d758093d915cfc7b5f489c28b752cc25d351b20fbbb396303",
@@ -308,6 +352,10 @@
       "key": "65b3f8ee8568b466190fe0f6843b064399c950203c64d8fec5a1530003c50d74",
       "object": "8d8670c7f94da52e2596d49f2ea534db3353addd2e106fff6a37c6b8efd60a71"
     },
+    "fragments/canvas-quantum-chemistry--2dab352cde0358ee.html": {
+      "key": "c1a018681ac220a291b4798b4630861726b7da158a518220427c16d0bf903fb4",
+      "object": "f789138695f3900a33d18ba0298cbb073e0c208b06863f83849f774e67b46e21"
+    },
     "fragments/canvas-quantum-chemistry--2f32cfc691ddf423.html": {
       "key": "97a4ba9daad2d5f4fddd0031c7e010d8329413ccf2e2a30ed4986626a8deda7d",
       "object": "cd2dbe573f5eefd2b380557b4ce2513ec47079bae5803d808e84887df4aaf75c"
@@ -325,8 +373,8 @@
       "object": "e5a30fb7d738c5fc3ffb0323c63a5652ead7b57bb55344030c9784949053a53d"
     },
     "fragments/canvas-quantum-chemistry--42169da2520d7fa8.html": {
-      "key": "035718eea31a282eb6a0a223c6344dd7d8a891e42c70dba80bb51b56a9da8e24",
-      "object": "1d1893532330a77004fe28209d78384159b210acc275126fe96fb0868a5ee201"
+      "key": "b2a6afbfd509214c03f0c1c0acbd26f8e329640ba6e1cbe6820d4f6095290d0f",
+      "object": "4fb7ecd0a6bb568478dab3ba4d3e701d55280a72673671a86de9264f68109ace"
     },
     "fragments/canvas-quantum-chemistry--470f923eb05ca47e.html": {
       "key": "88263f55e86aa273742ead9913c4aad9934a5277ce1495d08899d6bbf0557531",
@@ -364,6 +412,10 @@
       "key": "b3a5985791ba87f844b6833f24473abb0f8258e9c34251e96462477043903a08",
       "object": "4fb7ecd0a6bb568478dab3ba4d3e701d55280a72673671a86de9264f68109ace"
     },
+    "fragments/canvas-quantum-chemistry--8cc79bebd0a81e56.html": {
+      "key": "d16e62cceef3a4964a96f40945cd4dfc079f57dbd68c77111367212cb8db59cc",
+      "object": "f80a1d874ff8a95292b209e35c1515961b74b99edeccde5fce8a6a07058646d8"
+    },
     "fragments/canvas-quantum-chemistry--92d7c1eeafa80f78.html": {
       "key": "7c47aa35f4faa105ccc627a6d313326ad7c3130c7e829dbdadd1fdb2143b768a",
       "object": "d3d166e4b03dcd55ad819ac8757dc2df9fddface613a3762b69561169e13e06b"
@@ -376,9 +428,13 @@
       "key": "0497b7d20189200fd2ac6e781e25633f8c0ef61e3707ddd88925c6c90bb5bafb",
       "object": "01eb06cbe555c6dc560871fb369de0182b4133da7180ad346998a41591fc9612"
     },
+    "fragments/canvas-quantum-chemistry--a0a1ca7f6c81bd92.html": {
+      "key": "110e793da7f054af10724dd3c6bbd8555cf7daeee7b5557bc06f66a070729dcb",
+      "object": "61d3487789300e9d0d40e1c38df7c1e5e507287cff3d19865c7b4ee01c6e15a2"
+    },
     "fragments/canvas-quantum-chemistry--a12f5a258bbe8615.html": {
-      "key": "09b58b6eddfbe76cdd265f0fbdb7aca97f2d0eb7ceb2e787533c4e9bec9982c3",
-      "object": "68d563ec59aabecc3fa314dcb8a992c193509aa0090aaab70e62c61c229fef61"
+      "key": "98a1e6e73743ec1632e39e8e179a1d920060cbcc6d2bd311730dbf928da97708",
+      "object": "c607b23dc610fceb8861fa34c3fbbe4b3467af88ad26ffe0fa27d12e9759ba39"
     },
     "fragments/canvas-quantum-chemistry--a296b50c1490ef02.html": {
       "key": "ed2c4eeef389883b8669257d917549e042b307dce3b9fc24fc04086fc1bd5229",
@@ -407,6 +463,10 @@
     "fragments/canvas-quantum-chemistry--d760f3a2f59a8272.html": {
       "key": "599320f5395a9b4a0cae47b31970cba9660f30e8f5a5f51a574ff332449b920b",
       "object": "cd2dbe573f5eefd2b380557b4ce2513ec47079bae5803d808e84887df4aaf75c"
+    },
+    "fragments/canvas-quantum-chemistry--d7947c5b8c928777.html": {
+      "key": "7eef110ad50034c1c39764b55330e5ff1943ca9b8b958e1977ad85cdbfbec524",
+      "object": "14069b4957f2410efe8edbd854a28c5a65712a7e2da002059168ab286b47fb0a"
     },
     "fragments/canvas-quantum-chemistry--d8d0c5f5f17d5133.html": {
       "key": "13a899df70588fc5502c2063fd1cb1549347490705ebcd50236d8b46c78055d6",
@@ -437,8 +497,8 @@
       "object": "e4daa4378004c647e34bf2104067601b785892b806abbbf3fa336f0ac72426e7"
     },
     "fragments/mathematics-roadmap.html": {
-      "key": "ddf743a62a985659dc3e907fa9265c3b24a778b3151647e75e4b3614a058fdb3",
-      "object": "5f2b769ef86d04c98ac6cd33465f4c004e4bd324f54f5eb0ba50f00ac08586dd"
+      "key": "c292ca7937e3cab19c987bcda3347f6a8b91d9e9bd4463f150f581893e443bff",
+      "object": "9bdffb2e82df1601c3da680bd3dea20978f387dfa20b22c7667a0a96cbb70957"
     },
     "fragments/recommended-general-mathematics-reading.html": {
       "key": "6fc49cf534f603a35aa6a5e2b24e681ef3d83e76946a21353a49a39ef45d7f2e",
@@ -449,12 +509,12 @@
       "object": "447d06b2257f3397817ee4c9fb4bbdba1b92269eb76f4db506d62530a32e8128"
     },
     "manifest.json": {
-      "key": "f573680cd2ed51a4dd81dae13d5de90c1c4b5cca4c3ab47532601f60f3be269e",
-      "object": "0ab876b075b447e334a67750c27acc6912bda917704e3cc88b848c4f1b631fad"
+      "key": "6d655a932329cddf020bf5cad9a90637717ed9709ad52d9dc31ac59db8a0f77d",
+      "object": "f60101ec987c0fee4cee82a3c3e08371de5e197094f6b165d650b99dae2cb4e7"
     },
     "pages/mathematics-roadmap.qmd": {
-      "key": "8ab3705f072a8606a23b97d3fbc610b2903fec7e14db9a5e43ce16fa79631c24",
-      "object": "96c747d8627ce66bccbf6f6ce668110b1e0600ccd6dbd45d2dafc1e24af2a297"
+      "key": "d2d9623c72717586a49130ee1b81ff7dc2e6962e5280999439fc0b21b193884f",
+      "object": "1da7c3c9fa61a98eb2efddd861f5cd52a6adefe8b9e68936a35419baf2d42043"
     },
     "pages/recommended-general-mathematics-reading.qmd": {
       "key": "d8c5a321ab55bfbc616202bf0b49f841853559e2982282d87290f1435e0465ff",
@@ -465,8 +525,8 @@
       "object": "d23b17e272cca4d225cae8adaba81233343072823cffd19136a5a555ec10145c"
     },
     "previews/previews.json": {
-      "key": "b50278862e56f3d8246be5257bfcc8814da1db700af871dbbf31c11abd1e044a",
-      "object": "1d87b91ec0740b9dc206269c8db2cde85cdf428445792e522811fbd8c20433a4"
+      "key": "763fa60665777961ca505a2a8d316b8323fed5dc45f5d4cd2c3e70bf115b1ee9",
+      "object": "655e2a159d1212dde9e9f39447d2b454966227c9c9367522643edd547bc45a67"
     }
   },
   "generator": "obsidian-canvas-quarto",

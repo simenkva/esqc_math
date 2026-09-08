@@ -3,21 +3,21 @@
     "category": "unresolved-wikilink",
     "code": "unresolved-wikilink",
     "line": 1,
-    "message": "Could not publish wikilink [[Mathematics Roadmap#Functional Analysis|Functional Analysis]] (unresolved).",
-    "nodeId": "42169da2520d7fa8",
+    "message": "Could not publish wikilink [[Mathematics Roadmap#Representation Theory  ◆|Representation Theory  ◆]] (unresolved).",
+    "nodeId": "cd355c60b8eb8419",
     "remedy": "Use a folder-qualified link or publish the target note.",
     "severity": "warning",
-    "source": "Canvas/Quantum Chemistry.canvas"
+    "source": "Canvas/Mathematics.canvas"
   },
   {
     "category": "unresolved-wikilink",
     "code": "unresolved-wikilink",
     "line": 1,
-    "message": "Could not publish wikilink [[Mathematics Roadmap#Differential Geometry|Differential Geometry]] (unresolved).",
-    "nodeId": "a12f5a258bbe8615",
+    "message": "Could not publish wikilink [[Mathematics Roadmap#Elementary Group Theory  ★|Elementary Group Theory  ★]] (unresolved).",
+    "nodeId": "fdb4448015c96f25",
     "remedy": "Use a folder-qualified link or publish the target note.",
     "severity": "warning",
-    "source": "Canvas/Quantum Chemistry.canvas"
+    "source": "Canvas/Mathematics.canvas"
   },
   {
     "category": "unresolved-wikilink",

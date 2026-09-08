@@ -17,10 +17,10 @@ website:
         text: Lecture Notes
       - href: https://simenkva.github.io/esqc_exercises/student
         text: Exercises
-      # - href: roadmap.qmd
-      #   text: Mathematics Roadmap
-      # - href: quantum_chemistry.qmd
-      #   text: Quantum Chemistry Roadmap
+      - href: roadmap.qmd
+        text: Mathematics Roadmap
+      - href: quantum_chemistry.qmd
+        text: Quantum Chemistry Roadmap
     right:
       - href: license.qmd
         text: License
