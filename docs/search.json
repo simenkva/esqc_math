@@ -46,70 +46,63 @@
     "href": "index.html#lectures",
     "title": "ESQC Mathematics 2026",
     "section": "Lectures",
-    "text": "Lectures\n\nESQC Math 2026 Lecture 1.pdf\nESQC Math 2026 Lecture 1.pptx\nESQC Math 2026 Lecture 2.pdf\nESQC Math 2026 Lecture 2.pptx"
+    "text": "Lectures\n\nESQC Math 2026 Lecture 1.pdf\nESQC Math 2026 Lecture 1.pptx\nESQC Math 2026 Lecture 2.pdf\nESQC Math 2026 Lecture 2.pptx\nESQC Math 2026 Lecture 3.pdf\nESQC Math 2026 Lecture 3.pptx\nESQC Math 2026 Lecture 4.pdf\nESQC Math 2026 Lecture 4.pptx"
   },
   {
     "objectID": "index.html#notebooks",
     "href": "index.html#notebooks",
     "title": "ESQC Mathematics 2026",
     "section": "Notebooks",
-    "text": "Notebooks\n\nlecture-1-blurring.ipynb\nlecture-1-plane-geometry.ipynb\nlecture-1-plane-transformation.ipynb\nlecture-1-transforming-a-cat.ipynb\nlecture-2-diagonalization.ipynb\nlecture-2-eri_svd_cholesky.ipynb\nlecture-2-interactive-rotation.ipynb\nlecture-2-svd-of-image.ipynb\nnotebooks.zip\nparrot.jpg\nparrot.png\nplotsetup.py"
+    "text": "Notebooks\n\ngradient_flow.svg\nlecture-1-blurring.ipynb\nlecture-1-plane-geometry.ipynb\nlecture-1-plane-transformation.ipynb\nlecture-1-transforming-a-cat.ipynb\nlecture-2-diagonalization.ipynb\nlecture-2-eri_svd_cholesky.ipynb\nlecture-2-interactive-rotation.ipynb\nlecture-2-svd-of-image.ipynb\nlecture-3-morse-taylor.ipynb\nlecture-3-riemann.ipynb\nlecture-3-zoom.ipynb\nlecture-4-gradient.ipynb\nlecture-4-hhh.ipynb\nlecture-4-parrot-transform.ipynb\nnondiff_function.py\nnotebooks.zip\nparrot.jpg\nparrot.png\nplotsetup.py"
   },
   {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html",
-    "title": "Untested sources",
+    "objectID": "generated-vault/pages/recommended-youtube-channels.html",
+    "href": "generated-vault/pages/recommended-youtube-channels.html",
+    "title": "Recommended YouTube channels",
     "section": "",
-    "text": "Here are some suggestions for general mathematical physics and chemistry."
+    "text": "Link: https://www.youtube.com/@brightsideofmaths\nA brilliant series of mathematically rigorous lectures on various mathematical topics, made by Dr. Julian P. Grossmann In a calm voice and using minimalistic digital white board style presentations, he presents advanced mathematical topics in a pedagogical and systematic manner.\n\n\n\nTouTube Bright Side of Mathematics.png\n\n\nExample playlists: - How to learn maths - Multivariable calculus - Ordinary Differential Equations - Functional analysis"
   },
   {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physics-by-butkov",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physics-by-butkov",
-    "title": "Untested sources",
-    "section": "“Mathematical Physics” by Butkov",
-    "text": "“Mathematical Physics” by Butkov\nBook: “Mathematical Physics” by Eugene Butkov, Addison-Wesley Publishing Company (1968)\n This is a classic textbook used in mathematical physics courses since its first edition in 1968. You can find PDFs lying about on the internet. The book is suitable for all students of quantum chemistry, from undergraduate to graduate students.\nThe topics covered include: * Vector calculus - Complex analysis - Ordinary differential equations - Distributions - Fourier series and the Fourier transform - The Laplace transform - Hilbert space and the postulates of Quantum Mechanics - Perturbation theory - Tensors - Calculus of Variations"
+    "objectID": "generated-vault/pages/recommended-youtube-channels.html#the-bright-side-of-mathematics",
+    "href": "generated-vault/pages/recommended-youtube-channels.html#the-bright-side-of-mathematics",
+    "title": "Recommended YouTube channels",
+    "section": "",
+    "text": "Link: https://www.youtube.com/@brightsideofmaths\nA brilliant series of mathematically rigorous lectures on various mathematical topics, made by Dr. Julian P. Grossmann In a calm voice and using minimalistic digital white board style presentations, he presents advanced mathematical topics in a pedagogical and systematic manner.\n\n\n\nTouTube Bright Side of Mathematics.png\n\n\nExample playlists: - How to learn maths - Multivariable calculus - Ordinary Differential Equations - Functional analysis"
   },
   {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-for-physicists-by-arfken-weber-and-harris",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-for-physicists-by-arfken-weber-and-harris",
-    "title": "Untested sources",
-    "section": "“Mathematical Methods for Physicists” by Arfken, Weber, and Harris",
-    "text": "“Mathematical Methods for Physicists” by Arfken, Weber, and Harris\nBook: “Mathematical Methods for Physicsts: A Comprehensive Guide” by George B. Arfken, Hans J. Weber, and Frank E. Harris, 7th edition, Academic Press (2013)\n\n\n\nArfken.png\n\n\nWeblink: https://www.sciencedirect.com/book/9780123846549/mathematical-methods-for-physicists Archived version: https://archive.org/details/Mathematical_Methods_for_Physicists\nAnother classic, the tome by Arfken, Weber, and Harris is a standard textbook in mathematical physics for undergraduate and graduate students in physics. Luckily, it is archived on archive.org, see link above. It is highly recommended, and contains treatments of, for example: - Complex analysis - Vector calculus - Tensor analysis and differential forms - Partial differential equations - Green’s functions - Angular momentum - Various special functions - Integral transforms - Probability and statistics"
+    "objectID": "generated-vault/pages/recommended-youtube-channels.html#michael-penn",
+    "href": "generated-vault/pages/recommended-youtube-channels.html#michael-penn",
+    "title": "Recommended YouTube channels",
+    "section": "Michael Penn",
+    "text": "Michael Penn\nMichael Penn is Professor of Mathematics at Randolph College in Virginia.\nFrom his channel, “Math videos covering a wide variety of topics from theory to application. Calculus, Differential Equations, Number Theory, Proofs, unique problems and much more.”\nHis videos are entertaining and avoid all the flash and glam associated with modern YouTube content.\nLink: https://www.youtube.com/@MichaelPennMath\nHe also has a second channel, MathMajor, with more “serious” mathematics lecture video, and is associated with his teaching activities: https://www.youtube.com/@mathmajor\n\n\n\nYouTube Michael Penn.png\n\n\nExample videos: - Complex numbers 1"
   },
   {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-physics-by-blanchard-and-brüning",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-physics-by-blanchard-and-brüning",
-    "title": "Untested sources",
-    "section": "“Mathematical Methods in Physics” by Blanchard and Brüning",
-    "text": "“Mathematical Methods in Physics” by Blanchard and Brüning\nBook: “Mathematical Methods in Physics” by Philippe Blanchard and Erwin Brüning, Second edition, Birkhäuser (2015)\nDOI: 10.1007/978-3-319-14045-2\n This is a textbook intended for graduate students in mathematics and physics. Its level is higher and in some respects more modern than the book by Butkov. The topics covered include: - Locally convex topological vector spaces and distribution theory - Complex analysis of several variables - Fourier transformations - Sobolev spaces - Advanced aspects of Hilbert spaces - Linear operators and advanced spectral theory, also for unbounded operators - Rigged Hilbert space - Operator algebras, e.g., C*-algebra - Calculus of variations - Boundary value problems and eigenvalue problems - Density functional theory of atoms and molecules"
+    "objectID": "generated-vault/pages/recommended-youtube-channels.html#gilbert-strang-videos-on-linear-algebra",
+    "href": "generated-vault/pages/recommended-youtube-channels.html#gilbert-strang-videos-on-linear-algebra",
+    "title": "Recommended YouTube channels",
+    "section": "Gilbert Strang videos on linear algebra",
+    "text": "Gilbert Strang videos on linear algebra\nThis is a playlist of the eminent linear algebraist and teacher Gilbert Strang. From MIT Open Courseware.\nLink: https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D"
   },
   {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-concepts-of-quantum-mechanics-by-gustafsson-and-sigal",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-concepts-of-quantum-mechanics-by-gustafsson-and-sigal",
-    "title": "Untested sources",
-    "section": "“Mathematical Concepts of Quantum Mechanics” by Gustafsson and Sigal",
-    "text": "“Mathematical Concepts of Quantum Mechanics” by Gustafsson and Sigal\nBook: “Mathematical Concepts of Quantum Mechanics” by Stephen J. Gustaffson, and Israel Michael Sigal, Second Edition, Springer (2011).\n Weblink: https://link.springer.com/book/10.1007/978-3-030-59562-3\nAn old PDF from Sigal’s web site: https://www.math.toronto.edu/~sigal/semlectnotes/1.pdf\nThis book is essentially a set of lecture notes given for physics and mathematics students at late undergraduate or early graduate stages of their studies. It is a well-structured book on what the title says. I use it quite a lot, as it contains many useful results. The topics include: - Analysis of atomic and molecular quantum systems - Treatments of basic quantum mechanical systems using a little more rigor than usual - Many-particle theory - Perturbation theory - Theorems on spectra of many-particle operators - Resonances - Path-integral formalism of Feynman - Second quantization"
+    "objectID": "generated-vault/pages/recommended-youtube-channels.html#richard-borcherds",
+    "href": "generated-vault/pages/recommended-youtube-channels.html#richard-borcherds",
+    "title": "Recommended YouTube channels",
+    "section": "Richard Borcherds",
+    "text": "Richard Borcherds\nA British mathematician and Fields medalist who has a great reputation as a teacher, and a YouTube channel with many video lectures. According to the description it is “mostly mathematics lectures for graduate courses on algebraic geometry, commutative algebra, and group/rings fields.”\nLink: https://www.youtube.com/@richarde.borcherds7998\n\n\n\nYouTube Richard E Borcherds.png\n\n\nExample videos: - Intro to category theory - Group theory and modules"
   },
   {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-quantum-mechanics-by-teschl",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-quantum-mechanics-by-teschl",
-    "title": "Untested sources",
-    "section": "“Mathematical Methods in Quantum Mechanics” by Teschl",
-    "text": "“Mathematical Methods in Quantum Mechanics” by Teschl\nBook: “Mathematical Methods in Quantum Mechanics: With Applications\nto Schrödinger Operators” by Gerald Teschl, Seccond ed., American Mathematical Society (2014).\nWeb link: https://bookstore.ams.org/gsm-157\nFull text PDF at the Author’s web site: https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/index.html\n This is a modern classic in mathematical physics, its primary goal is the rigorous treatment of nonrelativistic quantum mechanics. Topics include: - Hilbert and Banach spaces - The Spectral theorem for unbounded self-adjoint operators - Quantum dynamics and the Stone-von-Neumann theorem - Perturbation theory - Schrödinger operators, i.e., the description of atomic systems - Scattering theory - Lebesgue integration"
+    "objectID": "generated-vault/pages/recommended-youtube-channels.html#frederic-schuller",
+    "href": "generated-vault/pages/recommended-youtube-channels.html#frederic-schuller",
+    "title": "Recommended YouTube channels",
+    "section": "Frederic Schuller",
+    "text": "Frederic Schuller\nA YouTube channel sporting highly engaging and information rich lectures by the mathematical physicst Frederic Sculler at the University of Twente in the Netherlands.\n Video examples: - Logic of propositions and predicates, https://www.youtube.com/watch?v=V49i_LM8B0E&list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic&index=1 - Banach spaces https://www.youtube.com/watch?v=Px1Zd–fgic&list=PLPH7f_7ZlzxQVx5jRjbfRGEzWY_upS5K6&index=2 -"
   },
   {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#methods-of-modern-mathematical-physics-by-reed-and-simon",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#methods-of-modern-mathematical-physics-by-reed-and-simon",
-    "title": "Untested sources",
-    "section": "“Methods of Modern Mathematical Physics” by Reed and Simon",
-    "text": "“Methods of Modern Mathematical Physics” by Reed and Simon\nBook series: “Methods of modern mathematical physics”, by Michael Reed and Barry Simon, Academic Press (1980)\nWeblink: https://www.sciencedirect.com/book/9780125850018/methods-of-modern-mathematical-physics\nThere are some links to the full text in the wild: https://www.astrosen.unam.mx/~aceves/Metodos/ebooks/reed_simon1.pdf\nA comprehensive book series with advanced treatments of, well, the methods of mathematical physics. The volumes are: ### I: Functional Analysis {#i-functional-analysis}\nThis is the volume I am personally acquainted with. Some topics covered are: - Measure and integration - Hilbert space - Locally convex topological vector spaces - Bounded and unbounded operators - The spectral theorem\n\nII: Fourier Analysis and Self-Adjointness\n\n\nIII: Scattering Theory\n\n\nIV: Analysis of Operators"
-  },
-  {
-    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physical-chemistry-by-hotta",
-    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physical-chemistry-by-hotta",
-    "title": "Untested sources",
-    "section": "“Mathematical Physical Chemistry” by Hotta",
-    "text": "“Mathematical Physical Chemistry” by Hotta\n\n\n\nMathematical Physical Chemistry.png\n\n\nBook: “Mathematical Physical Chemistry: Practical and Intuitive Methodology” by Shu Hotta, Third Edition, Springer (2023)\nWeblink: https://link.springer.com/book/10.1007/978-981-99-2512-4\nThis book is somewhat odd - it is not a mathematics book, for that it is not sufficiently rigorous, and neither is it a physical chemistry textbook. However, it goes through the classical selection of physical chemistry topics in a more mathematical manner, providing detailed derivations along the way. It reads like your usual typed-up lecture notes from a theory-heavy physical chemistry curse. It seems like an excellent companion to studies in physical chemistry, and in particular a very good way for students to learn and understand the mathematical concepts needed for quantum chemistry."
+    "objectID": "generated-vault/pages/recommended-youtube-channels.html#graduate-mathematics",
+    "href": "generated-vault/pages/recommended-youtube-channels.html#graduate-mathematics",
+    "title": "Recommended YouTube channels",
+    "section": "Graduate Mathematics",
+    "text": "Graduate Mathematics\nLink: http://www.youtube.com/@GraduateMathematics\nA channel with a broad variety of videos. I find the old documentaries to be really worthwhile.\nVideo examples: - Fermat’s Last Theorem (1993) - Paul Erdős: The Man Who Loved Only Numbers"
   },
   {
     "objectID": "generated-vault/pages/mathematics-roadmap.html",
@@ -322,53 +315,60 @@
     "text": "Optimization and Root Finding ★\nOptimization, really a subfield of numerical analysis, deals with finding local or global extremal points of functions of several variables, as well as finding roots of systems of nonlinear equations. There are a multitude of algorithms, such as the method of steepest descent, Newton, and quasi-Newton methods. A very important topic for students of quantum chemistry, as many computational problems end up as an optimization problem.\nRecommended reading:\n\n\n\n\n\n\nRecommended-readingNumerical Optimization by Jorge Nocedal and Stephen J. Wright\n\n\n\n\nNumerical Optimization by Jorge Nocedal and Stephen J. Wright\n\n Springer (2006) Link to PDF (for preview): https://www.math.uci.edu/~qnie/Publications/NumericalOptimization.pdf Link: https://link.springer.com/book/10.1007/978-0-387-40065-5\nThis is an excellent book which I have used a lot."
   },
   {
-    "objectID": "generated-vault/pages/recommended-youtube-channels.html",
-    "href": "generated-vault/pages/recommended-youtube-channels.html",
-    "title": "Recommended YouTube channels",
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html",
+    "title": "Untested sources",
     "section": "",
-    "text": "Link: https://www.youtube.com/@brightsideofmaths\nA brilliant series of mathematically rigorous lectures on various mathematical topics, made by Dr. Julian P. Grossmann In a calm voice and using minimalistic digital white board style presentations, he presents advanced mathematical topics in a pedagogical and systematic manner.\n\n\n\nTouTube Bright Side of Mathematics.png\n\n\nExample playlists: - How to learn maths - Multivariable calculus - Ordinary Differential Equations - Functional analysis"
+    "text": "Here are some suggestions for general mathematical physics and chemistry."
   },
   {
-    "objectID": "generated-vault/pages/recommended-youtube-channels.html#the-bright-side-of-mathematics",
-    "href": "generated-vault/pages/recommended-youtube-channels.html#the-bright-side-of-mathematics",
-    "title": "Recommended YouTube channels",
-    "section": "",
-    "text": "Link: https://www.youtube.com/@brightsideofmaths\nA brilliant series of mathematically rigorous lectures on various mathematical topics, made by Dr. Julian P. Grossmann In a calm voice and using minimalistic digital white board style presentations, he presents advanced mathematical topics in a pedagogical and systematic manner.\n\n\n\nTouTube Bright Side of Mathematics.png\n\n\nExample playlists: - How to learn maths - Multivariable calculus - Ordinary Differential Equations - Functional analysis"
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physics-by-butkov",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physics-by-butkov",
+    "title": "Untested sources",
+    "section": "“Mathematical Physics” by Butkov",
+    "text": "“Mathematical Physics” by Butkov\nBook: “Mathematical Physics” by Eugene Butkov, Addison-Wesley Publishing Company (1968)\n This is a classic textbook used in mathematical physics courses since its first edition in 1968. You can find PDFs lying about on the internet. The book is suitable for all students of quantum chemistry, from undergraduate to graduate students.\nThe topics covered include: * Vector calculus - Complex analysis - Ordinary differential equations - Distributions - Fourier series and the Fourier transform - The Laplace transform - Hilbert space and the postulates of Quantum Mechanics - Perturbation theory - Tensors - Calculus of Variations"
   },
   {
-    "objectID": "generated-vault/pages/recommended-youtube-channels.html#michael-penn",
-    "href": "generated-vault/pages/recommended-youtube-channels.html#michael-penn",
-    "title": "Recommended YouTube channels",
-    "section": "Michael Penn",
-    "text": "Michael Penn\nMichael Penn is Professor of Mathematics at Randolph College in Virginia.\nFrom his channel, “Math videos covering a wide variety of topics from theory to application. Calculus, Differential Equations, Number Theory, Proofs, unique problems and much more.”\nHis videos are entertaining and avoid all the flash and glam associated with modern YouTube content.\nLink: https://www.youtube.com/@MichaelPennMath\nHe also has a second channel, MathMajor, with more “serious” mathematics lecture video, and is associated with his teaching activities: https://www.youtube.com/@mathmajor\n\n\n\nYouTube Michael Penn.png\n\n\nExample videos: - Complex numbers 1"
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-for-physicists-by-arfken-weber-and-harris",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-for-physicists-by-arfken-weber-and-harris",
+    "title": "Untested sources",
+    "section": "“Mathematical Methods for Physicists” by Arfken, Weber, and Harris",
+    "text": "“Mathematical Methods for Physicists” by Arfken, Weber, and Harris\nBook: “Mathematical Methods for Physicsts: A Comprehensive Guide” by George B. Arfken, Hans J. Weber, and Frank E. Harris, 7th edition, Academic Press (2013)\n\n\n\nArfken.png\n\n\nWeblink: https://www.sciencedirect.com/book/9780123846549/mathematical-methods-for-physicists Archived version: https://archive.org/details/Mathematical_Methods_for_Physicists\nAnother classic, the tome by Arfken, Weber, and Harris is a standard textbook in mathematical physics for undergraduate and graduate students in physics. Luckily, it is archived on archive.org, see link above. It is highly recommended, and contains treatments of, for example: - Complex analysis - Vector calculus - Tensor analysis and differential forms - Partial differential equations - Green’s functions - Angular momentum - Various special functions - Integral transforms - Probability and statistics"
   },
   {
-    "objectID": "generated-vault/pages/recommended-youtube-channels.html#gilbert-strang-videos-on-linear-algebra",
-    "href": "generated-vault/pages/recommended-youtube-channels.html#gilbert-strang-videos-on-linear-algebra",
-    "title": "Recommended YouTube channels",
-    "section": "Gilbert Strang videos on linear algebra",
-    "text": "Gilbert Strang videos on linear algebra\nThis is a playlist of the eminent linear algebraist and teacher Gilbert Strang. From MIT Open Courseware.\nLink: https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D"
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-physics-by-blanchard-and-brüning",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-physics-by-blanchard-and-brüning",
+    "title": "Untested sources",
+    "section": "“Mathematical Methods in Physics” by Blanchard and Brüning",
+    "text": "“Mathematical Methods in Physics” by Blanchard and Brüning\nBook: “Mathematical Methods in Physics” by Philippe Blanchard and Erwin Brüning, Second edition, Birkhäuser (2015)\nDOI: 10.1007/978-3-319-14045-2\n This is a textbook intended for graduate students in mathematics and physics. Its level is higher and in some respects more modern than the book by Butkov. The topics covered include: - Locally convex topological vector spaces and distribution theory - Complex analysis of several variables - Fourier transformations - Sobolev spaces - Advanced aspects of Hilbert spaces - Linear operators and advanced spectral theory, also for unbounded operators - Rigged Hilbert space - Operator algebras, e.g., C*-algebra - Calculus of variations - Boundary value problems and eigenvalue problems - Density functional theory of atoms and molecules"
   },
   {
-    "objectID": "generated-vault/pages/recommended-youtube-channels.html#richard-borcherds",
-    "href": "generated-vault/pages/recommended-youtube-channels.html#richard-borcherds",
-    "title": "Recommended YouTube channels",
-    "section": "Richard Borcherds",
-    "text": "Richard Borcherds\nA British mathematician and Fields medalist who has a great reputation as a teacher, and a YouTube channel with many video lectures. According to the description it is “mostly mathematics lectures for graduate courses on algebraic geometry, commutative algebra, and group/rings fields.”\nLink: https://www.youtube.com/@richarde.borcherds7998\n\n\n\nYouTube Richard E Borcherds.png\n\n\nExample videos: - Intro to category theory - Group theory and modules"
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-concepts-of-quantum-mechanics-by-gustafsson-and-sigal",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-concepts-of-quantum-mechanics-by-gustafsson-and-sigal",
+    "title": "Untested sources",
+    "section": "“Mathematical Concepts of Quantum Mechanics” by Gustafsson and Sigal",
+    "text": "“Mathematical Concepts of Quantum Mechanics” by Gustafsson and Sigal\nBook: “Mathematical Concepts of Quantum Mechanics” by Stephen J. Gustaffson, and Israel Michael Sigal, Second Edition, Springer (2011).\n Weblink: https://link.springer.com/book/10.1007/978-3-030-59562-3\nAn old PDF from Sigal’s web site: https://www.math.toronto.edu/~sigal/semlectnotes/1.pdf\nThis book is essentially a set of lecture notes given for physics and mathematics students at late undergraduate or early graduate stages of their studies. It is a well-structured book on what the title says. I use it quite a lot, as it contains many useful results. The topics include: - Analysis of atomic and molecular quantum systems - Treatments of basic quantum mechanical systems using a little more rigor than usual - Many-particle theory - Perturbation theory - Theorems on spectra of many-particle operators - Resonances - Path-integral formalism of Feynman - Second quantization"
   },
   {
-    "objectID": "generated-vault/pages/recommended-youtube-channels.html#frederic-schuller",
-    "href": "generated-vault/pages/recommended-youtube-channels.html#frederic-schuller",
-    "title": "Recommended YouTube channels",
-    "section": "Frederic Schuller",
-    "text": "Frederic Schuller\nA YouTube channel sporting highly engaging and information rich lectures by the mathematical physicst Frederic Sculler at the University of Twente in the Netherlands.\n Video examples: - Logic of propositions and predicates, https://www.youtube.com/watch?v=V49i_LM8B0E&list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic&index=1 - Banach spaces https://www.youtube.com/watch?v=Px1Zd–fgic&list=PLPH7f_7ZlzxQVx5jRjbfRGEzWY_upS5K6&index=2 -"
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-quantum-mechanics-by-teschl",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-methods-in-quantum-mechanics-by-teschl",
+    "title": "Untested sources",
+    "section": "“Mathematical Methods in Quantum Mechanics” by Teschl",
+    "text": "“Mathematical Methods in Quantum Mechanics” by Teschl\nBook: “Mathematical Methods in Quantum Mechanics: With Applications\nto Schrödinger Operators” by Gerald Teschl, Seccond ed., American Mathematical Society (2014).\nWeb link: https://bookstore.ams.org/gsm-157\nFull text PDF at the Author’s web site: https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/index.html\n This is a modern classic in mathematical physics, its primary goal is the rigorous treatment of nonrelativistic quantum mechanics. Topics include: - Hilbert and Banach spaces - The Spectral theorem for unbounded self-adjoint operators - Quantum dynamics and the Stone-von-Neumann theorem - Perturbation theory - Schrödinger operators, i.e., the description of atomic systems - Scattering theory - Lebesgue integration"
   },
   {
-    "objectID": "generated-vault/pages/recommended-youtube-channels.html#graduate-mathematics",
-    "href": "generated-vault/pages/recommended-youtube-channels.html#graduate-mathematics",
-    "title": "Recommended YouTube channels",
-    "section": "Graduate Mathematics",
-    "text": "Graduate Mathematics\nLink: http://www.youtube.com/@GraduateMathematics\nA channel with a broad variety of videos. I find the old documentaries to be really worthwhile.\nVideo examples: - Fermat’s Last Theorem (1993) - Paul Erdős: The Man Who Loved Only Numbers"
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#methods-of-modern-mathematical-physics-by-reed-and-simon",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#methods-of-modern-mathematical-physics-by-reed-and-simon",
+    "title": "Untested sources",
+    "section": "“Methods of Modern Mathematical Physics” by Reed and Simon",
+    "text": "“Methods of Modern Mathematical Physics” by Reed and Simon\nBook series: “Methods of modern mathematical physics”, by Michael Reed and Barry Simon, Academic Press (1980)\nWeblink: https://www.sciencedirect.com/book/9780125850018/methods-of-modern-mathematical-physics\nThere are some links to the full text in the wild: https://www.astrosen.unam.mx/~aceves/Metodos/ebooks/reed_simon1.pdf\nA comprehensive book series with advanced treatments of, well, the methods of mathematical physics. The volumes are: ### I: Functional Analysis {#i-functional-analysis}\nThis is the volume I am personally acquainted with. Some topics covered are: - Measure and integration - Hilbert space - Locally convex topological vector spaces - Bounded and unbounded operators - The spectral theorem\n\nII: Fourier Analysis and Self-Adjointness\n\n\nIII: Scattering Theory\n\n\nIV: Analysis of Operators"
+  },
+  {
+    "objectID": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physical-chemistry-by-hotta",
+    "href": "generated-vault/pages/recommended-general-mathematics-reading.html#mathematical-physical-chemistry-by-hotta",
+    "title": "Untested sources",
+    "section": "“Mathematical Physical Chemistry” by Hotta",
+    "text": "“Mathematical Physical Chemistry” by Hotta\n\n\n\nMathematical Physical Chemistry.png\n\n\nBook: “Mathematical Physical Chemistry: Practical and Intuitive Methodology” by Shu Hotta, Third Edition, Springer (2023)\nWeblink: https://link.springer.com/book/10.1007/978-981-99-2512-4\nThis book is somewhat odd - it is not a mathematics book, for that it is not sufficiently rigorous, and neither is it a physical chemistry textbook. However, it goes through the classical selection of physical chemistry topics in a more mathematical manner, providing detailed derivations along the way. It reads like your usual typed-up lecture notes from a theory-heavy physical chemistry curse. It seems like an excellent companion to studies in physical chemistry, and in particular a very good way for students to learn and understand the mathematical concepts needed for quantum chemistry."
   },
   {
     "objectID": "lectures.html",

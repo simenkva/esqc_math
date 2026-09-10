@@ -508,9 +508,13 @@
       "key": "313dc82902b87403bc0ff890e4052b52e594098b12c169b9583a5e3f0c4d1602",
       "object": "447d06b2257f3397817ee4c9fb4bbdba1b92269eb76f4db506d62530a32e8128"
     },
+    "fragments/untitled.html": {
+      "key": "57e9bfe9fd5ac599db7b85c7ad1a3bac081182a8343ecd0fc09b4afd0430a16c",
+      "object": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
     "manifest.json": {
-      "key": "6d655a932329cddf020bf5cad9a90637717ed9709ad52d9dc31ac59db8a0f77d",
-      "object": "f60101ec987c0fee4cee82a3c3e08371de5e197094f6b165d650b99dae2cb4e7"
+      "key": "fda246ddc72def9dfaee3648e1b18e2d70d53362e45ccc31df3d578a8277b113",
+      "object": "04f08f71908bccfddf391446a89d435608de0fc674c346a59b0d62aa7361597d"
     },
     "pages/mathematics-roadmap.qmd": {
       "key": "d2d9623c72717586a49130ee1b81ff7dc2e6962e5280999439fc0b21b193884f",
@@ -524,9 +528,13 @@
       "key": "b5b525fa4fe01916931d642e5b633076018e85001cf0ff21855f046cda654dd5",
       "object": "d23b17e272cca4d225cae8adaba81233343072823cffd19136a5a555ec10145c"
     },
+    "pages/untitled.qmd": {
+      "key": "c05b7f5d5119ac4a581c0ef49b52af29a7d2d21d6067733367813fede586c0d8",
+      "object": "3e6448c6f5bee82ac1e940b668a8398ee7b7493e7fad5fa9585a6d5e6da52f19"
+    },
     "previews/previews.json": {
-      "key": "763fa60665777961ca505a2a8d316b8323fed5dc45f5d4cd2c3e70bf115b1ee9",
-      "object": "655e2a159d1212dde9e9f39447d2b454966227c9c9367522643edd547bc45a67"
+      "key": "53e20920d0998e4d8604a4d7a59322c192fa84e73f96c6754444112a1be395e2",
+      "object": "79c392714cda0ff3af9f2dc1ad6e7565b183378cbdebfaebb2e4b2db158623fc"
     }
   },
   "generator": "obsidian-canvas-quarto",

@@ -2,3 +2,7 @@
 - [ESQC Math 2026 Lecture 1.pptx](lectures/ESQC Math 2026 Lecture 1.pptx)
 - [ESQC Math 2026 Lecture 2.pdf](lectures/ESQC Math 2026 Lecture 2.pdf)
 - [ESQC Math 2026 Lecture 2.pptx](lectures/ESQC Math 2026 Lecture 2.pptx)
+- [ESQC Math 2026 Lecture 3.pdf](lectures/ESQC Math 2026 Lecture 3.pdf)
+- [ESQC Math 2026 Lecture 3.pptx](lectures/ESQC Math 2026 Lecture 3.pptx)
+- [ESQC Math 2026 Lecture 4.pdf](lectures/ESQC Math 2026 Lecture 4.pdf)
+- [ESQC Math 2026 Lecture 4.pptx](lectures/ESQC Math 2026 Lecture 4.pptx)

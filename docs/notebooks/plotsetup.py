@@ -58,7 +58,7 @@ def make_transparent_background(fig):
         ax.set_facecolor("none")
 
 
-def new_plot(figsize=(4, 4)):
+def new_plot(figsize=(4, 4), xlim=(-4.5, 4.5), ylim=(-4.5, 4.5)):
     """ Create an empty axis cross. """
     fig, ax = plt.subplots(figsize=figsize)
     # move bottom and left spines to x=0 and y=0
@@ -77,10 +77,10 @@ def new_plot(figsize=(4, 4)):
     ax.plot(1, 0, ">k", transform=ax.get_yaxis_transform(), clip_on=False)
     ax.plot(0, 1, "^k", transform=ax.get_xaxis_transform(), clip_on=False)
 
-    ax.set_xlim(-4.5,4.5)
-    ax.set_ylim(-4.5,4.5)
-    ax.set_xticks(range(-4, 5))
-    ax.set_yticks(range(-4, 5))
+    ax.set_xlim(xlim)
+    ax.set_ylim(ylim)
+    ax.set_xticks(range(int(xlim[0]), int(xlim[1]) + 1))
+    ax.set_yticks(range(int(ylim[0]), int(ylim[1]) + 1))
 
     ax.set_axisbelow(True)
     ax.grid(alpha=0.3)

@@ -127,10 +127,12 @@
     "fragments/mathematics-roadmap.html": "sha256:9bdffb2e82df1601c3da680bd3dea20978f387dfa20b22c7667a0a96cbb70957",
     "fragments/recommended-general-mathematics-reading.html": "sha256:53260487fcfe4bd95f02adebbc1f6c1478a753c3726b76e3862385758bf26fb0",
     "fragments/recommended-youtube-channels.html": "sha256:447d06b2257f3397817ee4c9fb4bbdba1b92269eb76f4db506d62530a32e8128",
+    "fragments/untitled.html": "sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
     "pages/mathematics-roadmap.qmd": "sha256:1da7c3c9fa61a98eb2efddd861f5cd52a6adefe8b9e68936a35419baf2d42043",
     "pages/recommended-general-mathematics-reading.qmd": "sha256:4c2bb0fdb8002c2fea136e274700f5a35a7ab500c8ccaeaf08d48a4fe81947e4",
     "pages/recommended-youtube-channels.qmd": "sha256:d23b17e272cca4d225cae8adaba81233343072823cffd19136a5a555ec10145c",
-    "previews/previews.json": "sha256:655e2a159d1212dde9e9f39447d2b454966227c9c9367522643edd547bc45a67"
+    "pages/untitled.qmd": "sha256:3e6448c6f5bee82ac1e940b668a8398ee7b7493e7fad5fa9585a6d5e6da52f19",
+    "previews/previews.json": "sha256:79c392714cda0ff3af9f2dc1ad6e7565b183378cbdebfaebb2e4b2db158623fc"
   },
   "assets": {
     "Attachments/51q29MALXRL._AC_UF1000,1000_QL80_.jpg": {
@@ -396,6 +398,12 @@
       "page": "pages/recommended-youtube-channels.qmd",
       "pageUrl": "pages/recommended-youtube-channels.html",
       "title": "Recommended YouTube channels"
+    },
+    "Untitled.md": {
+      "fragment": "fragments/untitled.html",
+      "page": "pages/untitled.qmd",
+      "pageUrl": "pages/untitled.html",
+      "title": "Untitled"
     }
   },
   "previews": "previews/previews.json",
