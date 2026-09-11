@@ -6,3 +6,5 @@
 - [ESQC Math 2026 Lecture 3.pptx](lectures/ESQC Math 2026 Lecture 3.pptx)
 - [ESQC Math 2026 Lecture 4.pdf](lectures/ESQC Math 2026 Lecture 4.pdf)
 - [ESQC Math 2026 Lecture 4.pptx](lectures/ESQC Math 2026 Lecture 4.pptx)
+- [ESQC Math 2026 Lecture 5.pdf](lectures/ESQC Math 2026 Lecture 5.pdf)
+- [ESQC Math 2026 Lecture 5.pptx](lectures/ESQC Math 2026 Lecture 5.pptx)
